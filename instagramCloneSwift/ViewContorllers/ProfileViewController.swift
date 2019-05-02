@@ -7,24 +7,69 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseAuth
 
-class ProfileViewController: UIViewController {
-
+class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    var selectedImage: UIImage?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        profileImageView.layer.cornerRadius = 40
+        profileImageView.clipsToBounds = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.handleSelectProfileImageView))
+        profileImageView.addGestureRecognizer(tapGesture)
+        profileImageView.isUserInteractionEnabled = true
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func handleSelectProfileImageView () {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion:nil)
+        print("tapped")
     }
-    */
-
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("did finish picking image")
+        if let image = info[.originalImage] as? UIImage {
+            selectedImage = image
+            profileImageView.image = image
+        }
+        
+        let user = Auth.auth().currentUser
+        let selectedImageUrl = info[.imageURL]
+        let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
+        let imageRef = storageRef.child("profile_Photo").child(user!.email!)
+        
+        imageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
+            if error != nil {
+                
+                return
+            } else {
+                
+                print("image uploaded")
+                return
+            }
+            
+        }
+      //  print(info)
+        dismiss(animated: true, completion: nil)
+    }
 }
+
+        
+        
+        
+        
+
+
+    
+    
+

@@ -22,6 +22,7 @@
 		95C5D5732277A77E0046BBA5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5722277A77E0046BBA5 /* CameraViewController.swift */; };
 		95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */; };
 		95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */; };
+		95F826B4227A3CF800C651B6 /* defaultPerson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95F826B3227A3CF800C651B6 /* defaultPerson.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		95C5D5722277A77E0046BBA5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		95F826B3227A3CF800C651B6 /* defaultPerson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultPerson.jpg; sourceTree = "<group>"; };
 		C1B85D00EDFC1ED645D3EE2B /* Pods-instagramCloneSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramCloneSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		F01CA7D289765595FAD1C9B2 /* Pods-instagramCloneSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramCloneSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 				95C5D556227792C10046BBA5 /* AppDelegate.swift */,
 				95C5D55D227792C20046BBA5 /* Assets.xcassets */,
 				95C5D56C2277A0F60046BBA5 /* InstagramLogo.svg */,
+				95F826B3227A3CF800C651B6 /* defaultPerson.jpg */,
 				95C5D562227792C20046BBA5 /* Info.plist */,
 				95895CFB2278DF9E009371DC /* Storyboards */,
 				95895CFC2278DFCF009371DC /* ViewContorllers */,
@@ -191,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F826B4227A3CF800C651B6 /* defaultPerson.jpg in Resources */,
 				95C5D561227792C20046BBA5 /* LaunchScreen.storyboard in Resources */,
 				95C5D55E227792C20046BBA5 /* Assets.xcassets in Resources */,
 				95C5D56D2277A0F60046BBA5 /* InstagramLogo.svg in Resources */,

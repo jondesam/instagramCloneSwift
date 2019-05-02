@@ -33,10 +33,26 @@
                     <view key="view" contentMode="scaleToFill" id="MNn-Mw-b4f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPerson.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-nl-RGb">
+                                <rect key="frame" x="147" y="138" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pon-nl-RGb" secondAttribute="height" multiplier="1:1" id="KGg-sw-H2t"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KqM-bv-rXm" firstAttribute="trailing" secondItem="Pon-nl-RGb" secondAttribute="trailing" constant="147" id="BYL-0E-PPl"/>
+                            <constraint firstItem="Pon-nl-RGb" firstAttribute="leading" secondItem="KqM-bv-rXm" secondAttribute="leading" constant="147" id="IIy-cg-GjQ"/>
+                            <constraint firstItem="Pon-nl-RGb" firstAttribute="top" secondItem="KqM-bv-rXm" secondAttribute="top" constant="50" id="Zel-Ae-d6O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KqM-bv-rXm"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="hnl-jX-Acx"/>
+                    <connections>
+                        <outlet property="profileImageView" destination="Pon-nl-RGb" id="nU5-ny-mq9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giJ-lQ-tq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,4 +223,7 @@
             <point key="canvasLocation" x="2714" y="-265"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPerson.jpg" width="620" height="389"/>
+    </resources>
 </document>
