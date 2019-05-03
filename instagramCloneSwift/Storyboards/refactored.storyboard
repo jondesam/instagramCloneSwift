@@ -40,12 +40,25 @@
                                     <constraint firstAttribute="width" secondItem="Pon-nl-RGb" secondAttribute="height" multiplier="1:1" id="KGg-sw-H2t"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCV-wq-5Ow">
+                                <rect key="frame" x="155" y="733" width="104" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iCV-wq-5Ow" secondAttribute="height" multiplier="13:7" id="7M1-j9-j0w"/>
+                                </constraints>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="buttonLogOut:" destination="EPx-wv-SLh" eventType="touchUpInside" id="EpU-KM-gF8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="KqM-bv-rXm" firstAttribute="trailing" secondItem="Pon-nl-RGb" secondAttribute="trailing" constant="147" id="BYL-0E-PPl"/>
                             <constraint firstItem="Pon-nl-RGb" firstAttribute="leading" secondItem="KqM-bv-rXm" secondAttribute="leading" constant="147" id="IIy-cg-GjQ"/>
+                            <constraint firstItem="KqM-bv-rXm" firstAttribute="trailing" secondItem="iCV-wq-5Ow" secondAttribute="trailing" constant="155" id="PpM-fz-71Q"/>
                             <constraint firstItem="Pon-nl-RGb" firstAttribute="top" secondItem="KqM-bv-rXm" secondAttribute="top" constant="50" id="Zel-Ae-d6O"/>
+                            <constraint firstItem="iCV-wq-5Ow" firstAttribute="leading" secondItem="KqM-bv-rXm" secondAttribute="leading" constant="155" id="gKl-KR-ETe"/>
+                            <constraint firstItem="KqM-bv-rXm" firstAttribute="bottom" secondItem="iCV-wq-5Ow" secondAttribute="bottom" constant="24" id="zo6-oV-JRd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KqM-bv-rXm"/>
                     </view>
@@ -56,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giJ-lQ-tq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2713" y="473"/>
+            <point key="canvasLocation" x="2711.594202898551" y="472.76785714285711"/>
         </scene>
         <!--Activity-->
         <scene sceneID="uEX-wM-lPU">

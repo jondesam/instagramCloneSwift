@@ -16,12 +16,15 @@ class SignUpViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //handleTextField()
     }
     
     @IBOutlet weak var textID: UITextField!
     @IBOutlet weak var textMail: UITextField!
     @IBOutlet weak var textPassword: UITextField!
+    
+    
+    
     
     @IBAction func ButtonSignUp(_ sender: UIButton) {
     
@@ -78,8 +81,7 @@ class SignUpViewController: UIViewController{
         present(alert, animated: true, completion: nil)
     }
     
-    
-    
+
 
     
     

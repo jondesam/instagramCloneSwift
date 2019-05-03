@@ -13,7 +13,7 @@
         <!--Log In View Controller-->
         <scene sceneID="31b-ZS-GGi">
             <objects>
-                <viewController id="W0R-y3-Nmd" customClass="LogInViewController" customModule="instagramCloneSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" id="W0R-y3-Nmd" customClass="LogInViewController" customModule="instagramCloneSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JLy-gs-FRF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,6 +201,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dMK-BN-xlR"/>
+        <segue reference="v5J-2d-JSH"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -62,6 +62,28 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
       //  print(info)
         dismiss(animated: true, completion: nil)
     }
+    
+ 
+    
+    @IBAction func buttonLogOut(_ sender: Any) {
+        
+        
+        do {
+            
+            try  Auth.auth().signOut()
+        } catch let logOutError {
+            print(logOutError)
+        }
+        print(Auth.auth().currentUser?.email)
+        
+        
+        let storyboard =  UIStoryboard(name: "Main", bundle: nil)
+        
+        let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
+        
+        present(logInVC, animated: true, completion: nil)
+        
+    }
 }
 
         

@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(Auth.auth().currentUser?.email)
         // Do any additional setup after loading the view.
     }
     

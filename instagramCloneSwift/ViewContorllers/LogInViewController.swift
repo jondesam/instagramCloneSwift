@@ -61,10 +61,17 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //handleTextField()
        
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+              self.performSegue(withIdentifier: "logInSegue", sender: self)
+        }
+    }
     
     
     
