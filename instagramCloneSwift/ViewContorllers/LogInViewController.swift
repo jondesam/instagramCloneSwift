@@ -11,37 +11,61 @@ import FirebaseAuth
 
 
 class LogInViewController: UIViewController {
-
+    
     
     @IBOutlet weak var textEmail: UITextField!
-    
-    @IBOutlet weak var TextPassword: UITextField!
-    
+    @IBOutlet weak var textPassword: UITextField!
     
     @IBAction func buttonLogIn(_ sender: UIButton) {
         
-        Auth.auth().signIn(withEmail: textEmail.text!, password: TextPassword.text!) { (user, error) in
+        checkingEmailPassword()
+        
+    }
+    
+    func  checkingEmailPassword() {
+        
+        guard  let mailCheck = textEmail, mailCheck.text!.count >= 6 ,
+            let passwordCheck = textPassword, passwordCheck.text!.count >= 6
+            
+            else {
+               showAlert()
+                
+                return
+        }
+            Auth.auth().signIn(withEmail: textEmail.text!, password: textPassword.text!) { (user, error) in
             
             if error != nil {
-                print(error!)
+                self.showAlert()
+                print(error!.localizedDescription)
             } else {
                 print("Log in successful!")
-                
-               // SVProgressHUD.dismiss()
-                
-                //self.performSegue(withIdentifier: "goToChat", sender: self)
+                self.performSegue(withIdentifier: "logInSegue", sender: self)
+                // SVProgressHUD.dismiss()
                 
             }
             
         }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
     }
     
-
-   
-
+    func showAlert() {
+        let alert = UIAlertController(title:"Invalid ID or Password ", message: "Please check out ID or Passwrod", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+       
+    }
+    
+    
+    
+    
 }

@@ -9,52 +9,80 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import UserNotifications
 
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+    
+    @IBOutlet weak var textID: UITextField!
+    @IBOutlet weak var textMail: UITextField!
+    @IBOutlet weak var textPassword: UITextField!
+    
+    @IBAction func ButtonSignUp(_ sender: UIButton) {
+    
+        checkingIdEmailPassword()
+        
     }
     
 
-    @IBOutlet weak var textID: UITextField!
-    
-    @IBOutlet weak var textMail: UITextField!
-    
-    @IBOutlet weak var textPassword: UITextField!
     
     
-    @IBAction func goBackToSignUp(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func goBackToLogIn(_ sender: Any) {
+           dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func ButtonSignUp(_ sender: UIButton) {
-       
+    
+    
+    func checkingIdEmailPassword() {
         
+        guard  let idCheck = textID, idCheck.text!.count >= 6, let mailCheck = textMail, mailCheck.text!.count >= 6 ,
+            let passwordCheck = textPassword, passwordCheck.text!.count >= 6
+            
+            else {
+            
+                let alert = UIAlertController(title:"Invalid Id or Password ", message: "ID, Email and Password Must be more than 6 charaters long", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default, handler: nil))
+        
+                    present(alert, animated: true, completion: nil)
+            
+            return
+            }
         
         Auth.auth().createUser(withEmail: textMail.text!, password:textPassword.text!) { authResult, error in
+            
             if error != nil {
+                self.showAlert()
                 print(error!.localizedDescription)
             }
             
             let database = Database.database().reference().child("users")
             print("user \(database.description())")
-            database.childByAutoId().setValue(["username": self.textID.text!, "email": self.textMail.text!])
-        
             
+            database.childByAutoId().setValue(["username": self.textID.text!, "email": self.textMail.text!])
+            self.performSegue(withIdentifier: "signUpSegue", sender: self)
+        return
         }
+        
     }
-    /*
-    // MARK: - Navigation
+    
+    
+    func showAlert() {
+        let alert = UIAlertController(title:"Invalid Id or Password ", message: "Invalid Email form", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
+  
 
 }

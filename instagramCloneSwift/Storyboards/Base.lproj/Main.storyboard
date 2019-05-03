@@ -42,7 +42,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgc-pv-TJr">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgc-pv-TJr">
                                 <rect key="frame" x="107" y="513" width="200" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -50,7 +50,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUJ-px-fRt">
                                 <rect key="frame" x="107" y="670" width="200" height="36"/>
@@ -64,7 +64,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonLogIn:" destination="W0R-y3-Nmd" eventType="touchUpInside" id="2u7-au-MOg"/>
-                                    <segue destination="aEs-D0-IgO" kind="presentation" id="kKO-Y5-YF5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,8 +85,9 @@
                         <viewLayoutGuide key="safeArea" id="L2g-EB-ecR"/>
                     </view>
                     <connections>
-                        <outlet property="TextPassword" destination="fgc-pv-TJr" id="m0b-k5-upR"/>
                         <outlet property="textEmail" destination="59S-nE-GF2" id="OO1-0b-TEj"/>
+                        <outlet property="textPassword" destination="fgc-pv-TJr" id="oGv-cE-m06"/>
+                        <segue destination="aEs-D0-IgO" kind="presentation" identifier="logInSegue" id="v5J-2d-JSH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8X-RY-lBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -113,7 +113,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="goBackToSignUp:" destination="T8m-sx-r9w" eventType="touchUpInside" id="G3x-4d-mpq"/>
+                                    <action selector="goBackToLogIn:" destination="T8m-sx-r9w" eventType="touchUpInside" id="AbI-jn-MF7"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iqz-F5-rLl">
@@ -126,7 +126,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRG-l0-RVj">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRG-l0-RVj">
                                 <rect key="frame" x="107" y="518" width="200" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -134,7 +134,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGL-Qh-65X">
                                 <rect key="frame" x="107" y="358" width="200" height="30"/>
@@ -143,7 +143,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkb-B0-EkU">
                                 <rect key="frame" x="107" y="670" width="200" height="36"/>
@@ -157,7 +157,6 @@
                                 </state>
                                 <connections>
                                     <action selector="ButtonSignUp:" destination="T8m-sx-r9w" eventType="touchUpInside" id="SYu-0u-ZhR"/>
-                                    <segue destination="aEs-D0-IgO" kind="presentation" id="k9F-Qe-BSH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -185,6 +184,7 @@
                         <outlet property="textID" destination="OGL-Qh-65X" id="I4x-EK-fhu"/>
                         <outlet property="textMail" destination="Iqz-F5-rLl" id="cpV-FY-rme"/>
                         <outlet property="textPassword" destination="VRG-l0-RVj" id="IHC-Os-ce4"/>
+                        <segue destination="aEs-D0-IgO" kind="presentation" identifier="signUpSegue" id="dMK-BN-xlR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWt-uW-qBB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,6 +201,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kKO-Y5-YF5"/>
+        <segue reference="dMK-BN-xlR"/>
     </inferredMetricsTieBreakers>
 </document>
