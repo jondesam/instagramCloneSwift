@@ -22,6 +22,7 @@
 		95C5D5732277A77E0046BBA5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5722277A77E0046BBA5 /* CameraViewController.swift */; };
 		95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */; };
 		95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */; };
+		95E7A335227E1A06008ABC35 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7A334227E1A06008ABC35 /* AuthService.swift */; };
 		95F826B4227A3CF800C651B6 /* defaultPerson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95F826B3227A3CF800C651B6 /* defaultPerson.jpg */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		95C5D5722277A77E0046BBA5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		95E7A334227E1A06008ABC35 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		95F826B3227A3CF800C651B6 /* defaultPerson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultPerson.jpg; sourceTree = "<group>"; };
 		C1B85D00EDFC1ED645D3EE2B /* Pods-instagramCloneSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramCloneSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		F01CA7D289765595FAD1C9B2 /* Pods-instagramCloneSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramCloneSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,8 +115,9 @@
 		95C5D555227792C10046BBA5 /* instagramCloneSwift */ = {
 			isa = PBXGroup;
 			children = (
-				95895CFD2278ED49009371DC /* GoogleService-Info.plist */,
+				95E7A334227E1A06008ABC35 /* AuthService.swift */,
 				95C5D556227792C10046BBA5 /* AppDelegate.swift */,
+				95895CFD2278ED49009371DC /* GoogleService-Info.plist */,
 				95C5D55D227792C20046BBA5 /* Assets.xcassets */,
 				95C5D56C2277A0F60046BBA5 /* InstagramLogo.svg */,
 				95F826B3227A3CF800C651B6 /* defaultPerson.jpg */,
@@ -240,6 +243,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -249,6 +253,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -267,6 +272,7 @@
 				95C5D56B227793310046BBA5 /* SignUpViewController.swift in Sources */,
 				95C5D569227793190046BBA5 /* LogInViewController.swift in Sources */,
 				95C5D557227792C10046BBA5 /* AppDelegate.swift in Sources */,
+				95E7A335227E1A06008ABC35 /* AuthService.swift in Sources */,
 				95C5D56F2277A7130046BBA5 /* HomeViewController.swift in Sources */,
 				95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */,
 				95C5D5712277A74C0046BBA5 /* DiscoverViewController.swift in Sources */,

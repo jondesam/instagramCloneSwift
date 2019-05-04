@@ -8,12 +8,13 @@
 
 import UIKit
 import FirebaseAuth
+import SVProgressHUD
 
 class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //SVProgressHUD.dismiss()
         print(Auth.auth().currentUser?.email)
         // Do any additional setup after loading the view.
     }

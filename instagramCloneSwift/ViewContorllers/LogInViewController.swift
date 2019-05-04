@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SVProgressHUD
 
 
 class LogInViewController: UIViewController {
@@ -28,24 +29,28 @@ class LogInViewController: UIViewController {
             let passwordCheck = textPassword, passwordCheck.text!.count >= 6
             
             else {
-               showAlert()
+                showAlert()
                 
                 return
         }
-            Auth.auth().signIn(withEmail: textEmail.text!, password: textPassword.text!) { (user, error) in
+        SVProgressHUD.show(withStatus: "Wait Please...")
+        Auth.auth().signIn(withEmail: textEmail.text!, password: textPassword.text!) { (user, error) in
             
             if error != nil {
                 self.showAlert()
                 print(error!.localizedDescription)
             } else {
                 print("Log in successful!")
+                SVProgressHUD.setMinimumDismissTimeInterval(1.0)
+                 SVProgressHUD.showSuccess(withStatus: "Sign Up Success")
+                
                 self.performSegue(withIdentifier: "logInSegue", sender: self)
-                // SVProgressHUD.dismiss()
+                
                 
             }
             
         }
-    
+        
     }
     
     func showAlert() {
@@ -62,17 +67,20 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //handleTextField()
-       
+        
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
-              self.performSegue(withIdentifier: "logInSegue", sender: self)
+            self.performSegue(withIdentifier: "logInSegue", sender: self)
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       view.endEditing(true)
+    }
     
     
 }

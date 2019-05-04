@@ -10,10 +10,11 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import UserNotifications
+import SVProgressHUD
 
 
 class SignUpViewController: UIViewController{
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //handleTextField()
@@ -27,35 +28,37 @@ class SignUpViewController: UIViewController{
     
     
     @IBAction func ButtonSignUp(_ sender: UIButton) {
-    
+        
         checkingIdEmailPassword()
         
     }
     
-
+    
     
     
     @IBAction func goBackToLogIn(_ sender: Any) {
-           dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     
     
     func checkingIdEmailPassword() {
         
-        guard  let idCheck = textID, idCheck.text!.count >= 6, let mailCheck = textMail, mailCheck.text!.count >= 6 ,
+        guard   let idCheck = textID, idCheck.text!.count >= 6,
+            let mailCheck = textMail, mailCheck.text!.count >= 6 ,
             let passwordCheck = textPassword, passwordCheck.text!.count >= 6
             
             else {
-            
+                
                 let alert = UIAlertController(title:"Invalid Id or Password ", message: "ID, Email and Password Must be more than 6 charaters long", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default, handler: nil))
-        
-                    present(alert, animated: true, completion: nil)
-            
-            return
-            }
-        
+                
+                alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default, handler: nil))
+                
+                present(alert, animated: true, completion: nil)
+                
+                return
+        }
+         SVProgressHUD.show(withStatus: "Wait Please...")
         Auth.auth().createUser(withEmail: textMail.text!, password:textPassword.text!) { authResult, error in
             
             if error != nil {
@@ -67,8 +70,11 @@ class SignUpViewController: UIViewController{
             print("user \(database.description())")
             
             database.childByAutoId().setValue(["username": self.textID.text!, "email": self.textMail.text!])
+            SVProgressHUD.setMinimumDismissTimeInterval(1.0)
+            SVProgressHUD.showSuccess(withStatus: "Sign Up Success")
             self.performSegue(withIdentifier: "signUpSegue", sender: self)
-        return
+            // SVProgressHUD.dismiss()
+            return
         }
         
     }
@@ -81,10 +87,9 @@ class SignUpViewController: UIViewController{
         present(alert, animated: true, completion: nil)
     }
     
-
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     
-  
-
 }
