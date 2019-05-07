@@ -11,6 +11,7 @@
 		95895CFA2278CDDA009371DC /* refactored.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95895CF92278CDDA009371DC /* refactored.storyboard */; };
 		95895CFE2278ED49009371DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95895CFD2278ED49009371DC /* GoogleService-Info.plist */; };
 		95C0C382227F621300CDE5F7 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C381227F621200CDE5F7 /* placeholder.png */; };
+		95C0C38722821B3C00CDE5F7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C0C38622821B3C00CDE5F7 /* Post.swift */; };
 		95C5D557227792C10046BBA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D556227792C10046BBA5 /* AppDelegate.swift */; };
 		95C5D55C227792C10046BBA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C5D55A227792C10046BBA5 /* Main.storyboard */; };
 		95C5D561227792C20046BBA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C5D55F227792C20046BBA5 /* LaunchScreen.storyboard */; };
@@ -30,6 +31,7 @@
 		95895CF92278CDDA009371DC /* refactored.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = refactored.storyboard; sourceTree = "<group>"; };
 		95895CFD2278ED49009371DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95C0C381227F621200CDE5F7 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		95C0C38622821B3C00CDE5F7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		95C5D553227792C10046BBA5 /* instagramCloneSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagramCloneSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C5D556227792C10046BBA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95C5D55B227792C10046BBA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 			path = "New Group1";
 			sourceTree = "<group>";
 		};
+		95C0C38522821B2B00CDE5F7 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				95C0C38622821B3C00CDE5F7 /* Post.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
 		95C5D54A227792C10046BBA5 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 		95C5D555227792C10046BBA5 /* instagramCloneSwift */ = {
 			isa = PBXGroup;
 			children = (
+				95C0C38522821B2B00CDE5F7 /* Post */,
 				95C0C384227F626F00CDE5F7 /* New Group1 */,
 				95C5D556227792C10046BBA5 /* AppDelegate.swift */,
 				95895CFD2278ED49009371DC /* GoogleService-Info.plist */,
@@ -247,7 +258,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -257,7 +268,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -281,6 +292,7 @@
 				95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */,
 				95C5D5712277A74C0046BBA5 /* DiscoverViewController.swift in Sources */,
 				95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */,
+				95C0C38722821B3C00CDE5F7 /* Post.swift in Sources */,
 				95C5D5732277A77E0046BBA5 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

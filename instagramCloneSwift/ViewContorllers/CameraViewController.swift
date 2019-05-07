@@ -28,11 +28,11 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImageView))
         photoToShare.addGestureRecognizer(tapGesture)
         photoToShare.isUserInteractionEnabled = true
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        photoDescription.text = ""
         handlePost()
     }
     
@@ -68,28 +68,13 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     //MARK: - Sharing Button
     @IBAction func buttonShare(_ sender: Any) {
-         SVProgressHUD.show(withStatus: "Wait Please...")
+        SVProgressHUD.show(withStatus: "Wait Please...")
         
         let uuid =  UUID().uuidString
         let user = Auth.auth().currentUser
-        
-        let postRef = Database.database().reference().child("Sharing_Photo")
-      
-        let newPostKey = postRef.childByAutoId().key!
-        //let newPostRef = postRef.child(newPostId)
-        
- //uploading description , user id , key
-        postRef.childByAutoId().setValue(
-            ["description":photoDescription.text!,
-             "user":Auth.auth().currentUser?.email,
-             "key":newPostKey])
-    
+
         let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
         let imageRef = storageRef.child("Sharing_Photo").child(user!.email!).child(uuid)
-        
-      //swift 5 change not yet providing
-      // let downloadURL =
-        //StorageReference.downloadURL((@escaping (URL?, Error?) -> Void) -> Void)
         
         imageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
             if error != nil {
@@ -99,10 +84,9 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             } else {
                 SVProgressHUD.setMinimumDismissTimeInterval(1.0)
                 
-               //URL download fail error
-                storageRef.downloadURL(completion: { (url, error) in
+                imageRef.downloadURL(completion: { (url, error) in
                     if error != nil {
-                        print("Url downloard fail \(error)")
+                        print("Download URL fail")
                         return
                     }else {
                         let photoUrl = url?.absoluteString
@@ -114,7 +98,6 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 return
             }
         }
-        photoDescription.text = ""
         photoToShare.image = UIImage(named: "placeholder.png")
         tabBarController?.selectedIndex = 0
         selectedImage = nil
@@ -122,12 +105,12 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     func sendDataToDatabase(photoUrl: String) {
         let ref = Database.database().reference()
-        let postRef = ref.child("Sharing_Photo")
-        let newPostId = postRef.childByAutoId().key!
+        let postRef = ref.child("Posts")
+        let newPostId = postRef.childByAutoId().key
         let newPostRef = postRef.child(newPostId)
-
-
-        newPostRef.setValue(["phtoUrl":photoUrl, "description":photoDescription.text]) { (error, ref) in
+        
+        newPostRef.setValue(["phtoUrl":photoUrl,"description":photoDescription.text!,
+                             "user":Auth.auth().currentUser?.email]) { (error, ref) in
             if error != nil {
                 print("data upload fail")
              SVProgressHUD.showError(withStatus: error?.localizedDescription)
@@ -135,6 +118,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             }
             print("data uploaded")
             SVProgressHUD.showSuccess(withStatus: "Success")
+            self.photoDescription.text = ""
         }
     }
 
