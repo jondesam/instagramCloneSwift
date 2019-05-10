@@ -39,6 +39,7 @@ class LogInViewController: UIViewController {
             if error != nil {
                 self.showAlert()
                 print(error!.localizedDescription)
+                 SVProgressHUD.dismiss()
             } else {
                 print("Log in successful!")
                 SVProgressHUD.setMinimumDismissTimeInterval(1.0)

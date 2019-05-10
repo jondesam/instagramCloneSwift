@@ -15,9 +15,13 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     @IBOutlet weak var profileImageView: UIImageView!
     var selectedImage: UIImage?
     
+    @IBOutlet weak var profilName: UITextField!
+    var userName:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userName = Auth.auth().currentUser?.email
+        profilName.text = userName
         
         profileImageView.layer.cornerRadius = 40
         profileImageView.clipsToBounds = true
@@ -74,7 +78,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         } catch let logOutError {
             print(logOutError)
         }
-        print(Auth.auth().currentUser?.email)
+       // print(Auth.auth().currentUser?.email)
         
         
         let storyboard =  UIStoryboard(name: "Main", bundle: nil)

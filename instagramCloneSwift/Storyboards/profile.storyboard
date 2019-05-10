@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="xgC-wp-B8C">
+            <objects>
+                <viewController id="EPx-wv-SLh" customClass="ProfileViewController" customModule="instagramCloneSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MNn-Mw-b4f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPerson.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-nl-RGb">
+                                <rect key="frame" x="147" y="138" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pon-nl-RGb" secondAttribute="height" multiplier="1:1" id="KGg-sw-H2t"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCV-wq-5Ow">
+                                <rect key="frame" x="155" y="782" width="104" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iCV-wq-5Ow" secondAttribute="height" multiplier="13:7" id="7M1-j9-j0w"/>
+                                </constraints>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="buttonLogOut:" destination="EPx-wv-SLh" eventType="touchUpInside" id="EpU-KM-gF8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="55A-MU-RTW">
+                                <rect key="frame" x="40" y="298" width="334" height="29.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="55A-MU-RTW" secondAttribute="height" multiplier="34:3" id="Mgn-Il-chS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="55A-MU-RTW" firstAttribute="top" secondItem="Pon-nl-RGb" secondAttribute="bottom" constant="40" id="1oK-Vy-siT"/>
+                            <constraint firstItem="KqM-bv-rXm" firstAttribute="trailing" secondItem="Pon-nl-RGb" secondAttribute="trailing" constant="147" id="BYL-0E-PPl"/>
+                            <constraint firstItem="Pon-nl-RGb" firstAttribute="leading" secondItem="KqM-bv-rXm" secondAttribute="leading" constant="147" id="IIy-cg-GjQ"/>
+                            <constraint firstItem="KqM-bv-rXm" firstAttribute="trailing" secondItem="iCV-wq-5Ow" secondAttribute="trailing" constant="155" id="PpM-fz-71Q"/>
+                            <constraint firstItem="KqM-bv-rXm" firstAttribute="trailing" secondItem="55A-MU-RTW" secondAttribute="trailing" constant="40" id="QyA-vj-FYr"/>
+                            <constraint firstItem="Pon-nl-RGb" firstAttribute="top" secondItem="KqM-bv-rXm" secondAttribute="top" constant="50" id="Zel-Ae-d6O"/>
+                            <constraint firstItem="iCV-wq-5Ow" firstAttribute="leading" secondItem="KqM-bv-rXm" secondAttribute="leading" constant="155" id="gKl-KR-ETe"/>
+                            <constraint firstItem="KqM-bv-rXm" firstAttribute="bottom" secondItem="iCV-wq-5Ow" secondAttribute="bottom" constant="24" id="zo6-oV-JRd"/>
+                            <constraint firstItem="55A-MU-RTW" firstAttribute="leading" secondItem="KqM-bv-rXm" secondAttribute="leading" constant="40" id="zwg-Gx-pnJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KqM-bv-rXm"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="hnl-jX-Acx"/>
+                    <connections>
+                        <outlet property="profilName" destination="55A-MU-RTW" id="R8O-Ux-rMx"/>
+                        <outlet property="profileImageView" destination="Pon-nl-RGb" id="nU5-ny-mq9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="giJ-lQ-tq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2711.594202898551" y="472.76785714285711"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="jnl-TC-s0K">
+            <objects>
+                <navigationController storyboardIdentifier="profile" automaticallyAdjustsScrollViewInsets="NO" id="VxN-Vb-Xg2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="iJU-b9-nPG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ei2-Cv-CO4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EPx-wv-SLh" kind="relationship" relationship="rootViewController" id="LA5-dj-fjZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3pn-RA-obv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2714" y="-265"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="defaultPerson.jpg" width="620" height="389"/>
+    </resources>
+</document>

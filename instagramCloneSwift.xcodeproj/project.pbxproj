@@ -8,10 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		61750E8DAEB7FB6250C5FDA6 /* Pods_instagramCloneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF1609ABF0CB9DD4966377B /* Pods_instagramCloneSwift.framework */; };
+		954672ED2284FB8200E6C113 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672EA2284FB2900E6C113 /* like.png */; };
+		954672EE2284FC3800E6C113 /* like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672EB2284FB2900E6C113 /* like@2x.png */; };
+		954672EF2284FC3800E6C113 /* like@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672EC2284FB2A00E6C113 /* like@3x.png */; };
+		954672F42284FC5200E6C113 /* Comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F12284FC3F00E6C113 /* Comment.png */; };
+		954672F52284FC5200E6C113 /* Comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F22284FC3F00E6C113 /* Comment@2x.png */; };
+		954672F62284FC5200E6C113 /* Comment@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F02284FC3F00E6C113 /* Comment@3x.png */; };
+		954672F72284FC5200E6C113 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F32284FC4E00E6C113 /* share.png */; };
 		95895CFA2278CDDA009371DC /* refactored.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95895CF92278CDDA009371DC /* refactored.storyboard */; };
 		95895CFE2278ED49009371DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95895CFD2278ED49009371DC /* GoogleService-Info.plist */; };
+		959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */; };
 		95C0C382227F621300CDE5F7 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C381227F621200CDE5F7 /* placeholder.png */; };
 		95C0C38722821B3C00CDE5F7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C0C38622821B3C00CDE5F7 /* Post.swift */; };
+		95C0C38B2284714200CDE5F7 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C38A2284714200CDE5F7 /* home.storyboard */; };
+		95C0C38D2284722500CDE5F7 /* search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C38C2284722500CDE5F7 /* search.storyboard */; };
+		95C0C38F2284728C00CDE5F7 /* camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C38E2284728C00CDE5F7 /* camera.storyboard */; };
+		95C0C391228472C800CDE5F7 /* activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C390228472C800CDE5F7 /* activity.storyboard */; };
+		95C0C3932284730800CDE5F7 /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C3922284730800CDE5F7 /* profile.storyboard */; };
+		95C0C39522847E6F00CDE5F7 /* placeholderImg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C39422847E6F00CDE5F7 /* placeholderImg.jpeg */; };
+		95C0C3AF2284830600CDE5F7 /* ProgressHud in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C3982284830200CDE5F7 /* ProgressHud */; };
+		95C0C3C82284B03600CDE5F7 /* photo1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C3C72284B03600CDE5F7 /* photo1.jpeg */; };
+		95C0C3CA2284B0EC00CDE5F7 /* photo2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C3C92284B0EC00CDE5F7 /* photo2.jpeg */; };
 		95C5D557227792C10046BBA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D556227792C10046BBA5 /* AppDelegate.swift */; };
 		95C5D55C227792C10046BBA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C5D55A227792C10046BBA5 /* Main.storyboard */; };
 		95C5D561227792C20046BBA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C5D55F227792C20046BBA5 /* LaunchScreen.storyboard */; };
@@ -28,10 +45,28 @@
 
 /* Begin PBXFileReference section */
 		1CF1609ABF0CB9DD4966377B /* Pods_instagramCloneSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagramCloneSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		954672EA2284FB2900E6C113 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
+		954672EB2284FB2900E6C113 /* like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like@2x.png"; sourceTree = "<group>"; };
+		954672EC2284FB2A00E6C113 /* like@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like@3x.png"; sourceTree = "<group>"; };
+		954672F02284FC3F00E6C113 /* Comment@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Comment@3x.png"; sourceTree = "<group>"; };
+		954672F12284FC3F00E6C113 /* Comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Comment.png; sourceTree = "<group>"; };
+		954672F22284FC3F00E6C113 /* Comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Comment@2x.png"; sourceTree = "<group>"; };
+		954672F32284FC4E00E6C113 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		95895CF92278CDDA009371DC /* refactored.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = refactored.storyboard; sourceTree = "<group>"; };
 		95895CFD2278ED49009371DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUITableViewCell.swift; sourceTree = "<group>"; };
+		959D17F42285F99000824F9B /* Placeholder-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder-image.png"; sourceTree = "<group>"; };
 		95C0C381227F621200CDE5F7 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		95C0C38622821B3C00CDE5F7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		95C0C38A2284714200CDE5F7 /* home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
+		95C0C38C2284722500CDE5F7 /* search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = search.storyboard; sourceTree = "<group>"; };
+		95C0C38E2284728C00CDE5F7 /* camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = camera.storyboard; sourceTree = "<group>"; };
+		95C0C390228472C800CDE5F7 /* activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = activity.storyboard; sourceTree = "<group>"; };
+		95C0C3922284730800CDE5F7 /* profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = profile.storyboard; sourceTree = "<group>"; };
+		95C0C39422847E6F00CDE5F7 /* placeholderImg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderImg.jpeg; sourceTree = "<group>"; };
+		95C0C3982284830200CDE5F7 /* ProgressHud */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ProgressHud; sourceTree = "<group>"; };
+		95C0C3C72284B03600CDE5F7 /* photo1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpeg; sourceTree = "<group>"; };
+		95C0C3C92284B0EC00CDE5F7 /* photo2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo2.jpeg; sourceTree = "<group>"; };
 		95C5D553227792C10046BBA5 /* instagramCloneSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagramCloneSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C5D556227792C10046BBA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95C5D55B227792C10046BBA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +111,11 @@
 				95C5D55F227792C20046BBA5 /* LaunchScreen.storyboard */,
 				95C5D55A227792C10046BBA5 /* Main.storyboard */,
 				95895CF92278CDDA009371DC /* refactored.storyboard */,
+				95C0C3922284730800CDE5F7 /* profile.storyboard */,
+				95C0C390228472C800CDE5F7 /* activity.storyboard */,
+				95C0C38E2284728C00CDE5F7 /* camera.storyboard */,
+				95C0C38C2284722500CDE5F7 /* search.storyboard */,
+				95C0C38A2284714200CDE5F7 /* home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -85,23 +125,35 @@
 			children = (
 				95C5D568227793190046BBA5 /* LogInViewController.swift */,
 				95C5D56A227793310046BBA5 /* SignUpViewController.swift */,
-				95C5D56E2277A7130046BBA5 /* HomeViewController.swift */,
 				95C5D5722277A77E0046BBA5 /* CameraViewController.swift */,
 				95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */,
 				95C5D5702277A74C0046BBA5 /* DiscoverViewController.swift */,
 				95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */,
+				95C5D56E2277A7130046BBA5 /* HomeViewController.swift */,
 			);
 			path = ViewContorllers;
 			sourceTree = "<group>";
 		};
-		95C0C384227F626F00CDE5F7 /* New Group1 */ = {
+		95C0C384227F626F00CDE5F7 /* asset */ = {
 			isa = PBXGroup;
 			children = (
+				954672EA2284FB2900E6C113 /* like.png */,
+				954672EB2284FB2900E6C113 /* like@2x.png */,
+				954672EC2284FB2A00E6C113 /* like@3x.png */,
+				95C0C3C92284B0EC00CDE5F7 /* photo2.jpeg */,
+				95C0C3C72284B03600CDE5F7 /* photo1.jpeg */,
+				954672F12284FC3F00E6C113 /* Comment.png */,
+				954672F22284FC3F00E6C113 /* Comment@2x.png */,
+				954672F02284FC3F00E6C113 /* Comment@3x.png */,
+				954672F32284FC4E00E6C113 /* share.png */,
+				95C0C3982284830200CDE5F7 /* ProgressHud */,
+				95C0C39422847E6F00CDE5F7 /* placeholderImg.jpeg */,
 				95C0C381227F621200CDE5F7 /* placeholder.png */,
 				95F826B3227A3CF800C651B6 /* defaultPerson.jpg */,
+				959D17F42285F99000824F9B /* Placeholder-image.png */,
 				95C5D56C2277A0F60046BBA5 /* InstagramLogo.svg */,
 			);
-			path = "New Group1";
+			path = asset;
 			sourceTree = "<group>";
 		};
 		95C0C38522821B2B00CDE5F7 /* Post */ = {
@@ -110,6 +162,14 @@
 				95C0C38622821B3C00CDE5F7 /* Post.swift */,
 			);
 			path = Post;
+			sourceTree = "<group>";
+		};
+		95C0C3C62284AD9E00CDE5F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		95C5D54A227792C10046BBA5 = {
@@ -133,13 +193,14 @@
 		95C5D555227792C10046BBA5 /* instagramCloneSwift */ = {
 			isa = PBXGroup;
 			children = (
-				95C0C38522821B2B00CDE5F7 /* Post */,
-				95C0C384227F626F00CDE5F7 /* New Group1 */,
 				95C5D556227792C10046BBA5 /* AppDelegate.swift */,
 				95895CFD2278ED49009371DC /* GoogleService-Info.plist */,
 				95C5D562227792C20046BBA5 /* Info.plist */,
+				95C0C38522821B2B00CDE5F7 /* Post */,
+				95C0C384227F626F00CDE5F7 /* asset */,
 				95895CFB2278DF9E009371DC /* Storyboards */,
 				95895CFC2278DFCF009371DC /* ViewContorllers */,
+				95C0C3C62284AD9E00CDE5F7 /* Views */,
 			);
 			path = instagramCloneSwift;
 			sourceTree = "<group>";
@@ -213,13 +274,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954672ED2284FB8200E6C113 /* like.png in Resources */,
 				95C0C382227F621300CDE5F7 /* placeholder.png in Resources */,
+				95C0C3AF2284830600CDE5F7 /* ProgressHud in Resources */,
 				95F826B4227A3CF800C651B6 /* defaultPerson.jpg in Resources */,
+				95C0C38D2284722500CDE5F7 /* search.storyboard in Resources */,
 				95C5D561227792C20046BBA5 /* LaunchScreen.storyboard in Resources */,
+				95C0C3C82284B03600CDE5F7 /* photo1.jpeg in Resources */,
+				954672F62284FC5200E6C113 /* Comment@3x.png in Resources */,
+				954672EF2284FC3800E6C113 /* like@3x.png in Resources */,
+				95C0C391228472C800CDE5F7 /* activity.storyboard in Resources */,
+				954672F72284FC5200E6C113 /* share.png in Resources */,
+				954672F52284FC5200E6C113 /* Comment@2x.png in Resources */,
 				95C5D56D2277A0F60046BBA5 /* InstagramLogo.svg in Resources */,
+				95C0C3932284730800CDE5F7 /* profile.storyboard in Resources */,
 				95C5D55C227792C10046BBA5 /* Main.storyboard in Resources */,
 				95895CFA2278CDDA009371DC /* refactored.storyboard in Resources */,
+				95C0C3CA2284B0EC00CDE5F7 /* photo2.jpeg in Resources */,
 				95895CFE2278ED49009371DC /* GoogleService-Info.plist in Resources */,
+				95C0C39522847E6F00CDE5F7 /* placeholderImg.jpeg in Resources */,
+				954672EE2284FC3800E6C113 /* like@2x.png in Resources */,
+				954672F42284FC5200E6C113 /* Comment.png in Resources */,
+				95C0C38B2284714200CDE5F7 /* home.storyboard in Resources */,
+				95C0C38F2284728C00CDE5F7 /* camera.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +336,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -269,6 +347,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -287,6 +366,7 @@
 			files = (
 				95C5D56B227793310046BBA5 /* SignUpViewController.swift in Sources */,
 				95C5D569227793190046BBA5 /* LogInViewController.swift in Sources */,
+				959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */,
 				95C5D557227792C10046BBA5 /* AppDelegate.swift in Sources */,
 				95C5D56F2277A7130046BBA5 /* HomeViewController.swift in Sources */,
 				95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */,

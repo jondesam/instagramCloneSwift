@@ -8,11 +8,29 @@
 
 import Foundation
 class Post {
-    var description :String
-    var key :String
+    var description :String?
+    var photoURL :String?
+    var user:String?
     
-    init(descriptionText: String, keyString: String) {
-        description = descriptionText
-        key = keyString
+    //temp init
+//    init(descriptionText: String, photoUrlString: String, userString: String) {
+//        description = descriptionText
+//        photoURL = photoUrlString
+//        user = userString
+//    }
+    
+   static func transFromPostPhoto(dict: [String:Any]) -> Post {
+        let post  = Post()
+        
+        post.description = dict["description"] as? String
+        post.photoURL = dict["photoUrl"] as? String
+        post.user = dict["user"] as? String
+        return post
     }
+    
+    static func transFromPostVideo() {
+        
+    }
+    
+    
 }

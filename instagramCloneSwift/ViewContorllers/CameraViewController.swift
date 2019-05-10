@@ -12,6 +12,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import SVProgressHUD
 
+
 class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     @IBOutlet weak var photoToShare: UIImageView!
@@ -70,37 +71,51 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     @IBAction func buttonShare(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Wait Please...")
         
-        let uuid =  UUID().uuidString
-        let user = Auth.auth().currentUser
-
-        let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
-        let imageRef = storageRef.child("Sharing_Photo").child(user!.email!).child(uuid)
-        
-        imageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
-            if error != nil {
-                print(error!)
-                SVProgressHUD.showError(withStatus: "Upload Failed")
-                return
-            } else {
-                SVProgressHUD.setMinimumDismissTimeInterval(1.0)
+        if let imageData = selectedImage!.jpegData(compressionQuality: 0.1){
+            
+            let uuid =  UUID().uuidString
+            let user = Auth.auth().currentUser
+            
+            let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
+            let imageRef = storageRef.child("Sharing_Photo").child(user!.email!).child(uuid)
+            
+            imageRef.putData(imageData, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    print(error!)
+                    SVProgressHUD.showError(withStatus: "Upload Failed")
+                    return
+                } else {
+                    SVProgressHUD.setMinimumDismissTimeInterval(1.0)
+                    
+                    imageRef.downloadURL(completion: { (url, error) in
+                        if error != nil {
+                            print("Download URL fail")
+                            return
+                        }else {
+                            let photoUrl = url?.absoluteString
+                            self.sendDataToDatabase(photoUrl: photoUrl!)
+                        }
+                    })
+                    SVProgressHUD.showSuccess(withStatus: "Upload Success")
+                    print("image uploaded")
+                    return
+                }
                 
-                imageRef.downloadURL(completion: { (url, error) in
-                    if error != nil {
-                        print("Download URL fail")
-                        return
-                    }else {
-                        let photoUrl = url?.absoluteString
-                        self.sendDataToDatabase(photoUrl: photoUrl!)
-                    }
-                })
-                SVProgressHUD.showSuccess(withStatus: "Upload Success")
-                print("image uploaded")
-                return
+            
+            
+            
+        //    putFile(from: imageData, metadata: nil) { metadata, error in
+               
             }
+            photoToShare.image = UIImage(named: "placeholder.png")
+            tabBarController?.selectedIndex = 0
+            selectedImage = nil
+            
         }
-        photoToShare.image = UIImage(named: "placeholder.png")
-        tabBarController?.selectedIndex = 0
-        selectedImage = nil
+            
+        
+        
+     
     }
     
     func sendDataToDatabase(photoUrl: String) {
@@ -109,7 +124,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let newPostId = postRef.childByAutoId().key
         let newPostRef = postRef.child(newPostId)
         
-        newPostRef.setValue(["phtoUrl":photoUrl,"description":photoDescription.text!,
+        newPostRef.setValue(["photoUrl":photoUrl,"description":photoDescription.text!,
                              "user":Auth.auth().currentUser?.email]) { (error, ref) in
             if error != nil {
                 print("data upload fail")
@@ -127,4 +142,5 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     }
     
 }
+
 
