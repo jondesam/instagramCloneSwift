@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HomeUITableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
@@ -19,16 +20,55 @@ class HomeUITableViewCell: UITableViewCell {
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    var post: Post? {
+        didSet {
+            updateHomeView()
+        }
+    }
+    
+    
+    func updateHomeView(){
+        descriptionLabel.text = post!.description
+       // profileImageView.image = UIImage(named: "photo1.jpeg")
+        //nameLabel.text = "Jos"
+        
+        if let photoUrlString = post!.photoURL {
+            let photoUrl = URL(string: photoUrlString)
+            
+            postImageView.sd_setImage(with: photoUrl)
+        }
+        setUpUserInfo()
+        
+    }
+    
+    func setUpUserInfo() {
+        if let uid = post?.uid {
+            Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
+                if  let dict = snapshot.value as? [String:Any]{
+                    // print("this is dict\(dict.values)")
+                    let user = User.transformUser(dict: dict)
+                    self.nameLabel.text = user.username
+                    
+                    if let photoUrlString = user.profileImageUrl {
+                        let photoUrl = URL(string: photoUrlString)
+                        self.profileImageView.sd_setImage(with: photoUrl)
+                    }
+                    
+               
+                }
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

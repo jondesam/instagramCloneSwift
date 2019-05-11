@@ -44,6 +44,7 @@ class SignUpViewController: UIViewController{
     
     func checkingIdEmailPassword() {
         
+        //validating ID,Email and Password
         guard   let idCheck = textID, idCheck.text!.count >= 6,
             let mailCheck = textMail, mailCheck.text!.count >= 6 ,
             let passwordCheck = textPassword, passwordCheck.text!.count >= 6
@@ -59,23 +60,31 @@ class SignUpViewController: UIViewController{
                 return
         }
          SVProgressHUD.show(withStatus: "Wait Please...")
-        Auth.auth().createUser(withEmail: textMail.text!, password:textPassword.text!) { authResult, error in
-            
+        
+        Auth.auth().createUser(withEmail: textMail.text!, password: textPassword.text!) { (user, error) in
             if error != nil {
                 self.showAlert()
                 print(error!.localizedDescription)
             }
             
-            let database = Database.database().reference().child("users")
-            print("user \(database.description())")
+            let uid = user?.uid
+            let ref = Database.database().reference()
+            let userReference = ref.child("users")
+            let newUserReference = userReference.child(uid!)
+            newUserReference.setValue(["username": self.textID.text!,
+                                       "email": self.textMail.text!])
             
-            database.childByAutoId().setValue(["username": self.textID.text!, "email": self.textMail.text!])
             SVProgressHUD.setMinimumDismissTimeInterval(1.0)
             SVProgressHUD.showSuccess(withStatus: "Sign Up Success")
             self.performSegue(withIdentifier: "signUpSegue", sender: self)
             // SVProgressHUD.dismiss()
             return
         }
+        
+//        Auth.auth().createUser(withEmail: textMail.text!, password:textPassword.text!) { authResult, error in
+//
+//
+//        }
         
     }
     

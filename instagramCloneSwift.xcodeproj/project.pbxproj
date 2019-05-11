@@ -18,6 +18,7 @@
 		95895CFA2278CDDA009371DC /* refactored.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95895CF92278CDDA009371DC /* refactored.storyboard */; };
 		95895CFE2278ED49009371DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95895CFD2278ED49009371DC /* GoogleService-Info.plist */; };
 		959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */; };
+		95AC7B7922862DDC00EF0956 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AC7B7822862DDC00EF0956 /* User.swift */; };
 		95C0C382227F621300CDE5F7 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C381227F621200CDE5F7 /* placeholder.png */; };
 		95C0C38722821B3C00CDE5F7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C0C38622821B3C00CDE5F7 /* Post.swift */; };
 		95C0C38B2284714200CDE5F7 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C38A2284714200CDE5F7 /* home.storyboard */; };
@@ -56,6 +57,7 @@
 		95895CFD2278ED49009371DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUITableViewCell.swift; sourceTree = "<group>"; };
 		959D17F42285F99000824F9B /* Placeholder-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder-image.png"; sourceTree = "<group>"; };
+		95AC7B7822862DDC00EF0956 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		95C0C381227F621200CDE5F7 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		95C0C38622821B3C00CDE5F7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		95C0C38A2284714200CDE5F7 /* home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				95C0C38622821B3C00CDE5F7 /* Post.swift */,
+				95AC7B7822862DDC00EF0956 /* User.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -193,11 +196,11 @@
 		95C5D555227792C10046BBA5 /* instagramCloneSwift */ = {
 			isa = PBXGroup;
 			children = (
+				95C0C384227F626F00CDE5F7 /* asset */,
 				95C5D556227792C10046BBA5 /* AppDelegate.swift */,
 				95895CFD2278ED49009371DC /* GoogleService-Info.plist */,
 				95C5D562227792C20046BBA5 /* Info.plist */,
 				95C0C38522821B2B00CDE5F7 /* Post */,
-				95C0C384227F626F00CDE5F7 /* asset */,
 				95895CFB2278DF9E009371DC /* Storyboards */,
 				95895CFC2278DFCF009371DC /* ViewContorllers */,
 				95C0C3C62284AD9E00CDE5F7 /* Views */,
@@ -374,6 +377,7 @@
 				95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */,
 				95C0C38722821B3C00CDE5F7 /* Post.swift in Sources */,
 				95C5D5732277A77E0046BBA5 /* CameraViewController.swift in Sources */,
+				95AC7B7922862DDC00EF0956 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

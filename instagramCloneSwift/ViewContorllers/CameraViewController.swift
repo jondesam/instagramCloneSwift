@@ -14,18 +14,21 @@ import SVProgressHUD
 
 
 class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-
+    
+   
+    
     @IBOutlet weak var photoToShare: UIImageView!
     
     @IBOutlet weak var photoDescription: UITextView!
     
     @IBOutlet weak var buttonShareOutlet: UIButton!
+    
     var selectedImage: UIImage?
     var selectedImageUrl :Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImageView))
         photoToShare.addGestureRecognizer(tapGesture)
         photoToShare.isUserInteractionEnabled = true
@@ -37,7 +40,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         handlePost()
     }
     
-     // MARK: - sharing button on and off
+    // MARK: - sharing button on and off
     func handlePost() {
         if selectedImage != nil {
             buttonShareOutlet.isEnabled = true
@@ -63,7 +66,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             photoToShare.image = image
             selectedImageUrl = info[.imageURL]
         }
-            dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -77,9 +80,11 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             let user = Auth.auth().currentUser
             
             let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
-            let imageRef = storageRef.child("Sharing_Photo").child(user!.email!).child(uuid)
+            let sharingImageRef = storageRef.child("sharing_photo").child(user!.email!).child(uuid)
+           
+                
             
-            imageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            sharingImageRef.putData(imageData, metadata: nil) { (metadata, error) in
                 if error != nil {
                     print(error!)
                     SVProgressHUD.showError(withStatus: "Upload Failed")
@@ -87,35 +92,29 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 } else {
                     SVProgressHUD.setMinimumDismissTimeInterval(1.0)
                     
-                    imageRef.downloadURL(completion: { (url, error) in
+                    //downloading Sharing Image Url
+                    sharingImageRef.downloadURL(completion: { (url, error) in
                         if error != nil {
                             print("Download URL fail")
                             return
                         }else {
-                            let photoUrl = url?.absoluteString
-                            self.sendDataToDatabase(photoUrl: photoUrl!)
+                            let SharingPhotoUrl = url?.absoluteString
+                            self.sendDataToDatabase(photoUrl: SharingPhotoUrl!)
                         }
                     })
+                    
+                 
+                    
+                    
                     SVProgressHUD.showSuccess(withStatus: "Upload Success")
-                    print("image uploaded")
+                  //  print("image uploaded")
                     return
                 }
-                
-            
-            
-            
-        //    putFile(from: imageData, metadata: nil) { metadata, error in
-               
             }
             photoToShare.image = UIImage(named: "placeholder.png")
             tabBarController?.selectedIndex = 0
             selectedImage = nil
-            
         }
-            
-        
-        
-     
     }
     
     func sendDataToDatabase(photoUrl: String) {
@@ -124,19 +123,30 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let newPostId = postRef.childByAutoId().key
         let newPostRef = postRef.child(newPostId)
         
-        newPostRef.setValue(["photoUrl":photoUrl,"description":photoDescription.text!,
-                             "user":Auth.auth().currentUser?.email]) { (error, ref) in
-            if error != nil {
-                print("data upload fail")
-             SVProgressHUD.showError(withStatus: error?.localizedDescription)
-                return
-            }
-            print("data uploaded")
-            SVProgressHUD.showSuccess(withStatus: "Success")
-            self.photoDescription.text = ""
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        
+        let currentUserId = currentUser.uid
+        
+        newPostRef.setValue(["photoUrl":photoUrl,
+                             
+                             "description":photoDescription.text!,
+                             "user":Auth.auth().currentUser?.email,
+                             "uid":currentUserId]) { (error, ref) in
+                                if error != nil {
+                                    print("data upload fail")
+                                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                                    return
+                                }
+                                print("data uploaded")
+                                SVProgressHUD.showSuccess(withStatus: "Success")
+                                self.photoDescription.text = ""
         }
     }
-
+    
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }

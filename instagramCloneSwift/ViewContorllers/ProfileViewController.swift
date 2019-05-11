@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseStorage
 import FirebaseAuth
+import FirebaseDatabase
+import SVProgressHUD
 
 class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
@@ -50,13 +52,26 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         let user = Auth.auth().currentUser
         let selectedImageUrl = info[.imageURL]
         let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
-        let imageRef = storageRef.child("profile_Photo").child(user!.email!)
+        let imageRef = storageRef.child("profile_photo").child(user!.email!)
+        //let profileImageRef = storageRef.child("profile_Photo").child(user!.email!)
         
         imageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
             if error != nil {
                 
                 return
             } else {
+                
+                //downloading Profile Image Url
+                imageRef.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        print("Download URL fail")
+                        return
+                    }else {
+                        let profilePhotoUrl  = url?.absoluteString
+                        self.sendDataToDatabase(profilePhotoUrl: profilePhotoUrl!)
+                    }
+                })
+                
                 
                 print("image uploaded")
                 return
@@ -67,7 +82,53 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         dismiss(animated: true, completion: nil)
     }
     
+    func sendDataToDatabase(profilePhotoUrl: String) {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        
+      //  let currentUserId = currentUser.uid as? String
+        
+        
+        let ref = Database.database().reference()
+        let postRef = ref.child("users")
+        let newPostId = postRef.child(currentUser.uid)
+        //let newPostRef = postRef.child(newPostId)
+        
+        
+      //  let currentUserId = currentUser.uid
+        
+        newPostId.updateChildValues(["profileImageUrl":profilePhotoUrl]) { (error, DatabaseReference) in
+            if error != nil {
+                print("data upload fail")
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                return
+            }
+            print("data uploaded")
+            SVProgressHUD.showSuccess(withStatus: "Success")
+        }
+        
+        
+    }
+    
+    
+//    setValue(["profilePhotoUrl":profilePhotoUrl,
+//
+//    ]) { (error, ref) in
+//    if error != nil {
+//    print("data upload fail")
+//    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+//    return
+//    }
+//    print("data uploaded")
+//    SVProgressHUD.showSuccess(withStatus: "Success")
+//
+//    }
+//
  
+    
+    
+    
     
     @IBAction func buttonLogOut(_ sender: Any) {
         
@@ -88,6 +149,10 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         present(logInVC, animated: true, completion: nil)
         
     }
+    
+    
+    
+    
 }
 
         

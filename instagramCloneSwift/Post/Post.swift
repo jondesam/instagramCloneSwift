@@ -11,6 +11,7 @@ class Post {
     var description :String?
     var photoURL :String?
     var user:String?
+    var uid: String?
     
     //temp init
 //    init(descriptionText: String, photoUrlString: String, userString: String) {
@@ -25,6 +26,7 @@ class Post {
         post.description = dict["description"] as? String
         post.photoURL = dict["photoUrl"] as? String
         post.user = dict["user"] as? String
+        post.uid = dict["uid"] as? String
         return post
     }
     
