@@ -29,8 +29,6 @@ class HomeUITableViewCell: UITableViewCell {
     
     func updateHomeView(){
         descriptionLabel.text = post!.description
-       // profileImageView.image = UIImage(named: "photo1.jpeg")
-        //nameLabel.text = "Jos"
         
         if let photoUrlString = post!.photoURL {
             let photoUrl = URL(string: photoUrlString)
@@ -45,16 +43,14 @@ class HomeUITableViewCell: UITableViewCell {
         if let uid = post?.uid {
             Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
                 if  let dict = snapshot.value as? [String:Any]{
-                    // print("this is dict\(dict.values)")
+                   
                     let user = User.transformUser(dict: dict)
                     self.nameLabel.text = user.username
                     
                     if let photoUrlString = user.profileImageUrl {
                         let photoUrl = URL(string: photoUrlString)
-                        self.profileImageView.sd_setImage(with: photoUrl)
+                        self.profileImageView.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "placeholderImg"))
                     }
-                    
-               
                 }
             }
         }

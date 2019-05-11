@@ -19,10 +19,11 @@ class User {
         user.email = dict["email"] as? String
         user.profileImageUrl = dict["profileImageUrl"] as? String
         user.username = dict["username"] as? String
-  return user
-    
+        
+        return user
+        
     }
-
+    
     
     static func transFromPostVideo() {
         

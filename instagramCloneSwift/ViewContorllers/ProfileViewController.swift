@@ -20,11 +20,16 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     @IBOutlet weak var profilName: UITextField!
     var userName:String?
     
+    //database setup
+    let user = Auth.auth().currentUser
+    let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
+    lazy var profileImageRef = storageRef.child("profile_photo").child(user!.email!)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         userName = Auth.auth().currentUser?.email
         profilName.text = userName
-        
+
         profileImageView.layer.cornerRadius = 40
         profileImageView.clipsToBounds = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.handleSelectProfileImageView))
@@ -32,51 +37,56 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         profileImageView.isUserInteractionEnabled = true
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        profileImageRef.downloadURL(completion: { (url, error) in
+            if error != nil {
+                print("Download URL fail")
+                return
+            }else {
+                self.profileImageView.sd_setImage(with: url)
+            }
+        })
+       
+    }
     
     @objc func handleSelectProfileImageView () {
-        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion:nil)
         print("tapped")
     }
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("did finish picking image")
         if let image = info[.originalImage] as? UIImage {
-            selectedImage = image
+           // selectedImage = image
             profileImageView.image = image
         }
         
-        let user = Auth.auth().currentUser
         let selectedImageUrl = info[.imageURL]
-        let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
-        let imageRef = storageRef.child("profile_photo").child(user!.email!)
-        //let profileImageRef = storageRef.child("profile_Photo").child(user!.email!)
-        
-        imageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
+      
+        profileImageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
             if error != nil {
-                
                 return
             } else {
-                
                 //downloading Profile Image Url
-                imageRef.downloadURL(completion: { (url, error) in
+                self.profileImageRef.downloadURL(completion: { (url, error) in
                     if error != nil {
                         print("Download URL fail")
                         return
                     }else {
                         let profilePhotoUrl  = url?.absoluteString
+                        
                         self.sendDataToDatabase(profilePhotoUrl: profilePhotoUrl!)
+                     
+                        self.profileImageView.sd_setImage(with: url)
                     }
                 })
-                
-                
                 print("image uploaded")
                 return
             }
-            
         }
       //  print(info)
         dismiss(animated: true, completion: nil)
@@ -86,18 +96,10 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
-        
-      //  let currentUserId = currentUser.uid as? String
-        
-        
         let ref = Database.database().reference()
         let postRef = ref.child("users")
         let newPostId = postRef.child(currentUser.uid)
-        //let newPostRef = postRef.child(newPostId)
-        
-        
-      //  let currentUserId = currentUser.uid
-        
+       
         newPostId.updateChildValues(["profileImageUrl":profilePhotoUrl]) { (error, DatabaseReference) in
             if error != nil {
                 print("data upload fail")
@@ -107,31 +109,9 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             print("data uploaded")
             SVProgressHUD.showSuccess(withStatus: "Success")
         }
-        
-        
     }
     
-    
-//    setValue(["profilePhotoUrl":profilePhotoUrl,
-//
-//    ]) { (error, ref) in
-//    if error != nil {
-//    print("data upload fail")
-//    SVProgressHUD.showError(withStatus: error?.localizedDescription)
-//    return
-//    }
-//    print("data uploaded")
-//    SVProgressHUD.showSuccess(withStatus: "Success")
-//
-//    }
-//
- 
-    
-    
-    
-    
     @IBAction func buttonLogOut(_ sender: Any) {
-        
         
         do {
             
@@ -139,9 +119,8 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         } catch let logOutError {
             print(logOutError)
         }
-       // print(Auth.auth().currentUser?.email)
-        
-        
+        print(Auth.auth().currentUser?.email)
+
         let storyboard =  UIStoryboard(name: "Main", bundle: nil)
         
         let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
@@ -149,10 +128,6 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         present(logInVC, animated: true, completion: nil)
         
     }
-    
-    
-    
-    
 }
 
         

@@ -50,7 +50,6 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     //MARK: - tableView methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,6 +57,7 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeUITableViewCell
         
         let post = posts[indexPath.row]
+        
         cell.post = post
         //cell.updateHomeView(post: post)
         
