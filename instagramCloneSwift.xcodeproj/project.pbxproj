@@ -42,6 +42,8 @@
 		95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */; };
 		95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */; };
 		95F826B4227A3CF800C651B6 /* defaultPerson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95F826B3227A3CF800C651B6 /* defaultPerson.jpg */; };
+		95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F8A7982288B0CE00FEF30E /* commentViewController.swift */; };
+		95F8A79B2288B10600FEF30E /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F8A79A2288B10600FEF30E /* commentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		95F826B3227A3CF800C651B6 /* defaultPerson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultPerson.jpg; sourceTree = "<group>"; };
+		95F8A7982288B0CE00FEF30E /* commentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentViewController.swift; sourceTree = "<group>"; };
+		95F8A79A2288B10600FEF30E /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
 		C1B85D00EDFC1ED645D3EE2B /* Pods-instagramCloneSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramCloneSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		F01CA7D289765595FAD1C9B2 /* Pods-instagramCloneSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramCloneSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +136,7 @@
 				95C5D5702277A74C0046BBA5 /* DiscoverViewController.swift */,
 				95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */,
 				95C5D56E2277A7130046BBA5 /* HomeViewController.swift */,
+				95F8A7982288B0CE00FEF30E /* commentViewController.swift */,
 			);
 			path = ViewContorllers;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */,
+				95F8A79A2288B10600FEF30E /* commentTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -369,8 +375,10 @@
 			files = (
 				95C5D56B227793310046BBA5 /* SignUpViewController.swift in Sources */,
 				95C5D569227793190046BBA5 /* LogInViewController.swift in Sources */,
+				95F8A79B2288B10600FEF30E /* commentTableViewCell.swift in Sources */,
 				959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */,
 				95C5D557227792C10046BBA5 /* AppDelegate.swift in Sources */,
+				95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */,
 				95C5D56F2277A7130046BBA5 /* HomeViewController.swift in Sources */,
 				95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */,
 				95C5D5712277A74C0046BBA5 /* DiscoverViewController.swift in Sources */,

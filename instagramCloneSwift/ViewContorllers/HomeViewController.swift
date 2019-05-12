@@ -18,6 +18,13 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     let cellId = "PostCell"
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func goToComment(_ sender: Any) {
+        performSegue(withIdentifier: "commentView", sender: nil)
+    }
+    
+    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -29,7 +36,13 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func loadPosts() {
+        activityIndicatorView.startAnimating()
         Database.database().reference().child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
             print(Thread.isMainThread)
             
@@ -38,11 +51,20 @@ class HomeViewController: UIViewController,UITableViewDataSource {
                 
                 let newPost = Post.transFromPostPhoto(dict: dict)
                 
+                self.fetchUser(uid:newPost.uid!)
+                
                 self.posts.append(newPost)
+                self.activityIndicatorView.stopAnimating()
                 print(self.posts)
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    
+    func fetchUser(uid: String)  {
+        
+        
     }
     
     

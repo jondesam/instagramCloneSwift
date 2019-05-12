@@ -15,8 +15,6 @@ import SVProgressHUD
 
 class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
-   
-    
     @IBOutlet weak var photoToShare: UIImageView!
     
     @IBOutlet weak var photoDescription: UITextView!
@@ -82,8 +80,6 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
             let sharingImageRef = storageRef.child("sharing_photo").child(user!.email!).child(uuid)
            
-                
-            
             sharingImageRef.putData(imageData, metadata: nil) { (metadata, error) in
                 if error != nil {
                     print(error!)
@@ -103,16 +99,13 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                         }
                     })
                     
-                 
-                    
-                    
                     SVProgressHUD.showSuccess(withStatus: "Upload Success")
                   //  print("image uploaded")
                     return
                 }
             }
             photoToShare.image = UIImage(named: "placeholder.png")
-            tabBarController?.selectedIndex = 0
+          //  tabBarController?.selectedIndex = 0
             selectedImage = nil
         }
     }
@@ -145,10 +138,15 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         }
     }
     
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    
+    func clean() {
+        photoDescription.text = ""
+        photoToShare.image = UIImage(named: "placeholder")
+        selectedImage = nil
     }
     
 }

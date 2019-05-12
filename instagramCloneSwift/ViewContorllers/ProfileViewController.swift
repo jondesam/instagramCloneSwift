@@ -119,7 +119,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         } catch let logOutError {
             print(logOutError)
         }
-        print(Auth.auth().currentUser?.email)
+        //print(Auth.auth().currentUser?.email)
 
         let storyboard =  UIStoryboard(name: "Main", bundle: nil)
         

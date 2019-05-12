@@ -58,7 +58,21 @@ class HomeUITableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        
+        nameLabel.text = ""
+        descriptionLabel.text = ""
+    }
+    
+    /// ?? ///
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        print("TTTTTTT")
+        
+        isHidden = false
+        isSelected = false
+        isHighlighted = false
+        profileImageView.image = UIImage(named: "placeholderImg")
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
