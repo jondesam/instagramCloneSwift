@@ -26,6 +26,12 @@ class HomeUITableViewCell: UITableViewCell {
         }
     }
     
+    var user: User? {
+        didSet {
+            setUpUserInfo()
+        }
+    }
+    
     
     func updateHomeView(){
         descriptionLabel.text = post!.description
@@ -35,33 +41,29 @@ class HomeUITableViewCell: UITableViewCell {
             
             postImageView.sd_setImage(with: photoUrl)
         }
-        setUpUserInfo()
+   
         
     }
     
     func setUpUserInfo() {
-        if let uid = post?.uid {
-            Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
-                if  let dict = snapshot.value as? [String:Any]{
-                   
-                    let user = User.transformUser(dict: dict)
-                    self.nameLabel.text = user.username
-                    
-                    if let photoUrlString = user.profileImageUrl {
-                        let photoUrl = URL(string: photoUrlString)
-                        self.profileImageView.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "placeholderImg"))
-                    }
-                }
-            }
+        self.nameLabel.text = user!.username
+        
+        if let photoUrlString = user!.profileImageUrl {
+            let photoUrl = URL(string: photoUrlString)
+            
+            profileImageView.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "placeholderImg"))
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        profileImageView.layer.cornerRadius = 18
+        profileImageView.clipsToBounds = true
         
         nameLabel.text = ""
         descriptionLabel.text = ""
+        
     }
     
     /// ?? ///

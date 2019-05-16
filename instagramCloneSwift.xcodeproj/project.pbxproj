@@ -15,6 +15,7 @@
 		954672F52284FC5200E6C113 /* Comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F22284FC3F00E6C113 /* Comment@2x.png */; };
 		954672F62284FC5200E6C113 /* Comment@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F02284FC3F00E6C113 /* Comment@3x.png */; };
 		954672F72284FC5200E6C113 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F32284FC4E00E6C113 /* share.png */; };
+		9547955E2289F8E70083DC20 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547955D2289F8E70083DC20 /* Comment.swift */; };
 		95895CFA2278CDDA009371DC /* refactored.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95895CF92278CDDA009371DC /* refactored.storyboard */; };
 		95895CFE2278ED49009371DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95895CFD2278ED49009371DC /* GoogleService-Info.plist */; };
 		959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */; };
@@ -55,6 +56,7 @@
 		954672F12284FC3F00E6C113 /* Comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Comment.png; sourceTree = "<group>"; };
 		954672F22284FC3F00E6C113 /* Comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Comment@2x.png"; sourceTree = "<group>"; };
 		954672F32284FC4E00E6C113 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		9547955D2289F8E70083DC20 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		95895CF92278CDDA009371DC /* refactored.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = refactored.storyboard; sourceTree = "<group>"; };
 		95895CFD2278ED49009371DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUITableViewCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				95C0C38622821B3C00CDE5F7 /* Post.swift */,
 				95AC7B7822862DDC00EF0956 /* User.swift */,
+				9547955D2289F8E70083DC20 /* Comment.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				95C5D56B227793310046BBA5 /* SignUpViewController.swift in Sources */,
 				95C5D569227793190046BBA5 /* LogInViewController.swift in Sources */,
 				95F8A79B2288B10600FEF30E /* commentTableViewCell.swift in Sources */,
+				9547955E2289F8E70083DC20 /* Comment.swift in Sources */,
 				959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */,
 				95C5D557227792C10046BBA5 /* AppDelegate.swift in Sources */,
 				95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */,

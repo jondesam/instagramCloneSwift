@@ -14,7 +14,9 @@ import SDWebImage
 
 class HomeViewController: UIViewController,UITableViewDataSource {
     
+    
     var posts = [Post]()
+    var users = [User]()
     let cellId = "PostCell"
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,6 +31,8 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         super.viewDidLoad()
         tableView.dataSource = self
         
+        
+        
         tableView.rowHeight = 440
         tableView.estimatedRowHeight = 600
         loadPosts()
@@ -39,33 +43,48 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tabBarController?.tabBar.isHidden = false
+    
     }
     
     func loadPosts() {
+      
         activityIndicatorView.startAnimating()
+        
         Database.database().reference().child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-            print(Thread.isMainThread)
+            //print(Thread.isMainThread)
             
             if  let dict = snapshot.value as? [String:Any]{
-                // print("this is dict\(dict.values)")
+                print("This is dictionary from snapshot.values")
+                print(dict.values)
                 
                 let newPost = Post.transFromPostPhoto(dict: dict)
                 
-                self.fetchUser(uid:newPost.uid!)
-                
-                self.posts.append(newPost)
-                self.activityIndicatorView.stopAnimating()
-                print(self.posts)
-                self.tableView.reloadData()
+                self.fetchUser(uid: newPost.uid!, completed: {
+                    
+                    self.posts.append(newPost)
+                    
+                    self.activityIndicatorView.stopAnimating()
+                    //print(self.posts)
+                    self.tableView.reloadData()
+                })
             }
         }
     }
     
     
-    func fetchUser(uid: String)  {
+    func fetchUser(uid: String, completed: @escaping () -> Void) {
         
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
+            
+            if  let dict = snapshot.value as? [String:Any]{
+                let user = User.transformUser(dict: dict)
+                self.users.append(user)
+                completed()
+                }
+            }
+        }
         
-    }
+    
     
     
     
@@ -79,8 +98,10 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeUITableViewCell
         
         let post = posts[indexPath.row]
+        let user = users[indexPath.row]
         
         cell.post = post
+        cell.user = user
         //cell.updateHomeView(post: post)
         
         
