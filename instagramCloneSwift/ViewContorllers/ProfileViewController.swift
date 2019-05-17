@@ -32,11 +32,14 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
 
         profileImageView.layer.cornerRadius = 40
         profileImageView.clipsToBounds = true
+       
+        //Aloow user to touch imageView as button
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.handleSelectProfileImageView))
         profileImageView.addGestureRecognizer(tapGesture)
         profileImageView.isUserInteractionEnabled = true
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         

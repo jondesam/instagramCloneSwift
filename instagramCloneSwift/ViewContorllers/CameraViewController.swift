@@ -140,7 +140,9 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+         print("touchesBegan")
     }
+    
     
     
     func clean() {

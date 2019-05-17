@@ -11,7 +11,7 @@ import FirebaseDatabase
 
 class commentTableViewCell: UITableViewCell {
 
-    let postId = "Lebw2XyQmNdGAbsOn44"
+  //  let postId = "Lebw2XyQmNdGAbsOn44"
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -54,10 +54,7 @@ class commentTableViewCell: UITableViewCell {
         }
     }
 
-    
-    
-    //??
-//    {
+
 //        if let uid = comment?.uid {
 //            Database.database().reference().child("comments").child(postId).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
 //                if  let dict = snapshot.value as? [String:Any]{

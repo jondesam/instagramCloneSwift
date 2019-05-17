@@ -24,7 +24,6 @@ class User {
         
     }
     
-    
     static func transFromPostVideo() {
         
     }

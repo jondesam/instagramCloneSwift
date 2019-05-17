@@ -12,6 +12,7 @@ class Post {
     var photoURL :String?
     var user:String?
     var uid: String?
+    var id: String?
     
     //temp init
 //    init(descriptionText: String, photoUrlString: String, userString: String) {
@@ -20,13 +21,14 @@ class Post {
 //        user = userString
 //    }
     
-   static func transFromPostPhoto(dict: [String:Any]) -> Post {
+    static func transFromPostPhoto(dict: [String:Any], key:String) -> Post {
         let post  = Post()
         
         post.description = dict["description"] as? String
         post.photoURL = dict["photoUrl"] as? String
         post.user = dict["user"] as? String
         post.uid = dict["uid"] as? String
+        post.id = key
         return post
     }
     

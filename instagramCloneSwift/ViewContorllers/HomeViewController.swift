@@ -21,7 +21,7 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func goToComment(_ sender: Any) {
-        performSegue(withIdentifier: "commentView", sender: nil)
+        performSegue(withIdentifier: "commentSegue", sender: nil)
     }
     
     
@@ -40,11 +40,12 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        tabBarController?.tabBar.isHidden = false
-    
-    }
+    //efficiency issue
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        tabBarController?.tabBar.isHidden = false
+//
+//    }
     
     func loadPosts() {
       
@@ -57,7 +58,7 @@ class HomeViewController: UIViewController,UITableViewDataSource {
                 print("This is dictionary from snapshot.values")
                 print(dict.values)
                 
-                let newPost = Post.transFromPostPhoto(dict: dict)
+                let newPost = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
                 
                 self.fetchUser(uid: newPost.uid!, completed: {
                     
@@ -96,15 +97,38 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeUITableViewCell
-        
+       // print(indexPath.row)
         let post = posts[indexPath.row]
         let user = users[indexPath.row]
         
+//        print("This is post")
+//        dump(post)
+        
         cell.post = post
         cell.user = user
+        
+//        print("This is cell.post")
+//        dump(cell.post)
+//        print("This is cell.user")
+//        dump(cell.user)
+       
+        // ??
+        cell.homeVC = self
+     
+       // print("This is cell.homeVC")
+       // dump(cell.homeVC)
         //cell.updateHomeView(post: post)
         
         
         return cell
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "commentSegue" {
+            let commentVC = segue.destination as! commentViewController
+            let postId = sender as! String
+            commentVC.postId = postId
+        }
     }
 }

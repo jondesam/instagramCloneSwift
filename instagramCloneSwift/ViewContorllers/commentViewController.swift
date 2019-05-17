@@ -11,42 +11,81 @@ import FirebaseAuth
 import FirebaseDatabase
 import SVProgressHUD
 
-class commentViewController: UIViewController,UITableViewDataSource {
+class commentViewController: UIViewController,UITableViewDataSource{
     
     @IBOutlet weak var tableViewOfCommets: UITableView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var constraintToBotton: NSLayoutConstraint!
     
     var comments = [Comment]()
     //??
     var users = [User]()
     
+    
+    
     let cellId = "commentCell"
-    let postId = "Lebw2XyQmNdGAbsOn44"
+    var postId:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Comment"
         tableViewOfCommets.dataSource  = self
         
         tableViewOfCommets.rowHeight = 77
         tableViewOfCommets.estimatedRowHeight = 600
         
-      //  sendButton.isEnabled = false
+        //  sendButton.isEnabled = false
         empty()
         handleTextField()
         loadComments()
-     
+        
+        //Keyboard
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillhide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        tableViewOfCommets.keyboardDismissMode = .interactive
+        
     }
     
+    
+    //MARK:- comment input with keyboard
+    
+    
+    @objc func keyboardWillShow(_ notification:NSNotification)  {
+        
+        print(notification)
+        //extract cgRectVAlue
+        let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+      //  print(keyboardFrame)
+        UIView.animate(withDuration: 0.3) {
+            self.constraintToBotton.constant = keyboardFrame!.height
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardWillhide(_ notification:NSNotification)  {
+        print(notification)
+        UIView.animate(withDuration: 0.3) {
+            self.constraintToBotton.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    
+    
+    
+    //MARK:- Loading comments Data
     func loadComments(){
-       
+        
         let postCommentRef = Database.database().reference().child("post-comments").child(self.postId)
         
         postCommentRef.observe(DataEventType.childAdded) { (snapshot) in
             print("observe key")
             print(snapshot.key)
             Database.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: DataEventType.value, with: { (snapshotComment) in
-              //  print(snapshotComment.value)
+                //  print(snapshotComment.value)
                 
                 if  let dict = snapshotComment.value as? [String:Any]{
                     print("This is dictionary from snapshot.values")
@@ -86,6 +125,11 @@ class commentViewController: UIViewController,UITableViewDataSource {
         tabBarController?.tabBar.isHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+         tabBarController?.tabBar.isHidden = false
+    }
+    
     
     
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
@@ -102,28 +146,28 @@ class commentViewController: UIViewController,UITableViewDataSource {
         let currentUserId = currentUser.uid
         
         newCommentReference.setValue([ "uid":currentUserId,
-                            "commentText":commentTextField.text!
-                            ]) { (error, ref) in
-                                if error != nil {
-                                    print("comment upload fail")
-                    
-                                    return
-                                }
-                                
-                                let postCommentRef = Database.database().reference().child("post-comments").child(self.postId).child(newCommentId)
-                                postCommentRef.setValue(true, withCompletionBlock: { (error, DatabaseReference) in
-                                    if error != nil {
-                                        SVProgressHUD.showError(withStatus: error?.localizedDescription)
-                                    }
-                                })
-                                
-                                
-                                print("comment uploaded")
-                                self.empty()
-                    
-                    
+                                       "commentText":commentTextField.text!
+        ]) { (error, ref) in
+            if error != nil {
+                print("comment upload fail")
+                
+                return
+            }
+            
+            let postCommentRef = Database.database().reference().child("post-comments").child(self.postId).child(newCommentId)
+            postCommentRef.setValue(true, withCompletionBlock: { (error, DatabaseReference) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                }
+            })
+            
+            
+            print("comment uploaded")
+            self.empty()
+            self.view.endEditing(true)
+            
         }
-    
+        
     }
     
     func empty() {
@@ -132,13 +176,13 @@ class commentViewController: UIViewController,UITableViewDataSource {
         sendButton.isEnabled = false
         sendButton.setTitleColor(UIColor.lightGray, for: UIControl.State.normal)
     }
- 
+    
     
     //MARK: - Handling textField
     func handleTextField() {
         commentTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
     }
-
+    
     @objc func textFieldDidChange() {
         if let commentText = commentTextField.text, !commentText.isEmpty {
             sendButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
@@ -169,5 +213,15 @@ class commentViewController: UIViewController,UITableViewDataSource {
         return cell
         
     }
-
+    
+    
+    //not working with touching ??
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        print("touchesBegan")
+    }
+    
+    
+    
+    
 }

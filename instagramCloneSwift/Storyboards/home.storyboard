@@ -96,14 +96,6 @@
                                                         <constraint firstAttribute="width" secondItem="e7b-4q-rtP" secondAttribute="height" multiplier="1:1" id="AHO-VV-JwB"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtO-vU-fEh">
-                                                    <rect key="frame" x="184" y="201" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <connections>
-                                                        <action selector="goToComment:" destination="z7U-kD-W8o" eventType="touchUpInside" id="Wag-R1-Vtn"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="lj2-cn-4sg" firstAttribute="top" secondItem="e7b-4q-rtP" secondAttribute="bottom" constant="8" id="0VF-ic-8Na"/>
@@ -132,14 +124,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentImageView" destination="e7b-4q-rtP" id="DI1-4W-J9j"/>
+                                            <outlet property="commentImageView" destination="jYy-RG-Wgh" id="XPJ-bs-MPe"/>
                                             <outlet property="descriptionLabel" destination="3zj-mY-FvL" id="rDh-s7-7ap"/>
                                             <outlet property="likeCountButton" destination="i5C-tK-Lkh" id="EWl-ud-RnT"/>
                                             <outlet property="likeImageView" destination="Ioa-zx-Rsf" id="6w7-Um-VaA"/>
                                             <outlet property="nameLabel" destination="F7j-SF-gbG" id="Zm2-9X-Qfl"/>
                                             <outlet property="postImageView" destination="upe-gM-kq5" id="nzc-wC-OYF"/>
                                             <outlet property="profileImageView" destination="ySQ-JK-8ib" id="rPb-8j-xNK"/>
-                                            <outlet property="shareImageView" destination="e7b-4q-rtP" id="X3T-hr-egz"/>
+                                            <outlet property="shareImageView" destination="e7b-4q-rtP" id="5TO-E6-L7j"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -163,7 +155,7 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="Txn-PT-rKZ" id="S6q-wX-7fA"/>
                         <outlet property="tableView" destination="L8O-y7-03H" id="IzW-7v-cuu"/>
-                        <segue destination="KVf-36-yq0" kind="show" identifier="commentView" id="TNs-PY-LZy"/>
+                        <segue destination="KVf-36-yq0" kind="show" identifier="commentSegue" id="TNs-PY-LZy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccs-rr-ZbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -280,6 +272,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commentTextField" destination="wCE-68-v04" id="US4-Ym-BZh"/>
+                        <outlet property="constraintToBotton" destination="fW8-Hl-J0R" id="uRu-eY-pTX"/>
                         <outlet property="sendButton" destination="qB3-Hy-JMc" id="nyH-Dn-Pnm"/>
                         <outlet property="tableViewOfCommets" destination="tqv-yL-YGL" id="WWz-uK-IaS"/>
                     </connections>
