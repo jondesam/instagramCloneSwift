@@ -13,24 +13,18 @@ import SVProgressHUD
 
 class LogInViewController: UIViewController {
     
-    
     @IBOutlet weak var textEmail: UITextField!
     @IBOutlet weak var textPassword: UITextField!
-    
     @IBAction func buttonLogIn(_ sender: UIButton) {
-        
         checkingEmailPassword()
-        
     }
     
     func  checkingEmailPassword() {
-        
         guard  let mailCheck = textEmail, mailCheck.text!.count >= 6 ,
             let passwordCheck = textPassword, passwordCheck.text!.count >= 6
             
             else {
                 showAlert()
-                
                 return
         }
         SVProgressHUD.show(withStatus: "Wait Please...")
@@ -46,12 +40,8 @@ class LogInViewController: UIViewController {
                  SVProgressHUD.showSuccess(withStatus: "Sign Up Success")
                 
                 self.performSegue(withIdentifier: "logInSegue", sender: self)
-                
-                
             }
-            
         }
-        
     }
     
     func showAlert() {
@@ -61,16 +51,10 @@ class LogInViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //handleTextField()
-        
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

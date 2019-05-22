@@ -14,24 +14,20 @@ import SDWebImage
 
 class HomeViewController: UIViewController,UITableViewDataSource {
     
-    
     var posts = [Post]()
     var users = [User]()
     let cellId = "PostCell"
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     @IBAction func goToComment(_ sender: Any) {
         performSegue(withIdentifier: "commentSegue", sender: nil)
     }
-    
     
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        
-        
         
         tableView.rowHeight = 440
         tableView.estimatedRowHeight = 600
@@ -40,52 +36,59 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         
     }
     
-    //efficiency issue
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        tabBarController?.tabBar.isHidden = false
-//
-//    }
+          func loadPostsOri() {
+            activityIndicatorView.startAnimating()
+            Database.database().reference().child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+    
+                if  let dict = snapshot.value as? [String:Any]{
+    
+                    let newPost = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
+    
+                    self.fetchUser(uid: newPost.uid!, completed: {
+                        self.posts.append(newPost)
+                        self.activityIndicatorView.stopAnimating()
+                        self.tableView.reloadData()
+                    })
+                }
+            }
+        }
+    
     
     func loadPosts() {
-      
         activityIndicatorView.startAnimating()
         
-        Database.database().reference().child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-            //print(Thread.isMainThread)
+        Api.PostAPI.observePosts { (newPost) in
             
-            if  let dict = snapshot.value as? [String:Any]{
-                print("This is dictionary from snapshot.values")
-                print(dict.values)
+            self.fetchUser(uid: newPost.uid!, completed: {
                 
-                let newPost = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
-                
-                self.fetchUser(uid: newPost.uid!, completed: {
-                    
-                    self.posts.append(newPost)
-                    
-                    self.activityIndicatorView.stopAnimating()
-                    //print(self.posts)
-                    self.tableView.reloadData()
-                })
-            }
+                self.posts.append(newPost)
+                self.activityIndicatorView.stopAnimating()
+                self.tableView.reloadData()
+            })
+        }
+    }
+    
+    func fetchUser(uid: String, completed: @escaping () -> Void) {
+       
+            Api.UserAPI.observeUsers(withId: uid) { (user) in
+            self.users.append(user)
+            completed()
         }
     }
     
     
-    func fetchUser(uid: String, completed: @escaping () -> Void) {
-        
+    func fetchUserOri(uid: String, completed: @escaping () -> Void) {
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
-            
+
             if  let dict = snapshot.value as? [String:Any]{
                 let user = User.transformUser(dict: dict)
                 self.users.append(user)
+//                print("This is users")
+//                dump(self.users)
                 completed()
                 }
             }
         }
-        
-    
     
     
     
@@ -97,29 +100,30 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeUITableViewCell
-       // print(indexPath.row)
+        print(indexPath.row)
         let post = posts[indexPath.row]
         let user = users[indexPath.row]
         
-//        print("This is post")
-//        dump(post)
+        print("This is post")
+        dump(post)
         
         cell.post = post
         cell.user = user
         
-//        print("This is cell.post")
-//        dump(cell.post)
+        print("This is cell.post")
+        dump(cell.post)
 //        print("This is cell.user")
 //        dump(cell.user)
        
-        // ??
+    
         cell.homeVC = self
      
        // print("This is cell.homeVC")
        // dump(cell.homeVC)
         //cell.updateHomeView(post: post)
         
-        
+        print("This is cell")
+        dump(cell)
         return cell
     }
     

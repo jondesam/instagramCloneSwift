@@ -11,7 +11,7 @@ import FirebaseDatabase
 
 class commentTableViewCell: UITableViewCell {
 
-  //  let postId = "Lebw2XyQmNdGAbsOn44"
+
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -35,12 +35,7 @@ class commentTableViewCell: UITableViewCell {
     func updateCommentView(){
         commentLabel.text = comment!.commentText
         
-//        if let photoUrlString = post!.photoURL {
-//            let photoUrl = URL(string: photoUrlString)
-//
-//            profileImageView.sd_setImage(with: photoUrl)
-//        }
-     //   setUpUserInfo()
+
         
     }
     
@@ -49,28 +44,10 @@ class commentTableViewCell: UITableViewCell {
         if let photoUrlString = user?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
          
-            
             profileImageView.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "placeholderImg"))
         }
     }
 
-
-//        if let uid = comment?.uid {
-//            Database.database().reference().child("comments").child(postId).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
-//                if  let dict = snapshot.value as? [String:Any]{
-//
-//                    let user = User.transformUser(dict: dict)
-//                    self.nameLabel.text = user.username
-//
-//                    if let photoUrlString = user.profileImageUrl {
-//                        let photoUrl = URL(string: photoUrlString)
-//                        self.profileImageView.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "placeholderImg"))
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
     
     
     override func awakeFromNib() {

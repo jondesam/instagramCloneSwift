@@ -33,11 +33,18 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         profileImageView.layer.cornerRadius = 40
         profileImageView.clipsToBounds = true
        
-        //Aloow user to touch imageView as button
+        //Allow user to touch imageView as button
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.handleSelectProfileImageView))
         profileImageView.addGestureRecognizer(tapGesture)
         profileImageView.isUserInteractionEnabled = true
         
+    }
+    
+    @objc func handleSelectProfileImageView () {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion:nil)
+        print("tapped")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,16 +58,9 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
                 self.profileImageView.sd_setImage(with: url)
             }
         })
-       
     }
     
-    @objc func handleSelectProfileImageView () {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        present(imagePicker, animated: true, completion:nil)
-        print("tapped")
-    }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("did finish picking image")
         if let image = info[.originalImage] as? UIImage {
@@ -117,7 +117,6 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     @IBAction func buttonLogOut(_ sender: Any) {
         
         do {
-            
             try  Auth.auth().signOut()
         } catch let logOutError {
             print(logOutError)

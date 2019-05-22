@@ -20,6 +20,10 @@
 		95895CFE2278ED49009371DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95895CFD2278ED49009371DC /* GoogleService-Info.plist */; };
 		959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */; };
 		95AC7B7922862DDC00EF0956 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AC7B7822862DDC00EF0956 /* User.swift */; };
+		95B888AF22921F2800007B30 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B888AE22921F2800007B30 /* UserApi.swift */; };
+		95B888B122933EF900007B30 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B888B022933EF900007B30 /* Api.swift */; };
+		95B888B3229340AB00007B30 /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B888B2229340AB00007B30 /* CommentApi.swift */; };
+		95B888B52293595400007B30 /* Post_CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B888B42293595400007B30 /* Post_CommentApi.swift */; };
 		95C0C382227F621300CDE5F7 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C381227F621200CDE5F7 /* placeholder.png */; };
 		95C0C38722821B3C00CDE5F7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C0C38622821B3C00CDE5F7 /* Post.swift */; };
 		95C0C38B2284714200CDE5F7 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C0C38A2284714200CDE5F7 /* home.storyboard */; };
@@ -42,6 +46,7 @@
 		95C5D5732277A77E0046BBA5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5722277A77E0046BBA5 /* CameraViewController.swift */; };
 		95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */; };
 		95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */; };
+		95F76B502291D4BC002138D7 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F76B4F2291D4BC002138D7 /* PostApi.swift */; };
 		95F826B4227A3CF800C651B6 /* defaultPerson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95F826B3227A3CF800C651B6 /* defaultPerson.jpg */; };
 		95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F8A7982288B0CE00FEF30E /* commentViewController.swift */; };
 		95F8A79B2288B10600FEF30E /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F8A79A2288B10600FEF30E /* commentTableViewCell.swift */; };
@@ -62,6 +67,10 @@
 		959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUITableViewCell.swift; sourceTree = "<group>"; };
 		959D17F42285F99000824F9B /* Placeholder-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder-image.png"; sourceTree = "<group>"; };
 		95AC7B7822862DDC00EF0956 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		95B888AE22921F2800007B30 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		95B888B022933EF900007B30 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		95B888B2229340AB00007B30 /* CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
+		95B888B42293595400007B30 /* Post_CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post_CommentApi.swift; sourceTree = "<group>"; };
 		95C0C381227F621200CDE5F7 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		95C0C38622821B3C00CDE5F7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		95C0C38A2284714200CDE5F7 /* home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
@@ -86,6 +95,7 @@
 		95C5D5722277A77E0046BBA5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		95F76B4F2291D4BC002138D7 /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
 		95F826B3227A3CF800C651B6 /* defaultPerson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultPerson.jpg; sourceTree = "<group>"; };
 		95F8A7982288B0CE00FEF30E /* commentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentViewController.swift; sourceTree = "<group>"; };
 		95F8A79A2288B10600FEF30E /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
@@ -209,6 +219,11 @@
 				95C5D556227792C10046BBA5 /* AppDelegate.swift */,
 				95895CFD2278ED49009371DC /* GoogleService-Info.plist */,
 				95C5D562227792C20046BBA5 /* Info.plist */,
+				95F76B4F2291D4BC002138D7 /* PostApi.swift */,
+				95B888AE22921F2800007B30 /* UserApi.swift */,
+				95B888B2229340AB00007B30 /* CommentApi.swift */,
+				95B888B42293595400007B30 /* Post_CommentApi.swift */,
+				95B888B022933EF900007B30 /* Api.swift */,
 				95C0C38522821B2B00CDE5F7 /* Post */,
 				95895CFB2278DF9E009371DC /* Storyboards */,
 				95895CFC2278DFCF009371DC /* ViewContorllers */,
@@ -377,9 +392,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				95C5D56B227793310046BBA5 /* SignUpViewController.swift in Sources */,
+				95B888AF22921F2800007B30 /* UserApi.swift in Sources */,
 				95C5D569227793190046BBA5 /* LogInViewController.swift in Sources */,
 				95F8A79B2288B10600FEF30E /* commentTableViewCell.swift in Sources */,
 				9547955E2289F8E70083DC20 /* Comment.swift in Sources */,
+				95B888B52293595400007B30 /* Post_CommentApi.swift in Sources */,
+				95B888B122933EF900007B30 /* Api.swift in Sources */,
+				95B888B3229340AB00007B30 /* CommentApi.swift in Sources */,
 				959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */,
 				95C5D557227792C10046BBA5 /* AppDelegate.swift in Sources */,
 				95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */,
@@ -387,6 +406,7 @@
 				95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */,
 				95C5D5712277A74C0046BBA5 /* DiscoverViewController.swift in Sources */,
 				95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */,
+				95F76B502291D4BC002138D7 /* PostApi.swift in Sources */,
 				95C0C38722821B3C00CDE5F7 /* Post.swift in Sources */,
 				95C5D5732277A77E0046BBA5 /* CameraViewController.swift in Sources */,
 				95AC7B7922862DDC00EF0956 /* User.swift in Sources */,

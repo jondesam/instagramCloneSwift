@@ -19,11 +19,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
     @IBOutlet weak var constraintToBotton: NSLayoutConstraint!
     
     var comments = [Comment]()
-    //??
     var users = [User]()
-    
-    
-    
     let cellId = "commentCell"
     var postId:String!
     
@@ -40,24 +36,21 @@ class commentViewController: UIViewController,UITableViewDataSource{
         handleTextField()
         loadComments()
         
-        //Keyboard
-        
+        //Keyboard setup
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillhide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillhide), name: UIResponder.keyboardWillHideNotification, object: nil)
         tableViewOfCommets.keyboardDismissMode = .interactive
-        
     }
     
-    
-    //MARK:- comment input with keyboard
-    
+    //MARK:- comment input setup with keyboard
     
     @objc func keyboardWillShow(_ notification:NSNotification)  {
         
         print(notification)
         //extract cgRectVAlue
         let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        
       //  print(keyboardFrame)
         UIView.animate(withDuration: 0.3) {
             self.constraintToBotton.constant = keyboardFrame!.height
@@ -65,57 +58,61 @@ class commentViewController: UIViewController,UITableViewDataSource{
         }
     }
     
-    @objc func keyboardWillhide(_ notification:NSNotification)  {
-        print(notification)
+    @objc func keyboardWillhide( )  {
+       // print(notification)
         UIView.animate(withDuration: 0.3) {
             self.constraintToBotton.constant = 0
             self.view.layoutIfNeeded()
         }
     }
     
-    
-    
-    
     //MARK:- Loading comments Data
-    func loadComments(){
+    
+    func loadComments() {
         
+        Api.Post_CommentAPI.observePostComment(withPostId: postId) { (postId) in
+            let postId = postId
+        
+            Api.CommentAPI.observComment(withPostId: postId ) { (comment) in
+                self.fetchUser(uid: comment.uid!, completed: {
+                    self.comments.append(comment)
+                    
+                    self.tableViewOfCommets.reloadData()
+                })
+            }
+        }
+    }
+    
+    
+    func loadCommentsOri(){
+
         let postCommentRef = Database.database().reference().child("post-comments").child(self.postId)
-        
-        postCommentRef.observe(DataEventType.childAdded) { (snapshot) in
-            print("observe key")
-            print(snapshot.key)
+
+            postCommentRef.observe(DataEventType.childAdded) { (snapshot) in
+           
             Database.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: DataEventType.value, with: { (snapshotComment) in
-                //  print(snapshotComment.value)
-                
+
                 if  let dict = snapshotComment.value as? [String:Any]{
-                    print("This is dictionary from snapshot.values")
-                    print(dict.values)
-                    
+                 
                     let newComment = Comment.transformComment(dict: dict)
-                    
+
                     self.fetchUser(uid: newComment.uid!, completed: {
                         self.comments.append(newComment)
-                        
-                        //   self.activityIndicatorView.stopAnimating()
-                        print("This is comments")
-                        print(self.comments)
+
                         self.tableViewOfCommets.reloadData()
                     })
                 }
             })
         }
     }
-    
+
     //MARK: - Fetching Data
+    
     func fetchUser(uid: String, completed: @escaping () -> Void) {
         
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
-            
-            if  let dict = snapshot.value as? [String:Any]{
-                let user = User.transformUser(dict: dict)
-                self.users.append(user)
-                completed()
-            }
+        Api.UserAPI.observeUsers(withId: uid) { (user) in
+            self.users.append(user)
+            completed()
         }
     }
     
@@ -130,12 +127,10 @@ class commentViewController: UIViewController,UITableViewDataSource{
          tabBarController?.tabBar.isHidden = false
     }
     
-    
-    
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
         
-        let ref = Database.database().reference()
-        let commentReference = ref.child("comments")
+       
+        let commentReference = Api.CommentAPI.REF_COMMENT
         let newCommentId = commentReference.childByAutoId().key
         let newCommentReference = commentReference.child(newCommentId)
         
@@ -154,20 +149,17 @@ class commentViewController: UIViewController,UITableViewDataSource{
                 return
             }
             
-            let postCommentRef = Database.database().reference().child("post-comments").child(self.postId).child(newCommentId)
+            let postCommentRef =  Api.Post_CommentAPI.REF_POST_COMMENT.child(self.postId).child(newCommentId)
             postCommentRef.setValue(true, withCompletionBlock: { (error, DatabaseReference) in
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 }
             })
             
-            
             print("comment uploaded")
             self.empty()
             self.view.endEditing(true)
-            
         }
-        
     }
     
     func empty() {
@@ -191,7 +183,6 @@ class commentViewController: UIViewController,UITableViewDataSource{
         }
         sendButton.setTitleColor(UIColor.lightGray, for: UIControl.State.normal)
         sendButton.isEnabled = false
-        
     }
     
     
@@ -209,9 +200,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
         cell.comment = comment
         cell.user = user
         
-        
         return cell
-        
     }
     
     

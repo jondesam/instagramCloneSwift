@@ -23,34 +23,21 @@ class SignUpViewController: UIViewController{
     @IBOutlet weak var textID: UITextField!
     @IBOutlet weak var textMail: UITextField!
     @IBOutlet weak var textPassword: UITextField!
-    
-    
-    
-    
     @IBAction func ButtonSignUp(_ sender: UIButton) {
-        
         checkingIdEmailPassword()
-        
     }
-    
-    
-    
-    
     @IBAction func goBackToLogIn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    
-    
     func checkingIdEmailPassword() {
         
         //validating ID,Email and Password
-        guard   let idCheck = textID, idCheck.text!.count >= 6,
+        guard let idCheck = textID, idCheck.text!.count >= 6,
             let mailCheck = textMail, mailCheck.text!.count >= 6 ,
             let passwordCheck = textPassword, passwordCheck.text!.count >= 6
             
             else {
-                
                 let alert = UIAlertController(title:"Invalid Id or Password ", message: "ID, Email and Password Must be more than 6 charaters long", preferredStyle: UIAlertController.Style.alert)
                 
                 alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default, handler: nil))
@@ -59,8 +46,8 @@ class SignUpViewController: UIViewController{
                 
                 return
         }
-         SVProgressHUD.show(withStatus: "Wait Please...")
-        
+        SVProgressHUD.show(withStatus: "Wait Please...")
+       
         Auth.auth().createUser(withEmail: textMail.text!, password: textPassword.text!) { (user, error) in
             if error != nil {
                 self.showAlert()
@@ -80,11 +67,6 @@ class SignUpViewController: UIViewController{
             // SVProgressHUD.dismiss()
             return
         }
-        
-//        Auth.auth().createUser(withEmail: textMail.text!, password:textPassword.text!) { authResult, error in
-//
-//
-//        }
         
     }
     

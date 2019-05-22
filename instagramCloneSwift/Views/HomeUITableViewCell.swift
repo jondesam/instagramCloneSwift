@@ -34,7 +34,6 @@ class HomeUITableViewCell: UITableViewCell {
         }
     }
     
-    
     func updateHomeView(){
         descriptionLabel.text = post!.description
         
@@ -43,8 +42,6 @@ class HomeUITableViewCell: UITableViewCell {
             
             postImageView.sd_setImage(with: photoUrl)
         }
-   
-        
     }
     
     func setUpUserInfo() {
@@ -82,8 +79,6 @@ class HomeUITableViewCell: UITableViewCell {
                homeVC?.performSegue(withIdentifier: "commentSegue", sender: id)
         }
     }
-    
-    
     
     /// ?? ///
     override func prepareForReuse() {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 class Post {
     var description :String?
     var photoURL :String?
@@ -22,6 +23,7 @@ class Post {
 //    }
     
     static func transFromPostPhoto(dict: [String:Any], key:String) -> Post {
+        
         let post  = Post()
         
         post.description = dict["description"] as? String
@@ -29,6 +31,7 @@ class Post {
         post.user = dict["user"] as? String
         post.uid = dict["uid"] as? String
         post.id = key
+        
         return post
     }
     

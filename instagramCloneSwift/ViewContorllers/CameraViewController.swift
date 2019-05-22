@@ -16,9 +16,7 @@ import SVProgressHUD
 class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var photoToShare: UIImageView!
-    
     @IBOutlet weak var photoDescription: UITextView!
-    
     @IBOutlet weak var buttonShareOutlet: UIButton!
     
     var selectedImage: UIImage?
@@ -123,7 +121,6 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let currentUserId = currentUser.uid
         
         newPostRef.setValue(["photoUrl":photoUrl,
-                             
                              "description":photoDescription.text!,
                              "user":Auth.auth().currentUser?.email,
                              "uid":currentUserId]) { (error, ref) in
