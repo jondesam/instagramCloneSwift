@@ -91,7 +91,6 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         }
     
     
-    
     //MARK: - tableView methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -100,18 +99,18 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeUITableViewCell
-        print(indexPath.row)
+       // print(indexPath.row)
         let post = posts[indexPath.row]
         let user = users[indexPath.row]
         
-        print("This is post")
-        dump(post)
+//        print("This is post")
+//        dump(post)
         
         cell.post = post
         cell.user = user
         
-        print("This is cell.post")
-        dump(cell.post)
+//        print("This is cell.post")
+//        dump(cell.post)
 //        print("This is cell.user")
 //        dump(cell.user)
        
@@ -122,8 +121,8 @@ class HomeViewController: UIViewController,UITableViewDataSource {
        // dump(cell.homeVC)
         //cell.updateHomeView(post: post)
         
-        print("This is cell")
-        dump(cell)
+//        print("This is cell")
+//        dump(cell)
         return cell
     }
     

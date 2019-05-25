@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 class UserApi {
     var REF_USERS =  Database.database().reference().child("users")
@@ -23,6 +24,13 @@ class UserApi {
         }
     }
     
+    
+    var REF_CURRENT_USER: DatabaseReference? {
+        guard let currentUser = Auth.auth().currentUser else {
+            return nil
+        }
+        return REF_USERS.child(currentUser.uid)
+    }
 //    func observeUsersMal(uid:String, completion: @escaping(User) -> Void ) {
 //
 //        REF_USERS.child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in

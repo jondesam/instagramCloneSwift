@@ -12,12 +12,35 @@ import FirebaseAuth
 import FirebaseDatabase
 import SVProgressHUD
 
-class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource  {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell" , for: indexPath)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for:indexPath) as! HeaderProfileCollectionReusableView
+        headerViewCell.backgroundColor = UIColor.red
+        headerViewCell.updateView()
+        return headerViewCell
+    }
+    
     
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageViewOri: UIImageView!
     var selectedImage: UIImage?
     
-    @IBOutlet weak var profilName: UITextField!
+    @IBOutlet weak var profileName: UITextField!
+    @IBOutlet weak var profilNameOri: UITextField!
     var userName:String?
     
     //database setup
@@ -27,16 +50,17 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.dataSource = self
         userName = Auth.auth().currentUser?.email
-        profilName.text = userName
-
-        profileImageView.layer.cornerRadius = 40
-        profileImageView.clipsToBounds = true
-       
+     //   profileName.text = userName
+        
+      //  profileImageView.layer.cornerRadius = 40
+       // profileImageView.clipsToBounds = true
+        
         //Allow user to touch imageView as button
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.handleSelectProfileImageView))
-        profileImageView.addGestureRecognizer(tapGesture)
-        profileImageView.isUserInteractionEnabled = true
+      //  profileImageView.addGestureRecognizer(tapGesture)
+      //  profileImageView.isUserInteractionEnabled = true
         
     }
     
@@ -55,21 +79,21 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
                 print("Download URL fail")
                 return
             }else {
-                self.profileImageView.sd_setImage(with: url)
+              //  self.profileImageView.sd_setImage(with: url)
             }
         })
     }
     
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("did finish picking image")
         if let image = info[.originalImage] as? UIImage {
-           // selectedImage = image
+            // selectedImage = image
             profileImageView.image = image
         }
         
         let selectedImageUrl = info[.imageURL]
-      
+        
         profileImageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
             if error != nil {
                 return
@@ -83,7 +107,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
                         let profilePhotoUrl  = url?.absoluteString
                         
                         self.sendDataToDatabase(profilePhotoUrl: profilePhotoUrl!)
-                     
+                        
                         self.profileImageView.sd_setImage(with: url)
                     }
                 })
@@ -91,7 +115,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
                 return
             }
         }
-      //  print(info)
+        //  print(info)
         dismiss(animated: true, completion: nil)
     }
     
@@ -102,7 +126,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         let ref = Database.database().reference()
         let postRef = ref.child("users")
         let newPostId = postRef.child(currentUser.uid)
-       
+        
         newPostId.updateChildValues(["profileImageUrl":profilePhotoUrl]) { (error, DatabaseReference) in
             if error != nil {
                 print("data upload fail")
@@ -122,7 +146,7 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             print(logOutError)
         }
         //print(Auth.auth().currentUser?.email)
-
+        
         let storyboard =  UIStoryboard(name: "Main", bundle: nil)
         
         let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
@@ -132,12 +156,12 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     }
 }
 
-        
-        
-        
-        
 
 
-    
-    
+
+
+
+
+
+
 

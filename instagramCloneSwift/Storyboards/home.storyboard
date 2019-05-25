@@ -58,18 +58,18 @@
                                                         <constraint firstAttribute="height" constant="6" id="59k-X7-l6d"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5C-tK-Lkh">
-                                                    <rect key="frame" x="20" y="351" width="140" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5C-tK-Lkh">
+                                                    <rect key="frame" x="20" y="351" width="140" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="140" id="BJ2-5V-Uls"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <state key="normal" title="Be the first one">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zj-mY-FvL">
-                                                    <rect key="frame" x="20" y="389" width="42" height="18"/>
+                                                    <rect key="frame" x="20" y="388" width="42" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="Uhy-pJ-yoL"/>
                                                     </constraints>
