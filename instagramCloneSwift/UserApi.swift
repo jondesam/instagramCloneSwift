@@ -23,6 +23,25 @@ class UserApi {
             }
         }
     }
+
+    
+
+    func observeCurrentUse(completion: @escaping(User) -> Void)  {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        
+        REF_USERS.child(currentUser.uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
+            
+            if  let dict = snapshot.value as? [String:Any]{
+                let user = User.transformUser(dict: dict)
+                completion(user)
+            }
+        }
+
+    }
+    
+    
     
     
     var REF_CURRENT_USER: DatabaseReference? {
@@ -31,6 +50,18 @@ class UserApi {
         }
         return REF_USERS.child(currentUser.uid)
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 //    func observeUsersMal(uid:String, completion: @escaping(User) -> Void ) {
 //
 //        REF_USERS.child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
