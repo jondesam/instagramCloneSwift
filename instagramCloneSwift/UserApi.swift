@@ -27,12 +27,13 @@ class UserApi {
     
 
     func observeCurrentUse(completion: @escaping(User) -> Void)  {
+        
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
-        
         REF_USERS.child(currentUser.uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
-            
+            print("snapshot.value")
+            print(snapshot.value)
             if  let dict = snapshot.value as? [String:Any]{
                 let user = User.transformUser(dict: dict)
                 completion(user)

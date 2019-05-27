@@ -15,12 +15,31 @@ import SVProgressHUD
 class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource  {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var user: User!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView.dataSource = self
+        fetchUser()
+        
+        
+    }
+    
+    func fetchUser() {
+        Api.UserAPI.observeCurrentUse { (user) in
+            
+            self.user = user
+            self.collectionView.reloadData()
+            
+        }
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -29,38 +48,20 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for:indexPath) as! HeaderProfileCollectionReusableView
       
         headerViewCell.updateView()
+        
+        if let user = self.user {
+              headerViewCell.user = user
+        }
+      
         return headerViewCell
     }
     
-    /////////////without collectionView//////////////
 
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.dataSource = self
-        fetchUser()
-        
-      
-    }
-    
-    
-    func fetchUser() {
-        Api.UserAPI.observeCurrentUse { (user) in
-         
-            self.user = user
-            self.collectionView.reloadData()
-         
-        }
-    }
-    
- 
-    
-    
-    
     @IBAction func buttonLogOut(_ sender: Any) {
         
         do {
@@ -77,8 +78,6 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
         present(logInVC, animated: true, completion: nil)
         
     }
-    
-    
 }
 
 

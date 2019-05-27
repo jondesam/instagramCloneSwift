@@ -17,18 +17,26 @@
         @IBOutlet weak var followingCountLabel: UILabel!
         @IBOutlet weak var followersCountLabel: UILabel!
         
+        var user: User? {
+            didSet {
+                updateView()
+            }
+        }
+        
         
         func  updateView() {
      
-            Api.UserAPI.observeCurrentUse { (user) in
-                
+          //  Api.UserAPI.observeCurrentUse { (user) in
+            if let user = user {
                 self.nameLable.text = user.username
+                
                 if let photoUrlString = user.profileImageUrl {
                     let photoUrl = URL(string: photoUrlString)
                     self.profileImage.sd_setImage(with: photoUrl)
                 }
             }
             
-            
+           
+//            }
     }
 }
