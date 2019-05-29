@@ -26,7 +26,7 @@
         
         func  updateView() {
      
-          //  Api.UserAPI.observeCurrentUse { (user) in
+         
             if let user = user {
                 self.nameLable.text = user.username
                 
@@ -35,8 +35,5 @@
                     self.profileImage.sd_setImage(with: photoUrl)
                 }
             }
-            
-           
-//            }
     }
 }

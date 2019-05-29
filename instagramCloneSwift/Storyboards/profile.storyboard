@@ -22,23 +22,37 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fmQ-0J-53m">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="50" height="395"/>
+                                    <size key="itemSize" width="110" height="119"/>
+                                    <size key="headerReferenceSize" width="50" height="226"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="Sny-Fq-DpK">
-                                        <rect key="frame" x="0.0" y="395" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="Sny-Fq-DpK" customClass="PhotoCollectionViewCell" customModule="instagramCloneSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="226" width="110" height="119"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MAi-GL-0za">
+                                                    <rect key="frame" x="8" y="52" width="94" height="59"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="MAi-GL-0za" firstAttribute="top" secondItem="Sny-Fq-DpK" secondAttribute="topMargin" id="9h2-3r-8Qt"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="MAi-GL-0za" secondAttribute="bottom" id="Cc9-SO-n8h"/>
+                                            <constraint firstItem="MAi-GL-0za" firstAttribute="leading" secondItem="Sny-Fq-DpK" secondAttribute="leadingMargin" id="flL-bf-GdA"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="MAi-GL-0za" secondAttribute="trailing" id="oAo-uI-WfW"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="photo" destination="MAi-GL-0za" id="n8Z-o4-UZo"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderProfileCollectionReusableView" id="dSm-9B-EUr" customClass="HeaderProfileCollectionReusableView" customModule="instagramCloneSwift" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="395"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="226"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPerson.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-nl-RGb">

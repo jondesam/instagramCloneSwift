@@ -83,28 +83,6 @@ class commentViewController: UIViewController,UITableViewDataSource{
         }
     }
     
-    
-    func loadCommentsOri(){
-
-        let postCommentRef = Database.database().reference().child("post-comments").child(self.postId)
-
-            postCommentRef.observe(DataEventType.childAdded) { (snapshot) in
-           
-            Database.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: DataEventType.value, with: { (snapshotComment) in
-
-                if  let dict = snapshotComment.value as? [String:Any]{
-                 
-                    let newComment = Comment.transformComment(dict: dict)
-
-                    self.fetchUser(uid: newComment.uid!, completed: {
-                        self.comments.append(newComment)
-
-                        self.tableViewOfCommets.reloadData()
-                    })
-                }
-            })
-        }
-    }
 
     //MARK: - Fetching Data
     

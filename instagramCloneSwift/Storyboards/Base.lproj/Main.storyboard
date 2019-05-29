@@ -181,7 +181,7 @@
                         <viewLayoutGuide key="safeArea" id="OFc-iZ-VWm"/>
                     </view>
                     <connections>
-                        <outlet property="textID" destination="OGL-Qh-65X" id="I4x-EK-fhu"/>
+                        <outlet property="textId" destination="OGL-Qh-65X" id="C3z-Mq-lMZ"/>
                         <outlet property="textMail" destination="Iqz-F5-rLl" id="cpV-FY-rme"/>
                         <outlet property="textPassword" destination="VRG-l0-RVj" id="IHC-Os-ce4"/>
                         <segue destination="aEs-D0-IgO" kind="presentation" identifier="signUpSegue" id="dMK-BN-xlR"/>
@@ -201,6 +201,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="v5J-2d-JSH"/>
+        <segue reference="dMK-BN-xlR"/>
     </inferredMetricsTieBreakers>
 </document>

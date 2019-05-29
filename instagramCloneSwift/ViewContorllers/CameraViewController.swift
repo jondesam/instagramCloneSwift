@@ -75,7 +75,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             let uuid =  UUID().uuidString
             let user = Auth.auth().currentUser
             
-            let storageRef = Storage.storage().reference(forURL: "gs://instagramcloneswift.appspot.com")
+            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF)
             let sharingImageRef = storageRef.child("sharing_photo").child(user!.email!).child(uuid)
            
             sharingImageRef.putData(imageData, metadata: nil) { (metadata, error) in
@@ -129,6 +129,15 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                                     SVProgressHUD.showError(withStatus: error?.localizedDescription)
                                     return
                                 }
+                             let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId)
+                                
+                                myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
+                                    if error != nil {
+                                        SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                                        return
+                                    }
+                                })
+                                
                                 print("data uploaded")
                                 SVProgressHUD.showSuccess(withStatus: "Success")
                                 self.photoDescription.text = ""
