@@ -7,11 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseStorage
-import FirebaseDatabase
 import SVProgressHUD
-
 
 class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
@@ -71,78 +67,32 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         SVProgressHUD.show(withStatus: "Wait Please...")
         
         if let imageData = selectedImage!.jpegData(compressionQuality: 0.1){
+        
+            HelperService.uploadDataToServer(imageData: imageData, description: photoDescription.text!, onSuccess: {
+                self.photoDescription.text = ""
+                self.tabBarController?.selectedIndex = 0
+                SVProgressHUD.setMinimumDismissTimeInterval(1.0)
+                SVProgressHUD.showSuccess(withStatus: "Success")
+             
+                print("image uploaded")
+                
+                
+            }, onError: {
+                
+                SVProgressHUD.setMinimumDismissTimeInterval(1.0)
+                SVProgressHUD.showError(withStatus: "Upload Failed")
             
-            let uuid =  UUID().uuidString
-            let user = Auth.auth().currentUser
+            })
+
             
-            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF)
-            let sharingImageRef = storageRef.child("sharing_photo").child(user!.email!).child(uuid)
-           
-            sharingImageRef.putData(imageData, metadata: nil) { (metadata, error) in
-                if error != nil {
-                    print(error!)
-                    SVProgressHUD.showError(withStatus: "Upload Failed")
-                    return
-                } else {
-                    SVProgressHUD.setMinimumDismissTimeInterval(1.0)
-                    
-                    //downloading Sharing Image Url
-                    sharingImageRef.downloadURL(completion: { (url, error) in
-                        if error != nil {
-                            print("Download URL fail")
-                            return
-                        }else {
-                            let SharingPhotoUrl = url?.absoluteString
-                            self.sendDataToDatabase(photoUrl: SharingPhotoUrl!)
-                        }
-                    })
-                    
-                    SVProgressHUD.showSuccess(withStatus: "Upload Success")
-                  //  print("image uploaded")
-                    return
-                }
-            }
+            SVProgressHUD.dismiss()
             photoToShare.image = UIImage(named: "placeholder.png")
           //  tabBarController?.selectedIndex = 0
             selectedImage = nil
         }
     }
     
-    func sendDataToDatabase(photoUrl: String) {
-        let ref = Database.database().reference()
-        let postRef = ref.child("Posts")
-        let newPostId = postRef.childByAutoId().key
-        let newPostRef = postRef.child(newPostId)
-        
-        guard let currentUser = Auth.auth().currentUser else {
-            return
-        }
-        
-        let currentUserId = currentUser.uid
-        
-        newPostRef.setValue(["photoUrl":photoUrl,
-                             "description":photoDescription.text!,
-                             "user":Auth.auth().currentUser?.email,
-                             "uid":currentUserId]) { (error, ref) in
-                                if error != nil {
-                                    print("data upload fail")
-                                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
-                                    return
-                                }
-                             let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId)
-                                
-                                myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
-                                    if error != nil {
-                                        SVProgressHUD.showError(withStatus: error?.localizedDescription)
-                                        return
-                                    }
-                                })
-                                
-                                print("data uploaded")
-                                SVProgressHUD.showSuccess(withStatus: "Success")
-                                self.photoDescription.text = ""
-        }
-    }
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)

@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import FirebaseAuth
 import SVProgressHUD
-import FirebaseDatabase
+
 import SDWebImage
 
 class HomeViewController: UIViewController,UITableViewDataSource {
@@ -32,26 +31,10 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         tableView.rowHeight = 440
         tableView.estimatedRowHeight = 600
         loadPosts()
-        print(Auth.auth().currentUser?.email as Any)
+       // print(Auth.auth().currentUser?.email as Any)
         
     }
     
-          func loadPostsOri() {
-            activityIndicatorView.startAnimating()
-            Database.database().reference().child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-    
-                if  let dict = snapshot.value as? [String:Any]{
-    
-                    let newPost = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
-    
-                    self.fetchUser(uid: newPost.uid!, completed: {
-                        self.posts.append(newPost)
-                        self.activityIndicatorView.stopAnimating()
-                        self.tableView.reloadData()
-                    })
-                }
-            }
-        }
     
     
     func loadPosts() {
@@ -77,18 +60,7 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     }
     
     
-    func fetchUserOri(uid: String, completed: @escaping () -> Void) {
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
 
-            if  let dict = snapshot.value as? [String:Any]{
-                let user = User.transformUser(dict: dict)
-                self.users.append(user)
-//                print("This is users")
-//                dump(self.users)
-                completed()
-                }
-            }
-        }
     
     
     //MARK: - tableView methods

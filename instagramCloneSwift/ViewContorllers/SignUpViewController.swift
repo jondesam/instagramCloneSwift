@@ -7,9 +7,6 @@
     //
 
     import UIKit
-
-    import Firebase
-    import UserNotifications
     import SVProgressHUD
 
     class SignUpViewController: UIViewController{

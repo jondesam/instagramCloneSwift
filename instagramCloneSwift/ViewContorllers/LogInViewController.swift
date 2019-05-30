@@ -7,7 +7,6 @@
     //
 
     import UIKit
-    import FirebaseAuth
     import SVProgressHUD
 
     class LogInViewController: UIViewController {
@@ -28,7 +27,7 @@
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            if Auth.auth().currentUser != nil {
+            if Api.UserAPI.REF_CURRENT_USER != nil {
                 self.performSegue(withIdentifier: "logInSegue", sender: self)
             }
         }
@@ -36,7 +35,7 @@
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
            
-            if Auth.auth().currentUser != nil {
+            if Api.UserAPI.REF_CURRENT_USER != nil {
                 self.performSegue(withIdentifier: "logInSegue", sender: self)
             }
         }

@@ -7,9 +7,7 @@
     //
 
     import UIKit
-    import FirebaseStorage
-    import FirebaseAuth
-    import FirebaseDatabase
+    
     import SVProgressHUD
 
     class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -43,16 +41,17 @@
         
         //MARK: fecthincg Posts
         func fectchMyPosts() {
-            guard let currentUser = Auth.auth().currentUser else {
-                return
-            }
-            Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded) { (snapshot) in
+          
+            
+        
+        let currentUserUid = Api.UserAPI.CURRENT_USER_UID
+            Api.MyPosts.REF_MYPOSTS.child(currentUserUid!).observe(.childAdded) { (snapshot) in
                 print("snapshot of myPosts")
                 print(snapshot)
                 
                 Api.PostAPI.observePost(withId: snapshot.key, completion: { (post) in
                     print("this is post in profileView")
-                    print(post.id)
+                 //   print(post.id)
                     self.posts.append(post)
                     self.collectionView.reloadData()
                 })
@@ -109,26 +108,30 @@
         //MARK: - Logout method
         @IBAction func buttonLogOut(_ sender: Any) {
             
-            do {
-                try  Auth.auth().signOut()
-            } catch let logOutError {
-                print(logOutError)
+            AuthService.logOut(onSuccess: {
+                let storyboard =  UIStoryboard(name: "Main", bundle: nil)
+                
+                let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
+                
+               self.present(logInVC, animated: true, completion: nil)
+                
+            }) { (logOutError) in
+                SVProgressHUD.showError(withStatus: logOutError)
             }
-            print(Auth.auth().currentUser?.email)
             
-            let storyboard =  UIStoryboard(name: "Main", bundle: nil)
             
-            let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
             
-            present(logInVC, animated: true, completion: nil)
             
-        }
+            
+   
+        
+        
     }
 
 
 
 
-
+    }
 
 
 

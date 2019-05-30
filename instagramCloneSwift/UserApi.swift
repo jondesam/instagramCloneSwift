@@ -31,18 +31,19 @@ class UserApi {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
+        
         REF_USERS.child(currentUser.uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
             print("snapshot.value")
-            print(snapshot.value)
+         //   print(snapshot.value)
             if  let dict = snapshot.value as? [String:Any]{
                 let user = User.transformUser(dict: dict)
                 completion(user)
             }
         }
-
     }
     
-    
+    var CURRENT_USER = Auth.auth().currentUser
+    var CURRENT_USER_UID = Auth.auth().currentUser?.uid
     
     
     var REF_CURRENT_USER: DatabaseReference? {
@@ -51,16 +52,6 @@ class UserApi {
         }
         return REF_USERS.child(currentUser.uid)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 //    func observeUsersMal(uid:String, completion: @escaping(User) -> Void ) {

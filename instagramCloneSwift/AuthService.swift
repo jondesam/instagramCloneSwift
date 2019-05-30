@@ -58,6 +58,18 @@
             }
         }
         
+        static func logOut(onSuccess: @escaping () ->Void, onError:@escaping (_ logOutError:String) ->Void){
+        
+            do {
+                try  Auth.auth().signOut()
+                onSuccess()
+            } catch let logOutError {
+                print(logOutError)
+                onError(logOutError.localizedDescription)
+            }
+        
+        
+        }
 
         
         

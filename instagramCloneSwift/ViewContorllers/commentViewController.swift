@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
 import SVProgressHUD
 
 class commentViewController: UIViewController,UITableViewDataSource{
@@ -112,7 +110,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
         let newCommentId = commentReference.childByAutoId().key
         let newCommentReference = commentReference.child(newCommentId)
         
-        guard let currentUser = Auth.auth().currentUser else {
+        guard let currentUser = Api.UserAPI.CURRENT_USER else {
             return
         }
         
