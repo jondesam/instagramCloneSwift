@@ -5,16 +5,16 @@
     //  Created by MyMac on 2019-04-29.
     //  Copyright © 2019 Apex. All rights reserved.
     //
-
-    import UIKit
     
+    import UIKit
+    //import FirebaseAuth
     import SVProgressHUD
-
+    
     class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
         
         @IBOutlet weak var collectionView: UICollectionView!
         
-        var user: User!
+        var user: UserModel!
         //initilizing with empty array
         var posts: [Post] = []
         
@@ -41,17 +41,20 @@
         
         //MARK: fecthincg Posts
         func fectchMyPosts() {
-          
+            //naming error used to occur ->user's photo can not be dicerned
+            //Firebase User type was confused with custom type User.
+            //currently class: User -> UserModel
+            guard let currentUser = Api.UserAPI.CURRENT_USER else {
+                return
+            }
             
-        
-        let currentUserUid = Api.UserAPI.CURRENT_USER_UID
-            Api.MyPosts.REF_MYPOSTS.child(currentUserUid!).observe(.childAdded) { (snapshot) in
-                print("snapshot of myPosts")
-                print(snapshot)
+            Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded) { (snapshot) in
+               // print("snapshot of myPosts")
+               // print(snapshot)
                 
                 Api.PostAPI.observePost(withId: snapshot.key, completion: { (post) in
-                    print("this is post in profileView")
-                 //   print(post.id)
+                  //  print("this is post in profileView")
+                    //   print(post.id)
                     self.posts.append(post)
                     self.collectionView.reloadData()
                 })
@@ -76,17 +79,17 @@
         func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
             
             let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for:indexPath) as! HeaderProfileCollectionReusableView
-          
+            
             headerViewCell.updateView()
             
             if let user = self.user {
-                  headerViewCell.user = user
+                headerViewCell.user = user
             }
-          
+            
             return headerViewCell
         }
         
-
+        
         //MARK: - cell size
         
         // it needs delegate to work
@@ -113,27 +116,20 @@
                 
                 let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
                 
-               self.present(logInVC, animated: true, completion: nil)
+                self.present(logInVC, animated: true, completion: nil)
                 
             }) { (logOutError) in
                 SVProgressHUD.showError(withStatus: logOutError)
             }
             
-            
-            
-            
-            
-   
+        }
+        
+        
         
         
     }
-
-
-
-
-    }
-
-
-
-
-
+    
+    
+    
+    
+    

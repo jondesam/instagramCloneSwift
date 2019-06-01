@@ -14,27 +14,16 @@ class Post_CommentApi {
     
     func observePostComment(withPostId postId:String, completion: @escaping(String) -> Void) {
        REF_POST_COMMENT.child(postId).observe(DataEventType.childAdded) { (snapshot) in
-        print("This is sanpshop.key")
-        print(snapshot.key)
-             let postId = snapshot.key
+        
+     //   print("This is sanpshop.key")
+     //   print(snapshot.key)
+        
+        let postId = snapshot.key
             completion(postId)
         }
      
     }
     
     
-//    func observComment(withPostId postId:String, completion: @escaping (Comment) -> Void ) {
-//
-//        REF_COMMENT.child(postId).observeSingleEvent(of: DataEventType.value, with: { (snapshotComment) in
-//
-//            if  let dict = snapshotComment.value as? [String:Any]{
-//
-//                let newComment = Comment.transformComment(dict: dict)
-//
-//                completion(newComment)
-//            }
-//        })
-//
-//
-//    }
+
 }

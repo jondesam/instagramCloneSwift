@@ -10,7 +10,9 @@ import Foundation
 import FirebaseStorage
 
 class HelperService {
+    
     static func uploadDataToServer(imageData: Data, description:String, onSuccess: @escaping ()->Void, onError: @escaping () -> Void ) {
+        
         let user = Api.UserAPI.CURRENT_USER
         
         let uuid =  UUID().uuidString
@@ -54,20 +56,20 @@ class HelperService {
         guard let currentUser = Api.UserAPI.CURRENT_USER else {
             return
         }
-        let currentUserId = Api.UserAPI.CURRENT_USER_UID
+        
+       
         
         newPostReference.setValue(["photoUrl":photoUrl,
                                    "description":description,
                                    "user": currentUser.email,
-                                   
-                                   "uid":currentUserId]) { (error, ref) in
+                                   "uid":currentUser.uid]) { (error, ref) in
                                     if error != nil {
                                         print("data upload fail")
                                         onError()
                                         //                                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
                                         return
                                     }
-                                    let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId!).child(newPostId)
+                                    let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).child(newPostId)
                                     
                                     myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                                         if error != nil {
@@ -80,8 +82,5 @@ class HelperService {
                                     
                                     onSuccess()
         }
-        
-        
-        
     }
 }

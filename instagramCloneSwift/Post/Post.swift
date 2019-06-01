@@ -52,8 +52,8 @@ class Post {
                 
                 if post.likes![currentUserId] != nil {
                     
-                    print("this is post.likes")
-                    print(post.likes)
+               //     print("this is post.likes")
+                //    print(post.likes)
                     
                     post.isLiked = true
                 } else {
@@ -61,8 +61,8 @@ class Post {
                 }
             }
         }
-        print("This is post form post Model")
-        dump(post)
+      //  print("This is post form post Model")
+      //  dump(post)
         return post
     }
     

@@ -14,7 +14,7 @@ import SDWebImage
 class HomeViewController: UIViewController,UITableViewDataSource {
     
     var posts = [Post]()
-    var users = [User]()
+    var users = [UserModel]()
     let cellId = "PostCell"
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +32,7 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         tableView.estimatedRowHeight = 600
         loadPosts()
        // print(Auth.auth().currentUser?.email as Any)
+        self.activityIndicatorView.stopAnimating()
         
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import SVProgressHUD
 
 class commentViewController: UIViewController,UITableViewDataSource{
@@ -17,7 +18,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
     @IBOutlet weak var constraintToBotton: NSLayoutConstraint!
     
     var comments = [Comment]()
-    var users = [User]()
+    var users = [UserModel]()
     let cellId = "commentCell"
     var postId:String!
     
@@ -114,10 +115,11 @@ class commentViewController: UIViewController,UITableViewDataSource{
             return
         }
         
-        let currentUserId = currentUser.uid
+   
         
-        newCommentReference.setValue([ "uid":currentUserId,
-                                       "commentText":commentTextField.text!
+        newCommentReference.setValue([ "uid":currentUser.uid,
+                                       "commentText":commentTextField.text!,
+                                       "postId": postId
         ]) { (error, ref) in
             if error != nil {
                 print("comment upload fail")
@@ -126,6 +128,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
             }
             
             let postCommentRef =  Api.Post_CommentAPI.REF_POST_COMMENT.child(self.postId).child(newCommentId)
+            
             postCommentRef.setValue(true, withCompletionBlock: { (error, DatabaseReference) in
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error?.localizedDescription)

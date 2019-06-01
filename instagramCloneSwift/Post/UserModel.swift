@@ -8,13 +8,13 @@
 
 import Foundation
 
-class User {
+class UserModel {
     var email: String?
     var profileImageUrl: String?
     var username: String?
     
-    static func transformUser(dict: [String:Any]) -> User {
-        let user = User()
+    static func transformUser(dict: [String:Any]) -> UserModel {
+        let user = UserModel()
         
         user.email = dict["email"] as? String
         user.profileImageUrl = dict["profileImageUrl"] as? String

@@ -8,8 +8,6 @@
 
     class AuthService {
       
-        
-        
         static func signIn(email: String, password: String, onSuccess: @escaping () ->Void, onError:@escaping () ->Void) {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 

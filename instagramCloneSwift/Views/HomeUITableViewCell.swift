@@ -30,7 +30,7 @@ class HomeUITableViewCell: UITableViewCell {
         }
     }
     
-    var user: User? {
+    var user: UserModel? {
         didSet {
             setUpUserInfo()
         }
@@ -51,18 +51,8 @@ class HomeUITableViewCell: UITableViewCell {
         }
         
         
-        
-//        Api.PostAPI.REF_POSTS.child(post!.id!).observeSingleEvent(of: DataEventType.value) { (snapshot) in
-//            if let dict = snapshot.value as? [String:Any] {
-//                let post = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
-//
-//            }
-//        }
-        
-        //   updateLike(post: post!)
-        
         Api.PostAPI.REF_POSTS.child(post!.id!).observe(.childChanged) { (snapshot) in
-            print(snapshot)
+          //  print(snapshot)
             if let value = snapshot.value as? Int {
                 self.likeCountButton.setTitle("\(value) likes", for: UIControl.State.normal)
             }
@@ -158,7 +148,7 @@ class HomeUITableViewCell: UITableViewCell {
     /// ?? ///
     override func prepareForReuse() {
         super.prepareForReuse()
-        print("TTTTTTT")
+       // print("TTTTTTT")
         
         isHidden = false
         isSelected = false

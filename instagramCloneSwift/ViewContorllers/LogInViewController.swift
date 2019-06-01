@@ -7,6 +7,7 @@
     //
 
     import UIKit
+ // import FirebaseAuth
     import SVProgressHUD
 
     class LogInViewController: UIViewController {
@@ -27,17 +28,22 @@
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            if Api.UserAPI.REF_CURRENT_USER != nil {
-                self.performSegue(withIdentifier: "logInSegue", sender: self)
-            }
+
+            
         }
         
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
-           
-            if Api.UserAPI.REF_CURRENT_USER != nil {
+            
+            //can't use currentUser from firebase User class
+            
+            //Firebase User type was confused with custom type User.
+            //currently class: User -> UserModel
+            if Api.UserAPI.CURRENT_USER != nil {
+                
                 self.performSegue(withIdentifier: "logInSegue", sender: self)
             }
+        
         }
         
         func  checkingEmailPassword(email:String, password:String) {

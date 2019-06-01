@@ -64,6 +64,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     //MARK: - Sharing Button
     @IBAction func buttonShare(_ sender: Any) {
+       
         SVProgressHUD.show(withStatus: "Wait Please...")
         
         if let imageData = selectedImage!.jpegData(compressionQuality: 0.1){

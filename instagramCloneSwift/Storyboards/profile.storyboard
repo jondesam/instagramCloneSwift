@@ -211,9 +211,9 @@
                         <viewLayoutGuide key="safeArea" id="KqM-bv-rXm"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="hnl-jX-Acx">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Mnr-RT-Vn1">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Mnr-RT-Vn1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iCV-wq-5Ow">
-                                <rect key="frame" x="20" y="0.0" width="104" height="44"/>
+                                <rect key="frame" x="290" y="0.0" width="104" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
