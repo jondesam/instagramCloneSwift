@@ -10,8 +10,14 @@
     //import FirebaseAuth
     import SVProgressHUD
     
+ 
+    
     class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
         
+    
+        
+        
+    
         @IBOutlet weak var collectionView: UICollectionView!
         
         var user: UserModel!
@@ -34,6 +40,7 @@
             Api.UserAPI.observeCurrentUse { (user) in
                 
                 self.user = user
+                self.title = user.username
                 self.collectionView.reloadData()
             }
         }
@@ -48,7 +55,7 @@
                 return
             }
             
-            Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded) { (snapshot) in
+            Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded) { (snapshot) in
                // print("snapshot of myPosts")
                // print(snapshot)
                 

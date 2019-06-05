@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		61750E8DAEB7FB6250C5FDA6 /* Pods_instagramCloneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF1609ABF0CB9DD4966377B /* Pods_instagramCloneSwift.framework */; };
+		9540CEBB22A30969005868A8 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEB822A30968005868A8 /* discover.png */; };
+		9540CEBC22A30969005868A8 /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEB922A30968005868A8 /* discover@2x.png */; };
+		9540CEBD22A30969005868A8 /* discover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEBA22A30969005868A8 /* discover@3x.png */; };
+		9540CEBF22A31C6E005868A8 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */; };
+		9540CEC122A31CDC005868A8 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540CEC022A31CDC005868A8 /* PeopleTableViewCell.swift */; };
 		9545A7702299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545A76F2299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift */; };
 		9545A772229C6CFF00CA8FEB /* MyPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545A771229C6CFF00CA8FEB /* MyPostsApi.swift */; };
 		9545A774229C897E00CA8FEB /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545A773229C897E00CA8FEB /* PhotoCollectionViewCell.swift */; };
@@ -55,6 +60,7 @@
 		95C5D5732277A77E0046BBA5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5722277A77E0046BBA5 /* CameraViewController.swift */; };
 		95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */; };
 		95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */; };
+		95D0AC2C22A460E400A52AB2 /* followApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0AC2B22A460E400A52AB2 /* followApi.swift */; };
 		95F76B502291D4BC002138D7 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F76B4F2291D4BC002138D7 /* PostApi.swift */; };
 		95F826B4227A3CF800C651B6 /* defaultPerson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95F826B3227A3CF800C651B6 /* defaultPerson.jpg */; };
 		95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F8A7982288B0CE00FEF30E /* commentViewController.swift */; };
@@ -63,6 +69,11 @@
 
 /* Begin PBXFileReference section */
 		1CF1609ABF0CB9DD4966377B /* Pods_instagramCloneSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagramCloneSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9540CEB822A30968005868A8 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
+		9540CEB922A30968005868A8 /* discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@2x.png"; sourceTree = "<group>"; };
+		9540CEBA22A30969005868A8 /* discover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@3x.png"; sourceTree = "<group>"; };
+		9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		9540CEC022A31CDC005868A8 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
 		9545A76F2299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProfileCollectionReusableView.swift; sourceTree = "<group>"; };
 		9545A771229C6CFF00CA8FEB /* MyPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsApi.swift; sourceTree = "<group>"; };
 		9545A773229C897E00CA8FEB /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -113,6 +124,7 @@
 		95C5D5722277A77E0046BBA5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		95D0AC2B22A460E400A52AB2 /* followApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = followApi.swift; sourceTree = "<group>"; };
 		95F76B4F2291D4BC002138D7 /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
 		95F826B3227A3CF800C651B6 /* defaultPerson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultPerson.jpg; sourceTree = "<group>"; };
 		95F8A7982288B0CE00FEF30E /* commentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentViewController.swift; sourceTree = "<group>"; };
@@ -147,11 +159,11 @@
 				95C5D55F227792C20046BBA5 /* LaunchScreen.storyboard */,
 				95C5D55A227792C10046BBA5 /* Main.storyboard */,
 				95895CF92278CDDA009371DC /* refactored.storyboard */,
-				95C0C3922284730800CDE5F7 /* profile.storyboard */,
+				95C0C38A2284714200CDE5F7 /* home.storyboard */,
 				95C0C390228472C800CDE5F7 /* activity.storyboard */,
 				95C0C38E2284728C00CDE5F7 /* camera.storyboard */,
 				95C0C38C2284722500CDE5F7 /* search.storyboard */,
-				95C0C38A2284714200CDE5F7 /* home.storyboard */,
+				95C0C3922284730800CDE5F7 /* profile.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -167,6 +179,7 @@
 				95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */,
 				95C5D56E2277A7130046BBA5 /* HomeViewController.swift */,
 				95F8A7982288B0CE00FEF30E /* commentViewController.swift */,
+				9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */,
 			);
 			path = ViewContorllers;
 			sourceTree = "<group>";
@@ -174,6 +187,9 @@
 		95C0C384227F626F00CDE5F7 /* asset */ = {
 			isa = PBXGroup;
 			children = (
+				9540CEB822A30968005868A8 /* discover.png */,
+				9540CEB922A30968005868A8 /* discover@2x.png */,
+				9540CEBA22A30969005868A8 /* discover@3x.png */,
 				956079392295D78B00CE75D7 /* likeSelected.png */,
 				9560793A2295D78B00CE75D7 /* likeSelected@2x.png */,
 				956079382295D78B00CE75D7 /* likeSelected@3x.png */,
@@ -213,6 +229,7 @@
 				95F8A79A2288B10600FEF30E /* commentTableViewCell.swift */,
 				9545A76F2299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift */,
 				9545A773229C897E00CA8FEB /* PhotoCollectionViewCell.swift */,
+				9540CEC022A31CDC005868A8 /* PeopleTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,6 +266,7 @@
 				95B888B42293595400007B30 /* Post_CommentApi.swift */,
 				95B888B022933EF900007B30 /* Api.swift */,
 				9545A771229C6CFF00CA8FEB /* MyPostsApi.swift */,
+				95D0AC2B22A460E400A52AB2 /* followApi.swift */,
 				95671A72229F22ED005A3B4F /* Config.swift */,
 				95671A74229F48A7005A3B4F /* HelperSevice.swift */,
 				95C0C38522821B2B00CDE5F7 /* Post */,
@@ -340,12 +358,15 @@
 				954672F62284FC5200E6C113 /* Comment@3x.png in Resources */,
 				954672EF2284FC3800E6C113 /* like@3x.png in Resources */,
 				95C0C391228472C800CDE5F7 /* activity.storyboard in Resources */,
+				9540CEBB22A30969005868A8 /* discover.png in Resources */,
 				954672F72284FC5200E6C113 /* share.png in Resources */,
 				954672F52284FC5200E6C113 /* Comment@2x.png in Resources */,
 				95C5D56D2277A0F60046BBA5 /* InstagramLogo.svg in Resources */,
 				95C0C3932284730800CDE5F7 /* profile.storyboard in Resources */,
 				95C5D55C227792C10046BBA5 /* Main.storyboard in Resources */,
 				95895CFA2278CDDA009371DC /* refactored.storyboard in Resources */,
+				9540CEBD22A30969005868A8 /* discover@3x.png in Resources */,
+				9540CEBC22A30969005868A8 /* discover@2x.png in Resources */,
 				95C0C3CA2284B0EC00CDE5F7 /* photo2.jpeg in Resources */,
 				95895CFE2278ED49009371DC /* GoogleService-Info.plist in Resources */,
 				95C0C39522847E6F00CDE5F7 /* placeholderImg.jpeg in Resources */,
@@ -423,6 +444,7 @@
 			files = (
 				9545A7702299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift in Sources */,
 				95AF085B229DBAAD00C5210B /* AuthService.swift in Sources */,
+				9540CEC122A31CDC005868A8 /* PeopleTableViewCell.swift in Sources */,
 				95C5D56B227793310046BBA5 /* SignUpViewController.swift in Sources */,
 				95B888AF22921F2800007B30 /* UserApi.swift in Sources */,
 				95C5D569227793190046BBA5 /* LogInViewController.swift in Sources */,
@@ -431,6 +453,7 @@
 				9547955E2289F8E70083DC20 /* Comment.swift in Sources */,
 				95671A75229F48A7005A3B4F /* HelperSevice.swift in Sources */,
 				95B888B52293595400007B30 /* Post_CommentApi.swift in Sources */,
+				95D0AC2C22A460E400A52AB2 /* followApi.swift in Sources */,
 				95B888B122933EF900007B30 /* Api.swift in Sources */,
 				95B888B3229340AB00007B30 /* CommentApi.swift in Sources */,
 				9545A774229C897E00CA8FEB /* PhotoCollectionViewCell.swift in Sources */,
@@ -440,6 +463,7 @@
 				95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */,
 				95C5D56F2277A7130046BBA5 /* HomeViewController.swift in Sources */,
 				95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */,
+				9540CEBF22A31C6E005868A8 /* PeopleViewController.swift in Sources */,
 				95C5D5712277A74C0046BBA5 /* DiscoverViewController.swift in Sources */,
 				95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */,
 				95F76B502291D4BC002138D7 /* PostApi.swift in Sources */,

@@ -54,7 +54,7 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     
     func fetchUser(uid: String, completed: @escaping () -> Void) {
        
-            Api.UserAPI.observeUsers(withId: uid) { (user) in
+            Api.UserAPI.observeUser(withId: uid) { (user) in
             self.users.append(user)
             completed()
         }

@@ -12,19 +12,19 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class UserApi {
+    
     var REF_USERS =  Database.database().reference().child("users")
     
-    func observeUsers(withId uid:String, completion: @escaping(UserModel) -> Void ) {
-        
+    func observeUser(withId uid:String, completion: @escaping(UserModel) -> Void ) {
+
        REF_USERS.child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
-        
+
         if  let dict = snapshot.value as? [String:Any]{
-            let user = UserModel.transformUser(dict: dict)
+            let user = UserModel.transformUser(dict: dict, key: snapshot.key)
             completion(user)
             }
         }
     }
-
 
     func observeCurrentUse(completion: @escaping(UserModel) -> Void)  {
         
@@ -33,14 +33,26 @@ class UserApi {
         }
         
         REF_USERS.child(currentUser.uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
-          //  print("snapshot.value")
-         //   print(snapshot.value)
+            
+            print("snapshot.value")
+            print(snapshot.value)
+            
             if  let dict = snapshot.value as? [String:Any]{
-                let user = UserModel.transformUser(dict: dict)
+                let user = UserModel.transformUser(dict: dict, key: snapshot.key)
                 completion(user)
             }
         }
     }
+    
+    func observeUsers(completion:@escaping(UserModel) -> Void){
+        REF_USERS.observe(.childAdded) { (snapshot) in
+            if  let dict = snapshot.value as? [String:Any]{
+                let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+                completion(user)
+            }
+        }
+    }
+    
     
     
     //Firebase User type was confused with custom type User.

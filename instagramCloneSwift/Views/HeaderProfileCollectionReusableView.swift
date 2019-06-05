@@ -9,7 +9,11 @@
     import UIKit
 //    import FirebaseAuth
 
-    class HeaderProfileCollectionReusableView: UICollectionReusableView {
+   
+    
+    class HeaderProfileCollectionReusableView: UICollectionReusableView,  UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+        
+        
         
         @IBOutlet weak var profileImage: UIImageView!
         @IBOutlet weak var nameLable: UILabel!
@@ -22,6 +26,10 @@
                 updateView()
             }
         }
+     
+        
+        
+        
         
         
         func  updateView() {
@@ -35,5 +43,17 @@
                     self.profileImage.sd_setImage(with: photoUrl)
                 }
             }
+           
+            
     }
+        
+        
+ 
+        
+        
+        
 }
+
+    extension UIViewController {
+        
+    }

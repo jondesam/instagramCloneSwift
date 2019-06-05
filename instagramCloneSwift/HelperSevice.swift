@@ -69,7 +69,7 @@ class HelperService {
                                         //                                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
                                         return
                                     }
-                                    let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).child(newPostId)
+                                    let myPostRef = Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).child(newPostId)
                                     
                                     myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                                         if error != nil {

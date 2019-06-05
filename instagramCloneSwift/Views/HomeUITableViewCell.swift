@@ -45,23 +45,27 @@ class HomeUITableViewCell: UITableViewCell {
             postImageView.sd_setImage(with: photoUrl)
         }
         
+        self.updateLike(post: post!)
+
+/* Comment out to update cell directly without observing cell
+        
         //real time likes update while scrolling
-        Api.PostAPI.observePost(withId: post!.id!) { (post) in
-             self.updateLike(post: post)
-        }
+//        Api.PostAPI.observePost(withId: post!.id!) { (post) in
+//             self.updateLike(post: post)
+//        }
         
         
-        Api.PostAPI.REF_POSTS.child(post!.id!).observe(.childChanged) { (snapshot) in
-          //  print(snapshot)
-            if let value = snapshot.value as? Int {
-                self.likeCountButton.setTitle("\(value) likes", for: UIControl.State.normal)
-            }
-        }
+//        Api.PostAPI.REF_POSTS.child(post!.id!).observe(.childChanged) { (snapshot) in
+//          //  print(snapshot)
+//            if let value = snapshot.value as? Int {
+//                self.likeCountButton.setTitle("\(value) likes", for: UIControl.State.normal)
+//            }
+//        }
         
-            Api.PostAPI.observeLikeCount(withPostId: post!.id!) { (value) in
-             self.likeCountButton.setTitle("\(value) likes", for: UIControl.State.normal)
-        }
-        
+//            Api.PostAPI.observeLikeCount(withPostId: post!.id!) { (value) in
+//             self.likeCountButton.setTitle("\(value) likes", for: UIControl.State.normal)
+//        }
+  */
     }
     
     
@@ -136,6 +140,13 @@ class HomeUITableViewCell: UITableViewCell {
         
         Api.PostAPI.incrementLikes( postId: post!.id!, onSuccess: { (post) in
              self.updateLike(post: post)
+            
+            self.post?.likes = post.likes
+            self.post?.isLiked = post.isLiked
+            self.post?.likeCount = post.likeCount
+            
+            
+            
         }) { (errorMessage) in
             SVProgressHUD.showError(withStatus: errorMessage)
         }
