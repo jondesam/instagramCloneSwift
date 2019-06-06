@@ -14,6 +14,20 @@ class FollowApi {
     var REF_FOLLOWING = Database.database().reference().child("following")
     
     func followAction(idInCell id:String){
+        
+        Api.MyPostsAPI.REF_MYPOSTS.child(id).observeSingleEvent(of: .value) { (snapshot) in
+            if let dict = snapshot.value as? [String:Any]{
+                print("This is snapshot.value")
+                print(snapshot.value)
+                print("This is dict.keys\(dict.keys) and value \(dict.values)")
+                
+                dict.keys
+                for key in dict.keys{
+                    Database.database().reference().child("feed").child(Api.UserAPI.CURRENT_USER!.uid).child(key).setValue(true)
+                }
+            }
+        }
+        
         REF_FOLLOWERS.child(id).child(Api.UserAPI.CURRENT_USER!.uid).setValue(true)
         REF_FOLLOWING.child(Api.UserAPI.CURRENT_USER!.uid).child(id).setValue(true)
     }

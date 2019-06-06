@@ -8,6 +8,8 @@
 
 import Foundation
 import FirebaseStorage
+import FirebaseDatabase
+import SVProgressHUD
 
 class HelperService {
     
@@ -46,8 +48,9 @@ class HelperService {
                 return
             }
         }
-        
     }
+    
+    
     static func sendDataToDatabase(photoUrl:String, description: String, onSuccess: @escaping ()-> Void, onError: @escaping () -> Void ){
         
         let newPostId = Api.PostAPI.REF_POSTS.childByAutoId().key
@@ -57,8 +60,6 @@ class HelperService {
             return
         }
         
-       
-        
         newPostReference.setValue(["photoUrl":photoUrl,
                                    "description":description,
                                    "user": currentUser.email,
@@ -66,20 +67,24 @@ class HelperService {
                                     if error != nil {
                                         print("data upload fail")
                                         onError()
-                                        //                                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                                        SVProgressHUD.showError(withStatus: error?.localizedDescription)
                                         return
                                     }
+                                    
+                                    Database.database().reference().child("feed").child(Api.UserAPI.CURRENT_USER!.uid).child(newPostId).setValue(true)
+                                    
+                                    
                                     let myPostRef = Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).child(newPostId)
                                     
                                     myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                                         if error != nil {
-                                            //                                        SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                                        SVProgressHUD.showError(withStatus: error?.localizedDescription)
                                             return
                                         }
                                     })
                                     
                                     print("data uploaded")
-                                    
+                                    SVProgressHUD.showSuccess(withStatus: "Success")
                                     onSuccess()
         }
     }

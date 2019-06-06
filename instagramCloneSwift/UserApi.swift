@@ -34,8 +34,8 @@ class UserApi {
         
         REF_USERS.child(currentUser.uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
             
-            print("snapshot.value")
-            print(snapshot.value)
+           // print("snapshot.value")
+           // print(snapshot.value)
             
             if  let dict = snapshot.value as? [String:Any]{
                 let user = UserModel.transformUser(dict: dict, key: snapshot.key)
