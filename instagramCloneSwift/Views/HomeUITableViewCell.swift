@@ -70,8 +70,6 @@ class HomeUITableViewCell: UITableViewCell {
     
     
     func updateLike(post: Post){
-        // print("This is post.isLiked")
-        // print(post.isLiked)
         
         let imageName = post.likes == nil || !post.isLiked! ? "like":"likeSelected"
         
@@ -154,13 +152,10 @@ class HomeUITableViewCell: UITableViewCell {
     }
     
 
-    
-    
-    /// ?? ///
+
     override func prepareForReuse() {
         super.prepareForReuse()
-       // print("TTTTTTT")
-        
+
         isHidden = false
         isSelected = false
         isHighlighted = false

@@ -7,17 +7,10 @@
     //
     
     import UIKit
-    //import FirebaseAuth
     import SVProgressHUD
-    
- 
     
     class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
         
-    
-        
-        
-    
         @IBOutlet weak var collectionView: UICollectionView!
         
         var user: UserModel!
@@ -30,8 +23,7 @@
             collectionView.delegate = self
             fetchUser()
             fectchMyPosts()
-            
-            
+        
         }
         
         
@@ -56,12 +48,10 @@
             }
             
             Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded) { (snapshot) in
-               // print("snapshot of myPosts")
-               // print(snapshot)
                 
-                Api.PostAPI.observePost(withId: snapshot.key, completion: { (post) in
-                  //  print("this is post in profileView")
-                    //   print(post.id)
+                Api.PostAPI.observePost(withPostId: snapshot.key, completion: { (post) in
+                    print("this is post in profileView")
+                       print(post.id)
                     self.posts.append(post)
                     self.collectionView.reloadData()
                 })
@@ -112,9 +102,6 @@
             return 0
         }
         
-        
-        
-        
         //MARK: - Logout method
         @IBAction func buttonLogOut(_ sender: Any) {
             
@@ -128,12 +115,7 @@
             }) { (logOutError) in
                 SVProgressHUD.showError(withStatus: logOutError)
             }
-            
         }
-        
-        
-        
-        
     }
     
     

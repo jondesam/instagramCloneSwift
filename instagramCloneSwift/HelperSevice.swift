@@ -8,7 +8,6 @@
 
 import Foundation
 import FirebaseStorage
-import FirebaseDatabase
 import SVProgressHUD
 
 class HelperService {
@@ -70,9 +69,7 @@ class HelperService {
                                         SVProgressHUD.showError(withStatus: error?.localizedDescription)
                                         return
                                     }
-                                    
-                                    Database.database().reference().child("feed").child(Api.UserAPI.CURRENT_USER!.uid).child(newPostId).setValue(true)
-                                    
+                                    Api.FeedAPI.REF_FEED.child(Api.UserAPI.CURRENT_USER!.uid).child(newPostId).setValue(true)
                                     
                                     let myPostRef = Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).child(newPostId)
                                     

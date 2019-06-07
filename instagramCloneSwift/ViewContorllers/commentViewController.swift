@@ -87,7 +87,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
     
     func fetchUser(uid: String, completed: @escaping () -> Void) {
         
-        Api.UserAPI.observeUser(withId: uid) { (user) in
+        Api.UserAPI.observeUser(withUserId: uid) { (user) in
             self.users.append(user)
             completed()
         }

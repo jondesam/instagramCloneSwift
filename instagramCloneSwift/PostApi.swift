@@ -12,22 +12,27 @@ import FirebaseDatabase
 class PostApi  {
     var REF_POSTS =  Database.database().reference().child("Posts")
     
+    //Loading posts on homeView
     func observePosts(completion: @escaping (Post) -> Void) {
-        
+
         REF_POSTS.observe(.childAdded) { (snapshot: DataSnapshot) in
-            
+
             if  let dict = snapshot.value as? [String:Any]{
-                
                 let newPost = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
-                
                 completion(newPost)
             }
         }
     }
     
-    func observePost(withId id:String, completion: @escaping(Post) -> Void ) {
+    
+    //Fetching posts on proflileView and also feeding posts on homeView
+    func observePost(withPostId id:String, completion: @escaping(Post) -> Void ) {
         
         REF_POSTS.child(id).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
+    
+            print("snapshot value : \(snapshot.value)")
+            print("snapshot key : \(snapshot.key)")
+            
             
             if  let dict = snapshot.value as? [String:Any]{
                 let post = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
@@ -35,7 +40,7 @@ class PostApi  {
             }
         }
     }
-    
+
 //    func observeLikeCount(withPostId id: String, completion: @escaping (Int) -> Void){
 //        Api.PostAPI.REF_POSTS.child(id).observe(.childChanged) { (snapshot) in
 //            print(snapshot)

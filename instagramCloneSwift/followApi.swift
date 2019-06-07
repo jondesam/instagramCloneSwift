@@ -17,10 +17,10 @@ class FollowApi {
         
         Api.MyPostsAPI.REF_MYPOSTS.child(id).observeSingleEvent(of: .value) { (snapshot) in
             if let dict = snapshot.value as? [String:Any]{
-                print("This is snapshot.value")
-                print(snapshot.value)
-                print("This is dict.keys\(dict.keys) and value \(dict.values)")
-                
+//                print("This is snapshot.value")
+//                print(snapshot.value)
+//                print("This is dict.keys\(dict.keys) and value \(dict.values)")
+//
                 dict.keys
                 for key in dict.keys{
                     Database.database().reference().child("feed").child(Api.UserAPI.CURRENT_USER!.uid).child(key).setValue(true)
@@ -33,6 +33,18 @@ class FollowApi {
     }
     
     func unFollowAction(withUser id:String){
+        
+        Api.MyPostsAPI.REF_MYPOSTS.child(id).observeSingleEvent(of: .value) { (snapshot) in
+            if let dict = snapshot.value as? [String:Any]{
+                
+                dict.keys
+                for key in dict.keys{
+                    Database.database().reference().child("feed").child(Api.UserAPI.CURRENT_USER!.uid).child(key).removeValue()
+                }
+            }
+        }
+        
+        
         REF_FOLLOWERS.child(id).child(Api.UserAPI.CURRENT_USER!.uid).setValue(NSNull())
         REF_FOLLOWING.child(Api.UserAPI.CURRENT_USER!.uid).child(id).setValue(NSNull())
     }

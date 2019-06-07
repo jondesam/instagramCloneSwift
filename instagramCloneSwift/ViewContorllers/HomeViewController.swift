@@ -31,37 +31,70 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         tableView.rowHeight = 440
         tableView.estimatedRowHeight = 600
         loadPosts()
-       // print(Auth.auth().currentUser?.email as Any)
+       
         self.activityIndicatorView.stopAnimating()
         
     }
     
     
-    
     func loadPosts() {
         activityIndicatorView.startAnimating()
         
-        Api.PostAPI.observePosts { (newPost) in
+        Api.FeedAPI.observeFeed(withUserId: Api.UserAPI.CURRENT_USER!.uid) { (post) in
             
-            self.fetchUser(uid: newPost.uid!, completed: {
+            guard let postId = post.uid else {
+                return
+            }// post.uid = userID
+            
+            self.fetchUser(uid: postId, completed: {
                 
-                self.posts.append(newPost)
-                self.activityIndicatorView.stopAnimating()
-                self.tableView.reloadData()
-            })
+                                self.posts.append(post)
+                                self.activityIndicatorView.stopAnimating()
+                                self.tableView.reloadData()
+                            })
         }
+        
+        Api.FeedAPI.observeFeedRemoved(withUserId: Api.UserAPI.CURRENT_USER!.uid) { (key) in
+            print(key)
+            
+            //removing post For-In Loops
+//            for (index, postInstance) in self.posts.enumerated(){
+//                if postInstance.id == key {
+//                    self.posts.remove(at: index)
+//                }
+//            }
+            
+            //prone to error
+//            self.posts = self.posts.filter({ (post) -> Bool in
+//                post.id != key
+//            })
+
+            self.posts = self.posts.filter({ $0.id != key })
+            self.tableView.reloadData()
+        }
+        
+//        Api.PostAPI.observePosts { (newPost) in
+//
+//            self.fetchUser(uid: newPost.uid!, completed: {
+//
+//                self.posts.append(newPost)
+//                self.activityIndicatorView.stopAnimating()
+//                self.tableView.reloadData()
+//            })
+//        }
     }
     
-    func fetchUser(uid: String, completed: @escaping () -> Void) {
+    
+    func fetchUser(uid: String, completed: @escaping () -> Void ){
        
-            Api.UserAPI.observeUser(withId: uid) { (user) in
+        Api.UserAPI.observeUser(withUserId: uid) { (user) in
+            print("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
+            dump("This is user from observeUSer \(user)")
             self.users.append(user)
+            dump("This is users from obseveUser \(self.users)")
             completed()
         }
     }
-    
-    
-
     
     
     //MARK: - tableView methods
@@ -72,30 +105,15 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeUITableViewCell
-       // print(indexPath.row)
+
         let post = posts[indexPath.row]
         let user = users[indexPath.row]
-        
-//        print("This is post")
-//        dump(post)
         
         cell.post = post
         cell.user = user
         
-//        print("This is cell.post")
-//        dump(cell.post)
-//        print("This is cell.user")
-//        dump(cell.user)
-       
-    
         cell.homeVC = self
      
-       // print("This is cell.homeVC")
-       // dump(cell.homeVC)
-        //cell.updateHomeView(post: post)
-        
-//        print("This is cell")
-//        dump(cell)
         return cell
     }
     

@@ -15,12 +15,17 @@ class UserApi {
     
     var REF_USERS =  Database.database().reference().child("users")
     
-    func observeUser(withId uid:String, completion: @escaping(UserModel) -> Void ) {
+    func observeUser(withUserId uid:String, completion: @escaping(UserModel) -> Void ) {
 
        REF_USERS.child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
-
+            dump("This is snapshot.value of observeUser \(snapshot.value)")
+        
         if  let dict = snapshot.value as? [String:Any]{
+            
             let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+            
+            dump("This is user \(user.email)")
+            
             completion(user)
             }
         }
