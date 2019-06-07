@@ -15,16 +15,18 @@ class UserApi {
     
     var REF_USERS =  Database.database().reference().child("users")
     
+    
+    //Fetching user information on HomeView
     func observeUser(withUserId uid:String, completion: @escaping(UserModel) -> Void ) {
 
        REF_USERS.child(uid).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
-            dump("This is snapshot.value of observeUser \(snapshot.value)")
+         //   dump("This is snapshot.value of observeUser \(snapshot.value)")
         
         if  let dict = snapshot.value as? [String:Any]{
             
             let user = UserModel.transformUser(dict: dict, key: snapshot.key)
             
-            dump("This is user \(user.email)")
+          //  dump("This is user \(user.email)")
             
             completion(user)
             }
@@ -49,11 +51,16 @@ class UserApi {
         }
     }
     
+    //Fetching users on peopleView
     func observeUsers(completion:@escaping(UserModel) -> Void){
         REF_USERS.observe(.childAdded) { (snapshot) in
             if  let dict = snapshot.value as? [String:Any]{
                 let user = UserModel.transformUser(dict: dict, key: snapshot.key)
-                completion(user)
+                
+                if user.id! != Api.UserAPI.CURRENT_USER?.uid {//removing current user on peopleView
+                     completion(user)
+                }
+               
             }
         }
     }

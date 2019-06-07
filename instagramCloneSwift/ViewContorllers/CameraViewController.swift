@@ -70,6 +70,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         if let imageData = selectedImage!.jpegData(compressionQuality: 0.1){
         
             HelperService.uploadDataToServer(imageData: imageData, description: photoDescription.text!, onSuccess: {
+                
                 self.photoDescription.text = ""
                 self.tabBarController?.selectedIndex = 0
                 SVProgressHUD.setMinimumDismissTimeInterval(1.0)

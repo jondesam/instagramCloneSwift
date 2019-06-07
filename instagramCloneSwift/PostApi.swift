@@ -12,27 +12,32 @@ import FirebaseDatabase
 class PostApi  {
     var REF_POSTS =  Database.database().reference().child("Posts")
     
-    //Loading posts on homeView
-    func observePosts(completion: @escaping (Post) -> Void) {
-
-        REF_POSTS.observe(.childAdded) { (snapshot: DataSnapshot) in
-
-            if  let dict = snapshot.value as? [String:Any]{
-                let newPost = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
-                completion(newPost)
-            }
-        }
-    }
+    //Loading posts on homeView // replaced by feeding feature
+//    func observePosts(completion: @escaping (Post) -> Void) {
+//
+//        REF_POSTS.observe(.childAdded) { (snapshot: DataSnapshot) in
+//
+//            print("////////////////////////")
+//            print("snapshot of Posts node value: \(snapshot.value)")
+//            print("snapshot of Posts node key: \(snapshot.key)")
+//
+//            if  let dict = snapshot.value as? [String:Any]{
+//                let newPost = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
+//                completion(newPost)
+//            }
+//        }
+//    }
     
     
-    //Fetching posts on proflileView and also feeding posts on homeView
+    //Fetching posts that uploaded from user on proflileView and also feeding posts on homeView
+    //
     func observePost(withPostId id:String, completion: @escaping(Post) -> Void ) {
         
         REF_POSTS.child(id).observeSingleEvent(of: DataEventType.value) { (snapshot:DataSnapshot) in
     
-            print("snapshot value : \(snapshot.value)")
-            print("snapshot key : \(snapshot.key)")
-            
+//            print("////////////////////////")
+//            print("snapshot of Posts.id node value: \(snapshot.value)")
+//            print("snapshot of Posts.id node key: \(snapshot.key)")
             
             if  let dict = snapshot.value as? [String:Any]{
                 let post = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
@@ -67,8 +72,8 @@ class PostApi  {
                 
                 likes = post["likes"] as? [String : Bool] ?? [:]
                 
-                print("This is likes from snippet")
-                print(likes)
+               // print("This is likes from snippet")
+               // print(likes)
                 
                 var likeCount = post["likeCount"] as? Int ?? 0
                 

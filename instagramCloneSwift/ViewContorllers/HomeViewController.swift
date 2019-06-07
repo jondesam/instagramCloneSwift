@@ -54,8 +54,8 @@ class HomeViewController: UIViewController,UITableViewDataSource {
                             })
         }
         
-        Api.FeedAPI.observeFeedRemoved(withUserId: Api.UserAPI.CURRENT_USER!.uid) { (key) in
-            print(key)
+       Api.FeedAPI.observeFeedRemoved(withUserId: Api.UserAPI.CURRENT_USER!.uid) { (post) in
+           // print(key)
             
             //removing post For-In Loops
 //            for (index, postInstance) in self.posts.enumerated(){
@@ -69,7 +69,8 @@ class HomeViewController: UIViewController,UITableViewDataSource {
 //                post.id != key
 //            })
 
-            self.posts = self.posts.filter({ $0.id != key })
+            self.posts = self.posts.filter({ $0.id != post.id })
+            self.users = self.users.filter({ $0.id != post.uid })
             self.tableView.reloadData()
         }
         
@@ -82,16 +83,17 @@ class HomeViewController: UIViewController,UITableViewDataSource {
 //                self.tableView.reloadData()
 //            })
 //        }
+    
     }
     
     
     func fetchUser(uid: String, completed: @escaping () -> Void ){
        
         Api.UserAPI.observeUser(withUserId: uid) { (user) in
-            print("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
-            dump("This is user from observeUSer \(user)")
+            //print("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
+            //dump("This is user from observeUSer \(user)")
             self.users.append(user)
-            dump("This is users from obseveUser \(self.users)")
+            //dump("This is users from obseveUser \(self.users)")
             completed()
         }
     }
@@ -99,6 +101,8 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     
     //MARK: - tableView methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("post count \(posts.count)")
+        print("user count \(users.count)")
         return posts.count
     }
     

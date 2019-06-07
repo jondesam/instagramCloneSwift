@@ -29,8 +29,8 @@ class Post {
         post.user = dict["user"] as? String
         post.uid = dict["uid"] as? String
         post.id = key
-        print("key")
-        print(key)
+       // print("key")
+        //print(key)
         post.likeCount = dict["likeCount"] as? Int
         
         //reason for Dict<String,Any>
@@ -40,8 +40,8 @@ class Post {
         
         //Set up isLiked depends on "likes" or not
         if let currentUserId = Auth.auth().currentUser?.uid{
-            print("currentUserId")
-            print(currentUserId)
+           // print("currentUserId")
+            //print(currentUserId)
             
             //Alternative//
             //             if post.likes != nil {

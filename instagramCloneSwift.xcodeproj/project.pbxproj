@@ -13,6 +13,7 @@
 		9540CEBD22A30969005868A8 /* discover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEBA22A30969005868A8 /* discover@3x.png */; };
 		9540CEBF22A31C6E005868A8 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */; };
 		9540CEC122A31CDC005868A8 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540CEC022A31CDC005868A8 /* PeopleTableViewCell.swift */; };
+		9545295322AAF1A100C35AE7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545295222AAF1A100C35AE7 /* SearchViewController.swift */; };
 		9545A7702299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545A76F2299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift */; };
 		9545A772229C6CFF00CA8FEB /* MyPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545A771229C6CFF00CA8FEB /* MyPostsApi.swift */; };
 		9545A774229C897E00CA8FEB /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545A773229C897E00CA8FEB /* PhotoCollectionViewCell.swift */; };
@@ -75,6 +76,7 @@
 		9540CEBA22A30969005868A8 /* discover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@3x.png"; sourceTree = "<group>"; };
 		9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		9540CEC022A31CDC005868A8 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
+		9545295222AAF1A100C35AE7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9545A76F2299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProfileCollectionReusableView.swift; sourceTree = "<group>"; };
 		9545A771229C6CFF00CA8FEB /* MyPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsApi.swift; sourceTree = "<group>"; };
 		9545A773229C897E00CA8FEB /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -178,10 +180,11 @@
 				95C5D56E2277A7130046BBA5 /* HomeViewController.swift */,
 				95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */,
 				95C5D5722277A77E0046BBA5 /* CameraViewController.swift */,
-				95C5D5702277A74C0046BBA5 /* DiscoverViewController.swift */,
 				95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */,
 				95F8A7982288B0CE00FEF30E /* commentViewController.swift */,
 				9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */,
+				95C5D5702277A74C0046BBA5 /* DiscoverViewController.swift */,
+				9545295222AAF1A100C35AE7 /* SearchViewController.swift */,
 			);
 			path = ViewContorllers;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9545295322AAF1A100C35AE7 /* SearchViewController.swift in Sources */,
 				9545A7702299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift in Sources */,
 				95AF085B229DBAAD00C5210B /* AuthService.swift in Sources */,
 				9540CEC122A31CDC005868A8 /* PeopleTableViewCell.swift in Sources */,

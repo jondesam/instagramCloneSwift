@@ -50,8 +50,8 @@
             Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded) { (snapshot) in
                 
                 Api.PostAPI.observePost(withPostId: snapshot.key, completion: { (post) in
-                    print("this is post in profileView")
-                       print(post.id)
+                    //print("this is post in profileView")
+                      // print(post.id)
                     self.posts.append(post)
                     self.collectionView.reloadData()
                 })
