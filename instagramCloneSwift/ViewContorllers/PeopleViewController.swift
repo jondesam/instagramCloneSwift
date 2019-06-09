@@ -41,6 +41,8 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
         Api.FollowAPI.isFollowing(userId: userId, completed: completed)
     }
 
+    
+    //MARK: - TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }

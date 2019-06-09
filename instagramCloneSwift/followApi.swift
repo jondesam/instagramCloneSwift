@@ -50,6 +50,7 @@ class FollowApi {
     }
     
     func isFollowing(userId:String, completed: @escaping (Bool) -> Void ) {
+        
         REF_FOLLOWERS.child(userId).child(Api.UserAPI.CURRENT_USER!.uid).observeSingleEvent(of: .value) { (snapshot) in
             
             if let _ = snapshot.value as? NSNull {

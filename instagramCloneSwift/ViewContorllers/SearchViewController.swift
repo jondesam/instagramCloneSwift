@@ -8,9 +8,14 @@
 
 import UIKit
 
-class SearchViewController: UIViewController,UISearchBarDelegate {
+class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource {
 
     var searchBar = UISearchBar()
+    var users:[UserModel] = []
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,14 +27,64 @@ class SearchViewController: UIViewController,UISearchBarDelegate {
         
         let searchItem = UIBarButtonItem(customView: searchBar)
         self.navigationItem.rightBarButtonItem = searchItem
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = 100
+        doSearch()
     }
     
+    func doSearch() {
+        if let searchText = searchBar.text?.lowercased(){
+            
+            users.removeAll()
+            tableView.reloadData()
+            
+            Api.UserAPI.querryUsers(withText: searchText, completion: { (user) in
+                
+                self.isFollowing(userId: user.id!, completed: { (boolValue) in
+                    
+                    user.isFollowed = boolValue
+                    
+                    self.users.append(user)
+                    
+                    self.tableView.reloadData()
+                })
+                
+            })
+        }
+    }
+    
+    func isFollowing(userId: String, completed:@escaping(Bool) -> Void){
+        Api.FollowAPI.isFollowing(userId: userId, completed: completed)
+    }
+
     
      //MARK: - SearchBar funtions
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text)
+       doSearch()
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchBar.text)
+        doSearch()
     }
+    
+     //MARK: - TableView Methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleTableViewCell", for: indexPath) as! PeopleTableViewCell
+        
+        let user = users[indexPath.row]
+        
+        cell.userInCell = user
+        
+        //  cell.peopleVC = self
+        
+        
+        return cell
+    }
+    
+    
 }

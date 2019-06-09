@@ -45,6 +45,7 @@
                 
                 
                 newUserReference.setValue(["username": id,
+                                           "username_lowercase": id.lowercased(),
                                            "email": email])
                 
                 SVProgressHUD.setMinimumDismissTimeInterval(1.0)
