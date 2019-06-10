@@ -69,6 +69,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="nff-rz-mzx" id="Xnz-xP-eG8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yrt-WP-h0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

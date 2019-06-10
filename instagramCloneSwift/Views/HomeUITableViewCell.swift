@@ -75,7 +75,12 @@ class HomeUITableViewCell: UITableViewCell {
         
         likeImageView.image = UIImage(named: imageName)
         
-        if let count = post.likeCount {
+        //if default "likeCount"is none this will be never called
+        guard let count = post.likeCount else {
+            return
+        }
+        
+//        if let count = post.likeCount {
             if  count != 0 {
                 likeCountButton.setTitle("\(count) likes ", for: UIControl.State.normal)
                 
@@ -83,7 +88,7 @@ class HomeUITableViewCell: UITableViewCell {
                 likeCountButton.setTitle("Be the first one ", for: UIControl.State.normal)
                 
             }
-        }
+       // }
         
         // there is no false "like" node just deleted
         //        if post.isLiked == false {

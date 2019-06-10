@@ -55,7 +55,39 @@ class PostApi  {
 //        }
 //
 //    }
-//    
+//
+    
+    
+    // to display photos on DiscoveryView
+    func obseveTopPosts(completion: @escaping(Post) -> Void){
+        REF_POSTS.queryOrdered(byChild: "likeCount").observeSingleEvent(of: .value, with: {(snapshot) in
+            let arraySanpshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+            arraySanpshot.forEach({ (child) in
+                
+                if  let dict = child.value as? [String:Any]{
+                    let post = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
+                    completion(post)
+                }
+            })
+            
+            ///same functionality for snippet of forEach method
+//            for child in arraySanpshot {
+//                if  let dict = child.value as? [String:Any]{
+//                    let post = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
+//                    completion(post)
+//                }
+//            }
+            
+        })
+    }
+    
+    
+    //
+    func removeObserveLikeCount(id:String, likeHandler:UInt){
+        REF_POSTS.child(id).removeObserver(withHandle: likeHandler)
+    }
+    
+    
     func incrementLikes(postId:String, onSuccess: @escaping (Post)->Void, onError: @escaping(_ errorMessage:String?)->Void) {
         
        let  postRef = Api.PostAPI.REF_POSTS.child(postId)
