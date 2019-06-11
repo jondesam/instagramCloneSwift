@@ -121,7 +121,7 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         return cell
     }
     
-    
+    //to transer sender from "performsegue" method in HomeUITableViewCell
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "commentSegue" {
             let commentVC = segue.destination as! commentViewController

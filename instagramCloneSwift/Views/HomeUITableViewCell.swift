@@ -133,7 +133,7 @@ class HomeUITableViewCell: UITableViewCell {
     
     @objc func commentImageView_TouchUpInside() {
         if let id = post?.id {
-            homeVC?.performSegue(withIdentifier: "commentSegue", sender: id)
+            homeVC?.performSegue(withIdentifier: "commentSegue", sender: id)//need parepare(for segue) method to transfer sender
         }
     }
     

@@ -36,6 +36,7 @@
 		959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D17F2228507EE00824F9B /* HomeUITableViewCell.swift */; };
 		95AC7B7922862DDC00EF0956 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AC7B7822862DDC00EF0956 /* UserModel.swift */; };
 		95AF085B229DBAAD00C5210B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AF085A229DBAAD00C5210B /* AuthService.swift */; };
+		95B5045822AEE4BD00392961 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B5045722AEE4BD00392961 /* ProfileUserViewController.swift */; };
 		95B888AF22921F2800007B30 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B888AE22921F2800007B30 /* UserApi.swift */; };
 		95B888B122933EF900007B30 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B888B022933EF900007B30 /* Api.swift */; };
 		95B888B3229340AB00007B30 /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B888B2229340AB00007B30 /* CommentApi.swift */; };
@@ -100,6 +101,7 @@
 		959D17F42285F99000824F9B /* Placeholder-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder-image.png"; sourceTree = "<group>"; };
 		95AC7B7822862DDC00EF0956 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		95AF085A229DBAAD00C5210B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		95B5045722AEE4BD00392961 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserViewController.swift; sourceTree = "<group>"; };
 		95B888AE22921F2800007B30 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		95B888B022933EF900007B30 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		95B888B2229340AB00007B30 /* CommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */,
 				95C5D5702277A74C0046BBA5 /* DiscoverViewController.swift */,
 				9545295222AAF1A100C35AE7 /* SearchViewController.swift */,
+				95B5045722AEE4BD00392961 /* ProfileUserViewController.swift */,
 			);
 			path = ViewContorllers;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				95C5D56F2277A7130046BBA5 /* HomeViewController.swift in Sources */,
 				95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */,
 				9540CEBF22A31C6E005868A8 /* PeopleViewController.swift in Sources */,
+				95B5045822AEE4BD00392961 /* ProfileUserViewController.swift in Sources */,
 				95C5D5712277A74C0046BBA5 /* DiscoverViewController.swift in Sources */,
 				95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */,
 				95F76B502291D4BC002138D7 /* PostApi.swift in Sources */,

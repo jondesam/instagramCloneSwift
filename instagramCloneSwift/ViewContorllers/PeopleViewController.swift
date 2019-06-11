@@ -54,12 +54,20 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
         let user = users[indexPath.row]
         
         cell.userInCell = user
-    
-      //  cell.peopleVC = self
         
-    
+        cell.peopleVC = self //to make "peopleVC variable" to instantiate and perform "ProfileSegue" in PeopleTableViewCell
+        
         return cell
     }
     
+
+     //to transer sender from "performsegue" method in PeopleTableViewCell
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileSegue" {
+            let profileUserVC = segue.destination as! ProfileUserViewController
+            let userId = sender as! String
+            profileUserVC.userId = userId
+        }
+    }
 
 }

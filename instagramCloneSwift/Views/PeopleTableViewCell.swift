@@ -8,17 +8,33 @@
 
 import UIKit
 import Foundation
+
 class PeopleTableViewCell: UITableViewCell {
-    
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
+    var peopleVC: PeopleViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        //Aloow user to touch imageView as button
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
+        
+        nameLabel.addGestureRecognizer(tapGesture)
+        nameLabel.isUserInteractionEnabled = true
+        
     }
+    
+    @objc func nameLabel_TouchUpInside() {
+        if let id = userInCell!.id {
+            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
+            //need parepare(for segue) method to transfer sender
+        }
+    }
+    
     
     // var peopleVC: PeopleViewController?
     
