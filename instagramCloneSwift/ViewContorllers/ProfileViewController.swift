@@ -9,7 +9,10 @@
     import UIKit
     import SVProgressHUD
     
-    class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+        
+      
+        
         
         @IBOutlet weak var collectionView: UICollectionView!
         

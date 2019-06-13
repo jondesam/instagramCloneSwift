@@ -182,11 +182,11 @@
 				95C5D56E2277A7130046BBA5 /* HomeViewController.swift */,
 				95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */,
 				95C5D5722277A77E0046BBA5 /* CameraViewController.swift */,
-				95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */,
 				95F8A7982288B0CE00FEF30E /* commentViewController.swift */,
-				9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */,
 				95C5D5702277A74C0046BBA5 /* DiscoverViewController.swift */,
 				9545295222AAF1A100C35AE7 /* SearchViewController.swift */,
+				95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */,
+				9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */,
 				95B5045722AEE4BD00392961 /* ProfileUserViewController.swift */,
 			);
 			path = ViewContorllers;

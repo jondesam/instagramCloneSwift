@@ -21,7 +21,7 @@ class FollowApi {
 //                print(snapshot.value)
 //                print("This is dict.keys\(dict.keys) and value \(dict.values)")
 //
-                dict.keys
+             //   dict.keys
                 for key in dict.keys{
                     Database.database().reference().child("feed").child(Api.UserAPI.CURRENT_USER!.uid).child(key).setValue(true)
                 }
@@ -37,7 +37,7 @@ class FollowApi {
         Api.MyPostsAPI.REF_MYPOSTS.child(id).observeSingleEvent(of: .value) { (snapshot) in
             if let dict = snapshot.value as? [String:Any]{
                 
-                dict.keys
+               // dict.keys
                 for key in dict.keys{
                     Database.database().reference().child("feed").child(Api.UserAPI.CURRENT_USER!.uid).child(key).removeValue()
                 }

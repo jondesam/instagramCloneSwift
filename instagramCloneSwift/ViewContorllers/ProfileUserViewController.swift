@@ -103,21 +103,4 @@ import UIKit
         return 0
     }
     
-    
-//    //MARK: - tableView methods
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return usersInCell.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! commentTableViewCell
-//
-//      //  let comment = usersInCell[indexPath.row]
-//        let user = usersInCell[indexPath.row]
-//
-//        //cell.comment = comment
-//        cell.user = user
-//
-//        return cell
-//    }
 }

@@ -8,16 +8,17 @@
 
 import UIKit
 import SVProgressHUD
-
 import SDWebImage
 
-class HomeViewController: UIViewController,UITableViewDataSource {
-    
-    var posts = [Post]()
-    var users = [UserModel]()
+class HomeViewController: UIViewController,UITableViewDataSource , goToCommentVcProtocol//Intern of GoToCommentVcProtocol
+{
+ 
+    var postz = [Post]()
+    var userz = [UserModel]()
     let cellId = "PostCell"
     
     @IBOutlet weak var tableView: UITableView!
+    
     @IBAction func goToComment(_ sender: Any) {
         performSegue(withIdentifier: "commentSegue", sender: nil)
     }
@@ -48,7 +49,7 @@ class HomeViewController: UIViewController,UITableViewDataSource {
             
             self.fetchUser(uid: postId, completed: {
                 
-                                self.posts.append(post)
+                                self.postz.append(post)
                                 self.activityIndicatorView.stopAnimating()
                                 self.tableView.reloadData()
                             })
@@ -69,8 +70,8 @@ class HomeViewController: UIViewController,UITableViewDataSource {
 //                post.id != key
 //            })
 
-            self.posts = self.posts.filter({ $0.id != post.id })
-            self.users = self.users.filter({ $0.id != post.uid })
+            self.postz = self.postz.filter({ $0.id != post.id })
+            self.userz = self.userz.filter({ $0.id != post.uid })
             self.tableView.reloadData()
         }
         
@@ -92,7 +93,7 @@ class HomeViewController: UIViewController,UITableViewDataSource {
         Api.UserAPI.observeUser(withUserId: uid) { (user) in
             //print("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
             //dump("This is user from observeUSer \(user)")
-            self.users.append(user)
+            self.userz.append(user)
             //dump("This is users from obseveUser \(self.users)")
             completed()
         }
@@ -101,24 +102,33 @@ class HomeViewController: UIViewController,UITableViewDataSource {
     
     //MARK: - tableView methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("post count \(posts.count)")
-        print("user count \(users.count)")
-        return posts.count
+//        print("post count \(postz.count)")
+//        print("user count \(userz.count)")
+        return postz.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeUITableViewCell
 
-        let post = posts[indexPath.row]
-        let user = users[indexPath.row]
+        let post = postz[indexPath.row]
+        let user = userz[indexPath.row]
         
+        dump(post)
         cell.post = post
+  
         cell.user = user
         
-        cell.homeVC = self
+       // cell.homeVC = self //delegation pattern is used instead
      
+        cell.delegateOfGoToCommentVcProtocol = self
+        
         return cell
+    }
+    
+    
+    func goToCommentVC(postId: String) {
+        performSegue(withIdentifier: "commentSegue" , sender: postId)
     }
     
     //to transer sender from "performsegue" method in HomeUITableViewCell

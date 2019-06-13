@@ -218,7 +218,7 @@
                                 <segue destination="YMp-W4-Sy8" kind="show" id="Cf1-O9-kxI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Mnr-RT-Vn1">
+                        <barButtonItem key="rightBarButtonItem" id="Mnr-RT-Vn1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iCV-wq-5Ow">
                                 <rect key="frame" x="290" y="0.0" width="104" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

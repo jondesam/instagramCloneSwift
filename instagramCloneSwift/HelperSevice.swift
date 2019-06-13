@@ -61,7 +61,7 @@ class HelperService {
         
         newPostReference.setValue(["photoUrl":photoUrl,
                                    "description":description,
-                                   "user": currentUser.email,
+                                   "user": currentUser.email!,
                                    "uid":currentUser.uid,
                                    "likeCount": 0]) { (error, ref) in
                                     if error != nil {

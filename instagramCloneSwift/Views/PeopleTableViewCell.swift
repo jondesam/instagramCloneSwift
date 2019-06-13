@@ -9,13 +9,21 @@
 import UIKit
 import Foundation
 
+protocol goToProfileUserVcProtocol {
+    
+    func goToProfileUserVC(userId: String)
+    
+}
+
 class PeopleTableViewCell: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
-    var peopleVC: PeopleViewController?
+    var delegateOfGoToProfileUserVcProtocol: goToProfileUserVcProtocol?
+    
+  //  var peopleVC: PeopleViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +38,11 @@ class PeopleTableViewCell: UITableViewCell {
     
     @objc func nameLabel_TouchUpInside() {
         if let id = userInCell!.id {
-            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
+            delegateOfGoToProfileUserVcProtocol?.goToProfileUserVC(userId: id)
+
+            //delegate pattern used instead
+            //moved into goToProfileUserVC(userId:) body in profileViewController:
+//            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
             //need parepare(for segue) method to transfer sender
         }
     }

@@ -7,8 +7,13 @@
 //
 
 import UIKit
-
 import SVProgressHUD
+
+protocol goToCommentVcProtocol { //Boss of HomeViewController
+    
+    func goToCommentVC(postId: String)
+   
+}
 
 class HomeUITableViewCell: UITableViewCell {
     
@@ -21,8 +26,9 @@ class HomeUITableViewCell: UITableViewCell {
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var homeVC: HomeViewController?
-
+    var delegateOfGoToCommentVcProtocol: goToCommentVcProtocol?
+    
+   // var homeVC: HomeViewController? //delegation pattern is used instead
     
     var post: Post? {
         didSet {
@@ -133,7 +139,12 @@ class HomeUITableViewCell: UITableViewCell {
     
     @objc func commentImageView_TouchUpInside() {
         if let id = post?.id {
-            homeVC?.performSegue(withIdentifier: "commentSegue", sender: id)//need parepare(for segue) method to transfer sender
+        
+            delegateOfGoToCommentVcProtocol?.goToCommentVC(postId: id)//using protocol and delegation
+            
+            // performSegue(withIdentifier:sender:) is moved to Intern(HomeViewController) in goToCommentVC(postId:)
+//            homeVC?.performSegue(withIdentifier: "commentSegue", sender: id)//need parepare(for segue) method to transfer sender
+        
         }
     }
     
