@@ -10,18 +10,18 @@ import UIKit
 import SVProgressHUD
 import SDWebImage
 
-class HomeViewController: UIViewController,UITableViewDataSource , goToCommentVcProtocol//Intern of GoToCommentVcProtocol
+class HomeViewController: UIViewController,UITableViewDataSource
 {
- 
+    
     var postz = [Post]()
     var userz = [UserModel]()
     let cellId = "PostCell"
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func goToComment(_ sender: Any) {
-        performSegue(withIdentifier: "commentSegue", sender: nil)
-    }
+//    @IBAction func goToComment(_ sender: Any) {
+//        performSegue(withIdentifier: "commentSegue", sender: nil)
+//    }
     
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
@@ -117,26 +117,43 @@ class HomeViewController: UIViewController,UITableViewDataSource , goToCommentVc
         dump(post)
         cell.post = post
   
-        cell.user = user
+        cell.userInCell = user
         
        // cell.homeVC = self //delegation pattern is used instead
      
-        cell.delegateOfGoToCommentVcProtocol = self
+        cell.delegateOfHomeUITableViewCell = self
         
         return cell
     }
     
     
-    func goToCommentVC(postId: String) {
-        performSegue(withIdentifier: "commentSegue" , sender: postId)
-    }
+ 
     
-    //to transer sender from "performsegue" method in HomeUITableViewCell
+    //to transfer sender from "performsegue" method in HomeUITableViewCell
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "commentSegue" {
             let commentVC = segue.destination as! commentViewController
             let postId = sender as! String
             commentVC.postId = postId
         }
+        
+        if segue.identifier == "Home_ProfileSegue" {
+            let profileUserVC = segue.destination as! ProfileUserViewController
+            let userId = sender as! String
+            profileUserVC.userId = userId
+        }
     }
+
+}
+
+extension HomeViewController: HomeUITableViewCellDelegate //Intern of GoToCommentVcProtocol
+{
+    func goToCommentVC(postId: String) {
+        performSegue(withIdentifier: "commentSegue" , sender: postId)
+    }
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier: "Home_ProfileSegue", sender: userId)
+    }
+    
 }

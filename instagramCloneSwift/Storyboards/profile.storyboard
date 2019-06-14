@@ -350,7 +350,7 @@
         <!--Profile User View Controller-->
         <scene sceneID="GWt-KZ-QX2">
             <objects>
-                <viewController id="yzJ-rS-Zhq" customClass="ProfileUserViewController" customModule="instagramCloneSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileUserViewController" id="yzJ-rS-Zhq" customClass="ProfileUserViewController" customModule="instagramCloneSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eRJ-vp-5nh"/>
                         <viewControllerLayoutGuide type="bottom" id="sOE-az-AES"/>

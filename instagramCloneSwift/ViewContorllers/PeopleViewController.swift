@@ -8,18 +8,10 @@
 
 import UIKit
 
-class PeopleViewController: UIViewController,UITableViewDataSource,goToProfileUserVcProtocol {
+class PeopleViewController: UIViewController,UITableViewDataSource {
   
-    func goToProfileUserVC(userId: String) {
-        performSegue(withIdentifier:"ProfileSegue" , sender: userId)
-    }
-    
-    
     @IBOutlet weak var tableView: UITableView!
     var users:[UserModel] = []
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +56,7 @@ class PeopleViewController: UIViewController,UITableViewDataSource,goToProfileUs
         cell.userInCell = user
         
         //cell.peopleVC = self //to make "peopleVC variable" to instantiate and perform "ProfileSegue" in PeopleTableViewCell
-        cell.delegateOfGoToProfileUserVcProtocol = self
+        cell.delegateOfPeopleTableViewCell = self
         
         return cell
     }
@@ -79,4 +71,10 @@ class PeopleViewController: UIViewController,UITableViewDataSource,goToProfileUs
         }
     }
 
+}
+
+extension PeopleViewController: PeopleTableViewCellDelegate {
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier:"ProfileSegue" , sender: userId)
+    }
 }

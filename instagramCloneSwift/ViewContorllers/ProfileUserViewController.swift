@@ -10,7 +10,6 @@ import UIKit
 
  class ProfileUserViewController: UIViewController,UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
-    
     @IBOutlet weak var userName: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -82,7 +81,7 @@ import UIKit
         headerViewCell.updateView()
         
         if let user = self.user {
-            headerViewCell.user = user
+            headerViewCell.userInCell = user
         }
         
         return headerViewCell

@@ -9,10 +9,9 @@
 import UIKit
 import Foundation
 
-protocol goToProfileUserVcProtocol {
+protocol PeopleTableViewCellDelegate {
     
     func goToProfileUserVC(userId: String)
-    
 }
 
 class PeopleTableViewCell: UITableViewCell {
@@ -21,32 +20,8 @@ class PeopleTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
-    var delegateOfGoToProfileUserVcProtocol: goToProfileUserVcProtocol?
-    
-  //  var peopleVC: PeopleViewController?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        //Aloow user to touch imageView as button
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
-        
-        nameLabel.addGestureRecognizer(tapGesture)
-        nameLabel.isUserInteractionEnabled = true
-        
-    }
-    
-    @objc func nameLabel_TouchUpInside() {
-        if let id = userInCell!.id {
-            delegateOfGoToProfileUserVcProtocol?.goToProfileUserVC(userId: id)
-
-            //delegate pattern used instead
-            //moved into goToProfileUserVC(userId:) body in profileViewController:
-//            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
-            //need parepare(for segue) method to transfer sender
-        }
-    }
-    
+    var delegateOfPeopleTableViewCell:
+    PeopleTableViewCellDelegate?
     
     // var peopleVC: PeopleViewController?
     
@@ -58,6 +33,7 @@ class PeopleTableViewCell: UITableViewCell {
     }
     
     func setUpUserInfo() {
+        
         
         self.nameLabel.text = userInCell?.username
         
@@ -78,7 +54,7 @@ class PeopleTableViewCell: UITableViewCell {
 //        }
         
         
-                if userInCell?.isFollowed == true {
+                if userInCell!.isFollowed! == true {
                     configureUnfollowButton()
         
                 } else {
@@ -157,6 +133,30 @@ class PeopleTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        //Aloow user to touch imageView as button
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
+        
+        nameLabel.addGestureRecognizer(tapGesture)
+        nameLabel.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func nameLabel_TouchUpInside() {
+        if let id = userInCell!.id {
+            print("userId from PeopleTAbleViewCell: \(id)")
+            delegateOfPeopleTableViewCell?.goToProfileUserVC(userId: id)
+            
+            //delegate pattern used instead
+            //moved into goToProfileUserVC(userId:) body in profileViewController:
+            //            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
+            //need parepare(for segue) method to transfer sender
+        }
     }
     
 }

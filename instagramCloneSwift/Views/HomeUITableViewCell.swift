@@ -9,10 +9,12 @@
 import UIKit
 import SVProgressHUD
 
-protocol goToCommentVcProtocol { //Boss of HomeViewController
+protocol HomeUITableViewCellDelegate { //Boss of HomeViewController
     
     func goToCommentVC(postId: String)
-   
+    
+    func goToProfileUserVC(userId: String)
+    
 }
 
 class HomeUITableViewCell: UITableViewCell {
@@ -26,7 +28,7 @@ class HomeUITableViewCell: UITableViewCell {
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var delegateOfGoToCommentVcProtocol: goToCommentVcProtocol?
+    var delegateOfHomeUITableViewCell: HomeUITableViewCellDelegate?
     
    // var homeVC: HomeViewController? //delegation pattern is used instead
     
@@ -36,7 +38,7 @@ class HomeUITableViewCell: UITableViewCell {
         }
     }
     
-    var user: UserModel? {
+    var userInCell: UserModel? {
         didSet {
             setUpUserInfo()
         }
@@ -105,9 +107,9 @@ class HomeUITableViewCell: UITableViewCell {
     }
     
     func setUpUserInfo() {
-        self.nameLabel.text = user!.username
+        self.nameLabel.text = userInCell!.username
         
-        if let photoUrlString = user!.profileImageUrl {
+        if let photoUrlString = userInCell!.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
             
             profileImageView.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "placeholderImg"))
@@ -123,30 +125,48 @@ class HomeUITableViewCell: UITableViewCell {
         nameLabel.text = ""
         descriptionLabel.text = ""
         
+        
         //Aloow user to touch imageView as button
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
-        
-        commentImageView.addGestureRecognizer(tapGesture)
-        commentImageView.isUserInteractionEnabled = true
-        
-        
         let tapGestureOfLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likeImageView_TouchUpInside))
         
         likeImageView.addGestureRecognizer(tapGestureOfLikeImageView)
         likeImageView.isUserInteractionEnabled = true
+        
+      
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
+        
+        commentImageView.addGestureRecognizer(tapGesture)
+        commentImageView.isUserInteractionEnabled = true
+   
+        
+        let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
+        
+        nameLabel.addGestureRecognizer(tapGestureForNameLabel)
+        nameLabel.isUserInteractionEnabled = true
+        
         
     }
     
     @objc func commentImageView_TouchUpInside() {
         if let id = post?.id {
         
-            delegateOfGoToCommentVcProtocol?.goToCommentVC(postId: id)//using protocol and delegation
+            delegateOfHomeUITableViewCell?.goToCommentVC(postId: id)//using protocol and delegation
             
             // performSegue(withIdentifier:sender:) is moved to Intern(HomeViewController) in goToCommentVC(postId:)
 //            homeVC?.performSegue(withIdentifier: "commentSegue", sender: id)//need parepare(for segue) method to transfer sender
         
         }
     }
+    
+    @objc func nameLabel_TouchUpInside() {
+        if let id = userInCell!.id {
+            
+            delegateOfHomeUITableViewCell?.goToProfileUserVC(userId: id)
+            
+        }
+    }
+    
+    
     
     @objc func likeImageView_TouchUpInside() {
         
@@ -158,7 +178,6 @@ class HomeUITableViewCell: UITableViewCell {
             self.post?.likes = post.likes
             self.post?.isLiked = post.isLiked
             self.post?.likeCount = post.likeCount
-            
             
             
         }) { (errorMessage) in

@@ -8,6 +8,10 @@
 
 import UIKit
 import FirebaseDatabase
+protocol commentTableViewCellDelegate {
+    
+      func goToProfileUserVC(userId: String)
+}
 
 class commentTableViewCell: UITableViewCell {
 
@@ -18,13 +22,15 @@ class commentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var commentLabel: UILabel!
     
+    var delegateOfcommentTableViewCell: commentTableViewCellDelegate?
+    
     var comment: Comment? {
         didSet {
             updateCommentView()
         }
     }
     
-    var user: UserModel? {
+    var userInCell: UserModel? {
         didSet {
             setUpUserInfo()
         }
@@ -34,14 +40,11 @@ class commentTableViewCell: UITableViewCell {
     
     func updateCommentView(){
         commentLabel.text = comment!.commentText
-        
-
-        
     }
     
     func setUpUserInfo(){
-        nameLabel.text = user?.username
-        if let photoUrlString = user?.profileImageUrl {
+        nameLabel.text = userInCell?.username
+        if let photoUrlString = userInCell?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
          
             profileImageView.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "placeholderImg"))
@@ -52,8 +55,23 @@ class commentTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        //Aloow user to touch imageView as button
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
+        
+        nameLabel.addGestureRecognizer(tapGesture)
+        nameLabel.isUserInteractionEnabled = true
     }
+    
+    @objc func nameLabel_TouchUpInside() {
+        if let id = userInCell!.id {
+            print("userId from PeopleTAbleViewCell: \(id)")
+            delegateOfcommentTableViewCell?.goToProfileUserVC(userId: id)
+        
+        }
+    }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

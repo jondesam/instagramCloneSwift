@@ -11,11 +11,10 @@
     
     class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
         
-      
-        
         
         @IBOutlet weak var collectionView: UICollectionView!
         
+        var selectedImage: UIImage?
         var user: UserModel!
         //initilizing with empty array
         var posts: [Post] = []
@@ -26,7 +25,8 @@
             collectionView.delegate = self
             fetchUser()
             fectchMyPosts()
-        
+            
+            
         }
         
         
@@ -83,7 +83,7 @@
             headerViewCell.updateView()
             
             if let user = self.user {
-                headerViewCell.user = user
+                headerViewCell.userInCell = user
             }
             
             return headerViewCell
@@ -120,8 +120,5 @@
             }
         }
     }
-    
-    
-    
     
     

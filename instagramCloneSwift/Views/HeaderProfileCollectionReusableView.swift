@@ -7,12 +7,8 @@
     //
 
     import UIKit
-//    import FirebaseAuth
-
-   
-    
+ 
     class HeaderProfileCollectionReusableView: UICollectionReusableView,  UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-        
         
         
         @IBOutlet weak var profileImage: UIImageView!
@@ -21,7 +17,8 @@
         @IBOutlet weak var followingCountLabel: UILabel!
         @IBOutlet weak var followersCountLabel: UILabel!
         
-        var user: UserModel? {
+        
+        var userInCell: UserModel? {
             didSet {
                 updateView()
             }
@@ -29,13 +26,9 @@
      
         
         
-        
-        
-        
         func  updateView() {
      
-         
-            if let user = user {
+            if let user = userInCell {
                 self.nameLable.text = user.username
                 
                 if let photoUrlString = user.profileImageUrl {
@@ -47,13 +40,7 @@
             
     }
         
-        
- 
-        
-        
-        
+
 }
 
-    extension UIViewController {
-        
-    }
+   

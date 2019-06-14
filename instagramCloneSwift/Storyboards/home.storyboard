@@ -156,11 +156,20 @@
                         <outlet property="activityIndicatorView" destination="Txn-PT-rKZ" id="S6q-wX-7fA"/>
                         <outlet property="tableView" destination="L8O-y7-03H" id="IzW-7v-cuu"/>
                         <segue destination="KVf-36-yq0" kind="show" identifier="commentSegue" id="TNs-PY-LZy"/>
+                        <segue destination="IXQ-A3-paS" kind="show" identifier="Home_ProfileSegue" id="eAu-IO-H7s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccs-rr-ZbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1384.0579710144928" y="448.66071428571428"/>
+        </scene>
+        <!--ProfileUserViewController-->
+        <scene sceneID="z9g-zY-r1h">
+            <objects>
+                <viewControllerPlaceholder storyboardName="profile" referencedIdentifier="ProfileUserViewController" id="IXQ-A3-paS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wB5-nn-K5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-654" y="4"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="Fxm-gB-Hre">
@@ -275,11 +284,12 @@
                         <outlet property="constraintToBotton" destination="fW8-Hl-J0R" id="uRu-eY-pTX"/>
                         <outlet property="sendButton" destination="qB3-Hy-JMc" id="nyH-Dn-Pnm"/>
                         <outlet property="tableViewOfCommets" destination="tqv-yL-YGL" id="WWz-uK-IaS"/>
+                        <segue destination="IXQ-A3-paS" kind="show" identifier="Comment_ProfileSegue" id="7Ud-7K-333"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmn-cA-e4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-571.01449275362324" y="443.97321428571428"/>
+            <point key="canvasLocation" x="-726" y="741"/>
         </scene>
         <!--Home-->
         <scene sceneID="XVg-sy-YBb">
@@ -307,4 +317,7 @@
         <image name="placeholderImg.jpeg" width="225" height="225"/>
         <image name="share.png" width="37" height="41"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7Ud-7K-333"/>
+    </inferredMetricsTieBreakers>
 </document>

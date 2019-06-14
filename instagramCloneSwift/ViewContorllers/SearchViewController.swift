@@ -80,11 +80,29 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         
         cell.userInCell = user
         
+        cell.delegateOfPeopleTableViewCell = self
         //  cell.peopleVC = self
-        
         
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "Search_ProfileSegue" {
+            
+            let profileUserVC = segue.destination as! ProfileUserViewController
+            
+            let userId = sender as! String
+            
+            profileUserVC.userId = userId
+        }
+    }
+    
+}
+
+extension SearchViewController: PeopleTableViewCellDelegate {
+    func goToProfileUserVC(userId: String) {
+         performSegue(withIdentifier: "Search_ProfileSegue" , sender: userId)
+    }
     
 }

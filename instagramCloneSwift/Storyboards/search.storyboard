@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nff-rz-mzx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nff-rz-mzx">
+                                <rect key="frame" x="0.0" y="-3" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dyv-fX-Wqz">
                                     <size key="itemSize" width="110" height="119"/>
@@ -158,11 +158,20 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="xKj-85-0ao" id="cGZ-zw-W8d"/>
+                        <segue destination="axG-AU-Dfx" kind="show" identifier="Search_ProfileSegue" id="g2A-zG-z0k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BH2-Rb-NiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="582" y="451"/>
+        </scene>
+        <!--ProfileUserViewController-->
+        <scene sceneID="a6p-b6-Za0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="profile" referencedIdentifier="ProfileUserViewController" id="axG-AU-Dfx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5I-L1-jQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1285" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M1S-q7-3xb">

@@ -177,7 +177,8 @@ class commentViewController: UIViewController,UITableViewDataSource{
         let user = users[indexPath.row]
         
         cell.comment = comment
-        cell.user = user
+        cell.userInCell = user
+        cell.delegateOfcommentTableViewCell = self
         
         return cell
     }
@@ -189,7 +190,19 @@ class commentViewController: UIViewController,UITableViewDataSource{
         print("touchesBegan")
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "Comment_ProfileSegue" {
+            let profileUserVC = segue.destination as! ProfileUserViewController
+            let userId = sender as! String
+            profileUserVC.userId = userId
+        }
+    }
+}
+
+extension commentViewController: commentTableViewCellDelegate {
     
-    
-    
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier: "Comment_ProfileSegue", sender: userId)
+    }
 }
