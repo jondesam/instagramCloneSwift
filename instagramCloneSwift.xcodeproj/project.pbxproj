@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		61750E8DAEB7FB6250C5FDA6 /* Pods_instagramCloneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF1609ABF0CB9DD4966377B /* Pods_instagramCloneSwift.framework */; };
+		95016BDF22B8158A0016CD82 /* PeopleTableViewCellFromProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95016BDE22B8158A0016CD82 /* PeopleTableViewCellFromProfile.swift */; };
 		9540CEBB22A30969005868A8 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEB822A30968005868A8 /* discover.png */; };
 		9540CEBC22A30969005868A8 /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEB922A30968005868A8 /* discover@2x.png */; };
 		9540CEBD22A30969005868A8 /* discover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEBA22A30969005868A8 /* discover@3x.png */; };
@@ -25,6 +26,7 @@
 		954672F62284FC5200E6C113 /* Comment@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F02284FC3F00E6C113 /* Comment@3x.png */; };
 		954672F72284FC5200E6C113 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F32284FC4E00E6C113 /* share.png */; };
 		9547955E2289F8E70083DC20 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547955D2289F8E70083DC20 /* Comment.swift */; };
+		955EADA822B57AE2006789E1 /* StorageReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955EADA722B57AE2006789E1 /* StorageReference.swift */; };
 		9560793B2295D78C00CE75D7 /* likeSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 956079382295D78B00CE75D7 /* likeSelected@3x.png */; };
 		9560793C2295D78C00CE75D7 /* likeSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 956079392295D78B00CE75D7 /* likeSelected.png */; };
 		9560793D2295D78C00CE75D7 /* likeSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560793A2295D78B00CE75D7 /* likeSelected@2x.png */; };
@@ -72,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		1CF1609ABF0CB9DD4966377B /* Pods_instagramCloneSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagramCloneSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95016BDE22B8158A0016CD82 /* PeopleTableViewCellFromProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCellFromProfile.swift; sourceTree = "<group>"; };
 		9540CEB822A30968005868A8 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
 		9540CEB922A30968005868A8 /* discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@2x.png"; sourceTree = "<group>"; };
 		9540CEBA22A30969005868A8 /* discover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@3x.png"; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		954672F22284FC3F00E6C113 /* Comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Comment@2x.png"; sourceTree = "<group>"; };
 		954672F32284FC4E00E6C113 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		9547955D2289F8E70083DC20 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		955EADA722B57AE2006789E1 /* StorageReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageReference.swift; sourceTree = "<group>"; };
 		956079382295D78B00CE75D7 /* likeSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "likeSelected@3x.png"; sourceTree = "<group>"; };
 		956079392295D78B00CE75D7 /* likeSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likeSelected.png; sourceTree = "<group>"; };
 		9560793A2295D78B00CE75D7 /* likeSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "likeSelected@2x.png"; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				9545A76F2299D3F300CA8FEB /* HeaderProfileCollectionReusableView.swift */,
 				9545A773229C897E00CA8FEB /* PhotoCollectionViewCell.swift */,
 				9540CEC022A31CDC005868A8 /* PeopleTableViewCell.swift */,
+				95016BDE22B8158A0016CD82 /* PeopleTableViewCellFromProfile.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				95671A72229F22ED005A3B4F /* Config.swift */,
 				95671A74229F48A7005A3B4F /* HelperSevice.swift */,
 				95959CCE22A9CD4F00A8E04C /* FeedApi.swift */,
+				955EADA722B57AE2006789E1 /* StorageReference.swift */,
 				95C0C38522821B2B00CDE5F7 /* Post */,
 				95895CFB2278DF9E009371DC /* Storyboards */,
 				95895CFC2278DFCF009371DC /* ViewContorllers */,
@@ -418,30 +424,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-instagramCloneSwift/Pods-instagramCloneSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -471,7 +462,9 @@
 				9545A772229C6CFF00CA8FEB /* MyPostsApi.swift in Sources */,
 				959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */,
 				95C5D557227792C10046BBA5 /* AppDelegate.swift in Sources */,
+				95016BDF22B8158A0016CD82 /* PeopleTableViewCellFromProfile.swift in Sources */,
 				95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */,
+				955EADA822B57AE2006789E1 /* StorageReference.swift in Sources */,
 				95C5D56F2277A7130046BBA5 /* HomeViewController.swift in Sources */,
 				95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */,
 				9540CEBF22A31C6E005868A8 /* PeopleViewController.swift in Sources */,

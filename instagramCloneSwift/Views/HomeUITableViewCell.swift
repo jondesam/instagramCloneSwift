@@ -50,7 +50,11 @@ class HomeUITableViewCell: UITableViewCell {
         if let photoUrlString = post!.photoURL {
             let photoUrl = URL(string: photoUrlString)
             
-            postImageView.sd_setImage(with: photoUrl)
+           postImageView.sd_setImage(with: photoUrl)
+            
+            
+//            sd_setImage(with: photoUrl, placeholderImage:UIImage(named:
+//                "placeholderImg.jpeg") )
         }
         
         self.updateLike(post: post!)

@@ -48,7 +48,6 @@ class HomeViewController: UIViewController,UITableViewDataSource
             }// post.uid = userID
             
             self.fetchUser(uid: postId, completed: {
-                
                                 self.postz.append(post)
                                 self.activityIndicatorView.stopAnimating()
                                 self.tableView.reloadData()
@@ -114,7 +113,7 @@ class HomeViewController: UIViewController,UITableViewDataSource
         let post = postz[indexPath.row]
         let user = userz[indexPath.row]
         
-        dump(post)
+       // dump(post)
         cell.post = post
   
         cell.userInCell = user

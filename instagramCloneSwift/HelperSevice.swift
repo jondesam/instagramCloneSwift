@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import FirebaseStorage
 import SVProgressHUD
 
 class HelperService {
@@ -17,7 +16,9 @@ class HelperService {
         let user = Api.UserAPI.CURRENT_USER
         
         let uuid =  UUID().uuidString
-        let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF)
+        let storageRef =  StorageReference.storageRef
+        
+      
         
         let sharingImageRef = storageRef.child("sharing_photo").child(user!.email!).child(uuid)
         

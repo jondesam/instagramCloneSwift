@@ -11,6 +11,7 @@ import UIKit
 class PeopleViewController: UIViewController,UITableViewDataSource {
   
     @IBOutlet weak var tableView: UITableView!
+    
     var users:[UserModel] = []
     
     override func viewDidLoad() {
@@ -49,14 +50,15 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleTableViewCell", for: indexPath) as! PeopleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleTableViewCell", for: indexPath) as! PeopleTableViewCellFromProfile
         
         let user = users[indexPath.row]
         
         cell.userInCell = user
         
         //cell.peopleVC = self //to make "peopleVC variable" to instantiate and perform "ProfileSegue" in PeopleTableViewCell
-        cell.delegateOfPeopleTableViewCell = self
+        
+        cell.delegateOfPeopleTableViewFromProfileCell = self
         
         return cell
     }
@@ -73,7 +75,7 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
 
 }
 
-extension PeopleViewController: PeopleTableViewCellDelegate {
+extension PeopleViewController: PeopleTableViewCellFromProfileDelegate {
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier:"ProfileSegue" , sender: userId)
     }

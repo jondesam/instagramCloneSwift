@@ -253,25 +253,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeopleTableViewCell" rowHeight="207" id="zZh-C6-qSx" customClass="PeopleTableViewCell" customModule="instagramCloneSwift" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="207"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeopleTableViewCell" rowHeight="149" id="zZh-C6-qSx" userLabel="PeopleTableViewCellFromProfile" customClass="PeopleTableViewCellFromProfile" customModule="instagramCloneSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zZh-C6-qSx" id="v24-hG-W05">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="206.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="148.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7cL-vj-ggd">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="7cL-vj-ggd" userLabel="Profile Image">
                                                     <rect key="frame" x="15" y="21" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="2fS-ew-fZ2"/>
                                                         <constraint firstAttribute="width" constant="60" id="pEn-Ae-N5u"/>
                                                         <constraint firstAttribute="width" secondItem="7cL-vj-ggd" secondAttribute="height" multiplier="1:1" id="rGG-8h-p9P"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layout.cornerRadius">
-                                                            <integer key="value" value="30"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl5-ud-loh">
                                                     <rect key="frame" x="90" y="42" width="38.5" height="18"/>
@@ -300,9 +295,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="followButton" destination="0LD-0l-JXA" id="Js9-tZ-L1o"/>
-                                            <outlet property="nameLabel" destination="dl5-ud-loh" id="AcC-Zk-oDZ"/>
-                                            <outlet property="profileImage" destination="XZU-vH-ySe" id="ppK-qC-O8R"/>
+                                            <outlet property="followButton" destination="0LD-0l-JXA" id="Esf-Dh-uKO"/>
+                                            <outlet property="nameLabel" destination="dl5-ud-loh" id="weO-yE-gX2"/>
+                                            <outlet property="profileImage" destination="7cL-vj-ggd" id="VSL-h0-hbd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -319,6 +314,11 @@
                             <constraint firstItem="Ias-xc-vPm" firstAttribute="top" secondItem="naJ-JA-zLt" secondAttribute="top" id="pNj-64-odd"/>
                         </constraints>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="50"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="tableView" destination="Ias-xc-vPm" id="RHO-Km-A1M"/>
                         <segue destination="yzJ-rS-Zhq" kind="show" identifier="ProfileSegue" id="hca-eS-Cpp"/>
@@ -402,11 +402,6 @@
                                                 <constraint firstAttribute="width" constant="100" id="PnG-78-ks1"/>
                                                 <constraint firstAttribute="height" constant="100" id="upr-z8-9Md"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="50"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSp-6l-Wad">
                                             <rect key="frame" x="15" y="130" width="200" height="30"/>
@@ -563,5 +558,6 @@
     <resources>
         <image name="defaultPerson.jpg" width="620" height="389"/>
         <image name="discover.png" width="22" height="22"/>
+        <image name="placeholderImg.jpeg" width="225" height="225"/>
     </resources>
 </document>

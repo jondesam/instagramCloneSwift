@@ -1,3 +1,4 @@
+
 //
 //  PeopleTableViewCell.swift
 //  instagramCloneSwift
@@ -9,20 +10,21 @@
 import UIKit
 import Foundation
 
-protocol PeopleTableViewCellDelegate {
+protocol PeopleTableViewCellFromProfileDelegate {
     
     func goToProfileUserVC(userId: String)
 }
 
-class PeopleTableViewCell: UITableViewCell {
+class PeopleTableViewCellFromProfile: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
-    var delegateOfPeopleTableViewCell:
-    PeopleTableViewCellDelegate?
-    
+   
+    var delegateOfPeopleTableViewFromProfileCell:
+    PeopleTableViewCellFromProfileDelegate?
     // var peopleVC: PeopleViewController?
     
     var userInCell: UserModel?{
@@ -34,60 +36,33 @@ class PeopleTableViewCell: UITableViewCell {
     
     func setUpUserInfo() {
         
-     
-        profileImage.layer.masksToBounds = false
-        profileImage.layer.borderColor = UIColor.white.cgColor
-        profileImage.layer.cornerRadius =  profileImage.frame.height/2
-        profileImage.clipsToBounds = true
+ 
+        
+       // profileImage.layer.borderWidth = 1
+         profileImage.layer.masksToBounds = false
+         profileImage.layer.borderColor = UIColor.white.cgColor
+         profileImage.layer.cornerRadius = profileImage.frame.height/2
+         profileImage.clipsToBounds = true
         
         
         if let user = userInCell{
             self.nameLabel.text = user.username
-
+            
             if let photoUrlString = user.profileImageUrl {
                 let photoUrl = URL(string: photoUrlString)
-
+                
                 profileImage.sd_setImage(with: photoUrl,placeholderImage:UIImage(named:
                     "placeholderImg.jpeg") )
-                
-             //   profileImage.kf.setImage(with: photoUrl)
-//                sd_setImage(with: photoUrl,placeholderImage:UIImage(named: "placeholderImg.jpeg") )
+  
             }
         }
-      
         
-        
-//        if let user = userInCell {
-//            self.nameLabel.text = user.username
-//
-//            if let photoUrlString = user.profileImageUrl {
-//              //  let photoUrl = URL(string: photoUrlString)
-//                self.profileImage.sd_setImage(with: URL(string: photoUrlString), placeholderImage: UIImage(named: "placeholderImg.jpeg")) { (UIImage, error, SDImageCacheType, URL) in
-//                    print("this is error : \(error)")
-//                }
-//
-//
-//
-//            }
-//        }
-        
-        //observing database for new infomation
-        //letting view do heavy task
-//        Api.FollowAPI.isFollowing(userId: userInCell!.id!) { (value) in
-//            if  value == true {
-//                self.configureUnfollowButton()
-//            } else {
-//                self.configureFollowButton()
-//            }
-//        }
-        
-        
-                if userInCell!.isFollowed! == true {
-                    configureUnfollowButton()
-        
-                } else {
-                   configureFollowButton()
-                }
+        if userInCell!.isFollowed! == true {
+            configureUnfollowButton()
+            
+        } else {
+            configureFollowButton()
+        }
     }
     
     
@@ -150,11 +125,11 @@ class PeopleTableViewCell: UITableViewCell {
         
         /*before updatng cell directly
          // this causes haavy duty on view
-        Api.FollowAPI.unFollowAction(withUser: userInCell!.id!)
-        
-        // to make button have 2 ways both follow and Unfollow
-        configureFollowButton()
-        */
+         Api.FollowAPI.unFollowAction(withUser: userInCell!.id!)
+         
+         // to make button have 2 ways both follow and Unfollow
+         configureFollowButton()
+         */
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -178,12 +153,8 @@ class PeopleTableViewCell: UITableViewCell {
     @objc func nameLabel_TouchUpInside() {
         if let id = userInCell!.id {
             print("userId from PeopleTAbleViewCell: \(id)")
-            delegateOfPeopleTableViewCell?.goToProfileUserVC(userId: id)
+            delegateOfPeopleTableViewFromProfileCell?.goToProfileUserVC(userId: id)
             
-            //delegate pattern used instead
-            //moved into goToProfileUserVC(userId:) body in profileViewController:
-            //            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
-            //need parepare(for segue) method to transfer sender
         }
     }
     

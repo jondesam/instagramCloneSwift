@@ -8,7 +8,6 @@
 
 import Foundation
 import FirebaseDatabase
-
 import FirebaseAuth
 
 class UserApi {
@@ -73,7 +72,12 @@ class UserApi {
                 
                 if let dict = child.value as? [String:Any]{
                     let user = UserModel.transformUser(dict: dict, key: child.key)
-                    completion(user)
+                    
+                    if user.id! != Api.UserAPI.CURRENT_USER?.uid {//removing current user on peopleView
+                        completion(user)
+                    }
+                    
+                 
                 }
             }
             

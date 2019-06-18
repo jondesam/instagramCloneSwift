@@ -9,12 +9,19 @@
     import UIKit
     import SVProgressHUD
     
-    class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    class ProfileViewController: UIViewController, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
         
+        let header:HeaderProfileCollectionReusableView? = nil
         
+    
         @IBOutlet weak var collectionView: UICollectionView!
         
-        var selectedImage: UIImage?
+        let storageRef = StorageReference.storageRef
+        
+       
+        
+        
+        //  var selectedImage: UIImage?
         var user: UserModel!
         //initilizing with empty array
         var posts: [Post] = []
@@ -30,13 +37,29 @@
         }
         
         
+//        override func viewWillAppear(_ animated: Bool) {
+//            super.viewWillAppear(true)
+//            
+//            profileImageRef.downloadURL(completion: { (url, error) in
+//                if error != nil {
+//                    print("Download URL fail")
+//                    return
+//                }else {
+//                    self.header?.profileImage.sd_setImage(with: url)
+//                    print("viewWillAppear")
+//                }
+//            })
+//            
+//        }
+
+        
         //MARK: fetching User info
         func fetchUser() {
             Api.UserAPI.observeCurrentUse { (user) in
                 
                 self.user = user
                 self.navigationItem.title = user.username
-                self.collectionView.reloadData()
+               // self.collectionView.reloadData()
             }
         }
         
@@ -54,7 +77,7 @@
                 
                 Api.PostAPI.observePost(withPostId: snapshot.key, completion: { (post) in
                     //print("this is post in profileView")
-                      // print(post.id)
+                    // print(post.id)
                     self.posts.append(post)
                     self.collectionView.reloadData()
                 })
@@ -73,6 +96,8 @@
             let post = posts[indexPath.row]
             cell.post = post
             
+            
+            
             return cell
         }
         
@@ -85,6 +110,8 @@
             if let user = self.user {
                 headerViewCell.userInCell = user
             }
+            
+            headerViewCell.degateOfHeaderProfileCollectionReusableView = self
             
             return headerViewCell
         }
@@ -121,4 +148,136 @@
         }
     }
     
+    
+    extension ProfileViewController: HeaderProfileCollectionReusableViewDelegate,UIImagePickerControllerDelegate {
+        
+        func takeProfileImage() {
+            
+            print("takeProfileImage called")
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion:nil)
+            print("tapped")
+        }
+        
+        
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            print("did finish picking image")
+            
+//            let currentUser = Api.UserAPI.CURRENT_USER
+            
+            guard let currentUser = Api.UserAPI.CURRENT_USER else {
+                return
+            }
+          //  var profileImageRef = storageRef.child("profile_photo").child(currentUser.email!)
+            
+            
+            if let image = info[.originalImage] as? UIImage {
+                // selectedImage = image
+                header?.profileImage.image = image
+            }
+            
+            let selectedImageUrl = info[.imageURL]
+            
+            let profileImageRef = storageRef.child("profile_photo").child(currentUser.email!)
+            
+            profileImageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
+                if error != nil {
+                    return
+                } else {
+                    //downloading Profile Image Url
+                    profileImageRef.downloadURL(completion: { (url, error) in
+                        if error != nil {
+                            print("Download URL fail")
+                            print(error)
+                            print("profileImageRef: \(profileImageRef)")
+                            return
+                        }else {
+                            let profilePhotoUrl  = url?.absoluteString
+                            
+                            self.sendDataToDatabase(profilePhotoUrl: profilePhotoUrl!)
+                            
+                            //self.header?.profileImage.sd_setImage(with: url)
+                            
+                           
+                           // self.collectionView.reloadData()
+                            
+                        }
+                    })
+                    print("image uploaded")
+                    return
+                }
+            }
+            //  print(info)
+            dismiss(animated: true, completion: nil)
+        }
+        
+        func sendDataToDatabase(profilePhotoUrl: String) {
+            guard let currentUser = Api.UserAPI.CURRENT_USER else {
+                return
+            }
+            
+            print("sendDataToDatabase called")
+            let postRef = Api.UserAPI.REF_USERS
+            let newPostId = postRef.child(currentUser.uid)
+            
+            newPostId.updateChildValues(["profileImageUrl":profilePhotoUrl]) { (error, DatabaseReference) in
+                if error != nil {
+                    print("data upload fail")
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                    return
+                }
+                print("data uploaded")
+                
+                //self.collectionView.reloadData()
+                SVProgressHUD.showSuccess(withStatus: "Success")
+            }
+        }
+        //            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //                print("did finish picking image")
+        //                if let image = info[.originalImage] as? UIImage {
+        //                   // selectedImage = image
+        //                    header?.profileImage.image = image
+        //
+        //
+        //                }
+        //
+        //                let user = Api.UserAPI.CURRENT_USER
+        //
+        //                let selectedImageUrl = info[.imageURL]
+        //
+        //
+        //                let storageRef = StorageReference.storageRef
+        //
+        //
+        //
+        //
+        //                let imageRef = storageRef.child("profile_Photo").child(user!.email!)
+        //
+        //                imageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
+        //                    if error != nil {
+        //
+        //                        return
+        //                    } else {
+        //
+        //                        print("image uploaded")
+        //                        return
+        //                    }
+        //
+        //                }
+        //                //  print(info)
+        //                    dismiss(animated: true, completion: nil)
+        //            }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
     
