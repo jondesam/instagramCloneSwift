@@ -34,7 +34,6 @@ class PeopleTableViewCell: UITableViewCell {
     
     func setUpUserInfo() {
         
-     
         profileImage.layer.masksToBounds = false
         profileImage.layer.borderColor = UIColor.white.cgColor
         profileImage.layer.cornerRadius =  profileImage.frame.height/2

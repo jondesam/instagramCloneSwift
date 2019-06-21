@@ -95,6 +95,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
             let userId = sender as! String
             
             profileUserVC.userId = userId
+            profileUserVC.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC = self
         }
     }
     
@@ -105,4 +106,17 @@ extension SearchViewController: PeopleTableViewCellDelegate {
          performSegue(withIdentifier: "Search_ProfileSegue" , sender: userId)
     }
     
+}
+
+extension SearchViewController: HeaderProfileCollectionReusableViewSecondDelegate {
+    
+    func updateFollowButton(forUser userInCell: UserModel) {
+        for user in self.users {
+            if user.id == userInCell.id {
+                user.isFollowed = userInCell.isFollowed
+                tableView.reloadData()
+            }
+        }
+        
+    }
 }

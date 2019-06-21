@@ -11,14 +11,12 @@
     
     class ProfileViewController: UIViewController, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
         
-        let header:HeaderProfileCollectionReusableView? = nil
+        var header:HeaderProfileCollectionReusableView!
         
     
         @IBOutlet weak var collectionView: UICollectionView!
         
         let storageRef = StorageReference.storageRef
-        
-       
         
         
         //  var selectedImage: UIImage?
@@ -59,7 +57,7 @@
                 
                 self.user = user
                 self.navigationItem.title = user.username
-               // self.collectionView.reloadData()
+                self.collectionView.reloadData()
             }
         }
         
@@ -105,13 +103,16 @@
             
             let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for:indexPath) as! HeaderProfileCollectionReusableView
             
-            headerViewCell.updateView()
+           // headerViewCell.updateView()
             
             if let user = self.user {
                 headerViewCell.userInCell = user
+                
+                headerViewCell.degateOfHeaderProfileCollectionReusableView = self
+            
             }
             
-            headerViewCell.degateOfHeaderProfileCollectionReusableView = self
+            
             
             return headerViewCell
         }
@@ -149,7 +150,7 @@
     }
     
     
-    extension ProfileViewController: HeaderProfileCollectionReusableViewDelegate,UIImagePickerControllerDelegate {
+    extension ProfileViewController: HeaderProfileCollectionReusableViewDelegate, UIImagePickerControllerDelegate {
         
         func takeProfileImage() {
             
@@ -176,7 +177,7 @@
             
             if let image = info[.originalImage] as? UIImage {
                 // selectedImage = image
-                header?.profileImage.image = image
+                header?.profileImage.image = image//dosen't work
             }
             
             let selectedImageUrl = info[.imageURL]
@@ -206,12 +207,19 @@
                             
                         }
                     })
+                   
                     print("image uploaded")
                     return
                 }
             }
             //  print(info)
+           
             dismiss(animated: true, completion: nil)
+            print("dissmissed")
+            self.collectionView.reloadData() //doesn't work for updating profileImage instantly
+           
+           // self.header!.updateView()
+            
         }
         
         func sendDataToDatabase(profilePhotoUrl: String) {
@@ -230,52 +238,26 @@
                     return
                 }
                 print("data uploaded")
+               // self.header?.updateView() //doesn't work for updating profileImage instantly
                 
                 //self.collectionView.reloadData()
                 SVProgressHUD.showSuccess(withStatus: "Success")
             }
         }
-        //            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        //                print("did finish picking image")
-        //                if let image = info[.originalImage] as? UIImage {
-        //                   // selectedImage = image
-        //                    header?.profileImage.image = image
-        //
-        //
-        //                }
-        //
-        //                let user = Api.UserAPI.CURRENT_USER
-        //
-        //                let selectedImageUrl = info[.imageURL]
-        //
-        //
-        //                let storageRef = StorageReference.storageRef
-        //
-        //
-        //
-        //
-        //                let imageRef = storageRef.child("profile_Photo").child(user!.email!)
-        //
-        //                imageRef.putFile(from: selectedImageUrl as! URL, metadata: nil) { metadata, error in
-        //                    if error != nil {
-        //
-        //                        return
-        //                    } else {
-        //
-        //                        print("image uploaded")
-        //                        return
-        //                    }
-        //
-        //                }
-        //                //  print(info)
-        //                    dismiss(animated: true, completion: nil)
-        //            }
         
-        
-        
-        
-        
-        
+//        func updateProfileImage(forUser userInCell:UserModel){
+//            
+//            if let photoUrlString = userInCell.profileImageUrl {
+//                let photoUrl = URL(string: photoUrlString)
+//                
+//                header.profileImage.sd_setImage(with: photoUrl)
+//                
+//                
+//                print("updateProfileImage")
+//            }
+//collectionView.reloadData()
+//            
+//        }
         
         
         

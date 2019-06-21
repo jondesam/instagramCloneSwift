@@ -14,6 +14,8 @@ import UIKit
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var secondDelegateOfHeaderProfileCollectionReusableViewInPUVC: HeaderProfileCollectionReusableViewSecondDelegate?
+    
     var user: UserModel!
     //initilizing with empty array
     var posts: [Post] = []
@@ -37,13 +39,25 @@ import UIKit
     //MARK: fetching User info
     func fetchUser() {
         Api.UserAPI.observeUser(withUserId: userId) { (user) in
+            self.isFollowing(userId: user.id!, completed: { (boolValue) in
+                
+                user.isFollowed = boolValue
+                
+                self.user = user
+                self.navigationItem.title = user.username
+                self.collectionView.reloadData()
+                
+            })
             
-            self.user = user
-            self.navigationItem.title = user.username
-            self.collectionView.reloadData()
             
+       
         }
     }
+    
+    func isFollowing(userId: String, completed:@escaping(Bool) -> Void){
+        Api.FollowAPI.isFollowing(userId: userId, completed: completed)
+    }
+
     
     
     //MARK: fecthincg Posts
@@ -69,6 +83,7 @@ import UIKit
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell" , for: indexPath) as! PhotoCollectionViewCell
         
         let post = posts[indexPath.row]
+        
         cell.post = post
         
         return cell
@@ -82,6 +97,8 @@ import UIKit
         
         if let user = self.user {
             headerViewCell.userInCell = user
+            
+            headerViewCell.secondDegateOfHeaderProfileCollectionReusableViewInHPCRV = self.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC
         }
         
         return headerViewCell

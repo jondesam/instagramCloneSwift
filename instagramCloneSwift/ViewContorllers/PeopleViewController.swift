@@ -66,10 +66,15 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
 
      //to transer sender from "performsegue" method in PeopleTableViewCell
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ProfileSegue" {
+        if segue.identifier == "ProfileUserSegue" {
+            
             let profileUserVC = segue.destination as! ProfileUserViewController
+            
             let userId = sender as! String
+            
             profileUserVC.userId = userId
+            
+            profileUserVC.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC = self
         }
     }
 
@@ -77,6 +82,23 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
 
 extension PeopleViewController: PeopleTableViewCellFromProfileDelegate {
     func goToProfileUserVC(userId: String) {
-        performSegue(withIdentifier:"ProfileSegue" , sender: userId)
+        performSegue(withIdentifier:"ProfileUserSegue" , sender: userId)
     }
+}
+
+extension PeopleViewController: HeaderProfileCollectionReusableViewSecondDelegate {
+    
+    func updateFollowButton(forUser userInCell: UserModel) {
+        for user in self.users {
+            if user.id == userInCell.id {
+                user.isFollowed = userInCell.isFollowed
+                tableView.reloadData()
+            }
+        }
+    
+    }
+    
+
+    
+    
 }

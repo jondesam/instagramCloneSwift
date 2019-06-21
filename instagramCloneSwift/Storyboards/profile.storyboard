@@ -92,14 +92,15 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwi-Co-nco">
                                             <rect key="frame" x="130" y="15" width="261" height="100"/>
                                             <subviews>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhS-iZ-b4b">
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhS-iZ-b4b">
                                                     <rect key="frame" x="0.0" y="47" width="261" height="30"/>
                                                     <color key="backgroundColor" red="0.8862745098" green="0.89411764709999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="uhS-iZ-b4b" secondAttribute="height" multiplier="87:10" id="PsV-9n-dR4"/>
                                                         <constraint firstAttribute="height" constant="30" id="V8j-ry-JhK"/>
                                                     </constraints>
-                                                    <state key="normal" title="Edit Profile">
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <state key="normal" title="loading...">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -195,6 +196,7 @@
                                         <constraint firstItem="55A-MU-RTW" firstAttribute="leading" secondItem="Pon-nl-RGb" secondAttribute="leading" id="x1b-ub-eh5"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="followOrEditButton" destination="uhS-iZ-b4b" id="Vjg-m6-Y3p"/>
                                         <outlet property="followersCountLabel" destination="yV4-rg-ZYD" id="oUr-Ug-wCa"/>
                                         <outlet property="followingCountLabel" destination="Uhr-Yl-Oqn" id="HtI-9s-guX"/>
                                         <outlet property="myPostCountLabel" destination="hwo-uY-SBr" id="KEY-d7-wYv"/>
@@ -321,7 +323,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="tableView" destination="Ias-xc-vPm" id="RHO-Km-A1M"/>
-                        <segue destination="yzJ-rS-Zhq" kind="show" identifier="ProfileSegue" id="hca-eS-Cpp"/>
+                        <segue destination="yzJ-rS-Zhq" kind="show" identifier="ProfileUserSegue" id="hca-eS-Cpp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C7q-YZ-2RU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -425,14 +427,15 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUB-9Z-Fh3">
                                             <rect key="frame" x="130" y="15" width="261" height="100"/>
                                             <subviews>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmQ-LH-n3P" userLabel="following state">
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmQ-LH-n3P" userLabel="following state">
                                                     <rect key="frame" x="0.0" y="47" width="261" height="30"/>
                                                     <color key="backgroundColor" red="0.8862745098" green="0.89411764709999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="6Kc-Sl-n0o"/>
                                                         <constraint firstAttribute="width" secondItem="GmQ-LH-n3P" secondAttribute="height" multiplier="87:10" id="scY-Hh-ojx"/>
                                                     </constraints>
-                                                    <state key="normal" title="following">
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <state key="normal" title="loading...">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -528,6 +531,7 @@
                                         <constraint firstItem="9Su-nY-Rmr" firstAttribute="leading" secondItem="nSp-6l-Wad" secondAttribute="leading" id="xRQ-De-5fd"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="followOrEditButton" destination="GmQ-LH-n3P" id="ofa-nY-oO2"/>
                                         <outlet property="followersCountLabel" destination="DcG-bv-9GN" id="Kfu-1O-wox"/>
                                         <outlet property="followingCountLabel" destination="oAQ-qW-hFg" id="967-tS-3hb"/>
                                         <outlet property="myPostCountLabel" destination="1Gw-8b-QsN" id="7aD-x6-zAH"/>
