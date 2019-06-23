@@ -28,8 +28,9 @@
         @IBOutlet weak var nameLable: UILabel!
         @IBOutlet weak var myPostCountLabel: UILabel!
         @IBOutlet weak var followingCountLabel: UILabel!
-        @IBOutlet weak var followersCountLabel: UILabel!
-     
+        
+        @IBOutlet weak var followerCountLabel: UILabel!
+        
         @IBOutlet weak var followOrEditButton: UIButton!
         
         var degateOfHeaderProfileCollectionReusableView: HeaderProfileCollectionReusableViewDelegate?
@@ -38,7 +39,9 @@
         
         var userInCell: UserModel? {
             didSet {
+                
                 updateView()
+                
                // print(Api.UserAPI.CURRENT_USER?.uid)
                 //degateOfHeaderProfileCollectionReusableView?.updateProfileImage(forUser: userInCell!)
             }
@@ -54,7 +57,26 @@
             profileImage.layer.cornerRadius =  profileImage.frame.height/2
             profileImage.clipsToBounds = true
             
-//            if let user = userInCell {
+           if let user = userInCell {
+            
+            
+           
+                
+            Api.MyPostsAPI.fetchCountMyPosts(userId:userInCell!.id! , completion: { (postCount) in
+
+                     self.myPostCountLabel.text = "\(postCount)"
+                })
+            
+            
+            Api.FollowAPI.fetchCountFollowing(userId: (userInCell?.id!)!) { (followingNumber) in
+                self.followingCountLabel.text = "\(followingNumber - 1)"
+            }
+            
+            Api.FollowAPI.fetchCountFollowers(userId: (userInCell?.id!)!) { (followersNumber) in
+                self.followerCountLabel.text = "\(followersNumber - 1)"
+            }
+            
+            
             self.nameLable.text = userInCell?.username
                 
             if let photoUrlString = userInCell?.profileImageUrl {
@@ -69,7 +91,7 @@
                     updateStateFollowButton()
                 }
                 
-            //}
+            }
             
            
     }

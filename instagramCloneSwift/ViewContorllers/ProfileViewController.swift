@@ -71,9 +71,8 @@
                 return
             }
             
-            Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded) { (snapshot) in
-                
-                Api.PostAPI.observePost(withPostId: snapshot.key, completion: { (post) in
+            Api.MyPostsAPI.fetchMyPosts(currentUser: currentUser.uid) { (key) in
+                Api.PostAPI.observePost(withPostId: key, completion: { (post) in
                     //print("this is post in profileView")
                     // print(post.id)
                     self.posts.append(post)
@@ -81,6 +80,7 @@
                 })
             }
         }
+        
         
         //MARK: - CollectionView Methods
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -93,8 +93,6 @@
             
             let post = posts[indexPath.row]
             cell.post = post
-            
-            
             
             return cell
         }

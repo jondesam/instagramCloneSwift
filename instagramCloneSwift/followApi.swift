@@ -22,7 +22,7 @@ class FollowApi {
 //                print("This is dict.keys\(dict.keys) and value \(dict.values)")
 //
              //   dict.keys
-                for key in dict.keys{
+                for key in dict.keys {
                     Database.database().reference().child("feed").child(Api.UserAPI.CURRENT_USER!.uid).child(key).setValue(true)
                 }
             }
@@ -61,4 +61,22 @@ class FollowApi {
             
         }
     }
+    
+    func fetchCountFollowing(userId: String,completion: @escaping (Int)-> Void){
+        REF_FOLLOWING.child(userId).observe(.value) { (snapshot) in
+            let numberOfFollowing =  Int(snapshot.childrenCount)
+            
+            completion(numberOfFollowing)
+        }
+    }
+    
+    func fetchCountFollowers(userId: String,completion: @escaping (Int)-> Void){
+        REF_FOLLOWERS.child(userId).observe(.value) { (snapshot) in
+            let numberOfFollowing =  Int(snapshot.childrenCount)
+            
+            completion(numberOfFollowing)
+        }
+    }
+    
+    
 }

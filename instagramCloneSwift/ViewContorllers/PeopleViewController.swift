@@ -54,8 +54,9 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
         
         let user = users[indexPath.row]
         
+    
         cell.userInCell = user
-        
+
         //cell.peopleVC = self //to make "peopleVC variable" to instantiate and perform "ProfileSegue" in PeopleTableViewCell
         
         cell.delegateOfPeopleTableViewFromProfileCell = self
