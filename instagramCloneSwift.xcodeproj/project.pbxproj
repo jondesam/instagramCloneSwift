@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		61750E8DAEB7FB6250C5FDA6 /* Pods_instagramCloneSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF1609ABF0CB9DD4966377B /* Pods_instagramCloneSwift.framework */; };
 		95016BDF22B8158A0016CD82 /* PeopleTableViewCellFromProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95016BDE22B8158A0016CD82 /* PeopleTableViewCellFromProfile.swift */; };
+		9515750522C185BD00B6E7D6 /* SettingUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515750422C185BD00B6E7D6 /* SettingUITableViewController.swift */; };
 		9540CEBB22A30969005868A8 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEB822A30968005868A8 /* discover.png */; };
 		9540CEBC22A30969005868A8 /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEB922A30968005868A8 /* discover@2x.png */; };
 		9540CEBD22A30969005868A8 /* discover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9540CEBA22A30969005868A8 /* discover@3x.png */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		1CF1609ABF0CB9DD4966377B /* Pods_instagramCloneSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagramCloneSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95016BDE22B8158A0016CD82 /* PeopleTableViewCellFromProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCellFromProfile.swift; sourceTree = "<group>"; };
+		9515750422C185BD00B6E7D6 /* SettingUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITableViewController.swift; sourceTree = "<group>"; };
 		9540CEB822A30968005868A8 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
 		9540CEB922A30968005868A8 /* discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@2x.png"; sourceTree = "<group>"; };
 		9540CEBA22A30969005868A8 /* discover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@3x.png"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */,
 				9540CEBE22A31C6E005868A8 /* PeopleViewController.swift */,
 				95B5045722AEE4BD00392961 /* ProfileUserViewController.swift */,
+				9515750422C185BD00B6E7D6 /* SettingUITableViewController.swift */,
 			);
 			path = ViewContorllers;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				95C5D56F2277A7130046BBA5 /* HomeViewController.swift in Sources */,
 				95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */,
 				9540CEBF22A31C6E005868A8 /* PeopleViewController.swift in Sources */,
+				9515750522C185BD00B6E7D6 /* SettingUITableViewController.swift in Sources */,
 				95B5045822AEE4BD00392961 /* ProfileUserViewController.swift in Sources */,
 				95C5D5712277A74C0046BBA5 /* DiscoverViewController.swift in Sources */,
 				95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */,

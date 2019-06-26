@@ -5,22 +5,26 @@
     //  Created by MyMac on 2019-05-25.
     //  Copyright © 2019 Apex. All rights reserved.
     //
-
+    
     import UIKit
     
     protocol HeaderProfileCollectionReusableViewDelegate {
-        
+
         func takeProfileImage()
-        
+
         //func updateProfileImage(forUser userInCell:UserModel)
-       
+
     }
     
     protocol HeaderProfileCollectionReusableViewSecondDelegate {
         
-         func updateFollowButton(forUser userInCell: UserModel)
+        func updateFollowButton(forUser userInCell: UserModel)
     }
-
+    
+    protocol HeaderProfileCollectionReusableViewThirdDelegate {
+        func goToSettingVC()
+    }
+    
     
     class HeaderProfileCollectionReusableView: UICollectionReusableView,  UIImagePickerControllerDelegate {
         
@@ -37,70 +41,74 @@
         
         var secondDegateOfHeaderProfileCollectionReusableViewInHPCRV:HeaderProfileCollectionReusableViewSecondDelegate?
         
+        var thirdDegateOfHeaderProfileCollectionReusableView: HeaderProfileCollectionReusableViewThirdDelegate?
+        
+        
         var userInCell: UserModel? {
             didSet {
                 
                 updateView()
                 
-               // print(Api.UserAPI.CURRENT_USER?.uid)
+                // print(Api.UserAPI.CURRENT_USER?.uid)
                 //degateOfHeaderProfileCollectionReusableView?.updateProfileImage(forUser: userInCell!)
             }
         }
-     
         
-
+        
+        
         func  updateView() {
             
-        
+            
             profileImage.layer.masksToBounds = false
             profileImage.layer.borderColor = UIColor.white.cgColor
             profileImage.layer.cornerRadius =  profileImage.frame.height/2
             profileImage.clipsToBounds = true
             
-           if let user = userInCell {
-            
-            
-           
+            if let user = userInCell {
                 
-            Api.MyPostsAPI.fetchCountMyPosts(userId:userInCell!.id! , completion: { (postCount) in
-
-                     self.myPostCountLabel.text = "\(postCount)"
+                
+                
+                
+                Api.MyPostsAPI.fetchCountMyPosts(userId:userInCell!.id! , completion: { (postCount) in
+                    
+                    self.myPostCountLabel.text = "\(postCount)"
                 })
-            
-            
-            Api.FollowAPI.fetchCountFollowing(userId: (userInCell?.id!)!) { (followingNumber) in
-                self.followingCountLabel.text = "\(followingNumber - 1)"
-            }
-            
-            Api.FollowAPI.fetchCountFollowers(userId: (userInCell?.id!)!) { (followersNumber) in
-                self.followerCountLabel.text = "\(followersNumber - 1)"
-            }
-            
-            
-            self.nameLable.text = userInCell?.username
                 
-            if let photoUrlString = userInCell?.profileImageUrl {
+                
+                Api.FollowAPI.fetchCountFollowing(userId: (userInCell?.id!)!) { (followingNumber) in
+                    self.followingCountLabel.text = "\(followingNumber - 1)"
+                }
+                
+                Api.FollowAPI.fetchCountFollowers(userId: (userInCell?.id!)!) { (followersNumber) in
+                    self.followerCountLabel.text = "\(followersNumber - 1)"
+                }
+                
+                
+                self.nameLable.text = userInCell?.username
+                
+                if let photoUrlString = userInCell?.profileImageUrl {
                     let photoUrl = URL(string: photoUrlString)
                     self.profileImage.sd_setImage(with: photoUrl)
                 }
                 
                 if userInCell?.id == Api.UserAPI.CURRENT_USER?.uid {
                     
-                   followOrEditButton.setTitle("Edit Prof", for: UIControl.State.normal)
+                    followOrEditButton.setTitle("Edit Profile", for: UIControl.State.normal)
+                    followOrEditButton.addTarget(self, action: #selector(self.selectGoToSettingVC), for: UIControl.Event.touchUpInside)
                 } else {
                     updateStateFollowButton()
                 }
                 
             }
             
-           
-    }
-   
+            
+        }
+        
         
         override func awakeFromNib() {
             super.awakeFromNib()
             //degateOfHeaderProfileCollectionReusableView?.updateProfileImage(forUser: userInCell!)
-           
+            
             // updateView()
             
             //Aloow user to touch imageView as button
@@ -108,31 +116,35 @@
             
             profileImage.addGestureRecognizer(tapGesture)
             profileImage.isUserInteractionEnabled = true
-
+            
             
         }
         
         @objc func profileImage_TouchUpInside() {
-
-        degateOfHeaderProfileCollectionReusableView?.takeProfileImage()
-                
+            
+            degateOfHeaderProfileCollectionReusableView?.takeProfileImage()
+            
         }
-
         
-   
+        @objc func selectGoToSettingVC() {
+            thirdDegateOfHeaderProfileCollectionReusableView?.goToSettingVC()
+        }
+        
+        
         
         
         func updateStateFollowButton() {
             if userInCell?.isFollowed! == true {
                 configureUnfollowButton()
-
+                
             } else {
                 configureFollowButton()
             }
             
         }
         
-
+        
+        
         
         func configureFollowButton(){
             followOrEditButton.layer.borderWidth = 1
@@ -206,6 +218,6 @@
         
         
         
-}
-
-   
+    }
+    
+    

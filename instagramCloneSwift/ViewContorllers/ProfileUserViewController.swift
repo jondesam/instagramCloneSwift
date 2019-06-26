@@ -16,6 +16,9 @@ import UIKit
     
     var secondDelegateOfHeaderProfileCollectionReusableViewInPUVC: HeaderProfileCollectionReusableViewSecondDelegate?
     
+    var delegateofSettingUITableViewControllerInPUVC:SettingUITableViewControllerDelegate?
+    
+    
     var user: UserModel!
     //initilizing with empty array
     var posts: [Post] = []
@@ -99,6 +102,10 @@ import UIKit
             headerViewCell.userInCell = user
             
             headerViewCell.secondDegateOfHeaderProfileCollectionReusableViewInHPCRV = self.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC
+            
+            
+            
+            headerViewCell.thirdDegateOfHeaderProfileCollectionReusableView = self
         }
         
         return headerViewCell
@@ -120,3 +127,21 @@ import UIKit
     }
     
 }
+
+ extension ProfileUserViewController: HeaderProfileCollectionReusableViewThirdDelegate {
+    
+    func goToSettingVC() {
+        performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil )
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileUser_SettingSegue" {
+            
+            let settingVC = segue.destination as? SettingUITableViewController
+            
+          //  settingVC?.delegateOfSettingUITableViewController = self.delegateofSettingUITableViewControllerInPUVC
+            
+        }
+    }
+ 
+ }

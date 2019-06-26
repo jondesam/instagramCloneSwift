@@ -141,7 +141,12 @@ class HomeViewController: UIViewController,UITableViewDataSource
             let profileUserVC = segue.destination as! ProfileUserViewController
             let userId = sender as! String
             profileUserVC.userId = userId
+            ///
+//            profileUserVC.delegateofSettingUITableViewControllerInPUVC = self
         }
+        
+        
+        
     }
 
 }
@@ -156,3 +161,12 @@ extension HomeViewController: HomeUITableViewCellDelegate //Intern of GoToCommen
     }
     
 }
+
+//extension HomeViewController: SettingUITableViewControllerDelegate {
+//    
+//    func updateUserInfoRealTime() {
+//        
+//        self.loadPosts()
+//        
+//    }
+//}

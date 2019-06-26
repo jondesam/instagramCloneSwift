@@ -13,7 +13,7 @@
         
         var header:HeaderProfileCollectionReusableView!
         
-    
+        
         @IBOutlet weak var collectionView: UICollectionView!
         
         let storageRef = StorageReference.storageRef
@@ -35,25 +35,25 @@
         }
         
         
-//        override func viewWillAppear(_ animated: Bool) {
-//            super.viewWillAppear(true)
-//            
-//            profileImageRef.downloadURL(completion: { (url, error) in
-//                if error != nil {
-//                    print("Download URL fail")
-//                    return
-//                }else {
-//                    self.header?.profileImage.sd_setImage(with: url)
-//                    print("viewWillAppear")
-//                }
-//            })
-//            
-//        }
-
+        //        override func viewWillAppear(_ animated: Bool) {
+        //            super.viewWillAppear(true)
+        //
+        //            profileImageRef.downloadURL(completion: { (url, error) in
+        //                if error != nil {
+        //                    print("Download URL fail")
+        //                    return
+        //                }else {
+        //                    self.header?.profileImage.sd_setImage(with: url)
+        //                    print("viewWillAppear")
+        //                }
+        //            })
+        //
+        //        }
+        
         
         //MARK: fetching User info
         func fetchUser() {
-            Api.UserAPI.observeCurrentUse { (user) in
+            Api.UserAPI.observeCurrentUser { (user) in
                 
                 self.user = user
                 self.navigationItem.title = user.username
@@ -101,13 +101,13 @@
             
             let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for:indexPath) as! HeaderProfileCollectionReusableView
             
-           // headerViewCell.updateView()
+            // headerViewCell.updateView()
             
             if let user = self.user {
                 headerViewCell.userInCell = user
                 
                 headerViewCell.degateOfHeaderProfileCollectionReusableView = self
-            
+                headerViewCell.thirdDegateOfHeaderProfileCollectionReusableView = self
             }
             
             
@@ -147,6 +147,32 @@
         }
     }
     
+    extension ProfileViewController: HeaderProfileCollectionReusableViewThirdDelegate {
+        
+        func goToSettingVC() {
+            
+            performSegue(withIdentifier: "Profile_SettingSegue", sender: nil
+        
+            )
+        }
+        
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+            if segue.identifier == "Profile_SettingSegue" {
+                
+                let settingVC = segue.destination as? SettingUITableViewController
+                
+                settingVC?.delegateOfSettingUITableViewController = self
+                
+            }
+        }
+        
+        
+    }
+    
+    
+    
     
     extension ProfileViewController: HeaderProfileCollectionReusableViewDelegate, UIImagePickerControllerDelegate {
         
@@ -165,12 +191,12 @@
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             print("did finish picking image")
             
-//            let currentUser = Api.UserAPI.CURRENT_USER
+            //            let currentUser = Api.UserAPI.CURRENT_USER
             
             guard let currentUser = Api.UserAPI.CURRENT_USER else {
                 return
             }
-          //  var profileImageRef = storageRef.child("profile_photo").child(currentUser.email!)
+            //  var profileImageRef = storageRef.child("profile_photo").child(currentUser.email!)
             
             
             if let image = info[.originalImage] as? UIImage {
@@ -190,7 +216,7 @@
                     profileImageRef.downloadURL(completion: { (url, error) in
                         if error != nil {
                             print("Download URL fail")
-                            print(error)
+                            // print(error)
                             print("profileImageRef: \(profileImageRef)")
                             return
                         }else {
@@ -200,23 +226,23 @@
                             
                             //self.header?.profileImage.sd_setImage(with: url)
                             
-                           
-                           // self.collectionView.reloadData()
+                            
+                            // self.collectionView.reloadData()
                             
                         }
                     })
-                   
+                    
                     print("image uploaded")
                     return
                 }
             }
             //  print(info)
-           
+            
             dismiss(animated: true, completion: nil)
             print("dissmissed")
             self.collectionView.reloadData() //doesn't work for updating profileImage instantly
-           
-           // self.header!.updateView()
+            
+            // self.header!.updateView()
             
         }
         
@@ -236,28 +262,38 @@
                     return
                 }
                 print("data uploaded")
-               // self.header?.updateView() //doesn't work for updating profileImage instantly
+                // self.header?.updateView() //doesn't work for updating profileImage instantly
                 
                 //self.collectionView.reloadData()
                 SVProgressHUD.showSuccess(withStatus: "Success")
             }
         }
         
-//        func updateProfileImage(forUser userInCell:UserModel){
-//            
-//            if let photoUrlString = userInCell.profileImageUrl {
-//                let photoUrl = URL(string: photoUrlString)
-//                
-//                header.profileImage.sd_setImage(with: photoUrl)
-//                
-//                
-//                print("updateProfileImage")
-//            }
-//collectionView.reloadData()
-//            
-//        }
+        //        func updateProfileImage(forUser userInCell:UserModel){
+        //
+        //            if let photoUrlString = userInCell.profileImageUrl {
+        //                let photoUrl = URL(string: photoUrlString)
+        //
+        //                header.profileImage.sd_setImage(with: photoUrl)
+        //
+        //
+        //                print("updateProfileImage")
+        //            }
+        //collectionView.reloadData()
+        //
+        //        }
+        
+        
         
         
         
     }
     
+    extension ProfileViewController: SettingUITableViewControllerDelegate {
+        
+        func updateUserInfoRealTime() {
+        
+            self.fetchUser()
+        
+        }
+    }

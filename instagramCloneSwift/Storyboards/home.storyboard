@@ -169,7 +169,7 @@
                 <viewControllerPlaceholder storyboardName="profile" referencedIdentifier="ProfileUserViewController" id="IXQ-A3-paS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wB5-nn-K5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-654" y="4"/>
+            <point key="canvasLocation" x="42" y="-181"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="Fxm-gB-Hre">
@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmn-cA-e4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-435" y="694"/>
+            <point key="canvasLocation" x="-122" y="713"/>
         </scene>
         <!--Home-->
         <scene sceneID="XVg-sy-YBb">
@@ -318,6 +318,6 @@
         <image name="share.png" width="37" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Ud-7K-333"/>
+        <segue reference="eAu-IO-H7s"/>
     </inferredMetricsTieBreakers>
 </document>

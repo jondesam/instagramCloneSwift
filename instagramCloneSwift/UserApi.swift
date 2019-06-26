@@ -32,7 +32,7 @@ class UserApi {
         }
     }
 
-    func observeCurrentUse(completion: @escaping(UserModel) -> Void)  {
+    func observeCurrentUser(completion: @escaping(UserModel) -> Void)  {
         
         guard let currentUser = Auth.auth().currentUser else {
             return

@@ -71,7 +71,104 @@
         }
 
         
+      static  func updateUserInfo(username:String, imageData:Data, onSuccess:@escaping() -> Void, onEror: @escaping (_ errorMessage:String?) -> Void ){
+        
+        print("updateUserInfo is called")
+        let currentUser = Api.UserAPI.CURRENT_USER
+        
+        let storageRef = StorageReference.storageRef
+        let profileImageRef = storageRef.child("profile_photo").child((currentUser?.email)!)
+        
+        
+        
+        
+        
+        profileImageRef.putData(imageData, metadata: nil) { (storageMetadata, error) in
+            if error != nil {
+                return
+            }
+            
+            profileImageRef.downloadURL(completion: { (url, error) in
+              
+                if error != nil {
+                    print("Download URL fail")
+                    // print(error)
+                    print("profileImageRef: \(profileImageRef)")
+                    return
+                }else {
+                    let profilePhotoUrl  = url?.absoluteString
+                    
+                
+                    
+                    
+                   // sendDataToDatabase(profilePhotoUrl: profilePhotoUrl!)
+                    
+                    updateDatabase(profileImageUrl: profilePhotoUrl!, id: username, onSuccess: onSuccess, onEror: onEror)
+                   
+                    
+                    //self.header?.profileImage.sd_setImage(with: url)
+                    
+                    
+                    // self.collectionView.reloadData()
+                    
+                }
+                
+            })
+          
+        }
+    
+        }
+        
+        static func updateDatabase(profileImageUrl:String, id:String, onSuccess:@escaping() -> Void, onEror: @escaping (_ errorMessage:String?) -> Void ){
+            
+            let dict = ["username": id,
+                        "username_lowercase": id.lowercased(),
+                         "profileImageUrl": profileImageUrl]
+            
+            Api.UserAPI.REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, databaseReference) in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    print("data upload fail")
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                } else {
+                    onSuccess()
+                     print("data uploaded")
+                     SVProgressHUD.showSuccess(withStatus: "Success")
+                }
+                
+            })
+        }
+        
+        
+        
+  
+//        static func sendDataToDatabase(profilePhotoUrl: String) {
+//            guard let currentUser = Api.UserAPI.CURRENT_USER else {
+//                return
+//            }
+//
+//            print("sendDataToDatabase called")
+//            let postRef = Api.UserAPI.REF_USERS
+//            let newPostId = postRef.child(currentUser.uid)
+//
+//            newPostId.updateChildValues(["profileImageUrl":profilePhotoUrl]) { (error, DatabaseReference) in
+//                if error != nil {
+//                    print("data upload fail")
+//                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+//                    return
+//                }
+//                print("data uploaded")
+//                // self.header?.updateView() //doesn't work for updating profileImage instantly
+//
+//                //self.collectionView.reloadData()
+//                SVProgressHUD.showSuccess(withStatus: "Success")
+//            }
+//        }
+        
+     
+        
         
     }
+
 
 
