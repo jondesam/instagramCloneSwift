@@ -93,6 +93,7 @@
             
             let post = posts[indexPath.row]
             cell.post = post
+            cell.delegateOfPhotoCollectionViewCell = self
             
             return cell
         }
@@ -145,6 +146,38 @@
                 SVProgressHUD.showError(withStatus: logOutError)
             }
         }
+        
+        
+        //MARK: - Prepare for segue
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            if segue.identifier == "Profile_SettingSegue" {
+                
+                let settingVC = segue.destination as? SettingUITableViewController
+                
+                settingVC?.delegateOfSettingUITableViewController = self
+                
+            }
+            
+            if segue.identifier == "Profile_detailVC" {
+                
+                let detailVC = segue.destination as? DetailViewController
+                
+                let postId = sender as? String
+                
+                detailVC!.postId = postId!
+            }
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
     }
     
     extension ProfileViewController: HeaderProfileCollectionReusableViewThirdDelegate {
@@ -155,19 +188,6 @@
         
             )
         }
-        
-        
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-            if segue.identifier == "Profile_SettingSegue" {
-                
-                let settingVC = segue.destination as? SettingUITableViewController
-                
-                settingVC?.delegateOfSettingUITableViewController = self
-                
-            }
-        }
-        
         
     }
     
@@ -296,4 +316,13 @@
             self.fetchUser()
         
         }
+    }
+
+    extension ProfileViewController: PhotoCollectionViewCellDelegate {
+        
+        func goToDetailVC(postId: String) {
+            
+            performSegue(withIdentifier: "Profile_detailVC", sender: postId)
+        }
+        
     }

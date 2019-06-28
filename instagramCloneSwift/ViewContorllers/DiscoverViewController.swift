@@ -11,6 +11,7 @@ import UIKit
 class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var posts: [Post] = []
     
     override func viewDidLoad() {
@@ -41,14 +42,18 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     
     //MARK: - CollectionView Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiscoveryCollectionViewCell" , for: indexPath) as! PhotoCollectionViewCell
         
         let post = posts[indexPath.row]
+        
         cell.post = post
+        cell.delegateOfPhotoCollectionViewCell = self
         
         return cell
     }
@@ -65,5 +70,28 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
         return 0
     }
  
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "Discover_DetailSegue" {
+            
+            let detailVC = segue.destination as? DetailViewController
+            
+            let postId = sender as? String
+          
+            detailVC!.postId = postId!
+        }
+    }
 
+}
+
+extension DiscoverViewController: PhotoCollectionViewCellDelegate {
+    
+    func goToDetailVC(postId: String) {
+        
+        performSegue(withIdentifier: "Discover_DetailSegue", sender: postId)
+    }
+  
+    
+    
 }

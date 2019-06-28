@@ -88,6 +88,7 @@ import UIKit
         let post = posts[indexPath.row]
         
         cell.post = post
+        cell.delegateOfPhotoCollectionViewCell = self
         
         return cell
     }
@@ -126,6 +127,27 @@ import UIKit
         return 0
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        if segue.identifier == "ProfileUser_SettingSegue" {
+
+            let settingVC = segue.destination as? SettingUITableViewController
+
+            // displaying ProfilePhoto in realtime Not Yet Working
+            //  settingVC?.delegateOfSettingUITableViewController = self.delegateofSettingUITableViewControllerInPUVC
+
+        }
+        
+        if segue.identifier == "ProfileUser_detailVC" {
+            
+            let detailVC = segue.destination as? DetailViewController
+            
+            let postId = sender as? String
+            
+            detailVC!.postId = postId!
+        }
+    }
+    
 }
 
  extension ProfileUserViewController: HeaderProfileCollectionReusableViewThirdDelegate {
@@ -133,15 +155,15 @@ import UIKit
     func goToSettingVC() {
         performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil )
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ProfileUser_SettingSegue" {
-            
-            let settingVC = segue.destination as? SettingUITableViewController
-            
-          //  settingVC?.delegateOfSettingUITableViewController = self.delegateofSettingUITableViewControllerInPUVC
-            
-        }
-    }
- 
  }
+
+ 
+ 
+ extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
+    
+    func goToDetailVC(postId: String) {
+        
+        performSegue(withIdentifier: "ProfileUser_detailVC", sender: postId)
+    }
+    
+}

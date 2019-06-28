@@ -16,6 +16,7 @@ class UserModel {
     var isFollowed:Bool?
     
     static func transformUser(dict: [String:Any], key: String) -> UserModel {
+        
         let user = UserModel()
         
         user.email = dict["email"] as? String

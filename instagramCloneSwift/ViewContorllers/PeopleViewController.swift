@@ -67,6 +67,7 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
 
      //to transer sender from "performsegue" method in PeopleTableViewCell
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
         if segue.identifier == "ProfileUserSegue" {
             
             let profileUserVC = segue.destination as! ProfileUserViewController
@@ -77,7 +78,13 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
             
             profileUserVC.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC = self
         }
+        
+        
+        
     }
+    
+    
+    
 
 }
 
@@ -103,3 +110,6 @@ extension PeopleViewController: HeaderProfileCollectionReusableViewSecondDelegat
     
     
 }
+
+
+

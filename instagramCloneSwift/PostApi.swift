@@ -29,7 +29,7 @@ class PostApi  {
 //    }
     
     
-    //Fetching posts that uploaded from user on proflileView and also feeding posts on homeView
+    //Fetching posts that uploaded from user on <proflileView, feeding posts on homeView , DetaailView >
     //
     func observePost(withPostId id:String, completion: @escaping(Post) -> Void ) {
         
@@ -40,7 +40,9 @@ class PostApi  {
 //            print("snapshot of Posts.id node key: \(snapshot.key)")
             
             if  let dict = snapshot.value as? [String:Any]{
+                
                 let post = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
+                
                 completion(post)
             }
         }
@@ -60,13 +62,19 @@ class PostApi  {
     
     // to display photos on DiscoveryView
     func obseveTopPosts(completion: @escaping(Post) -> Void){
+        
         REF_POSTS.queryOrdered(byChild: "likeCount").observeSingleEvent(of: .value, with: {(snapshot) in
+            
             let arraySanpshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+            
             arraySanpshot.forEach({ (child) in
                 
                 if  let dict = child.value as? [String:Any]{
-                    let post = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
+                    
+                    let post = Post.transFromPostPhoto(dict: dict, key: child.key)
+                    
                     completion(post)
+                    
                 }
             })
             

@@ -10,6 +10,7 @@ import Foundation
 import FirebaseAuth
 
 class Post {
+    
     var description :String?
     var photoURL :String?
     var user:String?
