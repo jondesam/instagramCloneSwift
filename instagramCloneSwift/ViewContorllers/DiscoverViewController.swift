@@ -14,6 +14,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     
     var posts: [Post] = []
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -15,13 +15,13 @@ class UserModel {
     var id: String?
     var isFollowed:Bool?
     
-    static func transformUser(dict: [String:Any], key: String) -> UserModel {
+    static func transformUser(dictFromSnapshot: [String:Any], key: String) -> UserModel {
         
         let user = UserModel()
         
-        user.email = dict["email"] as? String
-        user.profileImageUrl = dict["profileImageUrl"] as? String
-        user.username = dict["username"] as? String
+        user.email = dictFromSnapshot["email"] as? String
+        user.profileImageUrl = dictFromSnapshot["profileImageUrl"] as? String
+        user.username = dictFromSnapshot["username"] as? String
         user.id = key
         
         return user

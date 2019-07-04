@@ -39,9 +39,9 @@ class PostApi  {
 //            print("snapshot of Posts.id node value: \(snapshot.value)")
 //            print("snapshot of Posts.id node key: \(snapshot.key)")
             
-            if  let dict = snapshot.value as? [String:Any]{
+            if  let dictFromSnapshotValue = snapshot.value as? [String:Any]{
                 
-                let post = Post.transFromPostPhoto(dict: dict, key: snapshot.key)
+                let post = Post.transFromPostPhoto(dictFromSnapshot: dictFromSnapshotValue, key: snapshot.key)
                 
                 completion(post)
             }
@@ -69,9 +69,9 @@ class PostApi  {
             
             arraySanpshot.forEach({ (child) in
                 
-                if  let dict = child.value as? [String:Any]{
+                if  let dictFromSnapshotChildValue = child.value as? [String:Any]{
                     
-                    let post = Post.transFromPostPhoto(dict: dict, key: child.key)
+                    let post = Post.transFromPostPhoto(dictFromSnapshot: dictFromSnapshotChildValue, key: child.key)
                     
                     completion(post)
                     
@@ -146,8 +146,9 @@ class PostApi  {
                 onError(error.localizedDescription)
 //                print(error.localizedDescription)
             }
-            if let dict = snapshot?.value as? [String:Any] {
-                let post = Post.transFromPostPhoto(dict: dict, key: snapshot!.key)
+            if let dictFromSnapshotValue = snapshot?.value as? [String:Any] {
+               
+                let post = Post.transFromPostPhoto(dictFromSnapshot: dictFromSnapshotValue, key: snapshot!.key)
                 onSuccess(post)
                
             }

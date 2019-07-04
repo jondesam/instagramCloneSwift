@@ -69,14 +69,17 @@ class commentViewController: UIViewController,UITableViewDataSource{
     
     func loadComments() {
         
-        Api.Post_CommentAPI.observePostComment(withPostId: postId) { (postId) in
-            let postId = postId
+        Api.Post_CommentAPI.observePostComment(withPostId: postId) { (postIdFromSanpshotKey) in
+            let postId = postIdFromSanpshotKey
         
-            Api.CommentAPI.observComment(withPostId: postId ) { (comment) in
+            Api.CommentAPI.observComment(withPostIdFromSanpshotKeyOfObserveDataEventTypeChildAdded: postId ) { (comment) in
+                
                 self.fetchUser(uid: comment.uid!, completed: {
+                    
                     self.comments.append(comment)
                     
                     self.tableViewOfCommets.reloadData()
+                
                 })
             }
         }

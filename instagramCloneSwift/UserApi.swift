@@ -22,10 +22,10 @@ class UserApi {
         
         //   dump("This is snapshot.value of observeUser \(snapshot.value)")
         
-        if  let dict = snapshot.value as? [String:Any]{
+        if  let dictFromSnapshotValue = snapshot.value as? [String:Any]{
             //dump("snapshot.value \(dict)")
             
-            let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+            let user = UserModel.transformUser(dictFromSnapshot: dictFromSnapshotValue, key: snapshot.key)
             
            // dump("This is user \(user)")
             
@@ -45,8 +45,9 @@ class UserApi {
            // print("snapshot.value")
            // print(snapshot.value)
             
-            if  let dict = snapshot.value as? [String:Any]{
-                let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+            if  let dictFromSnapshotValue = snapshot.value as? [String:Any]{
+                
+                let user = UserModel.transformUser(dictFromSnapshot: dictFromSnapshotValue, key: snapshot.key)
                 completion(user)
             }
         }
@@ -55,8 +56,9 @@ class UserApi {
     //Fetching users on peopleView
     func observeUsers(completion:@escaping(UserModel) -> Void){
         REF_USERS.observe(.childAdded) { (snapshot) in
-            if  let dict = snapshot.value as? [String:Any]{
-                let user = UserModel.transformUser(dict: dict, key: snapshot.key)
+            if  let dictFromSnapshotValue = snapshot.value as? [String:Any]{
+                
+                let user = UserModel.transformUser(dictFromSnapshot: dictFromSnapshotValue, key: snapshot.key)
                 
                 if user.id! != Api.UserAPI.CURRENT_USER?.uid {//removing current user on peopleView
                      completion(user)
@@ -72,8 +74,8 @@ class UserApi {
             for s in snapshot.children {
                 let child = s as! DataSnapshot
                 
-                if let dict = child.value as? [String:Any]{
-                    let user = UserModel.transformUser(dict: dict, key: child.key)
+                if let dictFromSnapshotChildValue = child.value as? [String:Any]{
+                    let user = UserModel.transformUser(dictFromSnapshot: dictFromSnapshotChildValue, key: child.key)
                     
                     if user.id! != Api.UserAPI.CURRENT_USER?.uid {//removing current user on peopleView
                         completion(user)

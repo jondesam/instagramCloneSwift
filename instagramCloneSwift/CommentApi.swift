@@ -14,7 +14,7 @@ class CommentApi {
     
     let REF_COMMENT = Database.database().reference().child("comments")
     
-    func observComment(withPostId postId:String, completion: @escaping (Comment) -> Void ) {
+    func observComment(withPostIdFromSanpshotKeyOfObserveDataEventTypeChildAdded postId: String, completion: @escaping (Comment) -> Void ) {
         
         REF_COMMENT.child(postId).observeSingleEvent(of: DataEventType.value, with: { (snapshotComment) in
             

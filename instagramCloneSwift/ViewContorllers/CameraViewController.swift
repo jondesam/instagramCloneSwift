@@ -8,13 +8,15 @@
 
 import UIKit
 import SVProgressHUD
+import AVFoundation
 
-class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class CameraViewController: UIViewController {
     
     @IBOutlet weak var photoToShare: UIImageView!
     @IBOutlet weak var photoDescription: UITextView!
     @IBOutlet weak var buttonShareOutlet: UIButton!
     
+    var videoUrl: URL?
     var selectedImage: UIImage?
     var selectedImageUrl :Any? = nil
     
@@ -45,21 +47,19 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     //MARK: - Image picker set up
     @objc func handleSelectProfileImageView () {
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        
+        imagePicker.mediaTypes = ["public.movie","public.image"]
+        
         present(imagePicker, animated: true, completion:nil)
         print("tapped")
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("did finish picking image")
-        if let image = info[.originalImage] as? UIImage {
-            selectedImage = image
-            photoToShare.image = image
-            selectedImageUrl = info[.imageURL]
-        }
-        dismiss(animated: true, completion: nil)
-    }
+    
+    
+  
     
     
     //MARK: - Sharing Button
@@ -69,7 +69,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         
         if let imageData = selectedImage!.jpegData(compressionQuality: 0.1){
         
-            HelperService.uploadDataToServer(imageData: imageData, description: photoDescription.text!, onSuccess: {
+            HelperService.uploadDataToServer(imageData: imageData,videoUrl: videoUrl ,description: photoDescription.text!, onSuccess: {
                 
                 self.photoDescription.text = ""
                 self.tabBarController?.selectedIndex = 0
@@ -111,4 +111,54 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
 }
 
+extension CameraViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("did finish picking image")
+        print(info)
+        
+        if let videoUrl = info[.mediaURL] as? URL {
+            
+            if let thumbnailImage = thumbnailImageForFileUrl(videoUrl) {
+                
+                selectedImage = thumbnailImage
+                
+                photoToShare.image = thumbnailImage
+                
+                self.videoUrl = videoUrl
+            }
+        }
+        
+        
+        if let image = info[.originalImage] as? UIImage {
+            selectedImage = image
+            photoToShare.image = image
+            selectedImageUrl = info[.imageURL]
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    //making thumbnail photo
+    func thumbnailImageForFileUrl(_ fileUrl: URL) -> UIImage? {
+       
+        let asset = AVAsset(url: fileUrl)
+        
+        let imageGeerator = AVAssetImageGenerator(asset: asset)
+        
+        do {
+            //CMTimemake to capture image from video
+            let thumbNailCGImage = try imageGeerator.copyCGImage(at: CMTimeMake(value: 6, timescale: 6), actualTime: nil)
+            
+            return UIImage(cgImage: thumbNailCGImage)
+            
+        } catch let err {
+            print(err)
+        }
+        
+        return nil
+    }
+    
+}
 

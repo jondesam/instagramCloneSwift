@@ -25,6 +25,8 @@
         func goToSettingVC()
     }
     
+
+    
     
     class HeaderProfileCollectionReusableView: UICollectionReusableView,  UIImagePickerControllerDelegate {
         
@@ -54,10 +56,28 @@
             }
         }
         
+     
+        
+        
+        override func awakeFromNib() {
+            super.awakeFromNib()
+            //degateOfHeaderProfileCollectionReusableView?.updateProfileImage(forUser: userInCell!)
+            
+            // updateView()
+            clear()
+            
+            //Aloow user to touch imageView as button
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profileImage_TouchUpInside))
+            
+            profileImage.addGestureRecognizer(tapGesture)
+            profileImage.isUserInteractionEnabled = true
+            
+            
+        }
+    
         
         
         func  updateView() {
-            
             
             profileImage.layer.masksToBounds = false
             profileImage.layer.borderColor = UIColor.white.cgColor
@@ -65,9 +85,6 @@
             profileImage.clipsToBounds = true
             
             if let user = userInCell {
-                
-                
-                
                 
                 Api.MyPostsAPI.fetchCountMyPosts(userId:userInCell!.id! , completion: { (postCount) in
                     
@@ -100,25 +117,17 @@
                 }
                 
             }
-            
+        }
+        
+        func clear() {
+            self.nameLable.text = ""
+            self.myPostCountLabel.text = ""
+            self.followingCountLabel.text = ""
+            self.followerCountLabel.text = ""
             
         }
         
-        
-        override func awakeFromNib() {
-            super.awakeFromNib()
-            //degateOfHeaderProfileCollectionReusableView?.updateProfileImage(forUser: userInCell!)
-            
-            // updateView()
-            
-            //Aloow user to touch imageView as button
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.profileImage_TouchUpInside))
-            
-            profileImage.addGestureRecognizer(tapGesture)
-            profileImage.isUserInteractionEnabled = true
-            
-            
-        }
+   
         
         @objc func profileImage_TouchUpInside() {
             

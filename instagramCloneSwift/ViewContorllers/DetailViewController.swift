@@ -15,12 +15,17 @@ class DetailViewController: UIViewController {
     var user = UserModel()
     var cellId = "PostCell"
     
+   
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPost()
         print(postId)
+        
+        tableView.estimatedRowHeight = 600
+       // tableView.rowHeight = UITableView.automaticDimension //doesn't work
         // Do any additional setup after loading the view.
     }
     
@@ -49,6 +54,8 @@ class DetailViewController: UIViewController {
             completed()
         }
     }
+    
+  
 }
 
 extension DetailViewController : UITableViewDataSource{
@@ -91,6 +98,8 @@ extension DetailViewController : UITableViewDataSource{
         
         
     }
+    
+  
     
     
 }

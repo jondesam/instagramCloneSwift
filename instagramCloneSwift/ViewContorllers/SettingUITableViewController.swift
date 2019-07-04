@@ -34,7 +34,7 @@ class SettingUITableViewController: UITableViewController {
     func fectchCurrentUser(){
         Api.UserAPI.observeCurrentUser { (user) in
             
-            if let profileURL = URL(string: user.profileImageUrl!)  {
+            if let profileURL = URL(string: user.profileImageUrl ?? "placeholderImg.jpeg")  {
                 self.profileImageView.sd_setImage(with: profileURL)
             }
             self.usernameTextField.text = user.username

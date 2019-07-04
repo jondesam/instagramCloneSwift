@@ -164,6 +164,39 @@
                                                         <constraint firstAttribute="width" secondItem="cgI-0f-JII" secondAttribute="height" multiplier="1:1" id="wzn-Br-5hv"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view hidden="YES" alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gk9-UF-hEz">
+                                                    <rect key="frame" x="10" y="265" width="24" height="24"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44d-MB-tkF">
+                                                            <rect key="frame" x="6" y="6" width="12" height="12"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="12" id="9MQ-OM-nfv"/>
+                                                                <constraint firstAttribute="height" constant="12" id="qh5-kV-TQo"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="Icon_Mute.png"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="44d-MB-tkF" firstAttribute="centerX" secondItem="Gk9-UF-hEz" secondAttribute="centerX" id="6kG-Uv-hXI"/>
+                                                        <constraint firstAttribute="width" constant="24" id="ewQ-py-kNa"/>
+                                                        <constraint firstItem="44d-MB-tkF" firstAttribute="centerY" secondItem="Gk9-UF-hEz" secondAttribute="centerY" id="hda-Dq-1Tt"/>
+                                                        <constraint firstAttribute="height" constant="24" id="l8v-pI-veq"/>
+                                                        <constraint firstItem="44d-MB-tkF" firstAttribute="centerY" secondItem="Gk9-UF-hEz" secondAttribute="centerY" id="qux-nb-mch"/>
+                                                        <constraint firstItem="44d-MB-tkF" firstAttribute="centerX" secondItem="Gk9-UF-hEz" secondAttribute="centerX" id="s8B-vn-RYr"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3b-gh-aK8">
+                                                    <rect key="frame" x="0.0" y="55" width="414" height="252"/>
+                                                    <connections>
+                                                        <action selector="wholePostButton:" destination="vYV-qt-G2B" eventType="touchUpInside" id="HBE-Cn-W55"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="cgI-0f-JII" firstAttribute="leading" secondItem="DgO-oH-GAK" secondAttribute="trailing" constant="8" id="0XD-Y2-vfg"/>
@@ -175,6 +208,7 @@
                                                 <constraint firstItem="cgI-0f-JII" firstAttribute="leading" secondItem="DgO-oH-GAK" secondAttribute="trailing" constant="8" id="FtY-lK-gxW"/>
                                                 <constraint firstItem="jgk-1i-heD" firstAttribute="top" secondItem="cBU-Pu-tDO" secondAttribute="bottom" constant="8" id="GDe-3o-Bgd"/>
                                                 <constraint firstItem="3ok-2s-Mgt" firstAttribute="leading" secondItem="nAs-gw-3hZ" secondAttribute="leading" id="IOX-t1-PSq"/>
+                                                <constraint firstItem="b3b-gh-aK8" firstAttribute="leading" secondItem="nAs-gw-3hZ" secondAttribute="leading" id="KgR-eV-lx1"/>
                                                 <constraint firstItem="Bcz-z9-t71" firstAttribute="leading" secondItem="fya-CI-tDt" secondAttribute="trailing" constant="16" id="Mif-7v-7Ev"/>
                                                 <constraint firstItem="X0x-7A-x7f" firstAttribute="top" secondItem="eF3-v3-t8t" secondAttribute="bottom" constant="8" id="OkJ-ep-4tK"/>
                                                 <constraint firstItem="cBU-Pu-tDO" firstAttribute="leading" secondItem="jgk-1i-heD" secondAttribute="leading" id="QDV-DB-Zbc"/>
@@ -183,10 +217,15 @@
                                                 <constraint firstItem="cgI-0f-JII" firstAttribute="top" secondItem="3ok-2s-Mgt" secondAttribute="bottom" constant="8" id="Y7D-hq-0ni"/>
                                                 <constraint firstItem="3ok-2s-Mgt" firstAttribute="top" secondItem="fya-CI-tDt" secondAttribute="bottom" constant="8" id="YJX-LY-nyq"/>
                                                 <constraint firstItem="DgO-oH-GAK" firstAttribute="top" secondItem="3ok-2s-Mgt" secondAttribute="bottom" constant="8" id="bZv-Fj-DqW"/>
+                                                <constraint firstItem="Gk9-UF-hEz" firstAttribute="leading" secondItem="nAs-gw-3hZ" secondAttribute="leading" constant="10" id="ePh-CD-Df4"/>
                                                 <constraint firstItem="eF3-v3-t8t" firstAttribute="top" secondItem="jgk-1i-heD" secondAttribute="bottom" constant="8" id="f4p-1S-fca"/>
                                                 <constraint firstItem="jgk-1i-heD" firstAttribute="top" secondItem="DgO-oH-GAK" secondAttribute="bottom" constant="8" id="ly5-fe-wxV"/>
                                                 <constraint firstItem="3ok-2s-Mgt" firstAttribute="top" secondItem="Bcz-z9-t71" secondAttribute="bottom" constant="12" id="nRn-2t-CSf"/>
                                                 <constraint firstItem="cBU-Pu-tDO" firstAttribute="top" secondItem="3ok-2s-Mgt" secondAttribute="bottom" constant="8" id="olF-1f-PYj"/>
+                                                <constraint firstAttribute="trailing" secondItem="b3b-gh-aK8" secondAttribute="trailing" id="pQU-0a-jQm"/>
+                                                <constraint firstItem="jgk-1i-heD" firstAttribute="top" secondItem="Gk9-UF-hEz" secondAttribute="bottom" constant="48" id="qYB-fK-Z9f"/>
+                                                <constraint firstItem="b3b-gh-aK8" firstAttribute="top" secondItem="fya-CI-tDt" secondAttribute="bottom" id="u9b-WK-O4U"/>
+                                                <constraint firstItem="cBU-Pu-tDO" firstAttribute="top" secondItem="b3b-gh-aK8" secondAttribute="bottom" id="vLH-In-vCk"/>
                                                 <constraint firstItem="fya-CI-tDt" firstAttribute="top" secondItem="nAs-gw-3hZ" secondAttribute="topMargin" constant="8" id="wnX-wT-Ru7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="jgk-1i-heD" secondAttribute="trailing" constant="-15" id="zHI-r8-URB"/>
                                             </constraints>
@@ -200,6 +239,8 @@
                                             <outlet property="postImageView" destination="3ok-2s-Mgt" id="FF3-Lc-C62"/>
                                             <outlet property="profileImageView" destination="fya-CI-tDt" id="OHz-DT-dFG"/>
                                             <outlet property="shareImageView" destination="cgI-0f-JII" id="79j-eK-DB8"/>
+                                            <outlet property="volumeButton" destination="44d-MB-tkF" id="3oD-Zh-O9B"/>
+                                            <outlet property="volumeView" destination="Gk9-UF-hEz" id="sCX-7Y-Wn5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -361,6 +402,7 @@
     </scenes>
     <resources>
         <image name="Comment.png" width="43" height="41"/>
+        <image name="Icon_Mute.png" width="25" height="25"/>
         <image name="like.png" width="46" height="41"/>
         <image name="placeholderImg.jpeg" width="225" height="225"/>
         <image name="share.png" width="37" height="41"/>

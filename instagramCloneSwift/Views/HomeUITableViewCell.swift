@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import  AVFoundation
 
 protocol HomeUITableViewCellDelegate { //Boss of HomeViewController
     
@@ -19,6 +20,7 @@ protocol HomeUITableViewCellDelegate { //Boss of HomeViewController
 
 class HomeUITableViewCell: UITableViewCell {
     
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
@@ -28,8 +30,27 @@ class HomeUITableViewCell: UITableViewCell {
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var delegateOfHomeUITableViewCell: HomeUITableViewCellDelegate?
+    @IBOutlet weak var volumeView: UIView!
+    @IBOutlet weak var volumeButton: UIButton!
     
+    var isMuted = true
+    
+    @IBAction func wholePostButton(_ sender: Any) {
+        if isMuted {
+            isMuted = !isMuted
+            player?.isMuted = isMuted
+            volumeButton.setImage(UIImage(named: "Icon_Volume"), for: UIControl.State.normal)
+        } else {
+            isMuted = !isMuted
+            player?.isMuted = isMuted
+            volumeButton.setImage(UIImage(named: "Icon_Mute"), for: UIControl.State.normal)
+        }
+    }
+    
+    
+    var delegateOfHomeUITableViewCell: HomeUITableViewCellDelegate?
+    var player: AVPlayer?
+    var playerLayer: AVPlayerLayer?
    // var homeVC: HomeViewController? //delegation pattern is used instead
     
     var post: Post? {
@@ -44,14 +65,33 @@ class HomeUITableViewCell: UITableViewCell {
         }
     }
     
+    
+    
+    
     func updateHomeView(){
         descriptionLabel.text = post!.description
-        
-        if let photoUrlString = post!.photoURL {
+        layoutIfNeeded() //layout video
+        if let photoUrlString = post!.photoUrl {
             let photoUrl = URL(string: photoUrlString)
             
            postImageView.sd_setImage(with: photoUrl)
             
+            
+            if let videoUrlString = post?.videoUrl,  let videoUrl = URL(string: videoUrlString) {
+                print("videoUrl: \(videoUrlString)")
+                volumeView.isHidden = false
+                
+                
+                player = AVPlayer(url: videoUrl)
+                playerLayer = AVPlayerLayer(player: player)
+                playerLayer?.frame = postImageView.frame
+                playerLayer?.frame.size.width = UIScreen.main.bounds.width
+                self.contentView.layer.addSublayer(playerLayer!)
+                volumeView.layer.zPosition = 1
+                player?.play()
+                player?.isMuted = isMuted
+                
+            }
             
 //            sd_setImage(with: photoUrl, placeholderImage:UIImage(named:
 //                "placeholderImg.jpeg") )
@@ -194,11 +234,15 @@ class HomeUITableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-
+        volumeView.isHidden = true
         isHidden = false
         isSelected = false
         isHighlighted = false
         profileImageView.image = UIImage(named: "placeholderImg")
+      
+      
+        playerLayer?.removeFromSuperlayer() //preventing from showing on another post
+        player?.pause() // pause the video when it is out of screen 
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

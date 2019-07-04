@@ -31,11 +31,14 @@ class HomeViewController: UIViewController,UITableViewDataSource
         
         tableView.rowHeight = 440
         tableView.estimatedRowHeight = 600
+         //tableView.rowHeight = UITableView.automaticDimension //doesn't work
         loadPosts()
        
         self.activityIndicatorView.stopAnimating()
         
     }
+    
+   
     
     
     func loadPosts() {
@@ -52,6 +55,7 @@ class HomeViewController: UIViewController,UITableViewDataSource
                                 self.activityIndicatorView.stopAnimating()
                                 self.tableView.reloadData()
                             })
+             
         }
         
        Api.FeedAPI.observeFeedRemoved(withUserId: Api.UserAPI.CURRENT_USER!.uid) { (post) in

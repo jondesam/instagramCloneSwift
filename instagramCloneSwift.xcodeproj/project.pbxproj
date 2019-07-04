@@ -28,6 +28,12 @@
 		954672F62284FC5200E6C113 /* Comment@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F02284FC3F00E6C113 /* Comment@3x.png */; };
 		954672F72284FC5200E6C113 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 954672F32284FC4E00E6C113 /* share.png */; };
 		9547955E2289F8E70083DC20 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547955D2289F8E70083DC20 /* Comment.swift */; };
+		955B4A6D22CC304A00E8A158 /* Icon_Mute@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 955B4A6A22CC304A00E8A158 /* Icon_Mute@2x.png */; };
+		955B4A6E22CC304A00E8A158 /* Icon_Mute@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 955B4A6B22CC304A00E8A158 /* Icon_Mute@3x.png */; };
+		955B4A6F22CC304A00E8A158 /* Icon_Mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 955B4A6C22CC304A00E8A158 /* Icon_Mute.png */; };
+		955B4A7322CC305500E8A158 /* Icon_Volume@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 955B4A7022CC305400E8A158 /* Icon_Volume@3x.png */; };
+		955B4A7422CC305500E8A158 /* Icon_Volume@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 955B4A7122CC305500E8A158 /* Icon_Volume@2x.png */; };
+		955B4A7522CC305500E8A158 /* Icon_Volume.png in Resources */ = {isa = PBXBuildFile; fileRef = 955B4A7222CC305500E8A158 /* Icon_Volume.png */; };
 		955EADA822B57AE2006789E1 /* StorageReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955EADA722B57AE2006789E1 /* StorageReference.swift */; };
 		9560793B2295D78C00CE75D7 /* likeSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 956079382295D78B00CE75D7 /* likeSelected@3x.png */; };
 		9560793C2295D78C00CE75D7 /* likeSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 956079392295D78B00CE75D7 /* likeSelected.png */; };
@@ -96,6 +102,12 @@
 		954672F22284FC3F00E6C113 /* Comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Comment@2x.png"; sourceTree = "<group>"; };
 		954672F32284FC4E00E6C113 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		9547955D2289F8E70083DC20 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		955B4A6A22CC304A00E8A158 /* Icon_Mute@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Mute@2x.png"; sourceTree = "<group>"; };
+		955B4A6B22CC304A00E8A158 /* Icon_Mute@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Mute@3x.png"; sourceTree = "<group>"; };
+		955B4A6C22CC304A00E8A158 /* Icon_Mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Mute.png; sourceTree = "<group>"; };
+		955B4A7022CC305400E8A158 /* Icon_Volume@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Volume@3x.png"; sourceTree = "<group>"; };
+		955B4A7122CC305500E8A158 /* Icon_Volume@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Volume@2x.png"; sourceTree = "<group>"; };
+		955B4A7222CC305500E8A158 /* Icon_Volume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Volume.png; sourceTree = "<group>"; };
 		955EADA722B57AE2006789E1 /* StorageReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageReference.swift; sourceTree = "<group>"; };
 		956079382295D78B00CE75D7 /* likeSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "likeSelected@3x.png"; sourceTree = "<group>"; };
 		956079392295D78B00CE75D7 /* likeSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likeSelected.png; sourceTree = "<group>"; };
@@ -205,6 +217,12 @@
 		95C0C384227F626F00CDE5F7 /* asset */ = {
 			isa = PBXGroup;
 			children = (
+				955B4A7222CC305500E8A158 /* Icon_Volume.png */,
+				955B4A7122CC305500E8A158 /* Icon_Volume@2x.png */,
+				955B4A7022CC305400E8A158 /* Icon_Volume@3x.png */,
+				955B4A6C22CC304A00E8A158 /* Icon_Mute.png */,
+				955B4A6A22CC304A00E8A158 /* Icon_Mute@2x.png */,
+				955B4A6B22CC304A00E8A158 /* Icon_Mute@3x.png */,
 				9540CEB822A30968005868A8 /* discover.png */,
 				9540CEB922A30968005868A8 /* discover@2x.png */,
 				9540CEBA22A30969005868A8 /* discover@3x.png */,
@@ -370,21 +388,26 @@
 				954672ED2284FB8200E6C113 /* like.png in Resources */,
 				95C0C382227F621300CDE5F7 /* placeholder.png in Resources */,
 				95C0C3AF2284830600CDE5F7 /* ProgressHud in Resources */,
+				955B4A6F22CC304A00E8A158 /* Icon_Mute.png in Resources */,
 				95F826B4227A3CF800C651B6 /* defaultPerson.jpg in Resources */,
 				95C0C38D2284722500CDE5F7 /* search.storyboard in Resources */,
 				9560793C2295D78C00CE75D7 /* likeSelected.png in Resources */,
 				95C5D561227792C20046BBA5 /* LaunchScreen.storyboard in Resources */,
 				95C0C3C82284B03600CDE5F7 /* photo1.jpeg in Resources */,
 				9560793B2295D78C00CE75D7 /* likeSelected@3x.png in Resources */,
+				955B4A6E22CC304A00E8A158 /* Icon_Mute@3x.png in Resources */,
 				954672F62284FC5200E6C113 /* Comment@3x.png in Resources */,
 				954672EF2284FC3800E6C113 /* like@3x.png in Resources */,
 				95C0C391228472C800CDE5F7 /* activity.storyboard in Resources */,
 				9540CEBB22A30969005868A8 /* discover.png in Resources */,
 				954672F72284FC5200E6C113 /* share.png in Resources */,
+				955B4A7522CC305500E8A158 /* Icon_Volume.png in Resources */,
+				955B4A7322CC305500E8A158 /* Icon_Volume@3x.png in Resources */,
 				954672F52284FC5200E6C113 /* Comment@2x.png in Resources */,
 				95C5D56D2277A0F60046BBA5 /* InstagramLogo.svg in Resources */,
 				95C0C3932284730800CDE5F7 /* profile.storyboard in Resources */,
 				95C5D55C227792C10046BBA5 /* Main.storyboard in Resources */,
+				955B4A7422CC305500E8A158 /* Icon_Volume@2x.png in Resources */,
 				95895CFA2278CDDA009371DC /* refactored.storyboard in Resources */,
 				9540CEBD22A30969005868A8 /* discover@3x.png in Resources */,
 				9540CEBC22A30969005868A8 /* discover@2x.png in Resources */,
@@ -393,6 +416,7 @@
 				95C0C39522847E6F00CDE5F7 /* placeholderImg.jpeg in Resources */,
 				954672EE2284FC3800E6C113 /* like@2x.png in Resources */,
 				954672F42284FC5200E6C113 /* Comment.png in Resources */,
+				955B4A6D22CC304A00E8A158 /* Icon_Mute@2x.png in Resources */,
 				95C0C38B2284714200CDE5F7 /* home.storyboard in Resources */,
 				9560793D2295D78C00CE75D7 /* likeSelected@2x.png in Resources */,
 				95C0C38F2284728C00CDE5F7 /* camera.storyboard in Resources */,
