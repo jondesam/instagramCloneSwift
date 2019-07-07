@@ -1,15 +1,21 @@
  //
-//  ProfileUserViewController.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-06-10.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
-import UIKit
-
- class ProfileUserViewController: UIViewController,UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-
+ //  ProfileUserViewController.swift
+ //  instagramCloneSwift
+ //
+ //  Created by MyMac on 2019-06-10.
+ //  Copyright © 2019 Apex. All rights reserved.
+ //
+ 
+ import UIKit
+ 
+ protocol ProfileUserViewControllerIndexDelegate {
+    func passIndexPath(indexPath:IndexPath)
+ }
+ 
+ class ProfileUserViewController: UIViewController, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    var delegate: ProfileUserViewControllerIndexDelegate?
+    
     @IBOutlet weak var userName: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -18,27 +24,40 @@ import UIKit
     
     var delegateofSettingUITableViewControllerInPUVC:SettingUITableViewControllerDelegate?
     
-    
+    var indexPath: IndexPath?
     var user: UserModel!
     //initilizing with empty array
     var posts: [Post] = []
     var userId = ""
     var usersInCell = [UserModel]()
     let cellId = "usersCell"
+   
+  
     
+  
+    //tap.cancelsTouchesInView = false
+    //view.addGestureRecognizer(tap)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         print("userId : \(userId)")
         collectionView.dataSource = self
         collectionView.delegate = self
         fetchUser()
         fectchMyPosts()
         
+//         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+//       
+//     
+//        
+//        tap.cancelsTouchesInView = false
+//        
+//         view.addGestureRecognizer(tap)
+        
     }
     
-
+    
     //MARK: fetching User info
     func fetchUser() {
         Api.UserAPI.observeUser(withUserId: userId) { (user) in
@@ -53,19 +72,19 @@ import UIKit
             })
             
             
-       
+            
         }
     }
     
     func isFollowing(userId: String, completed:@escaping(Bool) -> Void){
         Api.FollowAPI.isFollowing(userId: userId, completed: completed)
     }
-
+    
     
     
     //MARK: fecthincg Posts
     func fectchMyPosts() {
-       Api.MyPostsAPI.REF_MYPOSTS.child(userId).observe(.childAdded) { (snapshot) in
+        Api.MyPostsAPI.REF_MYPOSTS.child(userId).observe(.childAdded) { (snapshot) in
             
             Api.PostAPI.observePost(withPostId: snapshot.key, completion: { (post) in
                 //print("this is post in profileView")
@@ -83,12 +102,15 @@ import UIKit
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        print("cellForItemAt")
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell" , for: indexPath) as! PhotoCollectionViewCell
         
         let post = posts[indexPath.row]
         
         cell.post = post
         cell.delegateOfPhotoCollectionViewCell = self
+      //  cell.
         
         return cell
     }
@@ -107,11 +129,21 @@ import UIKit
             
             
             headerViewCell.thirdDegateOfHeaderProfileCollectionReusableView = self
+            
         }
         
         return headerViewCell
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+         print("indexPath")
+        
+        // delegate?.passIndexPath(indexPath: indexPath)
+        print("indexPath: \(indexPath)")
+        return  self.indexPath = indexPath
+    }
+    
     //MARK: - cell size
     
     // it needs delegate to work
@@ -127,43 +159,51 @@ import UIKit
         return 0
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-        if segue.identifier == "ProfileUser_SettingSegue" {
-
-            let settingVC = segue.destination as? SettingUITableViewController
-
-            // displaying ProfilePhoto in realtime Not Yet Working
-            //  settingVC?.delegateOfSettingUITableViewController = self.delegateofSettingUITableViewControllerInPUVC
-
-        }
-        
-        if segue.identifier == "ProfileUser_detailVC" {
-            
-            let detailVC = segue.destination as? DetailViewController
-            
-            let postId = sender as? String
-            
-            detailVC!.postId = postId!
-        }
-    }
+  
     
-}
-
+    
+ 
+    
+    
+ }
+ 
  extension ProfileUserViewController: HeaderProfileCollectionReusableViewThirdDelegate {
     
     func goToSettingVC() {
         performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil )
     }
  }
-
+ 
  
  
  extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
     
-    func goToDetailVC(postId: String) {
+    func goToProfileTableVC(userId: String) {
         
-        performSegue(withIdentifier: "ProfileUser_detailVC", sender: postId)
+        performSegue(withIdentifier: "ProfileUser_ProfileTable", sender: userId)
+        print("ProfileUser_ProfileTable")
     }
     
-}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ProfileUser_SettingSegue" {
+            
+            // let settingVC = segue.destination as? SettingUITableViewController
+            
+            // displaying ProfilePhoto in realtime Not Yet Working
+            //  settingVC?.delegateOfSettingUITableViewController = self.delegateofSettingUITableViewControllerInPUVC
+            
+        }
+        
+        if segue.identifier == "ProfileUser_ProfileTable" {
+            
+            let profileTableVC = segue.destination as? ProfileTableViewController
+            
+            let userId = sender as? String
+            
+            profileTableVC!.userId = userId!
+        }
+    }
+    
+ }

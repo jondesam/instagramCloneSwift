@@ -48,6 +48,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="photo" destination="rfI-CQ-vog" id="kl3-Ff-f55"/>
+                                            <segue destination="wUs-1y-zij" kind="show" identifier="Discover_profileTable" id="Uya-wo-mMY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -71,12 +72,19 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="nff-rz-mzx" id="Xnz-xP-eG8"/>
-                        <segue destination="Rxb-7e-gFH" kind="show" identifier="Discover_DetailSegue" id="M9P-or-WKc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yrt-WP-h0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-284.05797101449275" y="448.66071428571428"/>
+        </scene>
+        <!--ProfileTableViewController-->
+        <scene sceneID="0rr-Tk-26g">
+            <objects>
+                <viewControllerPlaceholder storyboardName="profile" referencedIdentifier="ProfileTableViewController" id="wUs-1y-zij" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RaP-PC-bY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-541" y="864"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="cQL-31-kWA">
@@ -266,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSw-1q-0v0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82.608695652173921" y="1139.7321428571429"/>
+            <point key="canvasLocation" x="312" y="1189"/>
         </scene>
         <!--commentViewController-->
         <scene sceneID="3iV-xO-TwV">

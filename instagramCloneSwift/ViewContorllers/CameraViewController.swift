@@ -127,6 +127,7 @@ extension CameraViewController : UIImagePickerControllerDelegate,UINavigationCon
                 
                 self.videoUrl = videoUrl
             }
+            dismiss(animated: true, completion: nil)
         }
         
         
@@ -134,9 +135,12 @@ extension CameraViewController : UIImagePickerControllerDelegate,UINavigationCon
             selectedImage = image
             photoToShare.image = image
             selectedImageUrl = info[.imageURL]
+            dismiss(animated: true) {
+                self.performSegue(withIdentifier: "filter_segue", sender: nil)
+            }
         }
         
-        dismiss(animated: true, completion: nil)
+        
     }
     
     

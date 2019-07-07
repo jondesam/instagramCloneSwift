@@ -114,8 +114,8 @@ class HomeViewController: UIViewController,UITableViewDataSource
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeUITableViewCell
 
-        let post = postz[indexPath.row]
-        let user = userz[indexPath.row]
+        let post = postz.reversed()[indexPath.row]
+        let user = userz.reversed()[indexPath.row]
         
        // dump(post)
         cell.post = post

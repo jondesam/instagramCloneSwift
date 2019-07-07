@@ -13,7 +13,6 @@
         
         var header:HeaderProfileCollectionReusableView!
         
-        
         @IBOutlet weak var collectionView: UICollectionView!
         
         let storageRef = StorageReference.storageRef
@@ -30,6 +29,14 @@
             collectionView.delegate = self
             fetchUser()
             fectchMyPosts()
+            
+            
+//            let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+//
+//
+//            tap.cancelsTouchesInView = false
+//
+//            collectionView.addGestureRecognizer(tap)
             
             
         }
@@ -98,6 +105,7 @@
             return cell
         }
         
+        
         func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
             
             let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderProfileCollectionReusableView", for:indexPath) as! HeaderProfileCollectionReusableView
@@ -111,9 +119,11 @@
                 headerViewCell.thirdDegateOfHeaderProfileCollectionReusableView = self
             }
             
-            
-            
             return headerViewCell
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            print("indexPath")
         }
         
         
@@ -148,29 +158,7 @@
         }
         
         
-        //MARK: - Prepare for segue
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            
-            if segue.identifier == "Profile_SettingSegue" {
-                
-                let settingVC = segue.destination as? SettingUITableViewController
-                
-                settingVC?.delegateOfSettingUITableViewController = self
-                
-            }
-            
-            if segue.identifier == "Profile_detailVC" {
-                
-                let detailVC = segue.destination as? DetailViewController
-                
-                let postId = sender as? String
-                
-                detailVC!.postId = postId!
-            }
-            
-            
-            
-        }
+        
         
         
         
@@ -185,7 +173,7 @@
         func goToSettingVC() {
             
             performSegue(withIdentifier: "Profile_SettingSegue", sender: nil
-        
+
             )
         }
         
@@ -312,17 +300,43 @@
     extension ProfileViewController: SettingUITableViewControllerDelegate {
         
         func updateUserInfoRealTime() {
-        
+            
             self.fetchUser()
-        
+            
         }
     }
-
+    
     extension ProfileViewController: PhotoCollectionViewCellDelegate {
         
-        func goToDetailVC(postId: String) {
+        func goToProfileTableVC(userId: String) {
             
-            performSegue(withIdentifier: "Profile_detailVC", sender: postId)
+            performSegue(withIdentifier: "Profile_ProfileTable", sender: userId)
+            print("ProfileUser_ProfileTable")
+        }
+        
+        
+        //MARK: - Prepare for segue
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            if segue.identifier == "Profile_SettingSegue" {
+                
+                let settingVC = segue.destination as? SettingUITableViewController
+                
+                settingVC?.delegateOfSettingUITableViewController = self
+                
+            }
+            
+            if segue.identifier == "Profile_ProfileTable" {
+                
+                let profileTableVC = segue.destination as? ProfileTableViewController
+                
+                let userId = sender as? String
+                
+                profileTableVC!.userId = userId!
+            }
+            
+            
+            
         }
         
     }

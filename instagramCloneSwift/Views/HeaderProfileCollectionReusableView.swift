@@ -34,7 +34,6 @@
         @IBOutlet weak var nameLable: UILabel!
         @IBOutlet weak var myPostCountLabel: UILabel!
         @IBOutlet weak var followingCountLabel: UILabel!
-        
         @IBOutlet weak var followerCountLabel: UILabel!
         
         @IBOutlet weak var followOrEditButton: UIButton!
@@ -131,7 +130,7 @@
         
         @objc func profileImage_TouchUpInside() {
             
-            degateOfHeaderProfileCollectionReusableView?.takeProfileImage()
+        degateOfHeaderProfileCollectionReusableView?.takeProfileImage()
             
         }
         

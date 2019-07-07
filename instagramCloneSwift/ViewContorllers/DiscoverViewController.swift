@@ -60,6 +60,10 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("didSelectItemAt")
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width / 3  , height: collectionView.frame.size.width / 3  )
     }
@@ -71,17 +75,18 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+   
  
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "Discover_DetailSegue" {
+        if segue.identifier == "Discover_profileTable" {
             
-            let detailVC = segue.destination as? DetailViewController
+            let profileTableVC = segue.destination as? ProfileTableViewController
             
-            let postId = sender as? String
+            let userId = sender as? String
           
-            detailVC!.postId = postId!
+            profileTableVC!.userId = userId!
         }
     }
 
@@ -89,9 +94,9 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
 
 extension DiscoverViewController: PhotoCollectionViewCellDelegate {
     
-    func goToDetailVC(postId: String) {
+    func goToProfileTableVC(userId: String) {
         
-        performSegue(withIdentifier: "Discover_DetailSegue", sender: postId)
+        performSegue(withIdentifier: "Discover_profileTable", sender: userId)
     }
   
     
