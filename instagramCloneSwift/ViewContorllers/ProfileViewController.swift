@@ -9,14 +9,23 @@
     import UIKit
     import SVProgressHUD
     
+    protocol ProfileViewControllerDelegate {
+        func passingIndexPath(indexPath: IndexPath)
+    }
+    
+    
     class ProfileViewController: UIViewController, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+        
+      
+        @IBOutlet weak var testBtn: UIBarButtonItem!
+        
+        var delegateOfProfileViewController: ProfileViewControllerDelegate?
         
         var header:HeaderProfileCollectionReusableView!
         
         @IBOutlet weak var collectionView: UICollectionView!
         
         let storageRef = StorageReference.storageRef
-        
         
         //  var selectedImage: UIImage?
         var user: UserModel!
@@ -31,6 +40,13 @@
             fectchMyPosts()
             
             
+//            let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(gestureReconizer:))
+//            photoCollectionViewCell.addGestureRecognizer(tapGesture)
+//            photoCollectionViewCell.isUserInteractionEnabled = true
+//            
+            
+            
+            //to get an index of collectionView
 //            let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 //
 //
@@ -102,7 +118,40 @@
             cell.post = post
             cell.delegateOfPhotoCollectionViewCell = self
             
+            delegateOfProfileViewController?.passingIndexPath(indexPath: indexPath)
+              print("indexPath of cellForItemAt : \(indexPath)")
+            
+            
+            
+            
             return cell
+        }
+        
+        //not called
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            print("indexPath : \(indexPath)")
+            
+       
+        }
+
+        
+        
+        
+        @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+            if gestureReconizer.state != UIGestureRecognizer.State.ended {
+                return
+            }
+            
+            let p = gestureReconizer.location(in: self.collectionView)
+            let indexPath = self.collectionView.indexPathForItem(at: p)
+            
+            if let index = indexPath {
+                var cell = self.collectionView.cellForItem(at: index)
+                // do stuff with your cell, for example print the indexPath
+               // println(index.row)
+            } else {
+           //     println("Could not find index path")
+            }
         }
         
         
@@ -119,12 +168,13 @@
                 headerViewCell.thirdDegateOfHeaderProfileCollectionReusableView = self
             }
             
+            
+            
             return headerViewCell
         }
         
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            print("indexPath")
-        }
+        
+      
         
         
         //MARK: - cell size
@@ -142,20 +192,7 @@
             return 0
         }
         
-        //MARK: - Logout method
-        @IBAction func buttonLogOut(_ sender: Any) {
-            
-            AuthService.logOut(onSuccess: {
-                let storyboard =  UIStoryboard(name: "Main", bundle: nil)
-                
-                let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
-                
-                self.present(logInVC, animated: true, completion: nil)
-                
-            }) { (logOutError) in
-                SVProgressHUD.showError(withStatus: logOutError)
-            }
-        }
+      
         
         
         
@@ -178,7 +215,6 @@
         }
         
     }
-    
     
     
     
@@ -255,6 +291,7 @@
         }
         
         func sendDataToDatabase(profilePhotoUrl: String) {
+            
             guard let currentUser = Api.UserAPI.CURRENT_USER else {
                 return
             }
@@ -311,7 +348,7 @@
         func goToProfileTableVC(userId: String) {
             
             performSegue(withIdentifier: "Profile_ProfileTable", sender: userId)
-            print("ProfileUser_ProfileTable")
+          
         }
         
         
@@ -334,6 +371,7 @@
                 
                 profileTableVC!.userId = userId!
             }
+            
             
             
             

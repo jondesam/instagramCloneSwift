@@ -31,7 +31,6 @@ class PhotoCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
     }
     
     

@@ -18,6 +18,7 @@
     
     @IBOutlet weak var userName: UILabel!
     
+   
     @IBOutlet weak var collectionView: UICollectionView!
     
     var secondDelegateOfHeaderProfileCollectionReusableViewInPUVC: HeaderProfileCollectionReusableViewSecondDelegate?
@@ -47,6 +48,7 @@
         fetchUser()
         fectchMyPosts()
         
+        //to get an index of collectionView
 //         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 //       
 //     
@@ -125,7 +127,6 @@
             headerViewCell.userInCell = user
             
             headerViewCell.secondDegateOfHeaderProfileCollectionReusableViewInHPCRV = self.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC
-            
             
             
             headerViewCell.thirdDegateOfHeaderProfileCollectionReusableView = self

@@ -10,9 +10,6 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController,ProfileUserViewControllerIndexDelegate {
     
-  
-    
-
     var postz = [Post]()
     var userz = [UserModel]()
     let cellId = "PostCell"

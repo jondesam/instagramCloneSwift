@@ -109,9 +109,24 @@ class CameraViewController: UIViewController {
         selectedImage = nil
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "filter_segue" {
+            
+            let filterVC = segue.destination as! FilterViewController
+            
+            filterVC.selectedImage = self.selectedImage
+            filterVC.delegateOfFilterViewController = self
+            
+        }
+    }
+    
+    
+    
 }
 
-extension CameraViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+
+extension CameraViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("did finish picking image")
@@ -140,7 +155,6 @@ extension CameraViewController : UIImagePickerControllerDelegate,UINavigationCon
             }
         }
         
-        
     }
     
     
@@ -166,3 +180,13 @@ extension CameraViewController : UIImagePickerControllerDelegate,UINavigationCon
     
 }
 
+extension CameraViewController : FilterViewControllerDelegate {
+    func updatePhoto(image: UIImage) {
+        
+        self.photoToShare.image = image
+        self.selectedImage = image
+    
+    }
+    
+    
+}

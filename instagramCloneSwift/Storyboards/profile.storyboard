@@ -221,15 +221,90 @@
                                 <segue destination="YMp-W4-Sy8" kind="show" id="Cf1-O9-kxI"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Lma-Hf-CTD">
+                            <connections>
+                                <segue destination="lky-e1-HI9" kind="show" identifier="testSegue" id="mtv-fl-KVW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="OdO-xA-ua4" id="uTY-9r-6g5"/>
+                        <outlet property="testBtn" destination="Lma-Hf-CTD" id="Qvb-sN-ypB"/>
                         <segue destination="Zbc-YN-NFE" kind="show" identifier="Profile_SettingSegue" id="S3K-Yi-CJm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giJ-lQ-tq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2711.594202898551" y="472.76785714285711"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="X06-hf-6BI">
+            <objects>
+                <viewController id="lky-e1-HI9" customClass="TestViewController" customModule="instagramCloneSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0mQ-D9-Scm"/>
+                        <viewControllerLayoutGuide type="bottom" id="5fy-B4-hOp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I32-pH-VDT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wsl-IG-obs">
+                                <rect key="frame" x="0.0" y="88" width="414" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="IcQ-ky-XAH"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xc3-Fm-xg7">
+                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TestCollectionViewCell" id="seA-gg-mqt" customClass="TestCollectionViewCell" customModule="instagramCloneSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uec-pr-usD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Uec-pr-usD" firstAttribute="leading" secondItem="seA-gg-mqt" secondAttribute="leading" id="M9l-1J-rHl"/>
+                                            <constraint firstItem="Uec-pr-usD" firstAttribute="top" secondItem="seA-gg-mqt" secondAttribute="top" id="S1d-j2-IGm"/>
+                                            <constraint firstAttribute="bottom" secondItem="Uec-pr-usD" secondAttribute="bottom" id="g5A-x5-rWr"/>
+                                            <constraint firstAttribute="trailing" secondItem="Uec-pr-usD" secondAttribute="trailing" id="la2-OL-eYp"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="testImage" destination="Uec-pr-usD" id="u65-1z-hZd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="lky-e1-HI9" id="gYZ-b0-M3A"/>
+                                    <outlet property="delegate" destination="lky-e1-HI9" id="u1B-G6-foO"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Wsl-IG-obs" firstAttribute="leading" secondItem="I32-pH-VDT" secondAttribute="leading" id="9MB-O5-y1w"/>
+                            <constraint firstItem="Wsl-IG-obs" firstAttribute="top" secondItem="0mQ-D9-Scm" secondAttribute="bottom" id="d8n-oy-6bh"/>
+                            <constraint firstAttribute="trailing" secondItem="Wsl-IG-obs" secondAttribute="trailing" id="dhq-RG-xIE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Wsl-IG-obs" id="O7B-uc-ya9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DWp-tt-e4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3531.884057971015" y="-265.17857142857144"/>
         </scene>
         <!--People View Controller-->
         <scene sceneID="klR-aK-jvY">
