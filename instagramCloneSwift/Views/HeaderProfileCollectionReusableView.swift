@@ -92,11 +92,11 @@
                 
                 
                 Api.FollowAPI.fetchCountFollowing(userId: (userInCell?.id!)!) { (followingNumber) in
-                    self.followingCountLabel.text = "\(followingNumber - 1)"
+                    self.followingCountLabel.text = "\(followingNumber)"
                 }
                 
                 Api.FollowAPI.fetchCountFollowers(userId: (userInCell?.id!)!) { (followersNumber) in
-                    self.followerCountLabel.text = "\(followersNumber - 1)"
+                    self.followerCountLabel.text = "\(followersNumber)"
                 }
                 
                 

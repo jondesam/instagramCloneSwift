@@ -68,7 +68,7 @@
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zj-mY-FvL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zj-mY-FvL" customClass="KILabel">
                                                     <rect key="frame" x="20" y="388" width="42" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="Uhy-pJ-yoL"/>
@@ -164,7 +164,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentImageView" destination="jYy-RG-Wgh" id="XPJ-bs-MPe"/>
-                                            <outlet property="descriptionLabel" destination="3zj-mY-FvL" id="rDh-s7-7ap"/>
+                                            <outlet property="descriptionLabel" destination="3zj-mY-FvL" id="hhv-2Z-7xU"/>
                                             <outlet property="likeCountButton" destination="i5C-tK-Lkh" id="EWl-ud-RnT"/>
                                             <outlet property="likeImageView" destination="Ioa-zx-Rsf" id="6w7-Um-VaA"/>
                                             <outlet property="nameLabel" destination="F7j-SF-gbG" id="Zm2-9X-Qfl"/>
@@ -245,7 +245,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyF-I8-IIs">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyF-I8-IIs" customClass="KILabel">
                                                     <rect key="frame" x="59" y="39.5" width="343" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -265,7 +265,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentLabel" destination="VyF-I8-IIs" id="2gG-a1-c3c"/>
+                                            <outlet property="commentLabel" destination="VyF-I8-IIs" id="6e4-no-1fT"/>
                                             <outlet property="nameLabel" destination="tES-Uf-6hA" id="6fm-CY-Knb"/>
                                             <outlet property="profileImageView" destination="z7V-xt-z5Z" id="qFc-kd-D0e"/>
                                         </connections>

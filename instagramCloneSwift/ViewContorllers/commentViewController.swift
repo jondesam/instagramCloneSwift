@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 import SVProgressHUD
 
 class commentViewController: UIViewController,UITableViewDataSource{
@@ -118,8 +118,26 @@ class commentViewController: UIViewController,UITableViewDataSource{
             return
         }
         
-   
         
+        let words = self.commentTextField.text!.components(separatedBy: CharacterSet.whitespacesAndNewlines)
+        
+        for var word in words {
+            if word.hasPrefix("#") {
+                word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+             
+                
+                let newHashTagRef = Api.hashTagAPI.REF_HASHTAG.child(word.lowercased())
+
+                newHashTagRef.updateChildValues([self.postId + " with commentID : " +  newCommentId:true])
+
+              
+
+              
+              
+            }
+        }
+        
+   
         newCommentReference.setValue([ "uid":currentUser.uid,
                                        "commentText":commentTextField.text!,
                                        "postId": postId
@@ -129,6 +147,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
                 
                 return
             }
+            
             
             let postCommentRef =  Api.Post_CommentAPI.REF_POST_COMMENT.child(self.postId).child(newCommentId)
             

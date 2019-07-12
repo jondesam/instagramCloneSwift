@@ -9,6 +9,7 @@
 import UIKit
 import SVProgressHUD
 import  AVFoundation
+import KILabel
 
 protocol HomeUITableViewCellDelegate { //Boss of HomeViewController
     
@@ -28,7 +29,7 @@ class HomeUITableViewCell: UITableViewCell {
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var shareImageView: UIImageView!
     @IBOutlet weak var likeCountButton: UIButton!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: KILabel!
     
     @IBOutlet weak var volumeView: UIView!
     @IBOutlet weak var volumeButton: UIButton!

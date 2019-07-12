@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import KILabel
 protocol commentTableViewCellDelegate {
     
       func goToProfileUserVC(userId: String)
@@ -20,7 +21,7 @@ class commentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var commentLabel: KILabel!
     
     var delegateOfcommentTableViewCell: commentTableViewCellDelegate?
     

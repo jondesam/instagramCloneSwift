@@ -107,24 +107,38 @@ class HelperService {
         
     }
     
-
-    
     
     static func sendDataToDatabase(photoUrl:String,videoUrl: String? = nil, description: String, onSuccess: @escaping ()-> Void, onError: @escaping () -> Void ){
-        
+
         let newPostId = Api.PostAPI.REF_POSTS.childByAutoId().key
         let newPostReference = Api.PostAPI.REF_POSTS.child(newPostId)
-        
+
         guard let currentUser = Api.UserAPI.CURRENT_USER else {
             return
         }
-        
+
+        let words = description.components(separatedBy: CharacterSet.whitespacesAndNewlines)
+
+
+        for var word in words {
+            if word.hasPrefix("#") {
+                word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+           
+                let newHashTagRef = Api.hashTagAPI.REF_HASHTAG.child(word.lowercased())
+             
+                newHashTagRef.updateChildValues([newPostId:true])
+               
+            }
+        }
+
+
+
         var dict = ["photoUrl":photoUrl, "description":description, "user": currentUser.email!, "uid":currentUser.uid, "likeCount": 0] as [String : Any]
-        
+
         if let videoUrl = videoUrl {
             dict["videoUrl"] = videoUrl
         }
-        
+
         newPostReference.setValue(dict) { (error, ref) in
             if error != nil {
                 print("data upload fail")
@@ -133,16 +147,16 @@ class HelperService {
                 return
             }
             Api.FeedAPI.REF_FEED.child(Api.UserAPI.CURRENT_USER!.uid).child(newPostId).setValue(true)
-            
+
             let myPostRef = Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).child(newPostId)
-            
+
             myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error?.localizedDescription)
                     return
                 }
             })
-            
+
             print("data uploaded")
             SVProgressHUD.showSuccess(withStatus: "Success")
             onSuccess()

@@ -25,6 +25,11 @@
         
         @IBOutlet weak var collectionView: UICollectionView!
         
+        
+        @IBAction func logOut(_ sender: UIBarButtonItem) {
+            logout()
+        }
+        
         let storageRef = StorageReference.storageRef
         
         //  var selectedImage: UIImage?
@@ -195,7 +200,18 @@
       
         
         
-        
+        func logout(){
+            AuthService.logOut(onSuccess: {
+                let storyboard =  UIStoryboard(name: "Main", bundle: nil)
+                
+                let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
+                
+                self.present(logInVC, animated: true, completion: nil)
+                
+            }) { (logOutError) in
+                SVProgressHUD.showError(withStatus: logOutError)
+            }
+        }
         
         
         

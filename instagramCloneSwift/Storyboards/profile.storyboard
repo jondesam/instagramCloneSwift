@@ -221,9 +221,9 @@
                                 <segue destination="YMp-W4-Sy8" kind="show" id="Cf1-O9-kxI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Lma-Hf-CTD">
+                        <barButtonItem key="rightBarButtonItem" title="testBtn" id="Lma-Hf-CTD">
                             <connections>
-                                <segue destination="lky-e1-HI9" kind="show" identifier="testSegue" id="mtv-fl-KVW"/>
+                                <action selector="logOut:" destination="EPx-wv-SLh" id="LaR-L8-xjP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -250,7 +250,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wsl-IG-obs">
-                                <rect key="frame" x="0.0" y="88" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="IcQ-ky-XAH"/>
