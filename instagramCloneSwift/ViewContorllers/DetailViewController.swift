@@ -108,6 +108,10 @@ extension DetailViewController : UITableViewDataSource{
 
 extension DetailViewController: HomeUITableViewCellDelegate //Intern of GoToCommentVcProtocol
 {
+    func goToHashTag(tag: String) {
+        
+    }
+    
     func goToCommentVC(postId: String) {
         performSegue(withIdentifier: "Detail_commentVC" , sender: postId)
     }

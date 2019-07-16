@@ -219,10 +219,23 @@ class commentViewController: UIViewController,UITableViewDataSource{
             let userId = sender as! String
             profileUserVC.userId = userId
         }
+     
+        if segue.identifier == "Comment_HashTagSegue" {
+            let hashTagVC = segue.destination as! HashTagViewController
+            let tag = sender as! String
+            hashTagVC.tag = tag
+        }
+
+        
     }
+    
 }
 
 extension commentViewController: commentTableViewCellDelegate {
+    func goToHashTag(tag: String) {
+        performSegue(withIdentifier: "Comment_HashTagSegue", sender: tag)
+    }
+    
     
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "Comment_ProfileSegue", sender: userId)

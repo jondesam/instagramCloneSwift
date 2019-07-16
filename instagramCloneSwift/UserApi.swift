@@ -14,6 +14,19 @@ class UserApi {
     
     var REF_USERS =  Database.database().reference().child("users")
     
+    func observeUserByUsername(username: String, completion: @escaping(UserModel) -> Void ){
+        
+        REF_USERS.queryOrdered(byChild: "username_lowercase").queryEqual(toValue: username).observeSingleEvent(of: .childAdded) { (dataSnapshot) in
+            if let dict = dataSnapshot.value as? [String:Any] {
+                
+                let user = UserModel.transformUser(dictFromSnapshot: dict , key: dataSnapshot.key)
+                completion(user)
+        
+            }
+        }
+        
+    }
+    
     
     //Fetching user information on HomeVC, ProfileVC, DetailVC, CommentVC
     func observeUser(withUserId uid:String, completion: @escaping(UserModel) -> Void ) {

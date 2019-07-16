@@ -17,6 +17,8 @@ protocol HomeUITableViewCellDelegate { //Boss of HomeViewController
     
     func goToProfileUserVC(userId: String)
     
+    func goToHashTag(tag: String)
+    
 }
 
 class HomeUITableViewCell: UITableViewCell {
@@ -71,6 +73,25 @@ class HomeUITableViewCell: UITableViewCell {
     
     func updateHomeView(){
         descriptionLabel.text = post!.description
+        
+        descriptionLabel.hashtagLinkTapHandler = { label, string, Range in
+           // print(string)
+            let tag = string.dropFirst()
+
+            self.delegateOfHomeUITableViewCell?.goToHashTag(tag: String(tag))
+        }
+        
+        descriptionLabel.userHandleLinkTapHandler = { label, string, Range in
+            // print(string)
+            let mention = string.dropFirst()
+            print(mention)
+            Api.UserAPI.observeUserByUsername(username: String(mention.lowercased()), completion: { (user) in
+                self.delegateOfHomeUITableViewCell?.goToProfileUserVC(userId: user.id!)
+            })
+
+        }
+        
+        
         layoutIfNeeded() //layout video
         if let photoUrlString = post!.photoUrl {
             let photoUrl = URL(string: photoUrlString)
@@ -100,25 +121,7 @@ class HomeUITableViewCell: UITableViewCell {
         
         self.updateLike(post: post!)
 
-/* Comment out to update cell directly without observing cell
-        
-        //real time likes update while scrolling
-//        Api.PostAPI.observePost(withId: post!.id!) { (post) in
-//             self.updateLike(post: post)
-//        }
-        
-        
-//        Api.PostAPI.REF_POSTS.child(post!.id!).observe(.childChanged) { (snapshot) in
-//          //  print(snapshot)
-//            if let value = snapshot.value as? Int {
-//                self.likeCountButton.setTitle("\(value) likes", for: UIControl.State.normal)
-//            }
-//        }
-        
-//            Api.PostAPI.observeLikeCount(withPostId: post!.id!) { (value) in
-//             self.likeCountButton.setTitle("\(value) likes", for: UIControl.State.normal)
-//        }
-  */
+
     }
     
     

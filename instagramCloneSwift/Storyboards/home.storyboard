@@ -198,11 +198,81 @@
                         <outlet property="tableView" destination="L8O-y7-03H" id="IzW-7v-cuu"/>
                         <segue destination="KVf-36-yq0" kind="show" identifier="commentSegue" id="TNs-PY-LZy"/>
                         <segue destination="IXQ-A3-paS" kind="show" identifier="Home_ProfileSegue" id="eAu-IO-H7s"/>
+                        <segue destination="f4S-j8-ePn" kind="show" identifier="Home_HashTagSegue" id="8u4-VK-c93"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccs-rr-ZbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1384.0579710144928" y="448.66071428571428"/>
+        </scene>
+        <!--Hash Tag View Controller-->
+        <scene sceneID="kPz-CT-NGf">
+            <objects>
+                <viewController storyboardIdentifier="HashTagViewController" id="f4S-j8-ePn" customClass="HashTagViewController" customModule="instagramCloneSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rLa-Fi-U8g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h31-Zk-7Aq">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PLa-vY-Bfw">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HashTagCollectionViewCell" id="lxi-uC-dlm" customClass="HashTagCollectionViewCell" customModule="instagramCloneSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UMR-9T-2WY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="UMR-9T-2WY" secondAttribute="trailing" id="0ye-dH-XlL"/>
+                                            <constraint firstItem="UMR-9T-2WY" firstAttribute="leading" secondItem="lxi-uC-dlm" secondAttribute="leading" id="YOp-EV-Kep"/>
+                                            <constraint firstAttribute="bottom" secondItem="UMR-9T-2WY" secondAttribute="bottom" id="qDh-l3-Ypw"/>
+                                            <constraint firstItem="UMR-9T-2WY" firstAttribute="top" secondItem="lxi-uC-dlm" secondAttribute="top" id="vOh-f6-HRC"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="UMR-9T-2WY" id="j4b-Hn-6JM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h31-Zk-7Aq" firstAttribute="trailing" secondItem="AuY-qF-jUP" secondAttribute="trailing" id="FUz-6v-0Pe"/>
+                            <constraint firstItem="h31-Zk-7Aq" firstAttribute="leading" secondItem="AuY-qF-jUP" secondAttribute="leading" id="YYH-EQ-DXp"/>
+                            <constraint firstItem="h31-Zk-7Aq" firstAttribute="top" secondItem="AuY-qF-jUP" secondAttribute="top" id="r41-2r-4My"/>
+                            <constraint firstAttribute="bottom" secondItem="h31-Zk-7Aq" secondAttribute="bottom" id="vy8-9f-WM1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AuY-qF-jUP"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="h31-Zk-7Aq" id="aVk-hP-oZO"/>
+                        <segue destination="7rg-l4-ADZ" kind="show" identifier="HashTag_ProfileTable" id="a38-au-sgC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lPW-4o-XMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1320.289855072464" y="1360.7142857142856"/>
+        </scene>
+        <!--ProfileTableViewController-->
+        <scene sceneID="nzs-PS-K4e">
+            <objects>
+                <viewControllerPlaceholder storyboardName="profile" referencedIdentifier="ProfileTableViewController" id="7rg-l4-ADZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ozV-CU-JcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-538" y="1343"/>
         </scene>
         <!--ProfileUserViewController-->
         <scene sceneID="z9g-zY-r1h">
@@ -265,7 +335,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentLabel" destination="VyF-I8-IIs" id="6e4-no-1fT"/>
+                                            <outlet property="commentLabel" destination="VyF-I8-IIs" id="xVt-v0-Zsk"/>
                                             <outlet property="nameLabel" destination="tES-Uf-6hA" id="6fm-CY-Knb"/>
                                             <outlet property="profileImageView" destination="z7V-xt-z5Z" id="qFc-kd-D0e"/>
                                         </connections>
@@ -326,6 +396,7 @@
                         <outlet property="sendButton" destination="qB3-Hy-JMc" id="nyH-Dn-Pnm"/>
                         <outlet property="tableViewOfCommets" destination="tqv-yL-YGL" id="WWz-uK-IaS"/>
                         <segue destination="IXQ-A3-paS" kind="show" identifier="Comment_ProfileSegue" id="7Ud-7K-333"/>
+                        <segue destination="f4S-j8-ePn" kind="show" identifier="Comment_HashTagSegue" id="txf-fe-Bbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmn-cA-e4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -361,5 +432,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7Ud-7K-333"/>
+        <segue reference="txf-fe-Bbb"/>
     </inferredMetricsTieBreakers>
 </document>

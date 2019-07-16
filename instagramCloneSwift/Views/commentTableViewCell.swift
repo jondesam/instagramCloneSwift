@@ -9,9 +9,12 @@
 import UIKit
 import FirebaseDatabase
 import KILabel
+
 protocol commentTableViewCellDelegate {
     
       func goToProfileUserVC(userId: String)
+    
+      func goToHashTag(tag: String)
 }
 
 class commentTableViewCell: UITableViewCell {
@@ -41,7 +44,34 @@ class commentTableViewCell: UITableViewCell {
     
     func updateCommentView(){
         commentLabel.text = comment!.commentText
+        
+  
+        
+        
+        commentLabel.userHandleLinkTapHandler = { label, string, Range in
+            // print(string)
+            let mention = string.dropFirst()
+            print(mention)
+            Api.UserAPI.observeUserByUsername(username: String(mention.lowercased()), completion: { (user) in
+                self.delegateOfcommentTableViewCell?.goToProfileUserVC(userId: user.id!)
+            })
+            
+        }
+        
+        
+        commentLabel.hashtagLinkTapHandler = { label, string, Range in
+            // print(string)
+            let tag = string.dropFirst()
+
+            self.delegateOfcommentTableViewCell?.goToHashTag(tag: String(tag))
+        }
+        
+    
+        
     }
+    
+    
+    
     
     func setUpUserInfo(){
         nameLabel.text = userInCell?.username
@@ -72,12 +102,5 @@ class commentTableViewCell: UITableViewCell {
         }
     }
     
-    
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

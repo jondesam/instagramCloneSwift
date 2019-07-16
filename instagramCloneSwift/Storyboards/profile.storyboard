@@ -641,7 +641,7 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V08-XO-hrq">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V08-XO-hrq" customClass="KILabel">
                                             <rect key="frame" x="20" y="388" width="42" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="w2X-Cx-dyn"/>
@@ -737,7 +737,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentImageView" destination="2O4-Ki-DPE" id="iOc-tR-JPk"/>
-                                    <outlet property="descriptionLabel" destination="V08-XO-hrq" id="bJ3-8t-nyO"/>
+                                    <outlet property="descriptionLabel" destination="V08-XO-hrq" id="iz3-hf-dYq"/>
                                     <outlet property="likeCountButton" destination="zKQ-qI-kvD" id="YAp-2f-L4c"/>
                                     <outlet property="likeImageView" destination="okT-hV-cik" id="Fk1-8I-Ftp"/>
                                     <outlet property="nameLabel" destination="ClB-i2-djT" id="slZ-AY-j3t"/>
@@ -757,6 +757,7 @@
                     <connections>
                         <segue destination="2pg-ob-v69" kind="show" identifier="ProfileTable_comment" id="QXX-jA-RkK"/>
                         <segue destination="UDN-OO-PQj" kind="show" identifier="ProfileTable_profileUser" id="rz3-6H-ke2"/>
+                        <segue destination="I9T-ih-6xi" kind="show" identifier="ProfileTable_HashTagSegue" id="0I3-F9-YEQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXr-dV-8M1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1008,6 +1009,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFi-Sl-2yy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4693" y="1368"/>
+        </scene>
+        <!--HashTagViewController-->
+        <scene sceneID="xbz-vF-yiM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="home" referencedIdentifier="HashTagViewController" id="I9T-ih-6xi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fw4-zw-f1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4270" y="1748"/>
         </scene>
     </scenes>
     <resources>

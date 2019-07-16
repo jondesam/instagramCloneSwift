@@ -179,7 +179,7 @@
  
  extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
     
-    func goToProfileTableVC(userId: String) {
+    func goToProfileTableVCFromProfileVC(userId: String) {
         
         performSegue(withIdentifier: "ProfileUser_ProfileTable", sender: userId)
         print("ProfileUser_ProfileTable")

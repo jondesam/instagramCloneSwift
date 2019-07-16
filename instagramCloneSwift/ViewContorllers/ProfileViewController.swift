@@ -16,7 +16,6 @@
     
     class ProfileViewController: UIViewController, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
         
-      
         @IBOutlet weak var testBtn: UIBarButtonItem!
         
         var delegateOfProfileViewController: ProfileViewControllerDelegate?
@@ -24,7 +23,6 @@
         var header:HeaderProfileCollectionReusableView!
         
         @IBOutlet weak var collectionView: UICollectionView!
-        
         
         @IBAction func logOut(_ sender: UIBarButtonItem) {
             logout()
@@ -124,13 +122,13 @@
             cell.delegateOfPhotoCollectionViewCell = self
             
             delegateOfProfileViewController?.passingIndexPath(indexPath: indexPath)
+            
               print("indexPath of cellForItemAt : \(indexPath)")
-            
-            
             
             
             return cell
         }
+        
         
         //not called
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -139,7 +137,6 @@
        
         }
 
-        
         
         
         @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
@@ -361,7 +358,7 @@
     
     extension ProfileViewController: PhotoCollectionViewCellDelegate {
         
-        func goToProfileTableVC(userId: String) {
+        func goToProfileTableVCFromProfileVC(userId: String) {
             
             performSegue(withIdentifier: "Profile_ProfileTable", sender: userId)
           
@@ -388,9 +385,9 @@
                 profileTableVC!.userId = userId!
             }
             
-            
-            
-            
         }
         
     }
+
+    
+    

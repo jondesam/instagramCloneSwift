@@ -10,7 +10,7 @@ import UIKit
 
 protocol PhotoCollectionViewCellDelegate {
     
-    func goToProfileTableVC(userId: String)
+    func goToProfileTableVCFromProfileVC(userId: String)
 
 }
 
@@ -38,26 +38,24 @@ class PhotoCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate {
         
         if let photoUrlString = post!.photoUrl {
             let photoUrl = URL(string: photoUrlString)
-            
-            photo.sd_setImage(with: photoUrl)
+           // print("photoUrl : \(photoUrl)")
+            photo!.sd_setImage(with: photoUrl)
         }
 
         let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
         
+        //tapGestureForPhoto.cancelsTouchesInView = false
+        
         photo.addGestureRecognizer(tapGestureForPhoto)
         photo.isUserInteractionEnabled = true
-
         
+//        contentView.addGestureRecognizer(tapGestureForPhoto)
+//        contentView.endEditing(true)
         
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-//
-//
-//        tap.cancelsTouchesInView = false
-//
-//        self.addGestureRecognizer(tap)
-        
-        
-        
+        //need to manage to select proper post on tableView
+        //true to work with segue
+        //false to get indexpath
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -72,7 +70,7 @@ class PhotoCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate {
         
         if let id = post!.uid {
             print("post!.uid: \(post!.uid)")
-            delegateOfPhotoCollectionViewCell?.goToProfileTableVC(userId: id)
+            delegateOfPhotoCollectionViewCell?.goToProfileTableVCFromProfileVC(userId: id)
             
         }
     }
