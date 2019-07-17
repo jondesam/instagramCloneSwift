@@ -71,7 +71,7 @@
         }
 
         
-      static  func updateUserInfo(username:String, imageData:Data, onSuccess:@escaping() -> Void, onEror: @escaping (_ errorMessage:String?) -> Void ){
+        static  func updateUserInfo(username:String, imageData:Data, bio:String , onSuccess:@escaping() -> Void, onEror: @escaping (_ errorMessage:String?) -> Void ){
         
         print("updateUserInfo is called")
         let currentUser = Api.UserAPI.CURRENT_USER
@@ -103,7 +103,7 @@
                     
                    // sendDataToDatabase(profilePhotoUrl: profilePhotoUrl!)
                     
-                    updateDatabase(profileImageUrl: profilePhotoUrl!, id: username, onSuccess: onSuccess, onEror: onEror)
+                    updateDatabase(profileImageUrl: profilePhotoUrl!, id: username, bio: bio, onSuccess: onSuccess, onEror: onEror)
                    
                     
                     //self.header?.profileImage.sd_setImage(with: url)
@@ -119,13 +119,15 @@
     
         }
         
-        static func updateDatabase(profileImageUrl:String, id:String, onSuccess:@escaping() -> Void, onEror: @escaping (_ errorMessage:String?) -> Void ){
+        static func updateDatabase(profileImageUrl:String, id:String, bio: String, onSuccess:@escaping() -> Void, onEror: @escaping (_ errorMessage:String?) -> Void ){
             
             let dict = ["username": id,
                         "username_lowercase": id.lowercased(),
-                         "profileImageUrl": profileImageUrl]
+                         "profileImageUrl": profileImageUrl,
+                         "bio":bio.lowercased()]
             
             Api.UserAPI.REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, databaseReference) in
+                
                 if error != nil {
                     print(error?.localizedDescription)
                     print("data upload fail")

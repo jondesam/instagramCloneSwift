@@ -18,12 +18,12 @@ class SettingUITableViewController: UITableViewController {
     
     var delegateOfSettingUITableViewController: SettingUITableViewControllerDelegate?
     
-    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     
-    
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var bio: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +39,7 @@ class SettingUITableViewController: UITableViewController {
             }
             self.usernameTextField.text = user.username
             self.emailLabel.text = user.email
+            self.bio.text = user.bio
             
         }
     }
@@ -48,8 +49,11 @@ class SettingUITableViewController: UITableViewController {
         //profileImage check
         
         if let profileImage = self.profileImageView.image, let imageData = profileImage.jpegData(compressionQuality: 0.1){
+            
             SVProgressHUD.show(withStatus: "Waiting...")
-            AuthService.updateUserInfo(username: usernameTextField.text!, imageData: imageData, onSuccess: {
+            
+        
+            AuthService.updateUserInfo(username: usernameTextField.text!, imageData: imageData, bio: bio.text!, onSuccess: {
                 
                 SVProgressHUD.showSuccess(withStatus: "Success")
                 self.delegateOfSettingUITableViewController?.updateUserInfoRealTime()
@@ -59,6 +63,8 @@ class SettingUITableViewController: UITableViewController {
                 SVProgressHUD.showError(withStatus: errorMessage)
             
             }
+            
+            
             
         }
       
@@ -85,6 +91,11 @@ class SettingUITableViewController: UITableViewController {
         pickerController.delegate = self
     present(pickerController, animated: true, completion: nil)
     
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        print("touchesBegan")
     }
     
 }

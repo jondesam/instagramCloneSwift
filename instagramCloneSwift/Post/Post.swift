@@ -21,6 +21,7 @@ class Post {
     var likeCount:Int?
     var likes: Dictionary<String, Any>?
     var isLiked: Bool?
+    var timeStamp: Int?
     
     static func transFromPostPhoto(dictFromSnapshot: [String:Any], key:String) -> Post {
         
@@ -31,6 +32,7 @@ class Post {
         post.photoUrl = dictFromSnapshot["photoUrl"] as? String
         post.user = dictFromSnapshot["user"] as? String
         post.uid = dictFromSnapshot["uid"] as? String
+        post.timeStamp = dictFromSnapshot["timestamp"] as? Int 
         post.id = key
        // print("key")
         //print(key)

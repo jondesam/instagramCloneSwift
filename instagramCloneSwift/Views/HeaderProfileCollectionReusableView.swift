@@ -35,8 +35,12 @@
         @IBOutlet weak var myPostCountLabel: UILabel!
         @IBOutlet weak var followingCountLabel: UILabel!
         @IBOutlet weak var followerCountLabel: UILabel!
+        @IBOutlet weak var bio: UILabel!
+        
         
         @IBOutlet weak var followOrEditButton: UIButton!
+        
+        
         
         var degateOfHeaderProfileCollectionReusableView: HeaderProfileCollectionReusableViewDelegate?
         
@@ -101,6 +105,12 @@
                 
                 
                 self.nameLable.text = userInCell?.username
+                
+                if let bio = userInCell?.bio {
+                     self.bio.text = bio
+                }
+                
+               
                 
                 if let photoUrlString = userInCell?.profileImageUrl {
                     let photoUrl = URL(string: photoUrlString)

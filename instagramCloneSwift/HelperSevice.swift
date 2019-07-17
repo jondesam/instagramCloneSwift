@@ -132,8 +132,12 @@ class HelperService {
         }
 
 
+        
+        let timestamp = Int(Date().timeIntervalSince1970)
 
-        var dict = ["photoUrl":photoUrl, "description":description, "user": currentUser.email!, "uid":currentUser.uid, "likeCount": 0] as [String : Any]
+        print(timestamp)
+        
+        var dict = ["photoUrl":photoUrl, "description":description, "user": currentUser.email!, "uid":currentUser.uid, "likeCount": 0, "timestamp":timestamp] as [String : Any]
 
         if let videoUrl = videoUrl {
             dict["videoUrl"] = videoUrl

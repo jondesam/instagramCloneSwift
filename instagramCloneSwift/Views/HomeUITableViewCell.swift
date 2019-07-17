@@ -32,6 +32,7 @@ class HomeUITableViewCell: UITableViewCell {
     @IBOutlet weak var shareImageView: UIImageView!
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var descriptionLabel: KILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var volumeView: UIView!
     @IBOutlet weak var volumeButton: UIButton!
@@ -114,6 +115,46 @@ class HomeUITableViewCell: UITableViewCell {
                 player?.isMuted = isMuted
                 
             }
+            
+            if let timeStamp = post?.timeStamp {
+                
+                let timestampOfPost = Date(timeIntervalSince1970: Double(timeStamp))
+                
+                let now = Date()
+                
+                let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
+                dump("componets : \(components)")
+                let diff = Calendar.current.dateComponents(components, from: timestampOfPost, to: now)
+                print("diff :  \(diff)")
+                
+                var timeText = ""
+                
+                if diff.second! <= 0 {
+                    timeText = "Now"
+                }
+                if diff.second! > 0 && diff.minute! == 0 {
+                    timeText = (diff.second == 1) ? "\(diff.second!) second ago" : "\(diff.second!) seconds ago"
+                }
+                if diff.minute! > 0 && diff.hour! == 0 {
+                    timeText = (diff.minute == 1) ? "\(diff.minute!) minute ago" : "\(diff.minute!) minutes ago"
+                }
+                if diff.hour! > 0 && diff.day! == 0 {
+                    timeText = (diff.hour == 1) ? "\(diff.hour!) hour ago" : "\(diff.hour!) hours ago"
+                }
+                if diff.day! > 0 && diff.weekOfMonth! == 0 {
+                    timeText = (diff.day == 1) ? "\(diff.day!) day ago" : "\(diff.day!) days ago"
+                }
+                if diff.weekOfMonth! > 0 {
+                    timeText = (diff.weekOfMonth == 1) ? "\(diff.weekOfMonth!) week ago" : "\(diff.weekOfMonth!) weeks ago"
+                }
+                
+                    print("timeText: \(timeText)")
+             
+                    timeLabel.text = timeText
+                
+            }
+            
+            
             
 //            sd_setImage(with: photoUrl, placeholderImage:UIImage(named:
 //                "placeholderImg.jpeg") )
