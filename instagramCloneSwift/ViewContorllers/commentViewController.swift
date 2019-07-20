@@ -126,7 +126,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
              
                 
-                let newHashTagRef = Api.hashTagAPI.REF_HASHTAG.child(word.lowercased())
+                let newHashTagRef = Api.HashTagAPI.REF_HASHTAG.child(word.lowercased())
 
                 newHashTagRef.updateChildValues([self.postId + " with commentID : " +  newCommentId:true])
 

@@ -23,7 +23,7 @@ class HashTagViewController: UIViewController {
     }
     
     func loadPost()  {
-        Api.hashTagAPI.fetchPosts(withTag: tag) { (postId) in
+        Api.HashTagAPI.fetchPosts(withTag: tag) { (postId) in
             Api.PostAPI.observePost(withPostId: postId, completion: { (post) in
                 self.posts.append(post)
              //   dump(self.posts)

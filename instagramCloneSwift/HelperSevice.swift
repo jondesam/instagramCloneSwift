@@ -8,6 +8,7 @@
 
 import Foundation
 import SVProgressHUD
+import FirebaseDatabase
 
 class HelperService {
     
@@ -124,7 +125,7 @@ class HelperService {
             if word.hasPrefix("#") {
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
            
-                let newHashTagRef = Api.hashTagAPI.REF_HASHTAG.child(word.lowercased())
+                let newHashTagRef = Api.HashTagAPI.REF_HASHTAG.child(word.lowercased())
              
                 newHashTagRef.updateChildValues([newPostId:true])
                
@@ -150,8 +151,43 @@ class HelperService {
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 return
             }
-            Api.FeedAPI.REF_FEED.child(Api.UserAPI.CURRENT_USER!.uid).child(newPostId).setValue(true)
-
+            
+           Api.FeedAPI.REF_FEED.child(Api.UserAPI.CURRENT_USER!.uid).child(newPostId).setValue(true)//to make feed node
+            
+            
+            
+            //MARK: - Notification upload in Firebase
+            
+            Api.FollowAPI.REF_FOLLOWERS.child(Api.UserAPI.CURRENT_USER!.uid).observeSingleEvent(of: .value, with: { (dataSnapshot) in
+                
+                let arraySnapshot = dataSnapshot.children.allObjects as! [DataSnapshot]
+                
+               // arraySnapshot.forEach(<#T##body: (DataSnapshot) throws -> Void##(DataSnapshot) throws -> Void#>)
+                
+                arraySnapshot.forEach({ (snapshot) in
+                    print("snapshot.key = Follower userId : \(snapshot.key)")
+                   
+                    
+                Api.FeedAPI.REF_FEED.child(snapshot.key).updateChildValues(["\(newPostId)" : true])// to feed followers
+                    
+                    //Api.FeedAPI.REF_FEED.child(snapshot.key).updateChildValues(<#T##values: [AnyHashable : Any]##[AnyHashable : Any]#>)
+                    
+                    let newNotificationId = Api.Norification.REF_NOTIFICATION.child(snapshot.key) .childByAutoId().key
+                    print("newNotificationId : \(newNotificationId)")
+                    let newNotificationReference = Api.Norification.REF_NOTIFICATION.child(snapshot.key).child(newNotificationId)
+                   
+                    print("newNotificationReference : \(newNotificationReference)")
+                    print("\n")
+                    newNotificationReference.setValue(["from": Api.UserAPI.CURRENT_USER!.uid,
+                                                       "type": "feed",
+                                                       "postId": newPostId,
+                                                       "timestamp":timestamp])
+                     // newNotificationReference.setValue(<#T##value: Any?##Any?#>)
+                })
+                
+                
+            })
+            
             let myPostRef = Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).child(newPostId)
 
             myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
@@ -166,8 +202,4 @@ class HelperService {
             onSuccess()
         }
     }
-    
-    
-    
-    
 }

@@ -82,6 +82,9 @@
 		95C5D5752277A7BC0046BBA5 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */; };
 		95C5D5772277A7FA0046BBA5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */; };
 		95D0AC2C22A460E400A52AB2 /* followApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0AC2B22A460E400A52AB2 /* followApi.swift */; };
+		95F1159122E0EA0F00985167 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F1159022E0EA0F00985167 /* ActivityTableViewCell.swift */; };
+		95F1159322E0F4A200985167 /* NotificationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F1159222E0F4A200985167 /* NotificationApi.swift */; };
+		95F1159622E0FE0D00985167 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F1159522E0FE0D00985167 /* Notification.swift */; };
 		95F76B502291D4BC002138D7 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F76B4F2291D4BC002138D7 /* PostApi.swift */; };
 		95F826B4227A3CF800C651B6 /* defaultPerson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95F826B3227A3CF800C651B6 /* defaultPerson.jpg */; };
 		95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F8A7982288B0CE00FEF30E /* commentViewController.swift */; };
@@ -167,6 +170,9 @@
 		95C5D5742277A7BC0046BBA5 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		95C5D5762277A7FA0046BBA5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		95D0AC2B22A460E400A52AB2 /* followApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = followApi.swift; sourceTree = "<group>"; };
+		95F1159022E0EA0F00985167 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		95F1159222E0F4A200985167 /* NotificationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationApi.swift; sourceTree = "<group>"; };
+		95F1159522E0FE0D00985167 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		95F76B4F2291D4BC002138D7 /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
 		95F826B3227A3CF800C651B6 /* defaultPerson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultPerson.jpg; sourceTree = "<group>"; };
 		95F8A7982288B0CE00FEF30E /* commentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentViewController.swift; sourceTree = "<group>"; };
@@ -268,16 +274,6 @@
 			path = asset;
 			sourceTree = "<group>";
 		};
-		95C0C38522821B2B00CDE5F7 /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				95C0C38622821B3C00CDE5F7 /* Post.swift */,
-				95AC7B7822862DDC00EF0956 /* UserModel.swift */,
-				9547955D2289F8E70083DC20 /* Comment.swift */,
-			);
-			path = Post;
-			sourceTree = "<group>";
-		};
 		95C0C3C62284AD9E00CDE5F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +286,7 @@
 				956E9E0122D16B8300A6F0E8 /* FilterCollectionViewCell.swift */,
 				956E9E0522D67F9800A6F0E8 /* TestCollectionViewCell.swift */,
 				9502194922DA741400A12CAB /* HashTagCollectionViewCell.swift */,
+				95F1159022E0EA0F00985167 /* ActivityTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,8 +312,10 @@
 		95C5D555227792C10046BBA5 /* instagramCloneSwift */ = {
 			isa = PBXGroup;
 			children = (
+				95F1159422E0FDB400985167 /* Model */,
 				95C0C384227F626F00CDE5F7 /* asset */,
 				95C5D556227792C10046BBA5 /* AppDelegate.swift */,
+				95F1159222E0F4A200985167 /* NotificationApi.swift */,
 				95AF085A229DBAAD00C5210B /* AuthService.swift */,
 				95895CFD2278ED49009371DC /* GoogleService-Info.plist */,
 				95C5D562227792C20046BBA5 /* Info.plist */,
@@ -332,12 +331,22 @@
 				95959CCE22A9CD4F00A8E04C /* FeedApi.swift */,
 				955EADA722B57AE2006789E1 /* StorageReference.swift */,
 				956E9E0722D7B5C000A6F0E8 /* HashTagApi.swift */,
-				95C0C38522821B2B00CDE5F7 /* Post */,
 				95895CFB2278DF9E009371DC /* Storyboards */,
 				95895CFC2278DFCF009371DC /* ViewContorllers */,
 				95C0C3C62284AD9E00CDE5F7 /* Views */,
 			);
 			path = instagramCloneSwift;
+			sourceTree = "<group>";
+		};
+		95F1159422E0FDB400985167 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95C0C38622821B3C00CDE5F7 /* Post.swift */,
+				95AC7B7822862DDC00EF0956 /* UserModel.swift */,
+				9547955D2289F8E70083DC20 /* Comment.swift */,
+				95F1159522E0FE0D00985167 /* Notification.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C000F4A15CADA14B917F9659 /* Pods */ = {
@@ -514,6 +523,7 @@
 				95B888B3229340AB00007B30 /* CommentApi.swift in Sources */,
 				9502194A22DA741400A12CAB /* HashTagCollectionViewCell.swift in Sources */,
 				956E9E0822D7B5C000A6F0E8 /* HashTagApi.swift in Sources */,
+				95F1159322E0F4A200985167 /* NotificationApi.swift in Sources */,
 				956E9E0022D14B2200A6F0E8 /* FilterViewController.swift in Sources */,
 				9545A774229C897E00CA8FEB /* PhotoCollectionViewCell.swift in Sources */,
 				9545A772229C6CFF00CA8FEB /* MyPostsApi.swift in Sources */,
@@ -521,7 +531,9 @@
 				959D17F3228507EE00824F9B /* HomeUITableViewCell.swift in Sources */,
 				95C5D557227792C10046BBA5 /* AppDelegate.swift in Sources */,
 				956E9E0222D16B8300A6F0E8 /* FilterCollectionViewCell.swift in Sources */,
+				95F1159622E0FE0D00985167 /* Notification.swift in Sources */,
 				95016BDF22B8158A0016CD82 /* PeopleTableViewCellFromProfile.swift in Sources */,
+				95F1159122E0EA0F00985167 /* ActivityTableViewCell.swift in Sources */,
 				95F8A7992288B0CE00FEF30E /* commentViewController.swift in Sources */,
 				955EADA822B57AE2006789E1 /* StorageReference.swift in Sources */,
 				95C5D56F2277A7130046BBA5 /* HomeViewController.swift in Sources */,
