@@ -123,12 +123,6 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inj-4a-axU">
-                                                    <rect key="frame" x="0.0" y="63" width="414" height="236"/>
-                                                    <connections>
-                                                        <action selector="wholePostButton:" destination="r2l-sE-3aP" eventType="touchUpInside" id="kOZ-h4-o9B"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pl-kf-WFb">
                                                     <rect key="frame" x="20" y="414" width="316" height="20"/>
                                                     <constraints>
@@ -145,11 +139,8 @@
                                                 <constraint firstItem="4Pl-kf-WFb" firstAttribute="leading" secondItem="3zj-mY-FvL" secondAttribute="leading" id="7fs-aX-gA7"/>
                                                 <constraint firstItem="grc-wX-Yxq" firstAttribute="leading" secondItem="upe-gM-kq5" secondAttribute="leading" constant="10" id="AGv-Lk-OyC"/>
                                                 <constraint firstItem="upe-gM-kq5" firstAttribute="leading" secondItem="wod-ko-AbK" secondAttribute="leading" id="BUE-9q-cYw"/>
-                                                <constraint firstItem="inj-4a-axU" firstAttribute="leading" secondItem="wod-ko-AbK" secondAttribute="leading" id="Bg9-ek-vfd"/>
                                                 <constraint firstItem="Ioa-zx-Rsf" firstAttribute="top" secondItem="upe-gM-kq5" secondAttribute="bottom" constant="8" id="CO5-PV-YNE"/>
-                                                <constraint firstItem="Ioa-zx-Rsf" firstAttribute="top" secondItem="inj-4a-axU" secondAttribute="bottom" constant="8" id="FQQ-88-tlg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="lj2-cn-4sg" secondAttribute="trailing" constant="-15" id="Hrr-m0-PsA"/>
-                                                <constraint firstItem="inj-4a-axU" firstAttribute="top" secondItem="ySQ-JK-8ib" secondAttribute="bottom" constant="8" id="IwB-Mj-Jb0"/>
                                                 <constraint firstItem="F7j-SF-gbG" firstAttribute="leading" secondItem="ySQ-JK-8ib" secondAttribute="trailing" constant="16" id="JIU-gq-XbL"/>
                                                 <constraint firstItem="e7b-4q-rtP" firstAttribute="leading" secondItem="jYy-RG-Wgh" secondAttribute="trailing" constant="8" id="Lio-b4-lKi"/>
                                                 <constraint firstItem="lj2-cn-4sg" firstAttribute="top" secondItem="Ioa-zx-Rsf" secondAttribute="bottom" constant="8" id="MA0-TN-4b0"/>
@@ -164,7 +155,6 @@
                                                 <constraint firstItem="Ioa-zx-Rsf" firstAttribute="leading" secondItem="wod-ko-AbK" secondAttribute="leadingMargin" id="eAj-Qv-KmK"/>
                                                 <constraint firstItem="jYy-RG-Wgh" firstAttribute="leading" secondItem="Ioa-zx-Rsf" secondAttribute="trailing" constant="8" id="ieP-70-12f"/>
                                                 <constraint firstItem="upe-gM-kq5" firstAttribute="top" secondItem="ySQ-JK-8ib" secondAttribute="bottom" constant="8" id="j5V-V7-pWr"/>
-                                                <constraint firstAttribute="trailing" secondItem="inj-4a-axU" secondAttribute="trailing" id="kvW-4x-mKP"/>
                                                 <constraint firstItem="grc-wX-Yxq" firstAttribute="bottom" secondItem="upe-gM-kq5" secondAttribute="bottom" constant="-10" id="rby-j0-SC5"/>
                                                 <constraint firstItem="i5C-tK-Lkh" firstAttribute="leading" secondItem="lj2-cn-4sg" secondAttribute="leading" id="tWu-1p-nnt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="4Pl-kf-WFb" secondAttribute="bottom" constant="16" id="tld-jm-zfR"/>
@@ -417,11 +407,11 @@
             </objects>
             <point key="canvasLocation" x="-122" y="713"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="XVg-sy-YBb">
             <objects>
                 <navigationController storyboardIdentifier="home" automaticallyAdjustsScrollViewInsets="NO" id="amb-LZ-65U" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="8ni-Lx-A3p"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home.png" id="8ni-Lx-A3p"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w6j-oc-Itg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -439,13 +429,14 @@
     </scenes>
     <resources>
         <image name="Comment.png" width="43" height="41"/>
+        <image name="Home.png" width="21" height="23"/>
         <image name="Icon_Mute.png" width="25" height="25"/>
         <image name="like.png" width="46" height="41"/>
         <image name="placeholderImg.jpeg" width="225" height="225"/>
         <image name="share.png" width="37" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Ud-7K-333"/>
-        <segue reference="txf-fe-Bbb"/>
+        <segue reference="eAu-IO-H7s"/>
+        <segue reference="8u4-VK-c93"/>
     </inferredMetricsTieBreakers>
 </document>

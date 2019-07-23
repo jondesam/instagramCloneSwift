@@ -392,7 +392,7 @@
         <scene sceneID="M1S-q7-3xb">
             <objects>
                 <navigationController storyboardIdentifier="search" automaticallyAdjustsScrollViewInsets="NO" id="hRL-fV-jCi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="Tlj-Kw-KlI"/>
+                    <tabBarItem key="tabBarItem" title="" image="Search.png" id="Tlj-Kw-KlI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lzF-rB-feJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -411,6 +411,7 @@
     <resources>
         <image name="Comment.png" width="43" height="41"/>
         <image name="Icon_Mute.png" width="25" height="25"/>
+        <image name="Search.png" width="23" height="22"/>
         <image name="like.png" width="46" height="41"/>
         <image name="placeholderImg.jpeg" width="225" height="225"/>
         <image name="share.png" width="37" height="41"/>

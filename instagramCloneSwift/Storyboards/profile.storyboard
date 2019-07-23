@@ -809,11 +809,11 @@
             </objects>
             <point key="canvasLocation" x="3828.985507246377" y="1269.6428571428571"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="jnl-TC-s0K">
             <objects>
                 <navigationController storyboardIdentifier="profile" automaticallyAdjustsScrollViewInsets="NO" id="VxN-Vb-Xg2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="iJU-b9-nPG"/>
+                    <tabBarItem key="tabBarItem" title="" image="Profile.png" id="iJU-b9-nPG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ei2-Cv-CO4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1065,6 +1065,7 @@
     <resources>
         <image name="Comment.png" width="43" height="41"/>
         <image name="Icon_Mute.png" width="25" height="25"/>
+        <image name="Profile.png" width="20" height="21"/>
         <image name="defaultPerson.jpg" width="620" height="389"/>
         <image name="discover.png" width="22" height="22"/>
         <image name="like.png" width="46" height="41"/>
@@ -1072,7 +1073,7 @@
         <image name="share.png" width="37" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vJf-Q7-jHq"/>
-        <segue reference="XQQ-1f-A7r"/>
+        <segue reference="qX3-xC-CZ3"/>
+        <segue reference="S3K-Yi-CJm"/>
     </inferredMetricsTieBreakers>
 </document>

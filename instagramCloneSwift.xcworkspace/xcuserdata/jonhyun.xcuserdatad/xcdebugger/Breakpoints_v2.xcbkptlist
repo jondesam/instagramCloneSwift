@@ -1,0 +1,1673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
+            timestampString = "585356355.9559571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "HomeViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
+            timestampString = "585356355.956035"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "fetchUser(uid:completed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HomeViewController.fetchUser(uid: Swift.String, completed: () -&gt; ()) -&gt; ()"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/HomeViewController.swift"
+                  timestampString = "580623272.637753"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (instagramCloneSwift.User) -&gt; () in instagramCloneSwift.HomeViewController.fetchUser(uid: Swift.String, completed: () -&gt; ()) -&gt; ()"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/HomeViewController.swift"
+                  timestampString = "580623272.640401"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/UserPai.swift"
+            timestampString = "580074835.7009749"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "observeUsers(withId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/UserPai.swift"
+            timestampString = "580074835.701306"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "observeUsers(withId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/commentViewController.swift"
+            timestampString = "585256775.254421"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "sendButton_TouchUpInside(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/LogInViewController.swift"
+            timestampString = "584642772.293439"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "buttonLogIn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/LogInViewController.swift"
+            timestampString = "584642772.293764"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+            timestampString = "584921518.447147"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "PeopleViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+            timestampString = "584921518.447216"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.342696"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "unFollowAction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.343159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "userInCell"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.343483"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "userInCell"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+            timestampString = "584921518.4473259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "PeopleViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.343823"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "userInCell"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.344135"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "userInCell"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.3444411"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "userInCell"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.userInCell.modify : Swift.Optional&lt;instagramCloneSwift.UserModel&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.556111"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.userInCell.modify : Swift.Optional&lt;instagramCloneSwift.UserModel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.558647"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; instagramCloneSwift.PeopleTableViewCell"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.5611089"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "672">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCell&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.563669"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "580">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.344751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "PeopleTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.peopleVC.getter : Swift.Optional&lt;instagramCloneSwift.PeopleViewController&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "581374869.192112"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.peopleVC.setter : Swift.Optional&lt;instagramCloneSwift.PeopleViewController&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "581374869.1946861"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.peopleVC.modify : Swift.Optional&lt;instagramCloneSwift.PeopleViewController&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "581374869.197152"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.peopleVC.modify : Swift.Optional&lt;instagramCloneSwift.PeopleViewController&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "581374869.199609"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; instagramCloneSwift.PeopleTableViewCell"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "581374869.202504"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "525">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCell&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "581374869.205202"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "445">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.345058"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "configureFollowButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.345353"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "configureUnfollowButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+            timestampString = "584921518.447482"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "loadUsers()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (instagramCloneSwift.UserModel) -&gt; () in instagramCloneSwift.PeopleViewController.loadUsers() -&gt; ()"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+                  timestampString = "581382187.404302"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in closure #1 (instagramCloneSwift.UserModel) -&gt; () in instagramCloneSwift.PeopleViewController.loadUsers() -&gt; ()"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+                  timestampString = "581382187.406743"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "134">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.345669"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "followAction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.345962"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "configureUnfollowButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.346247"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "configureFollowButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.346532"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "followAction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
+            timestampString = "585356355.956539"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "loadPosts()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HomeUITableViewCell.swift"
+            timestampString = "585598667.438895"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "HomeUITableViewCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HomeUITableViewCell.swift"
+            timestampString = "585598667.4395109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "HomeUITableViewCellDelegate"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HomeUITableViewCell.swift"
+            timestampString = "585598667.43986"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "HomeUITableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HomeUITableViewCell.delegateOfHomeUITableViewCell.getter : Swift.Optional&lt;instagramCloneSwift.HomeUITableViewCellDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HomeUITableViewCell.swift"
+                  timestampString = "582404241.368829"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HomeUITableViewCell.delegateOfHomeUITableViewCell.setter : Swift.Optional&lt;instagramCloneSwift.HomeUITableViewCellDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HomeUITableViewCell.swift"
+                  timestampString = "582404241.371276"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HomeUITableViewCell.delegateOfHomeUITableViewCell.modify : Swift.Optional&lt;instagramCloneSwift.HomeUITableViewCellDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HomeUITableViewCell.swift"
+                  timestampString = "582404241.37367"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HomeUITableViewCell.delegateOfHomeUITableViewCell.modify : Swift.Optional&lt;instagramCloneSwift.HomeUITableViewCellDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HomeUITableViewCell.swift"
+                  timestampString = "582404241.37606"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HomeUITableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; instagramCloneSwift.HomeUITableViewCell"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HomeUITableViewCell.swift"
+                  timestampString = "582404241.378513"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HomeUITableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;instagramCloneSwift.HomeUITableViewCell&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HomeUITableViewCell.swift"
+                  timestampString = "582404241.380913"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1034">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
+            timestampString = "585356355.95666"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
+            timestampString = "585356355.95672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "HomeViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HomeUITableViewCell.swift"
+            timestampString = "585598667.440245"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "commentImageView_TouchUpInside()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.347276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "delegateOfPeopleTableViewCell"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.delegateOfPeopleTableViewCell.getter : Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCellDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.573674"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.delegateOfPeopleTableViewCell.setter : Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCellDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.576326"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.delegateOfPeopleTableViewCell.modify : Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCellDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.578899"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.delegateOfPeopleTableViewCell.modify : Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCellDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.581425"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; instagramCloneSwift.PeopleTableViewCell"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.584003"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "574">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.PeopleTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCell&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
+                  timestampString = "585266974.5864739"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "485">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.347615"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+            timestampString = "584921518.449193"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.347999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "setUpUserInfo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
+            timestampString = "584744152.348307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "setUpUserInfo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+            timestampString = "585014191.796888"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "followAction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+            timestampString = "585014191.7969559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "unFollowAction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+            timestampString = "584921518.449322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "updateFollowButton(forUser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+            timestampString = "584921518.4493769"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
+            timestampString = "584921518.449429"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+            timestampString = "585014191.797076"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "HeaderProfileCollectionReusableViewSecondDelegate"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+            timestampString = "585014191.79714"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "HeaderProfileCollectionReusableView"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.degateOfHeaderProfileCollectionReusableView.getter : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.150857"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.degateOfHeaderProfileCollectionReusableView.setter : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.1535161"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.degateOfHeaderProfileCollectionReusableView.modify : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.15642"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.degateOfHeaderProfileCollectionReusableView.modify : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.1592129"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.init(frame: __C.CGRect) -&gt; instagramCloneSwift.HeaderProfileCollectionReusableView"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.1619101"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "859">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableView&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.164551"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "818">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+            timestampString = "585014191.7972029"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "HeaderProfileCollectionReusableView"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.secondDegateOfHeaderProfileCollectionReusableViewInHPCRV.getter : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewSecondDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.177655"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.secondDegateOfHeaderProfileCollectionReusableViewInHPCRV.setter : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewSecondDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.1802469"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.secondDegateOfHeaderProfileCollectionReusableViewInHPCRV.modify : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewSecondDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.182863"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.secondDegateOfHeaderProfileCollectionReusableViewInHPCRV.modify : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewSecondDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.185923"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.init(frame: __C.CGRect) -&gt; instagramCloneSwift.HeaderProfileCollectionReusableView"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.188562"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1018">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableView&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.191033"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "971">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+            timestampString = "585014191.797286"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "HeaderProfileCollectionReusableView"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.thirdDegateOfHeaderProfileCollectionReusableView.getter : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewThirdDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.2035609"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.thirdDegateOfHeaderProfileCollectionReusableView.setter : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewThirdDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.206719"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.thirdDegateOfHeaderProfileCollectionReusableView.modify : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewThirdDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.2093771"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.thirdDegateOfHeaderProfileCollectionReusableView.modify : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewThirdDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.212043"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.init(frame: __C.CGRect) -&gt; instagramCloneSwift.HeaderProfileCollectionReusableView"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.214646"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "1177">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.HeaderProfileCollectionReusableView.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableView&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
+                  timestampString = "583272726.217599"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "1124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/ProfileUserViewController.swift"
+            timestampString = "585356089.476703"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "ProfileUserViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.ProfileUserViewController.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC.getter : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewSecondDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/ProfileUserViewController.swift"
+                  timestampString = "583275086.172182"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.ProfileUserViewController.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC.setter : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewSecondDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/ProfileUserViewController.swift"
+                  timestampString = "583275086.175203"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.ProfileUserViewController.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC.modify : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewSecondDelegate&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/ProfileUserViewController.swift"
+                  timestampString = "583275086.177953"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.ProfileUserViewController.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC.modify : Swift.Optional&lt;instagramCloneSwift.HeaderProfileCollectionReusableViewSecondDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/ProfileUserViewController.swift"
+                  timestampString = "583275086.180488"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.ProfileUserViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; instagramCloneSwift.ProfileUserViewController"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/ProfileUserViewController.swift"
+                  timestampString = "583275086.183651"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "463">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "instagramCloneSwift.ProfileUserViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;instagramCloneSwift.ProfileUserViewController&gt;"
+                  moduleName = "instagramCloneSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/ViewContorllers/ProfileUserViewController.swift"
+                  timestampString = "583275086.186836"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "383">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/CameraViewController.swift"
+            timestampString = "585011636.560955"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/FilterViewController.swift"
+            timestampString = "584745273.901403"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/commentViewController.swift"
+            timestampString = "585256775.255788"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "sendButton_TouchUpInside(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/ActivityViewController.swift"
+            timestampString = "585356355.957206"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/ActivityTableViewCell.swift"
+            timestampString = "585595452.738583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "userInCell"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/ActivityTableViewCell.swift"
+            timestampString = "585595452.739254"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "notification"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/ActivityViewController.swift"
+            timestampString = "585356355.9580801"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/ActivityViewController.swift"
+            timestampString = "585356355.958151"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/ActivityViewController.swift"
+            timestampString = "585356355.958218"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "fetchUser(uid:completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/ViewContorllers/ActivityViewController.swift"
+            timestampString = "585356355.958284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "loadingNotification()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

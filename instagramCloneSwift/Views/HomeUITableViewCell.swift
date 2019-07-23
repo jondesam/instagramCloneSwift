@@ -216,7 +216,14 @@ class HomeUITableViewCell: UITableViewCell {
         
         
         //Aloow user to touch imageView as button
-        let tapGestureOfLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likeImageView_TouchUpInside))
+        
+        let tapGestureShareImageView = UITapGestureRecognizer(target: self, action: #selector(self.likePost))
+        tapGestureShareImageView.numberOfTapsRequired = 2
+        //tapGestureShareImageView.numberOfTouchesRequired = 2
+        postImageView.addGestureRecognizer(tapGestureShareImageView)
+        postImageView.isUserInteractionEnabled = true
+        
+        let tapGestureOfLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.likePost))
         
         likeImageView.addGestureRecognizer(tapGestureOfLikeImageView)
         likeImageView.isUserInteractionEnabled = true
@@ -235,6 +242,11 @@ class HomeUITableViewCell: UITableViewCell {
         
         
     }
+    
+    @objc func shareImageView_touched() {
+        
+    }
+    
     
     @objc func commentImageView_TouchUpInside() {
         if let id = post?.id {
@@ -257,10 +269,11 @@ class HomeUITableViewCell: UITableViewCell {
     
     
     
-    @objc func likeImageView_TouchUpInside() {
+    @objc func likePost() {
         
       //  postRef = Api.PostAPI.REF_POSTS.child(post!.id!)
         
+        print("liked")
         Api.PostAPI.incrementLikes( postId: post!.id!, onSuccess: { (post) in
              self.updateLike(post: post)
             

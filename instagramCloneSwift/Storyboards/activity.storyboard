@@ -124,11 +124,11 @@
             </objects>
             <point key="canvasLocation" x="2303" y="192"/>
         </scene>
-        <!--Activity-->
+        <!--Navigation Controller-->
         <scene sceneID="nLI-fH-UGM">
             <objects>
                 <navigationController storyboardIdentifier="activity" automaticallyAdjustsScrollViewInsets="NO" id="HWy-RJ-Dpf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Activity" id="AsI-a5-3RQ"/>
+                    <tabBarItem key="tabBarItem" title="" image="Activity.png" id="AsI-a5-3RQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a09-jp-Dxj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -144,4 +144,7 @@
             <point key="canvasLocation" x="1681" y="-265"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Activity.png" width="22" height="20"/>
+    </resources>
 </document>
