@@ -25,7 +25,8 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
     
         Api.UserAPI.observeUsers { (user) in
             self.isFollowing(userId: user.id!, completed: { (boolValue) in
-                    
+                print("user.username in people \(user.username)")
+
                     user.isFollowed = boolValue
                     
                     self.users.append(user)
@@ -39,7 +40,7 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
     }
     
     func isFollowing(userId: String, completed:@escaping(Bool) -> Void){
-        Api.FollowAPI.isFollowing(userId: userId, completed: completed)
+        Api.FollowAPI.followedCheck(userId: userId, completed: completed)
     }
 
     
@@ -65,9 +66,18 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
     }
     
 
-     //to transer sender from "performsegue" method in PeopleTableViewCell
+ 
+}
+
+extension PeopleViewController: PeopleTableViewCellFromProfileDelegate {
+    
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier:"ProfileUserSegue" , sender: userId)
+    }
+    
+    //to transer sender from "performsegue" method in PeopleTableViewCell
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+        
         if segue.identifier == "ProfileUserSegue" {
             
             let profileUserVC = segue.destination as! ProfileUserViewController
@@ -78,21 +88,11 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
             
             profileUserVC.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC = self
         }
-        
-        
-        
-    }
-    
-    
-    
-
-}
-
-extension PeopleViewController: PeopleTableViewCellFromProfileDelegate {
-    func goToProfileUserVC(userId: String) {
-        performSegue(withIdentifier:"ProfileUserSegue" , sender: userId)
     }
 }
+
+
+
 
 extension PeopleViewController: HeaderProfileCollectionReusableViewSecondDelegate {
     
@@ -105,10 +105,6 @@ extension PeopleViewController: HeaderProfileCollectionReusableViewSecondDelegat
         }
     
     }
-    
-
-    
-    
 }
 
 

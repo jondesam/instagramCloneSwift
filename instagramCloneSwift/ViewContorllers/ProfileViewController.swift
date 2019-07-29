@@ -9,24 +9,11 @@
     import UIKit
     import SVProgressHUD
     
-    protocol ProfileViewControllerDelegate {
-        func passingIndexPath(indexPath: IndexPath)
-    }
-    
-    
     class ProfileViewController: UIViewController, UINavigationControllerDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
         
-        @IBOutlet weak var testBtn: UIBarButtonItem!
-        
-        var delegateOfProfileViewController: ProfileViewControllerDelegate?
-        
-        var header:HeaderProfileCollectionReusableView!
-        
+    
         @IBOutlet weak var collectionView: UICollectionView!
         
-        @IBAction func logOut(_ sender: UIBarButtonItem) {
-            logout()
-        }
         
         let storageRef = StorageReference.storageRef
         
@@ -42,39 +29,7 @@
             fetchUser()
             fectchMyPosts()
             
-            
-//            let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(gestureReconizer:))
-//            photoCollectionViewCell.addGestureRecognizer(tapGesture)
-//            photoCollectionViewCell.isUserInteractionEnabled = true
-//            
-            
-            
-            //to get an index of collectionView
-//            let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-//
-//
-//            tap.cancelsTouchesInView = false
-//
-//            collectionView.addGestureRecognizer(tap)
-            
-            
         }
-        
-        
-        //        override func viewWillAppear(_ animated: Bool) {
-        //            super.viewWillAppear(true)
-        //
-        //            profileImageRef.downloadURL(completion: { (url, error) in
-        //                if error != nil {
-        //                    print("Download URL fail")
-        //                    return
-        //                }else {
-        //                    self.header?.profileImage.sd_setImage(with: url)
-        //                    print("viewWillAppear")
-        //                }
-        //            })
-        //
-        //        }
         
         
         //MARK: fetching User info
@@ -117,11 +72,11 @@
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell" , for: indexPath) as! PhotoCollectionViewCell
             
-            let post = posts[indexPath.row]
+            let post = posts.reversed()[indexPath.row]
             cell.post = post
             cell.delegateOfPhotoCollectionViewCell = self
             
-            delegateOfProfileViewController?.passingIndexPath(indexPath: indexPath)
+            //delegateOfProfileViewController?.passingIndexPath(indexPath: indexPath)
             
               print("indexPath of cellForItemAt : \(indexPath)")
             
@@ -139,22 +94,22 @@
 
         
         
-        @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
-            if gestureReconizer.state != UIGestureRecognizer.State.ended {
-                return
-            }
-            
-            let p = gestureReconizer.location(in: self.collectionView)
-            let indexPath = self.collectionView.indexPathForItem(at: p)
-            
-            if let index = indexPath {
-                var cell = self.collectionView.cellForItem(at: index)
-                // do stuff with your cell, for example print the indexPath
-               // println(index.row)
-            } else {
-           //     println("Could not find index path")
-            }
-        }
+//        @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+//            if gestureReconizer.state != UIGestureRecognizer.State.ended {
+//                return
+//            }
+//
+//            let p = gestureReconizer.location(in: self.collectionView)
+//            let indexPath = self.collectionView.indexPathForItem(at: p)
+//
+//            if let index = indexPath {
+//                var cell = self.collectionView.cellForItem(at: index)
+//                // do stuff with your cell, for example print the indexPath
+//               // println(index.row)
+//            } else {
+//           //     println("Could not find index path")
+//            }
+//        }
         
         
         func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -196,38 +151,24 @@
         
       
         
-        
-        func logout(){
-            AuthService.logOut(onSuccess: {
-                let storyboard =  UIStoryboard(name: "Main", bundle: nil)
-                
-                let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
-                
-                self.present(logInVC, animated: true, completion: nil)
-                
-            }) { (logOutError) in
-                SVProgressHUD.showError(withStatus: logOutError)
-            }
-        }
-        
-        
-        
-        
-        
-        
+//
+//        func logout(){
+//            AuthService.logOut(onSuccess: {
+//                let storyboard =  UIStoryboard(name: "Main", bundle: nil)
+//
+//                let logInVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
+//
+//                self.present(logInVC, animated: true, completion: nil)
+//
+//            }) { (logOutError) in
+//                SVProgressHUD.showError(withStatus: logOutError)
+//            }
+//        }
+//
         
     }
     
-    extension ProfileViewController: HeaderProfileCollectionReusableViewThirdDelegate {
-        
-        func goToSettingVC() {
-            
-            performSegue(withIdentifier: "Profile_SettingSegue", sender: nil
-
-            )
-        }
-        
-    }
+  
     
     
     
@@ -256,10 +197,7 @@
             //  var profileImageRef = storageRef.child("profile_photo").child(currentUser.email!)
             
             
-            if let image = info[.originalImage] as? UIImage {
-                // selectedImage = image
-                header?.profileImage.image = image//dosen't work
-            }
+
             
             let selectedImageUrl = info[.imageURL]
             
@@ -356,11 +294,32 @@
         }
     }
     
+    
+    extension ProfileViewController: HeaderProfileCollectionReusableViewThirdDelegate {
+        func goToFollowingVC() {
+            
+            performSegue(withIdentifier: "Profile_Following", sender: user.id)
+        }
+        
+        func goToFollowerVC() {
+            performSegue(withIdentifier: "Profile_Follower", sender: user.id)
+        }
+        
+        
+        func goToSettingVC() {
+            
+            performSegue(withIdentifier: "Profile_SettingSegue", sender: nil
+                
+            )
+        }
+        
+    }
+    
     extension ProfileViewController: PhotoCollectionViewCellDelegate {
         
         func goToProfileTableVCFromProfileVC(userId: String) {
-            
-            performSegue(withIdentifier: "Profile_ProfileTable", sender: userId)
+            print("user.id from profileVC \(user.id)")
+            performSegue(withIdentifier: "Profile_ProfileTable", sender: user.id)
           
         }
         
@@ -384,6 +343,25 @@
                 
                 profileTableVC!.userId = userId!
             }
+            
+            if segue.identifier == "Profile_Following" {
+                
+                let followingVC = segue.destination as? FollowingViewController
+                
+                let userId = sender as? String
+                print("userId PVC : \(userId)")
+                followingVC!.userId = userId!
+            }
+            
+            if segue.identifier == "Profile_Follower" {
+                
+                let followVC = segue.destination as? FollowerViewController
+                
+                let userId = sender as? String
+                print("userId PUVC : \(userId)")
+                followVC!.userId = userId!
+            }
+
             
         }
         

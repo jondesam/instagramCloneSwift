@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController,ProfileUserViewControllerIndexDelegate {
+class ProfileTableViewController: UITableViewController {
     
     var postz = [Post]()
     var userz = [UserModel]()

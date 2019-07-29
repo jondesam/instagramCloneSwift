@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
-            timestampString = "585356355.9559571"
+            timestampString = "586129099.288764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
-            timestampString = "585356355.956035"
+            timestampString = "586129099.288895"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
-            timestampString = "584921518.447147"
+            timestampString = "586129099.289119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
-            timestampString = "584921518.447216"
+            timestampString = "586129099.289277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.342696"
+            timestampString = "585866451.068969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.343159"
+            timestampString = "585866451.069057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.343483"
+            timestampString = "585866451.069137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
-            timestampString = "584921518.4473259"
+            timestampString = "586129099.2894911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "PeopleViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.343823"
+            timestampString = "585866451.069681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.344135"
+            timestampString = "585866451.0697629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -282,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.3444411"
+            timestampString = "585866451.0698431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -298,7 +298,7 @@
                   moduleName = "instagramCloneSwift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.556111"
+                  timestampString = "586045380.120793"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -313,7 +313,7 @@
                   moduleName = "instagramCloneSwift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.558647"
+                  timestampString = "586045380.123453"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -328,7 +328,7 @@
                   moduleName = "instagramCloneSwift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.5611089"
+                  timestampString = "586045380.1261081"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -343,7 +343,7 @@
                   moduleName = "instagramCloneSwift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.563669"
+                  timestampString = "586045380.128664"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -360,7 +360,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.344751"
+            timestampString = "585866451.069924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -468,7 +468,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.345058"
+            timestampString = "585866451.0700051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
@@ -484,7 +484,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.345353"
+            timestampString = "585866451.070086"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
@@ -500,7 +500,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
-            timestampString = "584921518.447482"
+            timestampString = "586129099.289781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -548,7 +548,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.345669"
+            timestampString = "585866451.0706249"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
@@ -564,7 +564,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.345962"
+            timestampString = "585866451.0707099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
@@ -580,7 +580,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.346247"
+            timestampString = "585866451.0707901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -596,7 +596,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.346532"
+            timestampString = "585866451.07087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -612,7 +612,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
-            timestampString = "585356355.956539"
+            timestampString = "586129099.2900161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
@@ -628,7 +628,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HomeUITableViewCell.swift"
-            timestampString = "585598667.438895"
+            timestampString = "585604661.625805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "245"
@@ -644,7 +644,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HomeUITableViewCell.swift"
-            timestampString = "585598667.4395109"
+            timestampString = "585604661.625867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -660,7 +660,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HomeUITableViewCell.swift"
-            timestampString = "585598667.43986"
+            timestampString = "585604661.625926"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -768,7 +768,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
-            timestampString = "585356355.95666"
+            timestampString = "586129099.2901779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
@@ -784,7 +784,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/HomeViewController.swift"
-            timestampString = "585356355.95672"
+            timestampString = "586129099.2902679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -800,7 +800,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HomeUITableViewCell.swift"
-            timestampString = "585598667.440245"
+            timestampString = "585604661.626031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "252"
@@ -816,74 +816,14 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.347276"
+            timestampString = "585866451.071197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "delegateOfPeopleTableViewCell"
             landmarkType = "24">
             <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "instagramCloneSwift.PeopleTableViewCell.delegateOfPeopleTableViewCell.getter : Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCellDelegate&gt;"
-                  moduleName = "instagramCloneSwift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.573674"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "95">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "instagramCloneSwift.PeopleTableViewCell.delegateOfPeopleTableViewCell.setter : Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCellDelegate&gt;"
-                  moduleName = "instagramCloneSwift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.576326"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "132">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "instagramCloneSwift.PeopleTableViewCell.delegateOfPeopleTableViewCell.modify : Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCellDelegate&gt;"
-                  moduleName = "instagramCloneSwift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.578899"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "18">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "instagramCloneSwift.PeopleTableViewCell.delegateOfPeopleTableViewCell.modify : Swift.Optional&lt;instagramCloneSwift.PeopleTableViewCellDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "instagramCloneSwift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.581425"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "4">
-               </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
@@ -892,12 +832,12 @@
                   moduleName = "instagramCloneSwift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.584003"
+                  timestampString = "586045380.140293"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "574">
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "672">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -907,12 +847,12 @@
                   moduleName = "instagramCloneSwift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonhyun/Desktop/App%20Development/instagramCloneSwift/instagramCloneSwift/Views/PeopleTableViewCell.swift"
-                  timestampString = "585266974.5864739"
+                  timestampString = "586045380.142857"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "485">
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "580">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -924,7 +864,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.347615"
+            timestampString = "585866451.071283"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
@@ -940,11 +880,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
-            timestampString = "584921518.449193"
+            timestampString = "586129099.290413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -956,7 +896,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.347999"
+            timestampString = "585866451.071831"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
@@ -972,7 +912,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/PeopleTableViewCell.swift"
-            timestampString = "584744152.348307"
+            timestampString = "585866451.071933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -984,15 +924,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
-            timestampString = "585014191.796888"
+            timestampString = "586129099.290615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "followAction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1004,60 +944,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
-            timestampString = "585014191.7969559"
+            timestampString = "586129099.290732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "unFollowAction()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
-            timestampString = "584921518.449322"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "updateFollowButton(forUser:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
-            timestampString = "584921518.4493769"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "instagramCloneSwift/ViewContorllers/PeopleViewController.swift"
-            timestampString = "584921518.449429"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1068,7 +960,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
-            timestampString = "585014191.797076"
+            timestampString = "586129099.290845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -1084,11 +976,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
-            timestampString = "585014191.79714"
+            timestampString = "586129099.290978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "HeaderProfileCollectionReusableView"
             landmarkType = "3">
             <Locations>
@@ -1192,11 +1084,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
-            timestampString = "585014191.7972029"
+            timestampString = "586129099.291116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "HeaderProfileCollectionReusableView"
             landmarkType = "3">
             <Locations>
@@ -1300,11 +1192,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/HeaderProfileCollectionReusableView.swift"
-            timestampString = "585014191.797286"
+            timestampString = "586129099.291226"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "HeaderProfileCollectionReusableView"
             landmarkType = "3">
             <Locations>
@@ -1408,11 +1300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/ViewContorllers/ProfileUserViewController.swift"
-            timestampString = "585356089.476703"
+            timestampString = "586129099.2913311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "ProfileUserViewController"
             landmarkType = "3">
             <Locations>
@@ -1580,11 +1472,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/ActivityTableViewCell.swift"
-            timestampString = "585595452.738583"
+            timestampString = "586129099.292081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "userInCell"
             landmarkType = "24">
          </BreakpointContent>
@@ -1596,11 +1488,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "instagramCloneSwift/Views/ActivityTableViewCell.swift"
-            timestampString = "585595452.739254"
+            timestampString = "586129099.2922111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "notification"
             landmarkType = "24">
          </BreakpointContent>
@@ -1666,6 +1558,70 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "loadingNotification()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/UserApi.swift"
+            timestampString = "586129099.292418"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "observeUser(withUserId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/UserApi.swift"
+            timestampString = "586129099.293036"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "observeUser(withUserId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/ActivityTableViewCell.swift"
+            timestampString = "586129099.293594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "updateView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "instagramCloneSwift/Views/ActivityTableViewCell.swift"
+            timestampString = "586129099.2937"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "cell_touchUpInside()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

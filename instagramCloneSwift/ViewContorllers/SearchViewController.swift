@@ -55,7 +55,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     }
     
     func isFollowing(userId: String, completed:@escaping(Bool) -> Void){
-        Api.FollowAPI.isFollowing(userId: userId, completed: completed)
+        Api.FollowAPI.followedCheck(userId: userId, completed: completed)
     }
 
     

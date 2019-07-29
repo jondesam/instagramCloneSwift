@@ -66,20 +66,45 @@ class UserApi {
         }
     }
     
-    //Fetching users on peopleView
+//    func showFollowing(userId: String, completed: @escaping (Bool) -> Void) {
+//
+//
+//    }
+    
+    
+    //Fetching users on peopleView for Current User
     func observeUsers(completion:@escaping(UserModel) -> Void){
         REF_USERS.observe(.childAdded) { (snapshot) in
             if  let dictFromSnapshotValue = snapshot.value as? [String:Any]{
                 
                 let user = UserModel.transformUser(dictFromSnapshot: dictFromSnapshotValue, key: snapshot.key)
                 
-                if user.id! != Api.UserAPI.CURRENT_USER?.uid {//removing current user on peopleView
+                //removing current user on peopleView
+                if user.id != Api.UserAPI.CURRENT_USER?.uid {
+                    
                      completion(user)
                 }
                
             }
         }
     }
+    
+    
+    func observeUsersForNonCurrentUsers(completion:@escaping(UserModel) -> Void){
+        REF_USERS.observe(.childAdded) { (snapshot) in
+            if  let dictFromSnapshotValue = snapshot.value as? [String:Any]{
+                
+                let user = UserModel.transformUser(dictFromSnapshot: dictFromSnapshotValue, key: snapshot.key)
+                
+              completion(user)
+                
+            }
+        }
+    }
+    
+//    func observeUsersForNonCurrentUSer(completion:@escaping(UserModel) -> Void)  {
+//        REF_USERS
+//    }
     
     func querryUsers(withText text: String, completion:@escaping(UserModel) -> Void ){
         REF_USERS.queryOrdered(byChild: "username_lowercase").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 10).observeSingleEvent(of: .value, with: { snapshot in

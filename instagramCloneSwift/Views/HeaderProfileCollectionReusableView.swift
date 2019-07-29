@@ -22,7 +22,13 @@
     }
     
     protocol HeaderProfileCollectionReusableViewThirdDelegate {
+        
         func goToSettingVC()
+        
+        func goToFollowerVC()
+        
+        func goToFollowingVC()
+        
     }
     
 
@@ -33,10 +39,15 @@
         @IBOutlet weak var profileImage: UIImageView!
         @IBOutlet weak var nameLable: UILabel!
         @IBOutlet weak var myPostCountLabel: UILabel!
+        
+        @IBOutlet weak var followingStack: UIStackView!
+        @IBOutlet weak var followerStack: UIStackView!
+        @IBOutlet weak var followersCountLabel: UILabel!
         @IBOutlet weak var followingCountLabel: UILabel!
-        @IBOutlet weak var followerCountLabel: UILabel!
         @IBOutlet weak var bio: UILabel!
         
+        @IBOutlet weak var following: UILabel!
+        @IBOutlet weak var followers: UILabel!
         
         @IBOutlet weak var followOrEditButton: UIButton!
         
@@ -76,6 +87,22 @@
             profileImage.isUserInteractionEnabled = true
             
             
+            let tabFollowings = UITapGestureRecognizer(target: self, action: #selector(self.moveToFollowingVC))
+           //let tabFollowingLabel = UITapGestureRecognizer(target: self, action: #selector(self.moveToFollowingVC))
+            
+            followingStack.addGestureRecognizer(tabFollowings)
+           followingStack.isUserInteractionEnabled = true
+          //  following.addGestureRecognizer(tabFollowingLabel)
+        //    following.isUserInteractionEnabled = true
+           
+            
+            let tabFollower = UITapGestureRecognizer(target: self, action: #selector(self.moveToFollowerVC))
+          //  let tabFollowerLabel = UITapGestureRecognizer(target: self, action: #selector(self.moveToFollowerVC))
+            followerStack.addGestureRecognizer(tabFollower)
+            followerStack.isUserInteractionEnabled = true
+//            followers.addGestureRecognizer(tabFollowerLabel)
+//            followers.isUserInteractionEnabled = true
+           
         }
     
         
@@ -100,7 +127,7 @@
                 }
                 
                 Api.FollowAPI.fetchCountFollowers(userId: (userInCell?.id!)!) { (followersNumber) in
-                    self.followerCountLabel.text = "\(followersNumber)"
+                    self.followersCountLabel.text = "\(followersNumber)"
                 }
                 
                 
@@ -132,7 +159,7 @@
             self.nameLable.text = ""
             self.myPostCountLabel.text = ""
             self.followingCountLabel.text = ""
-            self.followerCountLabel.text = ""
+            self.followersCountLabel.text = ""
             
         }
         
@@ -148,8 +175,13 @@
             thirdDegateOfHeaderProfileCollectionReusableView?.goToSettingVC()
         }
         
+        @objc func moveToFollowerVC() {
+            thirdDegateOfHeaderProfileCollectionReusableView?.goToFollowerVC()
+        }
         
-        
+        @objc func moveToFollowingVC() {
+            thirdDegateOfHeaderProfileCollectionReusableView?.goToFollowingVC()
+        }
         
         func updateStateFollowButton() {
             if userInCell?.isFollowed! == true {

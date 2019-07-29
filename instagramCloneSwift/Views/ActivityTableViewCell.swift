@@ -15,6 +15,8 @@ protocol ActivityTableViewCellDelegate {
 
 class ActivityTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var labelToClick: UILabel!
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -96,18 +98,19 @@ class ActivityTableViewCell: UITableViewCell {
             
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cell_touchUpInside))
-        
-        addGestureRecognizer(tapGesture)
-        isUserInteractionEnabled = true
+   
         
     }
     
     @objc func cell_touchUpInside() {
+        print("clicked")
         if let id = notification?.from {
             delegateOfActivityTableViewCell?.goToProfileVC(userId: id)
         }
     }
+
+    
+    
     
     func  setupUserInfo(){
         self.nameLabel.text = userInCell?.username
@@ -122,7 +125,11 @@ class ActivityTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cell_touchUpInside))
+        
+        labelToClick.addGestureRecognizer(tapGesture)
+        labelToClick.isUserInteractionEnabled = true
     }
     
     

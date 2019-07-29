@@ -46,11 +46,11 @@ class HomeViewController: UIViewController,UITableViewDataSource
         
         Api.FeedAPI.observeFeed(withUserId: Api.UserAPI.CURRENT_USER!.uid) { (post) in
             
-            guard let postId = post.uid else {
+            guard let postUid = post.uid else {
                 return
             }// post.uid = userID
             
-            self.fetchUser(uid: postId, completed: {
+            self.fetchUser(uid: postUid, completed: {
                                 self.postz.append(post)
                                 self.activityIndicatorView.stopAnimating()
                                 self.tableView.reloadData()

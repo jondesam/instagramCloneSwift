@@ -8,17 +8,16 @@
  
  import UIKit
  
- protocol ProfileUserViewControllerIndexDelegate {
-    func passIndexPath(indexPath:IndexPath)
- }
+// protocol ProfileUserViewControllerIndexDelegate {
+//    func passIndexPath(indexPath:IndexPath)
+// }
  
  class ProfileUserViewController: UIViewController, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var delegate: ProfileUserViewControllerIndexDelegate?
+   // var delegate: ProfileUserViewControllerIndexDelegate?
     
-    @IBOutlet weak var userName: UILabel!
+    //@IBOutlet weak var userName: UILabel!
     
-   
     @IBOutlet weak var collectionView: UICollectionView!
     
     var secondDelegateOfHeaderProfileCollectionReusableViewInPUVC: HeaderProfileCollectionReusableViewSecondDelegate?
@@ -79,7 +78,7 @@
     }
     
     func isFollowing(userId: String, completed:@escaping(Bool) -> Void){
-        Api.FollowAPI.isFollowing(userId: userId, completed: completed)
+        Api.FollowAPI.followedCheck(userId: userId, completed: completed)
     }
     
     
@@ -108,7 +107,7 @@
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell" , for: indexPath) as! PhotoCollectionViewCell
         
-        let post = posts[indexPath.row]
+        let post = posts.reversed()[indexPath.row]
         
         cell.post = post
         cell.delegateOfPhotoCollectionViewCell = self
@@ -127,8 +126,6 @@
             headerViewCell.userInCell = user
             
             headerViewCell.secondDegateOfHeaderProfileCollectionReusableViewInHPCRV = self.secondDelegateOfHeaderProfileCollectionReusableViewInPUVC
-            
-            
             headerViewCell.thirdDegateOfHeaderProfileCollectionReusableView = self
             
         }
@@ -169,6 +166,14 @@
  }
  
  extension ProfileUserViewController: HeaderProfileCollectionReusableViewThirdDelegate {
+    func goToFollowingVC() {
+         performSegue(withIdentifier: "ProfileUser_Following", sender: user.id)
+    }
+    
+    func goToFollowerVC() {
+         performSegue(withIdentifier: "ProfileUser_Follower", sender: user.id)
+    }
+    
     
     func goToSettingVC() {
         performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil )
@@ -205,6 +210,25 @@
             
             profileTableVC!.userId = userId!
         }
+        
+        if segue.identifier == "ProfileUser_Following" {
+            
+            let followingVC = segue.destination as? FollowingViewController
+            
+            let userId = sender as? String
+            print("userId PUVC : \(userId)")
+            followingVC!.userId = userId!
+        }
+        
+        if segue.identifier == "ProfileUser_Follower" {
+            
+            let followVC = segue.destination as? FollowerViewController
+            
+            let userId = sender as? String
+            print("userId PUVC : \(userId)")
+            followVC!.userId = userId!
+        }
+        
     }
     
  }
