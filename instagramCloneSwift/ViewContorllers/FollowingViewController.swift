@@ -20,7 +20,7 @@ class FollowingViewController: UIViewController,UITableViewDataSource {
         //works for currentUser
         Api.UserAPI.observeUsersForNonCurrentUsers { (user) in
             print("user from Following \(user)")
-            print("userId from Following \(self.userId)")
+         //   print("userId from Following \(self.userId)")
             
             self.isFollowing(userId: self.userId!, completed: { (boolvalue) in
                 user.isFollowed = boolvalue

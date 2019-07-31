@@ -318,7 +318,7 @@
     extension ProfileViewController: PhotoCollectionViewCellDelegate {
         
         func goToProfileTableVCFromProfileVC(userId: String) {
-            print("user.id from profileVC \(user.id)")
+         //   print("user.id from profileVC \(user.id)")
             performSegue(withIdentifier: "Profile_ProfileTable", sender: user.id)
           
         }
@@ -349,7 +349,7 @@
                 let followingVC = segue.destination as? FollowingViewController
                 
                 let userId = sender as? String
-                print("userId PVC : \(userId)")
+             //   print("userId PVC : \(userId)")
                 followingVC!.userId = userId!
             }
             
@@ -358,7 +358,7 @@
                 let followVC = segue.destination as? FollowerViewController
                 
                 let userId = sender as? String
-                print("userId PUVC : \(userId)")
+               // print("userId PUVC : \(userId)")
                 followVC!.userId = userId!
             }
 

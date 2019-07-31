@@ -129,7 +129,7 @@
             Api.UserAPI.REF_CURRENT_USER?.updateChildValues(dict, withCompletionBlock: { (error, databaseReference) in
                 
                 if error != nil {
-                    print(error?.localizedDescription)
+                 //   print(error?.localizedDescription)
                     print("data upload fail")
                     SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 } else {

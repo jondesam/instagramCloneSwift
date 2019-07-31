@@ -69,7 +69,7 @@ class PhotoCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate {
     @objc func photo_TouchUpInside() {
         
         if let id = post!.uid {
-            print("post!.uid: \(post!.uid)")
+          //  print("post!.uid: \(post!.uid)")
             delegateOfPhotoCollectionViewCell?.goToProfileTableVCFromProfileVC(userId: id)
             
         }

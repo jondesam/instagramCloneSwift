@@ -25,7 +25,7 @@ class PeopleViewController: UIViewController,UITableViewDataSource {
     
         Api.UserAPI.observeUsers { (user) in
             self.isFollowing(userId: user.id!, completed: { (boolValue) in
-                print("user.username in people \(user.username)")
+             //   print("user.username in people \(user.username)")
 
                     user.isFollowed = boolValue
                     
