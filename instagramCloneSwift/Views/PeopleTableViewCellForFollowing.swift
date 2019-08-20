@@ -11,7 +11,6 @@ class PeopleTableViewCellForFollowing: UITableViewCell {
         didSet{
             setUpUserInfo()
         }
-        
     }
     
     var delegate : PeopleTableViewCellForFollowingDelegate?
@@ -22,12 +21,10 @@ class PeopleTableViewCellForFollowing: UITableViewCell {
     
     func setUpUserInfo() {
         
-        // profileImage.layer.borderWidth = 1
         profileImage.layer.masksToBounds = false
         profileImage.layer.borderColor = UIColor.white.cgColor
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
-        
         
         if let user = userInCell{
             self.nameLabel.text = user.username
@@ -56,8 +53,6 @@ class PeopleTableViewCellForFollowing: UITableViewCell {
         followButton.layer.cornerRadius = 5
         followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
         followButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        
-        
         followButton.setTitle("follow", for: UIControl.State.normal)
         followButton.addTarget(self, action: #selector(self.followAction), for: UIControl.Event.touchUpInside)
         
@@ -71,10 +66,7 @@ class PeopleTableViewCellForFollowing: UITableViewCell {
         followButton.clipsToBounds = true
         followButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
         followButton.backgroundColor = UIColor.clear
-        
-        
         followButton.setTitle("following", for: UIControl.State.normal)
-        
         followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControl.Event.touchUpInside)
     }
     
@@ -130,9 +122,7 @@ class PeopleTableViewCellForFollowing: UITableViewCell {
     
     @objc func nameLabel_TouchUpInside() {
         if let id = userInCell!.id {
-            print("userId from PeopleTAbleViewCell: \(id)")
-            //            delegateOfPeopleTableViewFromProfileCell?.goToProfileUserVC(userId: id)
-         
+            
             delegate?.goToProfileUserVCfromFollowing(userId: id)
         }
     }

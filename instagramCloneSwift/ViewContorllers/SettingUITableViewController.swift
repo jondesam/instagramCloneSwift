@@ -1,11 +1,3 @@
-//
-//  SettingUITableViewController.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-06-24.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 import SVProgressHUD
 
@@ -14,23 +6,21 @@ protocol SettingUITableViewControllerDelegate {
 }
 
 class SettingUITableViewController: UITableViewController {
-
     
     var delegateOfSettingUITableViewController: SettingUITableViewControllerDelegate?
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
-    
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var bio: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       navigationItem.title = "Edit Profile"
+        
+        navigationItem.title = "Edit Profile"
         fectchCurrentUser()
     }
-
+    
     func fectchCurrentUser(){
         Api.UserAPI.observeCurrentUser { (user) in
             
@@ -40,34 +30,26 @@ class SettingUITableViewController: UITableViewController {
             self.usernameTextField.text = user.username
             self.emailLabel.text = user.email
             self.bio.text = user.bio
-            
         }
     }
-   
+    
     @IBAction func saveButton(_ sender: Any) {
-        print("saveBTN")
-        //profileImage check
         
+        //profileImage check
         if let profileImage = self.profileImageView.image, let imageData = profileImage.jpegData(compressionQuality: 0.1){
             
             SVProgressHUD.show(withStatus: "Waiting...")
             
-        
             AuthService.updateUserInfo(username: usernameTextField.text!, imageData: imageData, bio: bio.text!, onSuccess: {
                 
                 SVProgressHUD.showSuccess(withStatus: "Success")
                 self.delegateOfSettingUITableViewController?.updateUserInfoRealTime()
                 
             }) { (errorMessage) in
-            
+                
                 SVProgressHUD.showError(withStatus: errorMessage)
-            
             }
-            
-            
-            
         }
-      
     }
     
     @IBAction func logOutButton(_ sender: Any) {
@@ -82,20 +64,18 @@ class SettingUITableViewController: UITableViewController {
         }) { (logOutError) in
             SVProgressHUD.showError(withStatus: logOutError)
         }
-    
     }
     
     @IBAction func changeProfileButton(_ sender: Any) {
-    
-       let pickerController = UIImagePickerController()
+        
+        let pickerController = UIImagePickerController()
         pickerController.delegate = self
-    present(pickerController, animated: true, completion: nil)
-    
+        present(pickerController, animated: true, completion: nil)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-        print("touchesBegan")
     }
     
 }
@@ -109,6 +89,6 @@ extension SettingUITableViewController: UIImagePickerControllerDelegate,UINaviga
             profileImageView.image = image
         }
         
-          dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-04-29.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 import Firebase
 

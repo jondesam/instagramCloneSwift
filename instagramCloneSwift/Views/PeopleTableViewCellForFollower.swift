@@ -1,11 +1,3 @@
-//
-//  PeopleTableViewCellForFollow.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-07-23.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 
 protocol PeopleTableViewCellForFollowerDelegate {
@@ -24,19 +16,14 @@ class PeopleTableViewCellForFollower: UITableViewCell {
         didSet{
             setUpUserInfo()
         }
-        
     }
     
     func setUpUserInfo() {
-        
-        
-        
-        // profileImage.layer.borderWidth = 1
+
         profileImage.layer.masksToBounds = false
         profileImage.layer.borderColor = UIColor.white.cgColor
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
-        
         
         if let user = userInCell{
             self.nameLabel.text = user.username
@@ -57,7 +44,6 @@ class PeopleTableViewCellForFollower: UITableViewCell {
             configureFollowButton()
         }
         
-       
         if userInCell!.id == Api.UserAPI.CURRENT_USER?.uid {
             cofigureNoButton()
         }
@@ -68,15 +54,12 @@ class PeopleTableViewCellForFollower: UITableViewCell {
         followButton.isHidden = true
     }
     
-    
     func configureFollowButton(){
         followButton.layer.borderWidth = 1
         followButton.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232/255, alpha:1).cgColor
         followButton.layer.cornerRadius = 5
         followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
         followButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        
-        
         followButton.setTitle("follow", for: UIControl.State.normal)
         followButton.addTarget(self, action: #selector(self.followAction), for: UIControl.Event.touchUpInside)
         
@@ -90,10 +73,7 @@ class PeopleTableViewCellForFollower: UITableViewCell {
         followButton.clipsToBounds = true
         followButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
         followButton.backgroundColor = UIColor.clear
-        
-        
         followButton.setTitle("following", for: UIControl.State.normal)
-        
         followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControl.Event.touchUpInside)
     }
     
@@ -145,12 +125,10 @@ class PeopleTableViewCellForFollower: UITableViewCell {
         nameLabel.addGestureRecognizer(tapGesture)
         nameLabel.isUserInteractionEnabled = true
         
-        
     }
     
     @objc func nameLabel_TouchUpInside() {
         if let id = userInCell!.id {
-            print("userId from PeopleTAbleViewCell: \(id)")
 
             delegate?.goToProfileUserVCfromFollower(userId: id)
         }

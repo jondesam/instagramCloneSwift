@@ -1,11 +1,3 @@
-//
-//  User.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-05-10.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import Foundation
 
 class UserModel {
@@ -33,7 +25,5 @@ class UserModel {
     static func transFromPostVideo() {
         
     }
-    
-    
 }
 

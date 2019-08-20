@@ -1,11 +1,3 @@
-//
-//  File.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-05-07.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import Foundation
 import FirebaseAuth
 
@@ -17,7 +9,6 @@ class Post {
     var user:String?
     var uid: String?
     var id: String?
-    
     var likeCount:Int?
     var likes: Dictionary<String, Any>?
     var isLiked: Bool?
@@ -34,8 +25,6 @@ class Post {
         post.uid = dictFromSnapshot["uid"] as? String
         post.timeStamp = dictFromSnapshot["timestamp"] as? Int 
         post.id = key
-       // print("key")
-        //print(key)
         post.likeCount = dictFromSnapshot["likeCount"] as? Int
         
         //reason for Dict<String,Any>
@@ -45,37 +34,22 @@ class Post {
         
         //Set up isLiked depends on "likes" or not
         if let currentUserId = Auth.auth().currentUser?.uid{
-           // print("currentUserId")
-            //print(currentUserId)
-            
-            //Alternative//
-            //             if post.likes != nil {
-            //            post.isLiked = post.likes![currentUserId] != nil
-            //                }
-            
+        
             if post.likes != nil {
                 
                 if post.likes![currentUserId] != nil {
-                    
-               //     print("this is post.likes")
-                //    print(post.likes)
-                    
+     
                     post.isLiked = true
                 } else {
                     post.isLiked = false
                 }
             }
         }
-      //  print("This is post form post Model")
-      //  dump(post)
+
         return post
     }
-    
-    
     
     static func transFromPostVideo() {
         
     }
-    
-    
 }

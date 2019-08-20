@@ -1,25 +1,16 @@
-//
-//  commentTableViewCell.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-05-12.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 import FirebaseDatabase
 import KILabel
 
 protocol commentTableViewCellDelegate {
     
-      func goToProfileUserVC(userId: String)
+    func goToProfileUserVC(userId: String)
     
-      func goToHashTag(tag: String)
+    func goToHashTag(tag: String)
 }
 
 class commentTableViewCell: UITableViewCell {
-
-
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -40,49 +31,35 @@ class commentTableViewCell: UITableViewCell {
         }
     }
     
-    
-    
     func updateCommentView(){
         commentLabel.text = comment!.commentText
         
-  
-        
-        
         commentLabel.userHandleLinkTapHandler = { label, string, Range in
-            // print(string)
+            
             let mention = string.dropFirst()
-            print(mention)
+            
             Api.UserAPI.observeUserByUsername(username: String(mention.lowercased()), completion: { (user) in
                 self.delegateOfcommentTableViewCell?.goToProfileUserVC(userId: user.id!)
             })
-            
         }
-        
         
         commentLabel.hashtagLinkTapHandler = { label, string, Range in
-            // print(string)
+            
             let tag = string.dropFirst()
-
+            
             self.delegateOfcommentTableViewCell?.goToHashTag(tag: String(tag))
         }
-        
-    
-        
     }
-    
-    
     
     
     func setUpUserInfo(){
         nameLabel.text = userInCell?.username
         if let photoUrlString = userInCell?.profileImageUrl {
             let photoUrl = URL(string: photoUrlString)
-         
+            
             profileImageView.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "placeholderImg"))
         }
     }
-
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -96,11 +73,10 @@ class commentTableViewCell: UITableViewCell {
     
     @objc func nameLabel_TouchUpInside() {
         if let id = userInCell!.id {
-            print("userId from PeopleTAbleViewCell: \(id)")
-            delegateOfcommentTableViewCell?.goToProfileUserVC(userId: id)
         
+            delegateOfcommentTableViewCell?.goToProfileUserVC(userId: id)
+            
         }
     }
     
-
 }

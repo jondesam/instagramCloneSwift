@@ -1,11 +1,3 @@
-//
-//  HelperSevice.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-05-29.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import Foundation
 import SVProgressHUD
 import FirebaseDatabase
@@ -15,13 +7,13 @@ class HelperService {
     static func uploadDataToServer(imageData: Data, videoUrl:URL? = nil , description:String, onSuccess: @escaping ()->Void, onError: @escaping () -> Void ) {
         
         if let videoUrl = videoUrl {
-        
-            UploadVideoToStorage(videoUrl) { (videoUrl) in
             
+            UploadVideoToStorage(videoUrl) { (videoUrl) in
+                
                 //uploading thumbnail photo
                 uploadImageToStorage(imageData, onSuccess: { (thumbnailImageUrl) in
                 //photoUrl will be thumbnailImageUrl
-                    sendDataToDatabase(photoUrl:thumbnailImageUrl ,videoUrl: videoUrl, description: description, onSuccess: onSuccess, onError: onError)
+                sendDataToDatabase(photoUrl:thumbnailImageUrl ,videoUrl: videoUrl, description: description, onSuccess: onSuccess, onError: onError)
                 })
             }
         } else {
@@ -39,7 +31,6 @@ class HelperService {
         let user = Api.UserAPI.CURRENT_USER
         let videoIdString =  UUID().uuidString
         let storageRef =  StorageReference.storageRef
-        //  storageRef = gs://instagramcloneswift.appspot.com/sharing_photo
         
         let sharingImageRef = storageRef.child("sharing_photo").child(user!.email!).child(videoIdString)
         
@@ -57,19 +48,12 @@ class HelperService {
                     }else {
                         let sharingVideoUrl = url?.absoluteString
                         onSuccess(sharingVideoUrl!)
-                        // self.sendDataToDatabase(photoUrl: SharingPhotoUrl!, description: description, onSuccess: onSuccess, onError: onError)
                     }
                 })
-                
-                // SVProgressHUD.showSuccess(withStatus: "Upload Success")
-                
                 return
-                
             }
         }
     }
-    
-    
     
     //in case of Image
     static  func uploadImageToStorage(_ imageData: Data, onSuccess: @escaping (_ imageUrl: String)-> Void ) {
@@ -77,8 +61,6 @@ class HelperService {
         let user = Api.UserAPI.CURRENT_USER
         let photoIdString =  UUID().uuidString
         let storageRef =  StorageReference.storageRef
-        //gs://instagramcloneswift.appspot.com/sharing_photo
-        
         let sharingImageRef = storageRef.child("sharing_photo").child(user!.email!).child(photoIdString)
         
         sharingImageRef.putData(imageData, metadata: nil) { (metadata, error) in
@@ -96,11 +78,9 @@ class HelperService {
                     }else {
                         let sharingPhotoUrl = url?.absoluteString
                         onSuccess(sharingPhotoUrl!)
-                        // self.sendDataToDatabase(photoUrl: SharingPhotoUrl!, description: description, onSuccess: onSuccess, onError: onError)
+                        
                     }
                 })
-                
-                // SVProgressHUD.showSuccess(withStatus: "Upload Success")
                 
                 return
             }
@@ -110,50 +90,42 @@ class HelperService {
     
     
     static func sendDataToDatabase(photoUrl:String,videoUrl: String? = nil, description: String, onSuccess: @escaping ()-> Void, onError: @escaping () -> Void ){
-
+        
         let newPostId = Api.PostAPI.REF_POSTS.childByAutoId().key
         let newPostReference = Api.PostAPI.REF_POSTS.child(newPostId)
-
+        
         guard let currentUser = Api.UserAPI.CURRENT_USER else {
             return
         }
-
+        
         let words = description.components(separatedBy: CharacterSet.whitespacesAndNewlines)
-
-
+        
         for var word in words {
             if word.hasPrefix("#") {
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
-           
+                
                 let newHashTagRef = Api.HashTagAPI.REF_HASHTAG.child(word.lowercased())
-             
+                
                 newHashTagRef.updateChildValues([newPostId:true])
-               
             }
         }
-
-
         
         let timestamp = Int(Date().timeIntervalSince1970)
-
-        print(timestamp)
         
         var dict = ["photoUrl":photoUrl, "description":description, "user": currentUser.email!, "uid":currentUser.uid, "likeCount": 0, "timestamp":timestamp] as [String : Any]
-
+        
         if let videoUrl = videoUrl {
             dict["videoUrl"] = videoUrl
         }
-
+        
         newPostReference.setValue(dict) { (error, ref) in
             if error != nil {
-                print("data upload fail")
                 onError()
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 return
             }
             
-           Api.FeedAPI.REF_FEED.child(Api.UserAPI.CURRENT_USER!.uid).child(newPostId).setValue(true)//to make feed node
-            
+            Api.FeedAPI.REF_FEED.child(Api.UserAPI.CURRENT_USER!.uid).child(newPostId).setValue(true)//to make feed node
             
             
             //MARK: - Notification upload in Firebase
@@ -162,42 +134,30 @@ class HelperService {
                 
                 let arraySnapshot = dataSnapshot.children.allObjects as! [DataSnapshot]
                 
-               // arraySnapshot.forEach(<#T##body: (DataSnapshot) throws -> Void##(DataSnapshot) throws -> Void#>)
-                
                 arraySnapshot.forEach({ (snapshot) in
-                    print("snapshot.key = Follower userId : \(snapshot.key)")
-                   
                     
-                Api.FeedAPI.REF_FEED.child(snapshot.key).updateChildValues(["\(newPostId)" : true])// to feed followers
-                    
-                    //Api.FeedAPI.REF_FEED.child(snapshot.key).updateChildValues(<#T##values: [AnyHashable : Any]##[AnyHashable : Any]#>)
+                    Api.FeedAPI.REF_FEED.child(snapshot.key).updateChildValues(["\(newPostId)" : true])// to feed followers
                     
                     let newNotificationId = Api.Norification.REF_NOTIFICATION.child(snapshot.key) .childByAutoId().key
-                    print("newNotificationId : \(newNotificationId)")
+                    
                     let newNotificationReference = Api.Norification.REF_NOTIFICATION.child(snapshot.key).child(newNotificationId)
-                   
-                    print("newNotificationReference : \(newNotificationReference)")
-                    print("\n")
+                    
                     newNotificationReference.setValue(["from": Api.UserAPI.CURRENT_USER!.uid,
                                                        "type": "feed",
                                                        "postId": newPostId,
                                                        "timestamp":timestamp])
-                     // newNotificationReference.setValue(<#T##value: Any?##Any?#>)
                 })
-                
-                
             })
             
             let myPostRef = Api.MyPostsAPI.REF_MYPOSTS.child(currentUser.uid).child(newPostId)
-
+            
             myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error?.localizedDescription)
                     return
                 }
             })
-
-            print("data uploaded")
+            
             SVProgressHUD.showSuccess(withStatus: "Success")
             onSuccess()
         }

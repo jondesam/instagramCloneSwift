@@ -1,11 +1,3 @@
-//
-//  CameraViewController.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-04-29.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 import SVProgressHUD
 import AVFoundation
@@ -50,55 +42,42 @@ class CameraViewController: UIViewController {
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        
         imagePicker.mediaTypes = ["public.movie","public.image"]
         
         present(imagePicker, animated: true, completion:nil)
-        print("tapped")
     }
-    
-    
-    
-  
-    
     
     //MARK: - Sharing Button
     @IBAction func buttonShare(_ sender: Any) {
-       
+        
         SVProgressHUD.show(withStatus: "Wait Please...")
         
         if let imageData = selectedImage!.jpegData(compressionQuality: 0.1){
-        
+            
             HelperService.uploadDataToServer(imageData: imageData,videoUrl: videoUrl ,description: photoDescription.text!, onSuccess: {
                 
                 self.photoDescription.text = ""
                 self.tabBarController?.selectedIndex = 0
                 SVProgressHUD.setMinimumDismissTimeInterval(1.0)
                 SVProgressHUD.showSuccess(withStatus: "Success")
-             
-                print("image uploaded")
-                
                 
             }, onError: {
                 
                 SVProgressHUD.setMinimumDismissTimeInterval(1.0)
                 SVProgressHUD.showError(withStatus: "Upload Failed")
-            
+                
             })
-
             
             SVProgressHUD.dismiss()
             photoToShare.image = UIImage(named: "placeholder.png")
-          //  tabBarController?.selectedIndex = 0
             selectedImage = nil
         }
     }
     
-
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-         print("touchesBegan")
     }
     
     
@@ -120,17 +99,12 @@ class CameraViewController: UIViewController {
             
         }
     }
-    
-    
-    
 }
 
 
 extension CameraViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("did finish picking image")
-        print(info)
         
         if let videoUrl = info[.mediaURL] as? URL {
             
@@ -151,7 +125,7 @@ extension CameraViewController : UIImagePickerControllerDelegate, UINavigationCo
             photoToShare.image = image
             selectedImageUrl = info[.imageURL]
             dismiss(animated: true) {
-                self.performSegue(withIdentifier: "filter_segue", sender: nil)
+            self.performSegue(withIdentifier: "filter_segue", sender: nil)
             }
         }
         
@@ -160,7 +134,7 @@ extension CameraViewController : UIImagePickerControllerDelegate, UINavigationCo
     
     //making thumbnail photo
     func thumbnailImageForFileUrl(_ fileUrl: URL) -> UIImage? {
-       
+        
         let asset = AVAsset(url: fileUrl)
         
         let imageGeerator = AVAssetImageGenerator(asset: asset)
@@ -185,8 +159,6 @@ extension CameraViewController : FilterViewControllerDelegate {
         
         self.photoToShare.image = image
         self.selectedImage = image
-    
+        
     }
-    
-    
 }

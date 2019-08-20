@@ -1,22 +1,6 @@
- //
- //  ProfileUserViewController.swift
- //  instagramCloneSwift
- //
- //  Created by MyMac on 2019-06-10.
- //  Copyright © 2019 Apex. All rights reserved.
- //
- 
- import UIKit
- 
-// protocol ProfileUserViewControllerIndexDelegate {
-//    func passIndexPath(indexPath:IndexPath)
-// }
- 
- class ProfileUserViewController: UIViewController, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-   // var delegate: ProfileUserViewControllerIndexDelegate?
-    
-    //@IBOutlet weak var userName: UILabel!
+import UIKit
+
+class ProfileUserViewController: UIViewController, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -26,36 +10,18 @@
     
     var indexPath: IndexPath?
     var user: UserModel!
-    //initilizing with empty array
-    var posts: [Post] = []
+    var posts: [Post] = []  
     var userId = ""
     var usersInCell = [UserModel]()
     let cellId = "usersCell"
-   
-  
-    
-  
-    //tap.cancelsTouchesInView = false
-    //view.addGestureRecognizer(tap)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("userId : \(userId)")
         collectionView.dataSource = self
         collectionView.delegate = self
         fetchUser()
         fectchMyPosts()
-        
-        //to get an index of collectionView
-//         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-//       
-//     
-//        
-//        tap.cancelsTouchesInView = false
-//        
-//         view.addGestureRecognizer(tap)
-        
     }
     
     
@@ -71,9 +37,6 @@
                 self.collectionView.reloadData()
                 
             })
-            
-            
-            
         }
     }
     
@@ -82,14 +45,11 @@
     }
     
     
-    
     //MARK: fecthincg Posts
     func fectchMyPosts() {
         Api.MyPostsAPI.REF_MYPOSTS.child(userId).observe(.childAdded) { (snapshot) in
             
             Api.PostAPI.observePost(withPostId: snapshot.key, completion: { (post) in
-                //print("this is post in profileView")
-                // print(post.id)
                 self.posts.append(post)
                 self.collectionView.reloadData()
             })
@@ -103,15 +63,12 @@
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        print("cellForItemAt")
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell" , for: indexPath) as! PhotoCollectionViewCell
         
         let post = posts.reversed()[indexPath.row]
         
         cell.post = post
         cell.delegateOfPhotoCollectionViewCell = self
-      //  cell.
         
         return cell
     }
@@ -134,17 +91,12 @@
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-         print("indexPath")
-        
-        // delegate?.passIndexPath(indexPath: indexPath)
-        print("indexPath: \(indexPath)")
         return  self.indexPath = indexPath
     }
     
     //MARK: - cell size
     
-    // it needs delegate to work
+    //delegation
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width / 3  , height: collectionView.frame.size.width / 3  )
     }
@@ -156,50 +108,34 @@
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
-  
-    
-    
- 
-    
-    
- }
- 
- extension ProfileUserViewController: HeaderProfileCollectionReusableViewThirdDelegate {
+}
+
+extension ProfileUserViewController: HeaderProfileCollectionReusableViewThirdDelegate {
     func goToFollowingVC() {
-         performSegue(withIdentifier: "ProfileUser_Following", sender: user.id)
+        performSegue(withIdentifier: "ProfileUser_Following", sender: user.id)
     }
     
     func goToFollowerVC() {
-         performSegue(withIdentifier: "ProfileUser_Follower", sender: user.id)
+        performSegue(withIdentifier: "ProfileUser_Follower", sender: user.id)
     }
-    
     
     func goToSettingVC() {
         performSegue(withIdentifier: "ProfileUser_SettingSegue", sender: nil )
     }
- }
- 
- 
- 
- extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
+}
+
+
+extension ProfileUserViewController: PhotoCollectionViewCellDelegate {
     
     func goToProfileTableVCFromProfileVC(userId: String) {
         
         performSegue(withIdentifier: "ProfileUser_ProfileTable", sender: userId)
-        print("ProfileUser_ProfileTable")
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ProfileUser_SettingSegue" {
-            
-            // let settingVC = segue.destination as? SettingUITableViewController
-            
-            // displaying ProfilePhoto in realtime Not Yet Working
-            //  settingVC?.delegateOfSettingUITableViewController = self.delegateofSettingUITableViewControllerInPUVC
-            
         }
         
         if segue.identifier == "ProfileUser_ProfileTable" {
@@ -216,7 +152,7 @@
             let followingVC = segue.destination as? FollowingViewController
             
             let userId = sender as? String
-            print("userId PUVC : \(userId)")
+            
             followingVC!.userId = userId!
         }
         
@@ -225,10 +161,10 @@
             let followVC = segue.destination as? FollowerViewController
             
             let userId = sender as? String
-            print("userId PUVC : \(userId)")
+            
             followVC!.userId = userId!
         }
         
     }
     
- }
+}

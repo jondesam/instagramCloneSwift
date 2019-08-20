@@ -1,11 +1,3 @@
-//
-//  CommentApi.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-05-20.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import Foundation
 import FirebaseDatabase
 
@@ -25,11 +17,7 @@ class CommentApi {
                 completion(newComment)
             }
         })
- 
-        
     }
-    
-    
 }
 
 

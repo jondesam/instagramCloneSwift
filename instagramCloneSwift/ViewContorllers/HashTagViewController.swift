@@ -1,15 +1,7 @@
-//
-//  HashTagViewController.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-07-13.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 
 class HashTagViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var posts: [Post] = []
@@ -17,22 +9,19 @@ class HashTagViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      collectionView.dataSource = self
-      collectionView.delegate = self
-      loadPost()
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        loadPost()
     }
     
     func loadPost()  {
         Api.HashTagAPI.fetchPosts(withTag: tag) { (postId) in
             Api.PostAPI.observePost(withPostId: postId, completion: { (post) in
                 self.posts.append(post)
-             //   dump(self.posts)
                 self.collectionView.reloadData()
             })
         }
     }
-   
-
 }
 
 extension HashTagViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -48,8 +37,6 @@ extension HashTagViewController: UICollectionViewDelegate,UICollectionViewDataSo
         let post = posts[indexPath.row]
         
         cell.post = post
-      //  cell.delegateOfPhotoCollectionViewCell = self
-        
         
         return cell
     }
@@ -60,7 +47,7 @@ extension HashTagViewController: UICollectionViewDelegate,UICollectionViewDataSo
     
     //MARK: - cell size
     
-    // it needs delegate to work
+    //delegation
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width / 3  , height: collectionView.frame.size.width / 3  )
     }
@@ -72,19 +59,14 @@ extension HashTagViewController: UICollectionViewDelegate,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
-    
 }
 
 extension HashTagViewController : HashTagCollectionViewCellDelegate {
     func goToProfileTableVCFromHashTagVC(userId: String) {
         
-          performSegue(withIdentifier: "HashTag_ProfileTable", sender: userId)
+        performSegue(withIdentifier: "HashTag_ProfileTable", sender: userId)
         
     }
-    
-
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "HashTag_ProfileTable" {
@@ -95,11 +77,6 @@ extension HashTagViewController : HashTagCollectionViewCellDelegate {
             
             profileTableVC!.userId = userId!
         }
-    
     }
-    
-   
-
-    
 }
 

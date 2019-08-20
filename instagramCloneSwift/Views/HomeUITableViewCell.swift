@@ -1,17 +1,9 @@
-//
-//  HomeUITableViewCell.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-05-09.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 import SVProgressHUD
-import  AVFoundation
+import AVFoundation
 import KILabel
 
-protocol HomeUITableViewCellDelegate { //Boss of HomeViewController
+protocol HomeUITableViewCellDelegate {
     
     func goToCommentVC(postId: String)
     
@@ -23,7 +15,6 @@ protocol HomeUITableViewCellDelegate { //Boss of HomeViewController
 
 class HomeUITableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
@@ -33,7 +24,6 @@ class HomeUITableViewCell: UITableViewCell {
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var descriptionLabel: KILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
     @IBOutlet weak var volumeView: UIView!
     @IBOutlet weak var volumeButton: UIButton!
     
@@ -55,7 +45,6 @@ class HomeUITableViewCell: UITableViewCell {
     var delegateOfHomeUITableViewCell: HomeUITableViewCellDelegate?
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
-   // var homeVC: HomeViewController? //delegation pattern is used instead
     
     var post: Post? {
         didSet {
@@ -69,42 +58,36 @@ class HomeUITableViewCell: UITableViewCell {
         }
     }
     
-    
-    
-    
     func updateHomeView(){
         descriptionLabel.text = post!.description
         
         descriptionLabel.hashtagLinkTapHandler = { label, string, Range in
-           // print(string)
+            
             let tag = string.dropFirst()
-
+            
             self.delegateOfHomeUITableViewCell?.goToHashTag(tag: String(tag))
         }
         
         descriptionLabel.userHandleLinkTapHandler = { label, string, Range in
-            // print(string)
+            
             let mention = string.dropFirst()
-            print(mention)
+            
             Api.UserAPI.observeUserByUsername(username: String(mention.lowercased()), completion: { (user) in
                 self.delegateOfHomeUITableViewCell?.goToProfileUserVC(userId: user.id!)
             })
-
+            
         }
         
-        
         layoutIfNeeded() //layout video
+        
         if let photoUrlString = post!.photoUrl {
             let photoUrl = URL(string: photoUrlString)
             
-           postImageView.sd_setImage(with: photoUrl)
-            
+            postImageView.sd_setImage(with: photoUrl)
             
             if let videoUrlString = post?.videoUrl,  let videoUrl = URL(string: videoUrlString) {
-                print("videoUrl: \(videoUrlString)")
+                
                 volumeView.isHidden = false
-                
-                
                 player = AVPlayer(url: videoUrl)
                 playerLayer = AVPlayerLayer(player: player)
                 playerLayer?.frame = postImageView.frame
@@ -123,9 +106,8 @@ class HomeUITableViewCell: UITableViewCell {
                 let now = Date()
                 
                 let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
-                dump("componets : \(components)")
+                
                 let diff = Calendar.current.dateComponents(components, from: timestampOfPost, to: now)
-                print("diff :  \(diff)")
                 
                 var timeText = ""
                 
@@ -148,21 +130,12 @@ class HomeUITableViewCell: UITableViewCell {
                     timeText = (diff.weekOfMonth == 1) ? "\(diff.weekOfMonth!) week ago" : "\(diff.weekOfMonth!) weeks ago"
                 }
                 
-                    print("timeText: \(timeText)")
-             
-                    timeLabel.text = timeText
+                timeLabel.text = timeText
                 
             }
             
-            
-            
-//            sd_setImage(with: photoUrl, placeholderImage:UIImage(named:
-//                "placeholderImg.jpeg") )
         }
-        
         self.updateLike(post: post!)
-
-
     }
     
     
@@ -177,22 +150,14 @@ class HomeUITableViewCell: UITableViewCell {
             return
         }
         
-//        if let count = post.likeCount {
-            if  count != 0 {
-                likeCountButton.setTitle("\(count) likes ", for: UIControl.State.normal)
-                
-            } else  {
-                likeCountButton.setTitle("Be the first one ", for: UIControl.State.normal)
-                
-            }
-       // }
+        if  count != 0 {
+            likeCountButton.setTitle("\(count) likes ", for: UIControl.State.normal)
+            
+        } else  {
+            likeCountButton.setTitle("Be the first one ", for: UIControl.State.normal)
+            
+        }
         
-        // there is no false "like" node just deleted
-        //        if post.isLiked == false {
-        //            likeImageView.image = UIImage(named: "like")
-        //        } else {
-        //            likeImageView.image = UIImage(named: "likeSelected" )
-        //        }
     }
     
     func setUpUserInfo() {
@@ -219,7 +184,7 @@ class HomeUITableViewCell: UITableViewCell {
         
         let tapGestureShareImageView = UITapGestureRecognizer(target: self, action: #selector(self.likePost))
         tapGestureShareImageView.numberOfTapsRequired = 2
-        //tapGestureShareImageView.numberOfTouchesRequired = 2
+        
         postImageView.addGestureRecognizer(tapGestureShareImageView)
         postImageView.isUserInteractionEnabled = true
         
@@ -228,19 +193,17 @@ class HomeUITableViewCell: UITableViewCell {
         likeImageView.addGestureRecognizer(tapGestureOfLikeImageView)
         likeImageView.isUserInteractionEnabled = true
         
-      
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.commentImageView_TouchUpInside))
         
         commentImageView.addGestureRecognizer(tapGesture)
         commentImageView.isUserInteractionEnabled = true
-   
+        
         
         let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
         
         nameLabel.addGestureRecognizer(tapGestureForNameLabel)
         nameLabel.isUserInteractionEnabled = true
-        
-        
     }
     
     @objc func shareImageView_touched() {
@@ -250,12 +213,9 @@ class HomeUITableViewCell: UITableViewCell {
     
     @objc func commentImageView_TouchUpInside() {
         if let id = post?.id {
-        
+            
             delegateOfHomeUITableViewCell?.goToCommentVC(postId: id)//using protocol and delegation
             
-            // performSegue(withIdentifier:sender:) is moved to Intern(HomeViewController) in goToCommentVC(postId:)
-//            homeVC?.performSegue(withIdentifier: "commentSegue", sender: id)//need parepare(for segue) method to transfer sender
-        
         }
     }
     
@@ -268,28 +228,22 @@ class HomeUITableViewCell: UITableViewCell {
     }
     
     
-    
     @objc func likePost() {
         
-      //  postRef = Api.PostAPI.REF_POSTS.child(post!.id!)
-        
-        print("liked")
         Api.PostAPI.incrementLikes( postId: post!.id!, onSuccess: { (post) in
-             self.updateLike(post: post)
+            self.updateLike(post: post)
             
             self.post?.likes = post.likes
             self.post?.isLiked = post.isLiked
             self.post?.likeCount = post.likeCount
             
-            
         }) { (errorMessage) in
             SVProgressHUD.showError(withStatus: errorMessage)
         }
-     
+        
     }
     
-
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         volumeView.isHidden = true
@@ -297,8 +251,7 @@ class HomeUITableViewCell: UITableViewCell {
         isSelected = false
         isHighlighted = false
         profileImageView.image = UIImage(named: "placeholderImg")
-      
-      
+        
         playerLayer?.removeFromSuperlayer() //preventing from showing on another post
         player?.pause() // pause the video when it is out of screen 
     }

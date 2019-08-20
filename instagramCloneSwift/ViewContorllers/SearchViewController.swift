@@ -1,26 +1,16 @@
-//
-//  SearchViewController.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-06-07.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 
 class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource {
-
+    
     var searchBar = UISearchBar()
     var users:[UserModel] = []
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchBar.delegate = self
-
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Search"
         searchBar.frame.size.width = view.frame.size.width - 60
@@ -49,7 +39,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
                     
                     self.tableView.reloadData()
                 })
-                
             })
         }
     }
@@ -57,17 +46,17 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     func isFollowing(userId: String, completed:@escaping(Bool) -> Void){
         Api.FollowAPI.followedCheck(userId: userId, completed: completed)
     }
-
     
-     //MARK: - SearchBar funtions
+    
+    //MARK: - SearchBar funtions
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-       doSearch()
+        doSearch()
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         doSearch()
     }
     
-     //MARK: - TableView Methods
+    //MARK: - TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
@@ -81,7 +70,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         cell.userInCell = user
         
         cell.delegateOfPeopleTableViewCell = self
-        //  cell.peopleVC = self
         
         return cell
     }
@@ -103,9 +91,8 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
 
 extension SearchViewController: PeopleTableViewCellDelegate {
     func goToProfileUserVC(userId: String) {
-         performSegue(withIdentifier: "Search_ProfileSegue" , sender: userId)
+        performSegue(withIdentifier: "Search_ProfileSegue" , sender: userId)
     }
-    
 }
 
 extension SearchViewController: HeaderProfileCollectionReusableViewSecondDelegate {
@@ -117,6 +104,5 @@ extension SearchViewController: HeaderProfileCollectionReusableViewSecondDelegat
                 tableView.reloadData()
             }
         }
-        
     }
 }

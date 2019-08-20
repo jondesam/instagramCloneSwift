@@ -1,11 +1,3 @@
-//
-//  Comment.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-05-13.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import Foundation
 
 class Comment {
@@ -20,6 +12,4 @@ class Comment {
         
         return comment
     }
-    
-    
 }

@@ -1,22 +1,12 @@
-//
-//  ActivityTableViewCell.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-07-18.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 
 protocol ActivityTableViewCellDelegate {
     func goToProfileVC(userId: String)
 }
 
-
 class ActivityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelToClick: UILabel!
-    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -67,9 +57,9 @@ class ActivityTableViewCell: UITableViewCell {
             let now = Date()
             
             let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
-            dump("componets : \(components)")
+            
             let diff = Calendar.current.dateComponents(components, from: timestampOfPost, to: now)
-            print("diff :  \(diff)")
+            
             
             var timeText = ""
             
@@ -92,25 +82,17 @@ class ActivityTableViewCell: UITableViewCell {
                 timeText = "\(diff.weekOfMonth!)w"
             }
             
-            print("timeText: \(timeText)")
-            
             timeLabel.text = timeText
             
         }
-        
-   
-        
     }
     
     @objc func cell_touchUpInside() {
-        print("clicked")
+    
         if let id = notification?.from {
             delegateOfActivityTableViewCell?.goToProfileVC(userId: id)
         }
     }
-
-    
-    
     
     func  setupUserInfo(){
         self.nameLabel.text = userInCell?.username
@@ -120,18 +102,14 @@ class ActivityTableViewCell: UITableViewCell {
             
             profileImage.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "placeholderImg"))
         }
-        
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cell_touchUpInside))
         
         labelToClick.addGestureRecognizer(tapGesture)
         labelToClick.isUserInteractionEnabled = true
     }
-    
-    
-    
 }

@@ -1,11 +1,3 @@
-//
-//  PeopleTableViewCell.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-06-01.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 import Foundation
 
@@ -23,13 +15,10 @@ class PeopleTableViewCell: UITableViewCell {
     var delegateOfPeopleTableViewCell:
     PeopleTableViewCellDelegate?
     
-    // var peopleVC: PeopleViewController?
-    
     var userInCell: UserModel?{
         didSet{
             setUpUserInfo()
         }
-        
     }
     
     func setUpUserInfo() {
@@ -42,51 +31,22 @@ class PeopleTableViewCell: UITableViewCell {
         
         if let user = userInCell{
             self.nameLabel.text = user.username
-
+            
             if let photoUrlString = user.profileImageUrl {
                 let photoUrl = URL(string: photoUrlString)
-
+                
                 profileImage.sd_setImage(with: photoUrl,placeholderImage:UIImage(named:
                     "placeholderImg.jpeg") )
                 
-             //   profileImage.kf.setImage(with: photoUrl)
-//                sd_setImage(with: photoUrl,placeholderImage:UIImage(named: "placeholderImg.jpeg") )
             }
         }
-      
         
-        
-//        if let user = userInCell {
-//            self.nameLabel.text = user.username
-//
-//            if let photoUrlString = user.profileImageUrl {
-//              //  let photoUrl = URL(string: photoUrlString)
-//                self.profileImage.sd_setImage(with: URL(string: photoUrlString), placeholderImage: UIImage(named: "placeholderImg.jpeg")) { (UIImage, error, SDImageCacheType, URL) in
-//                    print("this is error : \(error)")
-//                }
-//
-//
-//
-//            }
-//        }
-        
-        //observing database for new infomation
-        //letting view do heavy task
-//        Api.FollowAPI.isFollowing(userId: userInCell!.id!) { (value) in
-//            if  value == true {
-//                self.configureUnfollowButton()
-//            } else {
-//                self.configureFollowButton()
-//            }
-//        }
-        
-        
-                if userInCell!.isFollowed! == true {
-                    configureUnfollowButton()
-        
-                } else {
-                   configureFollowButton()
-                }
+        if userInCell!.isFollowed! == true {
+            configureUnfollowButton()
+            
+        } else {
+            configureFollowButton()
+        }
     }
     
     
@@ -96,8 +56,6 @@ class PeopleTableViewCell: UITableViewCell {
         followButton.layer.cornerRadius = 5
         followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
         followButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        
-        
         followButton.setTitle("follow", for: UIControl.State.normal)
         followButton.addTarget(self, action: #selector(self.followAction), for: UIControl.Event.touchUpInside)
         
@@ -111,10 +69,7 @@ class PeopleTableViewCell: UITableViewCell {
         followButton.clipsToBounds = true
         followButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
         followButton.backgroundColor = UIColor.clear
-        
-        
         followButton.setTitle("following", for: UIControl.State.normal)
-        
         followButton.addTarget(self, action: #selector(self.unFollowAction), for: UIControl.Event.touchUpInside)
     }
     
@@ -149,11 +104,11 @@ class PeopleTableViewCell: UITableViewCell {
         
         /*before updatng cell directly
          // this causes haavy duty on view
-        Api.FollowAPI.unFollowAction(withUser: userInCell!.id!)
-        
-        // to make button have 2 ways both follow and Unfollow
-        configureFollowButton()
-        */
+         Api.FollowAPI.unFollowAction(withUser: userInCell!.id!)
+         
+         // to make button have 2 ways both follow and Unfollow
+         configureFollowButton()
+         */
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -176,13 +131,9 @@ class PeopleTableViewCell: UITableViewCell {
     
     @objc func nameLabel_TouchUpInside() {
         if let id = userInCell!.id {
-            print("userId from PeopleTAbleViewCell: \(id)")
+            
             delegateOfPeopleTableViewCell?.goToProfileUserVC(userId: id)
             
-            //delegate pattern used instead
-            //moved into goToProfileUserVC(userId:) body in profileViewController:
-            //            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
-            //need parepare(for segue) method to transfer sender
         }
     }
     

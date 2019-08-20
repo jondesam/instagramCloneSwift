@@ -1,11 +1,3 @@
-//
-//  HashTagCollectionViewCell.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-07-13.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 
 protocol HashTagCollectionViewCellDelegate {
@@ -29,10 +21,9 @@ class HashTagCollectionViewCell: UICollectionViewCell {
     
     if let photoUrlString = post!.photoUrl {
     let photoUrl = URL(string: photoUrlString)
-  //  print("photoUrl : \(photoUrl)")
+
     imageView.sd_setImage(with: photoUrl)
     }
-    
     
     let tapGestureForPhoto = UITapGestureRecognizer(target: self, action: #selector(self.photo_TouchUpInside))
         
@@ -41,20 +32,15 @@ class HashTagCollectionViewCell: UICollectionViewCell {
         imageView.addGestureRecognizer(tapGestureForPhoto)
         
         imageView.isUserInteractionEnabled = true
-       
-
+    
     }
-    
-    
-    
     
     @objc func photo_TouchUpInside() {
         
         if let id = post!.uid {
-//print("post!.uid: \(post!.uid)")
+
             delegateOfHashTagCollectionViewCell?.goToProfileTableVCFromHashTagVC(userId: id)
             
         }
     }
-    
 }

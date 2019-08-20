@@ -1,11 +1,3 @@
-//
-//  commentViewController.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-05-12.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 import Firebase
 import SVProgressHUD
@@ -26,11 +18,9 @@ class commentViewController: UIViewController,UITableViewDataSource{
         super.viewDidLoad()
         title = "Comment"
         tableViewOfCommets.dataSource  = self
-        
         tableViewOfCommets.rowHeight = 77
         tableViewOfCommets.estimatedRowHeight = 600
-        
-        //  sendButton.isEnabled = false
+
         empty()
         handleTextField()
         loadComments()
@@ -46,11 +36,10 @@ class commentViewController: UIViewController,UITableViewDataSource{
     
     @objc func keyboardWillShow(_ notification:NSNotification)  {
         
-        print(notification)
         //extract cgRectVAlue
         let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
         
-      //  print(keyboardFrame)
+        
         UIView.animate(withDuration: 0.3) {
             self.constraintToBotton.constant = keyboardFrame!.height
             self.view.layoutIfNeeded()
@@ -58,7 +47,6 @@ class commentViewController: UIViewController,UITableViewDataSource{
     }
     
     @objc func keyboardWillhide( )  {
-       // print(notification)
         UIView.animate(withDuration: 0.3) {
             self.constraintToBotton.constant = 0
             self.view.layoutIfNeeded()
@@ -71,7 +59,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
         
         Api.Post_CommentAPI.observePostComment(withPostId: postId) { (postIdFromSanpshotKey) in
             let postId = postIdFromSanpshotKey
-        
+            
             Api.CommentAPI.observComment(withPostIdFromSanpshotKeyOfObserveDataEventTypeChildAdded: postId ) { (comment) in
                 
                 self.fetchUser(uid: comment.uid!, completed: {
@@ -79,13 +67,13 @@ class commentViewController: UIViewController,UITableViewDataSource{
                     self.comments.append(comment)
                     
                     self.tableViewOfCommets.reloadData()
-                
+                    
                 })
             }
         }
     }
     
-
+    
     //MARK: - Fetching Data
     
     func fetchUser(uid: String, completed: @escaping () -> Void) {
@@ -104,12 +92,12 @@ class commentViewController: UIViewController,UITableViewDataSource{
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-         tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func sendButton_TouchUpInside(_ sender: Any) {
         
-       
+        
         let commentReference = Api.CommentAPI.REF_COMMENT
         let newCommentId = commentReference.childByAutoId().key
         let newCommentReference = commentReference.child(newCommentId)
@@ -124,20 +112,13 @@ class commentViewController: UIViewController,UITableViewDataSource{
         for var word in words {
             if word.hasPrefix("#") {
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
-             
                 
                 let newHashTagRef = Api.HashTagAPI.REF_HASHTAG.child(word.lowercased())
-
+                
                 newHashTagRef.updateChildValues([self.postId + " with commentID : " +  newCommentId:true])
-
-              
-
-              
-              
             }
         }
         
-   
         newCommentReference.setValue([ "uid":currentUser.uid,
                                        "commentText":commentTextField.text!,
                                        "postId": postId
@@ -148,7 +129,6 @@ class commentViewController: UIViewController,UITableViewDataSource{
                 return
             }
             
-            
             let postCommentRef =  Api.Post_CommentAPI.REF_POST_COMMENT.child(self.postId).child(newCommentId)
             
             postCommentRef.setValue(true, withCompletionBlock: { (error, DatabaseReference) in
@@ -156,8 +136,7 @@ class commentViewController: UIViewController,UITableViewDataSource{
                     SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 }
             })
-            
-            print("comment uploaded")
+       
             self.empty()
             self.view.endEditing(true)
         }
@@ -206,10 +185,9 @@ class commentViewController: UIViewController,UITableViewDataSource{
     }
     
     
-    //not working with touching ??
+    //not working with touching
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-        print("touchesBegan")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -219,23 +197,19 @@ class commentViewController: UIViewController,UITableViewDataSource{
             let userId = sender as! String
             profileUserVC.userId = userId
         }
-     
+        
         if segue.identifier == "Comment_HashTagSegue" {
             let hashTagVC = segue.destination as! HashTagViewController
             let tag = sender as! String
             hashTagVC.tag = tag
         }
-
-        
     }
-    
 }
 
 extension commentViewController: commentTableViewCellDelegate {
     func goToHashTag(tag: String) {
         performSegue(withIdentifier: "Comment_HashTagSegue", sender: tag)
     }
-    
     
     func goToProfileUserVC(userId: String) {
         performSegue(withIdentifier: "Comment_ProfileSegue", sender: userId)

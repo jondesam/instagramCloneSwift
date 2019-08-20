@@ -1,11 +1,3 @@
-//
-//  ActivityViewController.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-04-29.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 
 class ActivityViewController: UIViewController {
@@ -36,32 +28,23 @@ class ActivityViewController: UIViewController {
             
             self.fetchUser(uid: uid, completed: {
                 self.notifications.insert(notification, at: 0)
-                
                 self.tableView.reloadData()
             })
         }
-        
     }
     
     func fetchUser(uid: String, completed: @escaping () -> Void ){
         
         Api.UserAPI.observeUser(withUserId: uid) { (user) in
-            
             self.users.insert(user, at: 0)
-            //self.users.append(user)
-           // self.users.insert(<#T##newElement: UserModel##UserModel#>, at: <#T##Int#>)
-        
             completed()
         }
     }
-    
-
 }
 
 extension ActivityViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("notifications.count \(notifications.count)")
         return notifications.count
         
     }
@@ -70,12 +53,12 @@ extension ActivityViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell", for: indexPath) as! ActivityTableViewCell
         
-      
         let notification = notifications[indexPath.row]
         let user = users[indexPath.row]
         cell.notification = notification
         cell.userInCell = user
-        cell.delegateOfActivityTableViewCell = self 
+        cell.delegateOfActivityTableViewCell = self
+        
         return cell
     }
     
@@ -83,9 +66,11 @@ extension ActivityViewController: UITableViewDataSource {
 }
 
 extension ActivityViewController : ActivityTableViewCellDelegate {
+    
     func goToProfileVC(userId: String) {
         performSegue(withIdentifier: "Activity_ProfileUserSegue", sender: userId)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Activity_ProfileUserSegue" {
             let profileVC = segue.destination as? ProfileUserViewController
@@ -93,5 +78,5 @@ extension ActivityViewController : ActivityTableViewCellDelegate {
             profileVC?.userId = userId
         }
     }
-    
+
 }

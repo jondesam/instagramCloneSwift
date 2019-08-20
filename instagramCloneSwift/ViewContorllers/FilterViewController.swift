@@ -1,27 +1,18 @@
-//
-//  FilerViewController.swift
-//  instagramCloneSwift
-//
-//  Created by MyMac on 2019-07-06.
-//  Copyright © 2019 Apex. All rights reserved.
-//
-
 import UIKit
 
 protocol FilterViewControllerDelegate {
     func updatePhoto(image: UIImage)
 }
 
-
 class FilterViewController: UIViewController {
     
     @IBAction func cancel_Btn(_ sender: UIButton) {
-      
+        
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func next_Btn(_ sender: UIButton) {
-    
+        
         dismiss(animated: true, completion: nil)
         delegateOfFilterViewController?.updatePhoto(image: self.filterPhoto.image!)
     }
@@ -39,7 +30,7 @@ class FilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     filterPhoto.image = selectedImage
+        filterPhoto.image = selectedImage
     }
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
@@ -62,8 +53,6 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-      //  print("countOfArray: \(CIFilterNames.count)")
-        
         return CIFilterNames.count
     }
     
@@ -72,12 +61,6 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCollectionViewCell", for: indexPath) as! FilterCollectionViewCell
         
         let resizedImage = resizeImage(image: selectedImage, newWidth: 150)
-      
-        
-        //print(resizedImage.size)
-        
-        //cell.filterPreview.image = selectedImage
-        
         let ciImage = CIImage(image: resizedImage)
         let filter = CIFilter(name: CIFilterNames[indexPath.item])
         
@@ -86,7 +69,6 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if let filteredImage = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
             let result = context.createCGImage(filteredImage, from: filteredImage.extent)
             
-            //cell.filterPreview.image = UIImage(ciImage: filteredmage)
             cell.filterPreview.image = UIImage(cgImage: result!)
         }
         return cell
@@ -95,8 +77,6 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print("indexPath : \(indexPath)")
-       // let resizedImage = resizeImage(image: selectedImage, newWidth: 150)
         let ciImage = CIImage(image: selectedImage)
         let filter = CIFilter(name: CIFilterNames[indexPath.item])
         
